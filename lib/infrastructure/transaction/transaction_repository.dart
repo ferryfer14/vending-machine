@@ -1,0 +1,65 @@
+import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
+import 'package:standart_project/domain/transaction/transaction_failure.dart';
+
+import '../../common/exceptions/exceptions.dart';
+import '../../domain/transaction/i_transaction_repository.dart';
+import 'data_sources/remote_data_provider.dart';
+
+@Injectable(as: ITransactionRepository)
+class TransactionRepository implements ITransactionRepository {
+  final TransactionRemoteDataProvider transactionRemoteDataProvider;
+
+  TransactionRepository(this.transactionRemoteDataProvider);
+  @override
+  Future<Either<TransactionFailure, int>> submit(
+      {required String id}) async {
+    try {
+      final response = await transactionRemoteDataProvider.submit(
+          id: id);
+
+      return response.fold(
+        (failure) {
+          return left(failure);
+        },
+        (unit) => right(unit),
+      );
+    } on AppException catch (e) {
+      return left(TransactionFailure.appException(e));
+    }
+  }
+  @override
+  Future<Either<TransactionFailure, Unit>> drop(
+      {required int id, required String slot_name, required int transaction_id}) async {
+    try {
+      final response = await transactionRemoteDataProvider.drop(
+          slot_id: id, transaction_id: transaction_id, slot: slot_name);
+
+      return response.fold(
+        (failure) {
+          return left(failure);
+        },
+        (unit) => right(unit),
+      );
+    } on AppException catch (e) {
+      return left(TransactionFailure.appException(e));
+    }
+  }
+  @override
+  Future<Either<TransactionFailure, Unit>> success(
+      {required int id, required int transaction_id, required int status}) async {
+    try {
+      final response = await transactionRemoteDataProvider.success(
+          slot_id: id, transaction_id: transaction_id, status: status);
+
+      return response.fold(
+        (failure) {
+          return left(failure);
+        },
+        (unit) => right(unit),
+      );
+    } on AppException catch (e) {
+      return left(TransactionFailure.appException(e));
+    }
+  }
+}

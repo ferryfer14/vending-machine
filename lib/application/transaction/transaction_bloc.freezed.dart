@@ -1,0 +1,1013 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'transaction_bloc.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+/// @nodoc
+mixin _$TransactionEvent {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(int id, String name, bool isLoading) submited,
+    required TResult Function(
+            int slot_id, int transaction_id, String slot_name, bool isLoading)
+        drop,
+    required TResult Function(
+            int slot_id, int transaction_id, bool status_drop, bool isLoading)
+        success,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(int id, String name, bool isLoading)? submited,
+    TResult? Function(
+            int slot_id, int transaction_id, String slot_name, bool isLoading)?
+        drop,
+    TResult? Function(
+            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
+        success,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(int id, String name, bool isLoading)? submited,
+    TResult Function(
+            int slot_id, int transaction_id, String slot_name, bool isLoading)?
+        drop,
+    TResult Function(
+            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
+        success,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Submited value) submited,
+    required TResult Function(_Drop value) drop,
+    required TResult Function(_Success value) success,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Submited value)? submited,
+    TResult? Function(_Drop value)? drop,
+    TResult? Function(_Success value)? success,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Submited value)? submited,
+    TResult Function(_Drop value)? drop,
+    TResult Function(_Success value)? success,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $TransactionEventCopyWith<$Res> {
+  factory $TransactionEventCopyWith(
+          TransactionEvent value, $Res Function(TransactionEvent) then) =
+      _$TransactionEventCopyWithImpl<$Res, TransactionEvent>;
+}
+
+/// @nodoc
+class _$TransactionEventCopyWithImpl<$Res, $Val extends TransactionEvent>
+    implements $TransactionEventCopyWith<$Res> {
+  _$TransactionEventCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$_StartedCopyWith<$Res> {
+  factory _$$_StartedCopyWith(
+          _$_Started value, $Res Function(_$_Started) then) =
+      __$$_StartedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_StartedCopyWithImpl<$Res>
+    extends _$TransactionEventCopyWithImpl<$Res, _$_Started>
+    implements _$$_StartedCopyWith<$Res> {
+  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Started implements _Started {
+  const _$_Started();
+
+  @override
+  String toString() {
+    return 'TransactionEvent.started()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Started);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(int id, String name, bool isLoading) submited,
+    required TResult Function(
+            int slot_id, int transaction_id, String slot_name, bool isLoading)
+        drop,
+    required TResult Function(
+            int slot_id, int transaction_id, bool status_drop, bool isLoading)
+        success,
+  }) {
+    return started();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(int id, String name, bool isLoading)? submited,
+    TResult? Function(
+            int slot_id, int transaction_id, String slot_name, bool isLoading)?
+        drop,
+    TResult? Function(
+            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
+        success,
+  }) {
+    return started?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(int id, String name, bool isLoading)? submited,
+    TResult Function(
+            int slot_id, int transaction_id, String slot_name, bool isLoading)?
+        drop,
+    TResult Function(
+            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
+        success,
+    required TResult orElse(),
+  }) {
+    if (started != null) {
+      return started();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Submited value) submited,
+    required TResult Function(_Drop value) drop,
+    required TResult Function(_Success value) success,
+  }) {
+    return started(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Submited value)? submited,
+    TResult? Function(_Drop value)? drop,
+    TResult? Function(_Success value)? success,
+  }) {
+    return started?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Submited value)? submited,
+    TResult Function(_Drop value)? drop,
+    TResult Function(_Success value)? success,
+    required TResult orElse(),
+  }) {
+    if (started != null) {
+      return started(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Started implements TransactionEvent {
+  const factory _Started() = _$_Started;
+}
+
+/// @nodoc
+abstract class _$$_SubmitedCopyWith<$Res> {
+  factory _$$_SubmitedCopyWith(
+          _$_Submited value, $Res Function(_$_Submited) then) =
+      __$$_SubmitedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int id, String name, bool isLoading});
+}
+
+/// @nodoc
+class __$$_SubmitedCopyWithImpl<$Res>
+    extends _$TransactionEventCopyWithImpl<$Res, _$_Submited>
+    implements _$$_SubmitedCopyWith<$Res> {
+  __$$_SubmitedCopyWithImpl(
+      _$_Submited _value, $Res Function(_$_Submited) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? isLoading = null,
+  }) {
+    return _then(_$_Submited(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Submited implements _Submited {
+  const _$_Submited(this.id, this.name, {this.isLoading = false});
+
+  @override
+  final int id;
+  @override
+  final String name;
+  @override
+  @JsonKey()
+  final bool isLoading;
+
+  @override
+  String toString() {
+    return 'TransactionEvent.submited(id: $id, name: $name, isLoading: $isLoading)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Submited &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, name, isLoading);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SubmitedCopyWith<_$_Submited> get copyWith =>
+      __$$_SubmitedCopyWithImpl<_$_Submited>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(int id, String name, bool isLoading) submited,
+    required TResult Function(
+            int slot_id, int transaction_id, String slot_name, bool isLoading)
+        drop,
+    required TResult Function(
+            int slot_id, int transaction_id, bool status_drop, bool isLoading)
+        success,
+  }) {
+    return submited(id, name, isLoading);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(int id, String name, bool isLoading)? submited,
+    TResult? Function(
+            int slot_id, int transaction_id, String slot_name, bool isLoading)?
+        drop,
+    TResult? Function(
+            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
+        success,
+  }) {
+    return submited?.call(id, name, isLoading);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(int id, String name, bool isLoading)? submited,
+    TResult Function(
+            int slot_id, int transaction_id, String slot_name, bool isLoading)?
+        drop,
+    TResult Function(
+            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
+        success,
+    required TResult orElse(),
+  }) {
+    if (submited != null) {
+      return submited(id, name, isLoading);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Submited value) submited,
+    required TResult Function(_Drop value) drop,
+    required TResult Function(_Success value) success,
+  }) {
+    return submited(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Submited value)? submited,
+    TResult? Function(_Drop value)? drop,
+    TResult? Function(_Success value)? success,
+  }) {
+    return submited?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Submited value)? submited,
+    TResult Function(_Drop value)? drop,
+    TResult Function(_Success value)? success,
+    required TResult orElse(),
+  }) {
+    if (submited != null) {
+      return submited(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Submited implements TransactionEvent {
+  const factory _Submited(final int id, final String name,
+      {final bool isLoading}) = _$_Submited;
+
+  int get id;
+  String get name;
+  bool get isLoading;
+  @JsonKey(ignore: true)
+  _$$_SubmitedCopyWith<_$_Submited> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_DropCopyWith<$Res> {
+  factory _$$_DropCopyWith(_$_Drop value, $Res Function(_$_Drop) then) =
+      __$$_DropCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {int slot_id, int transaction_id, String slot_name, bool isLoading});
+}
+
+/// @nodoc
+class __$$_DropCopyWithImpl<$Res>
+    extends _$TransactionEventCopyWithImpl<$Res, _$_Drop>
+    implements _$$_DropCopyWith<$Res> {
+  __$$_DropCopyWithImpl(_$_Drop _value, $Res Function(_$_Drop) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? slot_id = null,
+    Object? transaction_id = null,
+    Object? slot_name = null,
+    Object? isLoading = null,
+  }) {
+    return _then(_$_Drop(
+      null == slot_id
+          ? _value.slot_id
+          : slot_id // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == transaction_id
+          ? _value.transaction_id
+          : transaction_id // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == slot_name
+          ? _value.slot_name
+          : slot_name // ignore: cast_nullable_to_non_nullable
+              as String,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Drop implements _Drop {
+  const _$_Drop(this.slot_id, this.transaction_id, this.slot_name,
+      {this.isLoading = false});
+
+  @override
+  final int slot_id;
+  @override
+  final int transaction_id;
+  @override
+  final String slot_name;
+  @override
+  @JsonKey()
+  final bool isLoading;
+
+  @override
+  String toString() {
+    return 'TransactionEvent.drop(slot_id: $slot_id, transaction_id: $transaction_id, slot_name: $slot_name, isLoading: $isLoading)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Drop &&
+            (identical(other.slot_id, slot_id) || other.slot_id == slot_id) &&
+            (identical(other.transaction_id, transaction_id) ||
+                other.transaction_id == transaction_id) &&
+            (identical(other.slot_name, slot_name) ||
+                other.slot_name == slot_name) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, slot_id, transaction_id, slot_name, isLoading);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_DropCopyWith<_$_Drop> get copyWith =>
+      __$$_DropCopyWithImpl<_$_Drop>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(int id, String name, bool isLoading) submited,
+    required TResult Function(
+            int slot_id, int transaction_id, String slot_name, bool isLoading)
+        drop,
+    required TResult Function(
+            int slot_id, int transaction_id, bool status_drop, bool isLoading)
+        success,
+  }) {
+    return drop(slot_id, transaction_id, slot_name, isLoading);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(int id, String name, bool isLoading)? submited,
+    TResult? Function(
+            int slot_id, int transaction_id, String slot_name, bool isLoading)?
+        drop,
+    TResult? Function(
+            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
+        success,
+  }) {
+    return drop?.call(slot_id, transaction_id, slot_name, isLoading);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(int id, String name, bool isLoading)? submited,
+    TResult Function(
+            int slot_id, int transaction_id, String slot_name, bool isLoading)?
+        drop,
+    TResult Function(
+            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
+        success,
+    required TResult orElse(),
+  }) {
+    if (drop != null) {
+      return drop(slot_id, transaction_id, slot_name, isLoading);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Submited value) submited,
+    required TResult Function(_Drop value) drop,
+    required TResult Function(_Success value) success,
+  }) {
+    return drop(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Submited value)? submited,
+    TResult? Function(_Drop value)? drop,
+    TResult? Function(_Success value)? success,
+  }) {
+    return drop?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Submited value)? submited,
+    TResult Function(_Drop value)? drop,
+    TResult Function(_Success value)? success,
+    required TResult orElse(),
+  }) {
+    if (drop != null) {
+      return drop(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Drop implements TransactionEvent {
+  const factory _Drop(
+      final int slot_id, final int transaction_id, final String slot_name,
+      {final bool isLoading}) = _$_Drop;
+
+  int get slot_id;
+  int get transaction_id;
+  String get slot_name;
+  bool get isLoading;
+  @JsonKey(ignore: true)
+  _$$_DropCopyWith<_$_Drop> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SuccessCopyWith<$Res> {
+  factory _$$_SuccessCopyWith(
+          _$_Success value, $Res Function(_$_Success) then) =
+      __$$_SuccessCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {int slot_id, int transaction_id, bool status_drop, bool isLoading});
+}
+
+/// @nodoc
+class __$$_SuccessCopyWithImpl<$Res>
+    extends _$TransactionEventCopyWithImpl<$Res, _$_Success>
+    implements _$$_SuccessCopyWith<$Res> {
+  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? slot_id = null,
+    Object? transaction_id = null,
+    Object? status_drop = null,
+    Object? isLoading = null,
+  }) {
+    return _then(_$_Success(
+      null == slot_id
+          ? _value.slot_id
+          : slot_id // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == transaction_id
+          ? _value.transaction_id
+          : transaction_id // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == status_drop
+          ? _value.status_drop
+          : status_drop // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Success implements _Success {
+  const _$_Success(this.slot_id, this.transaction_id, this.status_drop,
+      {this.isLoading = false});
+
+  @override
+  final int slot_id;
+  @override
+  final int transaction_id;
+  @override
+  final bool status_drop;
+  @override
+  @JsonKey()
+  final bool isLoading;
+
+  @override
+  String toString() {
+    return 'TransactionEvent.success(slot_id: $slot_id, transaction_id: $transaction_id, status_drop: $status_drop, isLoading: $isLoading)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Success &&
+            (identical(other.slot_id, slot_id) || other.slot_id == slot_id) &&
+            (identical(other.transaction_id, transaction_id) ||
+                other.transaction_id == transaction_id) &&
+            (identical(other.status_drop, status_drop) ||
+                other.status_drop == status_drop) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, slot_id, transaction_id, status_drop, isLoading);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SuccessCopyWith<_$_Success> get copyWith =>
+      __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(int id, String name, bool isLoading) submited,
+    required TResult Function(
+            int slot_id, int transaction_id, String slot_name, bool isLoading)
+        drop,
+    required TResult Function(
+            int slot_id, int transaction_id, bool status_drop, bool isLoading)
+        success,
+  }) {
+    return success(slot_id, transaction_id, status_drop, isLoading);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(int id, String name, bool isLoading)? submited,
+    TResult? Function(
+            int slot_id, int transaction_id, String slot_name, bool isLoading)?
+        drop,
+    TResult? Function(
+            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
+        success,
+  }) {
+    return success?.call(slot_id, transaction_id, status_drop, isLoading);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(int id, String name, bool isLoading)? submited,
+    TResult Function(
+            int slot_id, int transaction_id, String slot_name, bool isLoading)?
+        drop,
+    TResult Function(
+            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
+        success,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(slot_id, transaction_id, status_drop, isLoading);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Submited value) submited,
+    required TResult Function(_Drop value) drop,
+    required TResult Function(_Success value) success,
+  }) {
+    return success(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Submited value)? submited,
+    TResult? Function(_Drop value)? drop,
+    TResult? Function(_Success value)? success,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Submited value)? submited,
+    TResult Function(_Drop value)? drop,
+    TResult Function(_Success value)? success,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Success implements TransactionEvent {
+  const factory _Success(
+      final int slot_id, final int transaction_id, final bool status_drop,
+      {final bool isLoading}) = _$_Success;
+
+  int get slot_id;
+  int get transaction_id;
+  bool get status_drop;
+  bool get isLoading;
+  @JsonKey(ignore: true)
+  _$$_SuccessCopyWith<_$_Success> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$TransactionState {
+  bool? get status_drop => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
+  int get slot_id => throw _privateConstructorUsedError;
+  int get transaction_id => throw _privateConstructorUsedError;
+  String get slot_name => throw _privateConstructorUsedError;
+  Option<TransactionFailure> get failureOption =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $TransactionStateCopyWith<TransactionState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $TransactionStateCopyWith<$Res> {
+  factory $TransactionStateCopyWith(
+          TransactionState value, $Res Function(TransactionState) then) =
+      _$TransactionStateCopyWithImpl<$Res, TransactionState>;
+  @useResult
+  $Res call(
+      {bool? status_drop,
+      bool isLoading,
+      int slot_id,
+      int transaction_id,
+      String slot_name,
+      Option<TransactionFailure> failureOption});
+}
+
+/// @nodoc
+class _$TransactionStateCopyWithImpl<$Res, $Val extends TransactionState>
+    implements $TransactionStateCopyWith<$Res> {
+  _$TransactionStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? status_drop = freezed,
+    Object? isLoading = null,
+    Object? slot_id = null,
+    Object? transaction_id = null,
+    Object? slot_name = null,
+    Object? failureOption = null,
+  }) {
+    return _then(_value.copyWith(
+      status_drop: freezed == status_drop
+          ? _value.status_drop
+          : status_drop // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      slot_id: null == slot_id
+          ? _value.slot_id
+          : slot_id // ignore: cast_nullable_to_non_nullable
+              as int,
+      transaction_id: null == transaction_id
+          ? _value.transaction_id
+          : transaction_id // ignore: cast_nullable_to_non_nullable
+              as int,
+      slot_name: null == slot_name
+          ? _value.slot_name
+          : slot_name // ignore: cast_nullable_to_non_nullable
+              as String,
+      failureOption: null == failureOption
+          ? _value.failureOption
+          : failureOption // ignore: cast_nullable_to_non_nullable
+              as Option<TransactionFailure>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_TransactionStateCopyWith<$Res>
+    implements $TransactionStateCopyWith<$Res> {
+  factory _$$_TransactionStateCopyWith(
+          _$_TransactionState value, $Res Function(_$_TransactionState) then) =
+      __$$_TransactionStateCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {bool? status_drop,
+      bool isLoading,
+      int slot_id,
+      int transaction_id,
+      String slot_name,
+      Option<TransactionFailure> failureOption});
+}
+
+/// @nodoc
+class __$$_TransactionStateCopyWithImpl<$Res>
+    extends _$TransactionStateCopyWithImpl<$Res, _$_TransactionState>
+    implements _$$_TransactionStateCopyWith<$Res> {
+  __$$_TransactionStateCopyWithImpl(
+      _$_TransactionState _value, $Res Function(_$_TransactionState) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? status_drop = freezed,
+    Object? isLoading = null,
+    Object? slot_id = null,
+    Object? transaction_id = null,
+    Object? slot_name = null,
+    Object? failureOption = null,
+  }) {
+    return _then(_$_TransactionState(
+      status_drop: freezed == status_drop
+          ? _value.status_drop
+          : status_drop // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      slot_id: null == slot_id
+          ? _value.slot_id
+          : slot_id // ignore: cast_nullable_to_non_nullable
+              as int,
+      transaction_id: null == transaction_id
+          ? _value.transaction_id
+          : transaction_id // ignore: cast_nullable_to_non_nullable
+              as int,
+      slot_name: null == slot_name
+          ? _value.slot_name
+          : slot_name // ignore: cast_nullable_to_non_nullable
+              as String,
+      failureOption: null == failureOption
+          ? _value.failureOption
+          : failureOption // ignore: cast_nullable_to_non_nullable
+              as Option<TransactionFailure>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_TransactionState implements _TransactionState {
+  const _$_TransactionState(
+      {this.status_drop,
+      required this.isLoading,
+      required this.slot_id,
+      required this.transaction_id,
+      required this.slot_name,
+      required this.failureOption});
+
+  @override
+  final bool? status_drop;
+  @override
+  final bool isLoading;
+  @override
+  final int slot_id;
+  @override
+  final int transaction_id;
+  @override
+  final String slot_name;
+  @override
+  final Option<TransactionFailure> failureOption;
+
+  @override
+  String toString() {
+    return 'TransactionState(status_drop: $status_drop, isLoading: $isLoading, slot_id: $slot_id, transaction_id: $transaction_id, slot_name: $slot_name, failureOption: $failureOption)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TransactionState &&
+            (identical(other.status_drop, status_drop) ||
+                other.status_drop == status_drop) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.slot_id, slot_id) || other.slot_id == slot_id) &&
+            (identical(other.transaction_id, transaction_id) ||
+                other.transaction_id == transaction_id) &&
+            (identical(other.slot_name, slot_name) ||
+                other.slot_name == slot_name) &&
+            (identical(other.failureOption, failureOption) ||
+                other.failureOption == failureOption));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, status_drop, isLoading, slot_id,
+      transaction_id, slot_name, failureOption);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_TransactionStateCopyWith<_$_TransactionState> get copyWith =>
+      __$$_TransactionStateCopyWithImpl<_$_TransactionState>(this, _$identity);
+}
+
+abstract class _TransactionState implements TransactionState {
+  const factory _TransactionState(
+          {final bool? status_drop,
+          required final bool isLoading,
+          required final int slot_id,
+          required final int transaction_id,
+          required final String slot_name,
+          required final Option<TransactionFailure> failureOption}) =
+      _$_TransactionState;
+
+  @override
+  bool? get status_drop;
+  @override
+  bool get isLoading;
+  @override
+  int get slot_id;
+  @override
+  int get transaction_id;
+  @override
+  String get slot_name;
+  @override
+  Option<TransactionFailure> get failureOption;
+  @override
+  @JsonKey(ignore: true)
+  _$$_TransactionStateCopyWith<_$_TransactionState> get copyWith =>
+      throw _privateConstructorUsedError;
+}

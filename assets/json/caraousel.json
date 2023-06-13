@@ -1,0 +1,16 @@
+{
+    "items": [
+        {
+            "id": 1,
+            "images" : "Banner1.png"
+        },
+        {
+            "id": 2,
+            "images" : "Banner2.png"
+        },
+        {
+            "id": 3,
+            "images" : "Banner3.png"
+        }
+    ]
+}
