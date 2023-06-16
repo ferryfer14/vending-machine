@@ -5,15 +5,8 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:standart_project/domain/caraousel/caraousel_failure.dart';
-import 'package:standart_project/domain/form/form_failure.dart';
-import 'package:standart_project/domain/form/i_form_repository.dart';
 import 'package:standart_project/domain/transaction/transaction_failure.dart';
 
-import '../../domain/caraousel/caraousel_model.dart';
-import '../../domain/caraousel/i_caraousel_repository.dart';
 import '../../domain/transaction/i_transaction_repository.dart';
 part 'transaction_bloc.freezed.dart';
 part 'transaction_event.dart';

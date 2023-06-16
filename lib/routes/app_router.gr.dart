@@ -25,17 +25,6 @@ class _$AppRouter extends RootStackRouter {
         child: CaraouselPage(key: args.key),
       );
     },
-    FormRoute.name: (routeData) {
-      final args =
-          routeData.argsAs<FormRouteArgs>(orElse: () => const FormRouteArgs());
-      return CustomPage<dynamic>(
-        routeData: routeData,
-        child: FormPage(key: args.key),
-        transitionsBuilder: TransitionsBuilders.slideLeft,
-        opaque: true,
-        barrierDismissible: false,
-      );
-    },
     ProductRoute.name: (routeData) {
       final args = routeData.argsAs<ProductRouteArgs>(
           orElse: () => const ProductRouteArgs());
@@ -54,10 +43,6 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           CaraouselRoute.name,
           path: '/',
-        ),
-        RouteConfig(
-          FormRoute.name,
-          path: 'form',
         ),
         RouteConfig(
           ProductRoute.name,
@@ -87,30 +72,6 @@ class CaraouselRouteArgs {
   @override
   String toString() {
     return 'CaraouselRouteArgs{key: $key}';
-  }
-}
-
-/// generated route for
-/// [FormPage]
-class FormRoute extends PageRouteInfo<FormRouteArgs> {
-  FormRoute({Key? key})
-      : super(
-          FormRoute.name,
-          path: 'form',
-          args: FormRouteArgs(key: key),
-        );
-
-  static const String name = 'FormRoute';
-}
-
-class FormRouteArgs {
-  const FormRouteArgs({this.key});
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'FormRouteArgs{key: $key}';
   }
 }
 

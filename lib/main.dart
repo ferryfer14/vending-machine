@@ -16,7 +16,7 @@ import 'persentation/core/my_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await configureInjection(Environment.prod);
+  await configureInjection(Environment.dev);
   if (kIsWeb) {
     await Firebase.initializeApp(
         options: const FirebaseOptions(

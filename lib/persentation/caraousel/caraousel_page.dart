@@ -68,7 +68,7 @@ class CaraouselPage extends StatelessWidget {
                   );
                 },
                 (_) {
-                  context.router.replace(FormRoute());
+                  context.router.replace(ProductRoute());
                 },
               );
             },

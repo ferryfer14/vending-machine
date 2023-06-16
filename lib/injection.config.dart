@@ -9,42 +9,37 @@ import 'package:connectivity/connectivity.dart' as _i4;
 import 'package:dio/dio.dart' as _i5;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
-import 'package:new_version/new_version.dart' as _i14;
-import 'package:shared_preferences/shared_preferences.dart' as _i15;
+import 'package:new_version/new_version.dart' as _i10;
+import 'package:shared_preferences/shared_preferences.dart' as _i11;
 
-import 'application/auth/auth_bloc.dart' as _i28;
-import 'application/auth/sign_in/sign_in_bloc.dart' as _i26;
-import 'application/caraousel/caraousel_bloc.dart' as _i19;
-import 'application/form/form_user_bloc.dart' as _i20;
-import 'application/localization/localization_loader_bloc.dart' as _i23;
-import 'application/product/product_bloc.dart' as _i33;
-import 'application/profile/profile_bloc.dart' as _i25;
-import 'application/transaction/transaction_bloc.dart' as _i34;
-import 'application/version/version_bloc.dart' as _i16;
-import 'common/api/api_client.dart' as _i17;
-import 'common/di/connectivity_di.dart' as _i35;
-import 'common/di/dio_di.dart' as _i36;
-import 'common/di/new_version_di.dart' as _i37;
-import 'common/di/shared_preferences_di.dart' as _i38;
-import 'common/firestore/firestore_client.dart' as _i7;
-import 'common/network/network_client.dart' as _i13;
-import 'domain/auth/i_auth_repository.dart' as _i21;
-import 'domain/caraousel/i_caraousel_repository.dart' as _i9;
-import 'domain/form/i_form_repository.dart' as _i11;
-import 'domain/product/i_product_repository.dart' as _i29;
-import 'domain/transaction/i_transaction_repository.dart' as _i31;
+import 'application/auth/auth_bloc.dart' as _i23;
+import 'application/auth/sign_in/sign_in_bloc.dart' as _i21;
+import 'application/caraousel/caraousel_bloc.dart' as _i15;
+import 'application/localization/localization_loader_bloc.dart' as _i18;
+import 'application/product/product_bloc.dart' as _i28;
+import 'application/profile/profile_bloc.dart' as _i20;
+import 'application/transaction/transaction_bloc.dart' as _i29;
+import 'application/version/version_bloc.dart' as _i12;
+import 'common/api/api_client.dart' as _i13;
+import 'common/di/connectivity_di.dart' as _i30;
+import 'common/di/dio_di.dart' as _i31;
+import 'common/di/new_version_di.dart' as _i32;
+import 'common/di/shared_preferences_di.dart' as _i33;
+import 'common/network/network_client.dart' as _i9;
+import 'domain/auth/i_auth_repository.dart' as _i16;
+import 'domain/caraousel/i_caraousel_repository.dart' as _i7;
+import 'domain/product/i_product_repository.dart' as _i24;
+import 'domain/transaction/i_transaction_repository.dart' as _i26;
 import 'env.dart' as _i6;
-import 'infrastructure/auth/auth_repository.dart' as _i22;
-import 'infrastructure/auth/data_sources/remote_data_provider.dart' as _i18;
-import 'infrastructure/caraousel/caraousel_repository.dart' as _i10;
+import 'infrastructure/auth/auth_repository.dart' as _i17;
+import 'infrastructure/auth/data_sources/remote_data_provider.dart' as _i14;
+import 'infrastructure/caraousel/caraousel_repository.dart' as _i8;
 import 'infrastructure/caraousel/data_sources/local_data_provider.dart' as _i3;
-import 'infrastructure/form/data_sources/local_data_provider.dart' as _i8;
-import 'infrastructure/form/form_repository.dart' as _i12;
-import 'infrastructure/product/data_sources/remote_data_provider.dart' as _i24;
-import 'infrastructure/product/product_repository.dart' as _i30;
+import 'infrastructure/product/data_sources/remote_data_provider.dart' as _i19;
+import 'infrastructure/product/product_repository.dart' as _i25;
 import 'infrastructure/transaction/data_sources/remote_data_provider.dart'
-    as _i27;
-import 'infrastructure/transaction/transaction_repository.dart' as _i32;
+    as _i22;
+import 'infrastructure/transaction/transaction_repository.dart' as _i27;
 
 const String _dev = 'dev';
 const String _prod = 'prod';
@@ -77,75 +72,68 @@ Future<_i1.GetIt> $initGetIt(
     () => _i6.ProdEnv(),
     registerFor: {_prod},
   );
-  gh.lazySingleton<_i7.FirestoreClient>(() => _i7.FirestoreClient());
-  gh.factory<_i8.FormLocalDataProvider>(
-      () => _i8.FormLocalDataProvider(get<_i7.FirestoreClient>()));
-  gh.factory<_i9.ICaraouselRepository>(
-      () => _i10.CaraouselRepository(get<_i3.CaraouselLocalDataProvider>()));
-  gh.factory<_i11.IFormRepository>(
-      () => _i12.FormRepository(get<_i8.FormLocalDataProvider>()));
-  gh.lazySingleton<_i13.NetworkClient>(
-      () => _i13.NetworkClient(get<_i4.Connectivity>()));
-  gh.lazySingleton<_i14.NewVersion>(() => newVersionDi.newVersion);
-  await gh.factoryAsync<_i15.SharedPreferences>(
+  gh.factory<_i7.ICaraouselRepository>(
+      () => _i8.CaraouselRepository(get<_i3.CaraouselLocalDataProvider>()));
+  gh.lazySingleton<_i9.NetworkClient>(
+      () => _i9.NetworkClient(get<_i4.Connectivity>()));
+  gh.lazySingleton<_i10.NewVersion>(() => newVersionDi.newVersion);
+  await gh.factoryAsync<_i11.SharedPreferences>(
     () => sharedPreferencesDi.prefs,
     preResolve: true,
   );
-  gh.factory<_i16.VersionBloc>(() => _i16.VersionBloc(
-        get<_i15.SharedPreferences>(),
-        get<_i14.NewVersion>(),
+  gh.factory<_i12.VersionBloc>(() => _i12.VersionBloc(
+        get<_i11.SharedPreferences>(),
+        get<_i10.NewVersion>(),
       ));
-  gh.lazySingleton<_i17.ApiClient>(() => _i17.ApiClient(
+  gh.lazySingleton<_i13.ApiClient>(() => _i13.ApiClient(
         get<_i5.Dio>(),
         get<_i6.Env>(),
       ));
-  gh.factory<_i18.AuthRemoteDataProvider>(() => _i18.AuthRemoteDataProvider(
-        get<_i17.ApiClient>(),
-        get<_i15.SharedPreferences>(),
+  gh.factory<_i14.AuthRemoteDataProvider>(() => _i14.AuthRemoteDataProvider(
+        get<_i13.ApiClient>(),
+        get<_i11.SharedPreferences>(),
         get<_i6.Env>(),
       ));
-  gh.factory<_i19.CaraouselBloc>(
-      () => _i19.CaraouselBloc(get<_i9.ICaraouselRepository>()));
-  gh.factory<_i20.FormUserBloc>(
-      () => _i20.FormUserBloc(get<_i11.IFormRepository>()));
-  gh.factory<_i21.IAuthRepository>(() => _i22.AuthRepository(
-        get<_i18.AuthRemoteDataProvider>(),
-        get<_i15.SharedPreferences>(),
+  gh.factory<_i15.CaraouselBloc>(
+      () => _i15.CaraouselBloc(get<_i7.ICaraouselRepository>()));
+  gh.factory<_i16.IAuthRepository>(() => _i17.AuthRepository(
+        get<_i14.AuthRemoteDataProvider>(),
+        get<_i11.SharedPreferences>(),
       ));
-  gh.factory<_i23.LocalizationLoaderBloc>(
-      () => _i23.LocalizationLoaderBloc(get<_i15.SharedPreferences>()));
-  gh.factory<_i24.ProductRemoteDataProvider>(
-      () => _i24.ProductRemoteDataProvider(
-            get<_i17.ApiClient>(),
-            get<_i15.SharedPreferences>(),
+  gh.factory<_i18.LocalizationLoaderBloc>(
+      () => _i18.LocalizationLoaderBloc(get<_i11.SharedPreferences>()));
+  gh.factory<_i19.ProductRemoteDataProvider>(
+      () => _i19.ProductRemoteDataProvider(
+            get<_i13.ApiClient>(),
+            get<_i11.SharedPreferences>(),
             get<_i6.Env>(),
           ));
-  gh.factory<_i25.ProfileBloc>(
-      () => _i25.ProfileBloc(get<_i21.IAuthRepository>()));
-  gh.factory<_i26.SignInBloc>(
-      () => _i26.SignInBloc(get<_i21.IAuthRepository>()));
-  gh.factory<_i27.TransactionRemoteDataProvider>(
-      () => _i27.TransactionRemoteDataProvider(
-            get<_i17.ApiClient>(),
-            get<_i15.SharedPreferences>(),
+  gh.factory<_i20.ProfileBloc>(
+      () => _i20.ProfileBloc(get<_i16.IAuthRepository>()));
+  gh.factory<_i21.SignInBloc>(
+      () => _i21.SignInBloc(get<_i16.IAuthRepository>()));
+  gh.factory<_i22.TransactionRemoteDataProvider>(
+      () => _i22.TransactionRemoteDataProvider(
+            get<_i13.ApiClient>(),
+            get<_i11.SharedPreferences>(),
             get<_i6.Env>(),
           ));
-  gh.factory<_i28.AuthBloc>(() => _i28.AuthBloc(get<_i21.IAuthRepository>()));
-  gh.factory<_i29.IProductRepository>(
-      () => _i30.ProductRepository(get<_i24.ProductRemoteDataProvider>()));
-  gh.factory<_i31.ITransactionRepository>(() =>
-      _i32.TransactionRepository(get<_i27.TransactionRemoteDataProvider>()));
-  gh.factory<_i33.ProductBloc>(
-      () => _i33.ProductBloc(get<_i29.IProductRepository>()));
-  gh.factory<_i34.TransactionBloc>(
-      () => _i34.TransactionBloc(get<_i31.ITransactionRepository>()));
+  gh.factory<_i23.AuthBloc>(() => _i23.AuthBloc(get<_i16.IAuthRepository>()));
+  gh.factory<_i24.IProductRepository>(
+      () => _i25.ProductRepository(get<_i19.ProductRemoteDataProvider>()));
+  gh.factory<_i26.ITransactionRepository>(() =>
+      _i27.TransactionRepository(get<_i22.TransactionRemoteDataProvider>()));
+  gh.factory<_i28.ProductBloc>(
+      () => _i28.ProductBloc(get<_i24.IProductRepository>()));
+  gh.factory<_i29.TransactionBloc>(
+      () => _i29.TransactionBloc(get<_i26.ITransactionRepository>()));
   return get;
 }
 
-class _$ConnectivityDi extends _i35.ConnectivityDi {}
+class _$ConnectivityDi extends _i30.ConnectivityDi {}
 
-class _$DioDi extends _i36.DioDi {}
+class _$DioDi extends _i31.DioDi {}
 
-class _$NewVersionDi extends _i37.NewVersionDi {}
+class _$NewVersionDi extends _i32.NewVersionDi {}
 
-class _$SharedPreferencesDi extends _i38.SharedPreferencesDi {}
+class _$SharedPreferencesDi extends _i33.SharedPreferencesDi {}

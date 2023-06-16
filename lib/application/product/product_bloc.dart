@@ -48,14 +48,21 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
         emit(state.copyWith.call(isLoading: true));
         final failureOrSuccess = await _productRepository.load(
             page: e.page, size: state.size);
-        emit(failureOrSuccess.fold(
+        return emit(failureOrSuccess.fold(
           (f) {
             if (f == const ProductFailure.emptyList() &&
                 state.items.slot!.isNotEmpty) {
               return state.copyWith
-                  .call(hasReachedMax: true, page: e.page + 1);
+                  .call(
+                hasReachedMax: true,
+                page: e.page + 1,
+                isLoading: false,
+              );
             }
-            return state.copyWith.call(failureOption: optionOf(f));
+            return state.copyWith.call(
+              failureOption: optionOf(f),
+              isLoading: false,
+            );
           },
           (items) => state.copyWith.call(
             hasReachedMax: false,

@@ -377,8 +377,7 @@ class _ProductPageState extends State<ProductPage> {
                 ..add(const TransactionEvent.started()),
               child: BlocConsumer<TransactionBloc, TransactionState>(
                   listener: (context, state) {
-                if (state.transaction_id != 0 &&
-                    state.status_drop == true) {
+                if (state.transaction_id != 0 && state.status_drop == true) {
                   Navigator.pop(context);
                   popupSuccess(parentContext, slotModel, state.slot_id,
                       state.transaction_id, state.status_drop!);
@@ -665,7 +664,7 @@ class _ProductPageState extends State<ProductPage> {
                     height: 260,
                     width: double.infinity,
                     child: Image.asset(
-                      '${vAssetPng}promo1.png',
+                      '${vAssetPng}Howtouse.png',
                       fit: BoxFit.fill,
                     ),
                   ),
@@ -696,7 +695,7 @@ class _ProductPageState extends State<ProductPage> {
                           ));
                         } else if (state.items.slot!.isNotEmpty) {
                           return Expanded(
-                                      child: Column(children: [
+                              child: Column(children: [
                             CarouselSlider.builder(
                                 itemCount: state.items.total_pages,
                                 carouselController: _controller,
@@ -707,7 +706,6 @@ class _ProductPageState extends State<ProductPage> {
                                     enableInfiniteScroll: false,
                                     viewportFraction: 1,
                                     onPageChanged: (index, reason) {
-                                      print(index);
                                       context.read<ProductBloc>().add(
                                           ProductEvent.loadMore(index + 1,
                                               isLoad: true));
@@ -715,10 +713,32 @@ class _ProductPageState extends State<ProductPage> {
                                 itemBuilder: (BuildContext context,
                                     int itemIndex, int pageViewIndex) {
                                   List<SlotModel> model = state.items.slot!;
-                                  return GridView.count(
+                                  return Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        sibow8,
+                                        Center(
+                                            child: InkWell(
+                                                onTap: () {
+                                                  if (itemIndex != 0) {
+                                                    _controller.animateToPage(
+                                                        itemIndex - 1);
+                                                  }
+                                                },
+                                                child: Icon(
+                                                    Icons.arrow_back_ios,
+                                                    size: 50,
+                                                    color: itemIndex == 0
+                                                        ? primaryColor
+                                                            .withOpacity(0.5)
+                                                        : primaryColor))),
+                                        Expanded(
+                                            child: GridView.count(
                                     crossAxisCount: vGrid,
-                                    childAspectRatio: 0.96,
+                                          childAspectRatio: 0.9,
                                     shrinkWrap: true,
+                                          padding: EdgeInsets.zero,
                                     children:
                                         List.generate(model.length, (index) {
                                       return Container(
@@ -737,8 +757,9 @@ class _ProductPageState extends State<ProductPage> {
                                               children: [
                                                 Container(
                                                     height: 208,
-                                                    decoration: BoxDecoration(
-                                                      color: backgroundImage,
+                                                          decoration:
+                                                              const BoxDecoration(
+                                                            color: white,
                                                     ),
                                                     child: ImageNetwork(
                                                       image:
@@ -801,7 +822,30 @@ class _ProductPageState extends State<ProductPage> {
                                             )),
                                       );
                                     }),
-                                  );
+                                        )),
+                                        Center(
+                                            child: InkWell(
+                                                onTap: () {
+                                                  if ((state.items
+                                                              .total_pages! -
+                                                          1) !=
+                                                      itemIndex) {
+                                                    _controller.animateToPage(
+                                                        itemIndex + 1);
+                                                  }
+                                                },
+                                                child: Icon(
+                                                    Icons.arrow_forward_ios,
+                                                    size: 50,
+                                                    color: (state.items
+                                                                    .total_pages! -
+                                                                1) ==
+                                                            itemIndex
+                                                        ? primaryColor
+                                                            .withOpacity(0.5)
+                                                        : primaryColor))),
+                                        sibow8
+                                      ]);
                                 }),
                             siboh32,
                             Row(
@@ -857,7 +901,7 @@ class _ProductPageState extends State<ProductPage> {
             ]),
             height: 309,
             child: Image.asset(
-              '${vAssetPng}promo2.png',
+              '${vAssetPng}Iklan.png',
               fit: BoxFit.fill,
             ),
           ),

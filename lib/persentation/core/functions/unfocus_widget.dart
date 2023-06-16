@@ -4,8 +4,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:standart_project/app_constant.dart';
-import 'package:standart_project/application/form/form_user_bloc.dart';
 import 'package:standart_project/injection.dart';
 import 'package:standart_project/persentation/core/utils/border/border_radius.dart';
 import 'package:standart_project/persentation/core/utils/spacing/padding.dart';
@@ -39,7 +37,6 @@ Future<void> noInternet(BuildContext parentContext, ontap, String route,
       builder: (BuildContext context) {
         return MultiBlocProvider(
             providers: [
-              BlocProvider(create: (context) => getIt<FormUserBloc>()),
               BlocProvider(create: (context) => getIt<SignInBloc>()),
             ],
             child: Dialog(
@@ -95,12 +92,7 @@ Future<void> noInternet(BuildContext parentContext, ontap, String route,
                                     child: PrimaryButton(
                                         onTap: () {
                                           ontap();
-                                          if (route == 'form') {
-                                            parentContext
-                                                .read<FormUserBloc>()
-                                                .add(const FormUserEvent.submited());
-                                          }
-                                         else if (route == 'caraousel') {
+                                          if (route == 'caraousel') {
                                             parentContext
                                                 .read<SignInBloc>()
                                                 .add(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const primaryColor = Color(0xffE780A3);
+const primaryColor = Color(0xff3267E3);
 const primaryHover = Color(0xff5C989E);
 const primaryBorder = Color(0xffB9DFE2);
 const secondaryColor = Color(0xff757575);
