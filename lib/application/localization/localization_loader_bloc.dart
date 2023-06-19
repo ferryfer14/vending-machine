@@ -27,7 +27,7 @@ class LocalizationLoaderBloc
     return event.map(started: (e) async {
       if (e.isRefresh) {
         emit(state.copyWith.call(isLoading: true));
-        String langCode = _prefs.getString(vLang) ?? 'id';
+        String langCode = _prefs.getString(vLang) ?? 'en';
         PackageInfo packageInfo = await PackageInfo.fromPlatform();
         _prefs.setString(vVersion, packageInfo.version);
         emit(state.copyWith.call(

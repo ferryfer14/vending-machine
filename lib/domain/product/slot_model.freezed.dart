@@ -22,6 +22,7 @@ mixin _$SlotModel {
   VendingModel? get vending => throw _privateConstructorUsedError;
   int? get price => throw _privateConstructorUsedError;
   int? get stock => throw _privateConstructorUsedError;
+  int? get amount => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SlotModelCopyWith<SlotModel> get copyWith =>
@@ -39,7 +40,8 @@ abstract class $SlotModelCopyWith<$Res> {
       ProductModel? product,
       VendingModel? vending,
       int? price,
-      int? stock});
+      int? stock,
+      int? amount});
 
   $ProductModelCopyWith<$Res>? get product;
   $VendingModelCopyWith<$Res>? get vending;
@@ -64,6 +66,7 @@ class _$SlotModelCopyWithImpl<$Res, $Val extends SlotModel>
     Object? vending = freezed,
     Object? price = freezed,
     Object? stock = freezed,
+    Object? amount = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -89,6 +92,10 @@ class _$SlotModelCopyWithImpl<$Res, $Val extends SlotModel>
       stock: freezed == stock
           ? _value.stock
           : stock // ignore: cast_nullable_to_non_nullable
+              as int?,
+      amount: freezed == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
               as int?,
     ) as $Val);
   }
@@ -131,7 +138,8 @@ abstract class _$$_SlotModelCopyWith<$Res> implements $SlotModelCopyWith<$Res> {
       ProductModel? product,
       VendingModel? vending,
       int? price,
-      int? stock});
+      int? stock,
+      int? amount});
 
   @override
   $ProductModelCopyWith<$Res>? get product;
@@ -156,6 +164,7 @@ class __$$_SlotModelCopyWithImpl<$Res>
     Object? vending = freezed,
     Object? price = freezed,
     Object? stock = freezed,
+    Object? amount = freezed,
   }) {
     return _then(_$_SlotModel(
       id: freezed == id
@@ -182,6 +191,10 @@ class __$$_SlotModelCopyWithImpl<$Res>
           ? _value.stock
           : stock // ignore: cast_nullable_to_non_nullable
               as int?,
+      amount: freezed == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -190,7 +203,13 @@ class __$$_SlotModelCopyWithImpl<$Res>
 
 class _$_SlotModel extends _SlotModel {
   const _$_SlotModel(
-      {this.id, this.name, this.product, this.vending, this.price, this.stock})
+      {this.id,
+      this.name,
+      this.product,
+      this.vending,
+      this.price,
+      this.stock,
+      this.amount})
       : super._();
 
   @override
@@ -205,10 +224,12 @@ class _$_SlotModel extends _SlotModel {
   final int? price;
   @override
   final int? stock;
+  @override
+  final int? amount;
 
   @override
   String toString() {
-    return 'SlotModel(id: $id, name: $name, product: $product, vending: $vending, price: $price, stock: $stock)';
+    return 'SlotModel(id: $id, name: $name, product: $product, vending: $vending, price: $price, stock: $stock, amount: $amount)';
   }
 
   @override
@@ -221,12 +242,13 @@ class _$_SlotModel extends _SlotModel {
             (identical(other.product, product) || other.product == product) &&
             (identical(other.vending, vending) || other.vending == vending) &&
             (identical(other.price, price) || other.price == price) &&
-            (identical(other.stock, stock) || other.stock == stock));
+            (identical(other.stock, stock) || other.stock == stock) &&
+            (identical(other.amount, amount) || other.amount == amount));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, product, vending, price, stock);
+  int get hashCode => Object.hash(
+      runtimeType, id, name, product, vending, price, stock, amount);
 
   @JsonKey(ignore: true)
   @override
@@ -242,7 +264,8 @@ abstract class _SlotModel extends SlotModel {
       final ProductModel? product,
       final VendingModel? vending,
       final int? price,
-      final int? stock}) = _$_SlotModel;
+      final int? stock,
+      final int? amount}) = _$_SlotModel;
   const _SlotModel._() : super._();
 
   @override
@@ -257,6 +280,8 @@ abstract class _SlotModel extends SlotModel {
   int? get price;
   @override
   int? get stock;
+  @override
+  int? get amount;
   @override
   @JsonKey(ignore: true)
   _$$_SlotModelCopyWith<_$_SlotModel> get copyWith =>

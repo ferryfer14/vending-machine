@@ -22,7 +22,7 @@ class ApiClient {
     this._env,
   ) {
     _dio.options.baseUrl = _env.baseUrl;
-    _dio.options.connectTimeout = const Duration(seconds: 60).inMilliseconds;
+    // _dio.options.connectTimeout = const Duration(seconds: 60).inMilliseconds;
     _dio.interceptors.add(BadNetwotkErrorInterceptor());
     _dio.interceptors.add(InternalServerErrorInterceptor());
     _dio.interceptors.add(UnauthorizedInterceptor());

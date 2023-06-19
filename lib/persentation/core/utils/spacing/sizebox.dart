@@ -18,3 +18,5 @@ const sibow4 = SizedBox(width: 4);
 const sibow8 = SizedBox(width: 8);
 const sibow12 = SizedBox(width: 12);
 const sibow16 = SizedBox(width: 16);
+const sibow24 = SizedBox(width: 24);
+const sibow32 = SizedBox(width: 32);

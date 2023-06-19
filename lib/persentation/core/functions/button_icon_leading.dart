@@ -10,27 +10,30 @@ class ButtonIconLeading extends StatelessWidget {
   const ButtonIconLeading(
       {Key? key,
       this.onTap,
-      this.iconSvg,
       this.title,
       this.titleStyle,
       this.widget,
+      this.widgetBot,
       this.sibow,
+      this.sibowBot,
       this.mainAxisAlignment,
       this.color,
-      this.heigh,
+      this.height,
+      this.border,
       this.borderRadius,
       this.width})
       : super(key: key);
 
   final VoidCallback? onTap;
   final String? title;
-  final String? iconSvg;
   final Color? color;
   final Widget? widget;
-  final Widget? sibow;
+  final Widget? widgetBot;
+  final Widget? sibow, sibowBot;
   final MainAxisAlignment? mainAxisAlignment;
   final TextStyle? titleStyle;
-  final double? heigh, width;
+  final double? height, width;
+  final Border? border;
   final BorderRadius? borderRadius;
 
   @override
@@ -42,9 +45,10 @@ class ButtonIconLeading extends StatelessWidget {
         // margin: const EdgeInsets.only(bottom: 16),
         alignment: Alignment.center,
         width: width ?? double.infinity,
-        height: heigh,
+        height: height,
         decoration: BoxDecoration(
           color: color ?? primaryColor,
+          border: border,
           borderRadius: borderRadius ?? borderRadius12,
         ),
         child: Row(
@@ -52,7 +56,9 @@ class ButtonIconLeading extends StatelessWidget {
           children: [
             widget ?? const SizedBox(),
             sibow ?? const SizedBox(),
-            Text(title ?? '', style: titleStyle ?? ts14White600)
+            Text(title ?? '', style: titleStyle ?? ts14White600),
+            sibowBot ?? const SizedBox(),
+            widgetBot ?? const SizedBox()
           ],
         ),
       ),

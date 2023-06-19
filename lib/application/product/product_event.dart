@@ -7,5 +7,11 @@ class ProductEvent with _$ProductEvent {
 
   const factory ProductEvent.loadMore(int page, {@Default(false) bool isLoad}) = _LoadMore;
 
+  const factory ProductEvent.changeAmount(int amount) = _ChangeAmount;
+
+  const factory ProductEvent.addAmount(SlotModel slotModel, int amount) = _AddAmount;
+  
+  const factory ProductEvent.changeIndexStarted(int index, int page) = _ChangeIndexStarted;
+
   const factory ProductEvent.reset() = _Reset;
 }

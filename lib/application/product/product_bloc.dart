@@ -29,19 +29,23 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       emit(state.copyWith.call(isLoading: true));
       final failureOrSuccess = await _productRepository.load(size: state.size);
 
-      emit(failureOrSuccess.fold(
+      return emit(failureOrSuccess.fold(
         (f) {
           if (f == const ProductFailure.emptyList()) {
             return state.copyWith.call(hasReachedMax: true, isLoading: false);
           }
           return state.copyWith.call(failureOption: optionOf(f));
         },
-        (items) => state.copyWith.call(
+        (items) {
+        final totalPage = (items.slot!.length / vSizeGrid).ceil();
+        return state.copyWith.call(
             items: items,
             page: 1,
+            totalPage: totalPage,
             hasReachedMax: items.last!,
             failureOption: none(),
-            isLoading: false),
+            isLoading: false);
+      }
       ));
     }, loadMore: (e) async {
       if (e.isLoad && !state.hasReachedMax && !state.isLoading) {
@@ -64,15 +68,52 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
               isLoading: false,
             );
           },
-          (items) => state.copyWith.call(
+          (items) {
+          final totalPage = (items.slot!.length / vSizeGrid).ceil();
+          return state.copyWith.call(
             hasReachedMax: false,
             page: e.page,
             items: items,
+            totalPage: totalPage,
             failureOption: none(),
             isLoading: false,
-          ),
+          );
+        }
         ));
       }
+    }, addAmount: (e) async {
+      PageModel pageModel = state.items;
+      List<SlotModel> listSlot = [...pageModel.slot!];
+      final index =
+          listSlot.indexWhere((element) => element.id == e.slotModel.id);
+      listSlot.removeWhere((item) => item.id == e.slotModel.id);
+      listSlot.insert(
+          index,
+          SlotModel(
+              id: e.slotModel.id,
+              name: e.slotModel.name,
+              product: e.slotModel.product,
+              vending: e.slotModel.vending,
+              price: e.slotModel.price,
+              stock: e.slotModel.stock,
+              amount: e.amount));
+      final total = listSlot.fold(0, (sum, item) => sum + item.amount!);
+      final totalPrice = listSlot.fold(0, (sum, item) => sum + (item.amount!*item.price!));
+
+      List<SlotModel> listCart = listSlot.where((o) => o.amount! > 0).toList();
+      emit(state.copyWith.call(
+          items: PageModel(
+              slot: listSlot,
+              total_pages: pageModel.total_pages,
+              last: pageModel.last),
+          totalCart: total,
+          totalPrice:totalPrice,
+          cart: listCart));
+    }, changeAmount: (e) async {
+      int amount = e.amount;
+      emit(state.copyWith.call(amount: amount));
+    }, changeIndexStarted: (e) async {
+      emit(state.copyWith.call(indexStarted: e.index, currentPage: e.page));
     }, reset: (e) async {
       emit(ProductState.initial());
     });

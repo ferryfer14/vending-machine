@@ -13,6 +13,7 @@ const dangerColor = Color(0xffCB3A31);
 const swappingColor = Color(0xffEA9A3B);
 const dangerSurfaceColor = Color(0xffFFF4F2);
 const dividerColor = Color(0xffE0E0E0);
+const neutralColor = Color(0xffF5F5F5);
 const gradientAvailable = LinearGradient(
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,
@@ -62,3 +63,4 @@ const black = Color(0xff29282B);
 const transparent = Colors.transparent;
 const backgroundImage = Color(0xffF4F6FA);
 const buttonDisable = Color(0xffDEE3EE);
+const buttonCircle = Color(0xffF0F3FF);

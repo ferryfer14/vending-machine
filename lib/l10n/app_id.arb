@@ -39,5 +39,22 @@
     "onprosess" : "Dalam proses",
     "onrelease" : "Direlease",
     "fail" : "Gagal",
-    "getonbot" : "Ambil di bawah"
+    "getonbot" : "Ambil di bawah",
+    "quantity_of_goods" : "Jumlah Barang",
+    "product_description" : "Deskripsi Produk",
+    "add_cart" : "Tambah ke keranjang",
+    "view_cart" : "Lihat keranjang",
+    "supported_e_wallet" : "Didukung dompet digital",
+    "cart" : "Keranjang",
+    "total_purchase" : "Total Pembelian",
+    "items_choosen" : "{item} Item dipilih",
+    "@items_choosen": {
+        "description": "A message with a single parameter",
+        "placeholders": {
+            "item": {
+                "type": "String",
+                "example": "1"
+            }
+        }
+    }
 }

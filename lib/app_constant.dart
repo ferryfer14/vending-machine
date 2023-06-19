@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 const vLimitNormal = 10;
-const vLimit = 9;
-const vSizeGrid = 12;
-const vGrid = 3;
+const vLimit = 9999;
+const vSizeGrid = 8;
+const vGrid = 4;
 const vLimitMax = 9999;
 const vLang = 'lang';
 const vIntro = 'intro';

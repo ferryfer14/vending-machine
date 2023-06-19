@@ -22,6 +22,7 @@ class SlotModelDto with _$SlotModelDto {
     @JsonKey(name: 'vending') VendingModelDto? vending,
     @JsonKey(name: 'price') int? price,
     @JsonKey(name: 'stock') int? stock,
+    @JsonKey(name: 'amount') int? amount,
   }) = _SlotModelDto;
 
   factory SlotModelDto.fromJson(Map<String, dynamic> json) =>
@@ -34,6 +35,7 @@ class SlotModelDto with _$SlotModelDto {
         product: product?.toDomain() ?? ProductModel.empty(),
         vending: vending?.toDomain() ?? VendingModel.empty(),
         price: price ?? 0,
-        stock: stock ?? 0,);
+        stock: stock ?? 0,
+        amount: amount ?? 0);
   }
 }

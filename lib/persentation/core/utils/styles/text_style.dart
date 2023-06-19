@@ -406,6 +406,12 @@ const ts16Prim600 = TextStyle(
 
 /// [FONTSIZE = 20 ==========================================]
 
+const ts20Black400 = TextStyle(
+  fontFamily: plusjakarta,
+  fontSize: 20,
+  color: black,
+  fontWeight: FontWeight.w400,
+);
 const ts20Black500 = TextStyle(
   fontFamily: plusjakarta,
   fontSize: 20,
@@ -491,11 +497,23 @@ const ts24Black400 = TextStyle(
   color: black,
   fontWeight: FontWeight.w400,
 );
+const ts24Secondary400 = TextStyle(
+  fontFamily: plusjakarta,
+  fontSize: 24,
+  color: secondaryColor,
+  fontWeight: FontWeight.w400,
+);
 const ts24Black500 = TextStyle(
   fontFamily: plusjakarta,
   fontSize: 24,
   color: black,
   fontWeight: FontWeight.w500,
+);
+const ts24Primary400 = TextStyle(
+  fontFamily: plusjakarta,
+  fontSize: 24,
+  color: primaryColor,
+  fontWeight: FontWeight.w400,
 );
 
 const ts24Black600 = TextStyle(
@@ -542,4 +560,11 @@ const ts60White600 = TextStyle(
   fontSize: 60,
   color: white,
   fontWeight: FontWeight.w600,
+);
+
+const ts40Black500 = TextStyle(
+  fontFamily: plusjakarta,
+  fontSize: 40,
+  color: black,
+  fontWeight: FontWeight.w500,
 );

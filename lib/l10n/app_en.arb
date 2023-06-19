@@ -39,5 +39,22 @@
     "onprosess" : "On process",
     "onrelease" : "Released",
     "fail" : "Fail",
-    "getonbot" : "Get on bottom"
+    "getonbot" : "Get on bottom",
+    "quantity_of_goods" : "Quantity of goods",
+    "product_description" : "Product description",
+    "add_cart" : "Add to cart",
+    "view_cart" : "See cart",
+    "supported_e_wallet" : "Supported e-Wallet",
+    "cart" : "Cart",
+    "total_purchase" : "Total Purchase",
+    "items_choosen" : "{item} Items Choosen",
+    "@items_choosen": {
+        "description": "A message with a single parameter",
+        "placeholders": {
+            "item": {
+                "type": "String",
+                "example": "1"
+            }
+        }
+    }
 }
