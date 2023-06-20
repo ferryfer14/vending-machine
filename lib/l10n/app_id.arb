@@ -56,5 +56,6 @@
                 "example": "1"
             }
         }
-    }
+    },
+    "pay_qris" : "Bayar dengan QRIS"
 }

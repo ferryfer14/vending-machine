@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:standart_project/persentation/core/functions/button_icon_leading.dart';
 import 'package:standart_project/persentation/core/functions/currency_format.dart';
 
@@ -22,9 +23,15 @@ import 'list_cart.dart';
 
 class PopupCart extends StatelessWidget {
   const PopupCart(
-      {super.key, required this.listSlot, required this.totalPrice});
+      {super.key,
+      required this.listSlot,
+      required this.totalPrice,
+      required this.onPay,
+      required this.loading});
   final List<SlotModel> listSlot;
   final int totalPrice;
+  final VoidCallback onPay;
+  final bool loading;
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +72,7 @@ class PopupCart extends StatelessWidget {
           siboh24,
           ...List.generate(listSlot.length, (index) {
             return ListCart(
+                loading: loading,
                 slotModel: listSlot[index],
                 onAdd: () {
                   context.read<ProductBloc>().add(ProductEvent.addAmount(
@@ -108,7 +116,23 @@ class PopupCart extends StatelessWidget {
                     ),
                   )
                 ]),
-          )
+          ),
+          siboh24,
+          Container(
+            padding: padall16,
+            child: ButtonIconLeading(
+                onTap: listSlot.isEmpty ? () {} : onPay,
+                height: 75,
+                widget: loading
+                    ? LoadingAnimationWidget.inkDrop(color: white, size: 20)
+                    : Image.asset(
+                        '${vAssetPng}qris.png',
+                      ),
+                title: AppLocalizations.of(context)!.pay_qris,
+                titleStyle: ts24White400,
+                sibow: sibow16),
+          ),
+          siboh24
         ]));
   }
 }

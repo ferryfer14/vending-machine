@@ -28,6 +28,14 @@ class SlotModelDto with _$SlotModelDto {
   factory SlotModelDto.fromJson(Map<String, dynamic> json) =>
       _$SlotModelDtoFromJson(json);
 
+  factory SlotModelDto.fromDomain(SlotModel data) => SlotModelDto(
+        id: data.id,
+        name: data.name,
+        amount: data.amount,
+        price: data.price,
+        stock: data.stock,
+      );
+
   SlotModel toDomain() {
     return SlotModel(
         id: id ?? 0,

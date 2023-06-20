@@ -12,11 +12,13 @@ import '../../core/utils/spacing/sizebox.dart';
 class ListCart extends StatelessWidget {
   const ListCart({
     super.key,
+    required this.loading,
     required this.slotModel,
     required this.onAdd,
     required this.onMin,
     required this.onDelete,
   });
+  final bool loading;
   final SlotModel slotModel;
   final VoidCallback onAdd;
   final VoidCallback onMin;
@@ -43,7 +45,9 @@ class ListCart extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   ButtonCircle(
-                    onTap: slotModel.amount == 0 ? () {} : onMin,
+                    onTap: slotModel.amount == 0
+                        ? () {}
+                        : (loading ? () {} : onMin),
                     icon: const Icon(Icons.remove, color: black, size: 30),
                     backgroundColor: slotModel.amount == 0
                         ? buttonCircle.withOpacity(0.3)
@@ -53,7 +57,9 @@ class ListCart extends StatelessWidget {
                   Text(slotModel.amount.toString(), style: ts24Black400),
                   sibow16,
                   ButtonCircle(
-                    onTap: slotModel.amount == slotModel.stock ? () {} : onAdd,
+                    onTap: slotModel.amount == slotModel.stock
+                        ? () {}
+                        : (loading ? () {} : onAdd),
                     icon: const Icon(Icons.add, color: white, size: 30),
                     backgroundColor: slotModel.amount == slotModel.stock
                         ? primaryColor.withOpacity(0.3)
@@ -61,7 +67,7 @@ class ListCart extends StatelessWidget {
                   ),
                   sibow16,
                   IconButton(
-                    onPressed: onDelete,
+                    onPressed: (loading ? () {} : onDelete),
                     icon: const Icon(Icons.delete_outline, color: redColor),
                     iconSize: 50,
                   )

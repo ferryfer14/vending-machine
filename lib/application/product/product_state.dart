@@ -4,6 +4,7 @@ part of 'product_bloc.dart';
 class ProductState with _$ProductState {
   const factory ProductState({
     required PageModel items,
+    required TransactionModel transaction,
     required List<SlotModel> cart,
     required bool hasReachedMax,
     required bool isLoading,
@@ -18,10 +19,12 @@ class ProductState with _$ProductState {
     required int indexStarted,
     required int indexSelected,
     required Option<ProductFailure> failureOption,
+    required Option<Either<ProductFailure, Unit>> failureOrSuccess,
   }) = _ProductState;
 
   factory ProductState.initial() => ProductState(
       items: PageModel.empty(),
+      transaction: TransactionModel.empty(),
       cart: List.empty(),
       failureOption: none(),
       isLoading: false,
@@ -35,5 +38,6 @@ class ProductState with _$ProductState {
       size: vLimit,
       indexStarted: 0,
       indexSelected:0,
-      idSelected: 0);
+      idSelected: 0,
+      failureOrSuccess: none());
 }

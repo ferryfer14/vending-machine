@@ -13,5 +13,7 @@ class ProductEvent with _$ProductEvent {
   
   const factory ProductEvent.changeIndexStarted(int index, int page) = _ChangeIndexStarted;
 
+  const factory ProductEvent.submitCart() = _SubmitCart;
+
   const factory ProductEvent.reset() = _Reset;
 }

@@ -22,7 +22,7 @@ import '../core/utils/styles/colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CaraouselPage extends StatelessWidget {
-  CaraouselPage({Key? key}) : super(key: key);
+  const CaraouselPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,15 +47,14 @@ class CaraouselPage extends StatelessWidget {
             (data) {
               data.fold(
                 (failure) {
-                  failure.maybeMap(
+                  failure.whenOrNull(
                     appException: (v) {
-                      v.whenOrNull(appException: (f) {
-                        if (f == AppException.badNetworkException()) {
+                    v.maybeMap(
+                        badNetworkException: (_) {
                           noInternet(context, () {}, 'caraousel');
-                        }
-                      });
-                    },
-                    invalidUsernameAndPassword: (_) {
+                        },
+                        orElse: () => null);
+                  }, invalidUsernameAndPassword: () {
                       customSnackBar(
                         context: context,
                         color: redColor,
@@ -63,8 +62,7 @@ class CaraouselPage extends StatelessWidget {
                         content:
                             Text(AppLocalizations.of(context)!.invalid_form),
                       );
-                    },
-                    orElse: () {},
+                  }
                   );
                 },
                 (_) {

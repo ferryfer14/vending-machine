@@ -8,6 +8,7 @@ import '../../../app_constant.dart';
 import '../../../common/api/api_client.dart';
 import '../../../common/exceptions/exceptions.dart';
 import '../../../env.dart';
+import '../../transaction/transaction_dtos.dart';
 import '../page_dtos.dart';
 import '../slot_dtos.dart';
 
@@ -56,6 +57,38 @@ class ProductRemoteDataProvider {
       return left(const ProductFailure.noConnection());
     }
 
+    return left(const ProductFailure.unexpectedError());
+  }
+
+  Future<Either<ProductFailure, TransactionModelDto>> submitCart(
+      {required List<SlotModelDto> slotModelDto}) async {
+    final token = prefs.getString(vAccessToken);
+    try {
+      final response = await apiClient.post(
+        "${env.baseUrl}v1/transaction/buy",
+        data: slotModelDto,
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': 'bearer $token',
+        },
+        followRedirects: false,
+        validateStatus: (status) => status! < 500,
+      );
+
+      if (response.statusCode == 200) {
+        return right(TransactionModelDto.fromJson(response.data));
+      } else if (response.statusCode == 400) {
+        return left(  ProductFailure.appException(
+            AppException.unexpectedException(
+                errorMessage: response.data['error'])));
+      } else if (response.statusCode == 401) {
+        return left(const ProductFailure.appException(
+            AppException.unauthenticatedException()));
+      }
+    } catch (e) {
+      return left(const ProductFailure.appException(
+          AppException.badNetworkException()));
+    }
     return left(const ProductFailure.unexpectedError());
   }
 }

@@ -10,6 +10,7 @@ import 'package:standart_project/domain/product/slot_model.dart';
 import '../../domain/product/i_product_repository.dart';
 import '../../domain/product/page_model.dart';
 import '../../domain/product/product_failure.dart';
+import '../../domain/transaction/transaction_model.dart';
 part 'product_bloc.freezed.dart';
 part 'product_event.dart';
 part 'product_state.dart';
@@ -34,7 +35,10 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
           if (f == const ProductFailure.emptyList()) {
             return state.copyWith.call(hasReachedMax: true, isLoading: false);
           }
-          return state.copyWith.call(failureOption: optionOf(f));
+        return state.copyWith.call(
+          failureOption: optionOf(f),
+          isLoading: false,
+        );
         },
         (items) {
         final totalPage = (items.slot!.length / vSizeGrid).ceil();
@@ -44,6 +48,9 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
             totalPage: totalPage,
             hasReachedMax: items.last!,
             failureOption: none(),
+            totalCart: 0,
+            totalPrice: 0,
+            cart: List.empty(),
             isLoading: false);
       }
       ));
@@ -114,6 +121,23 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       emit(state.copyWith.call(amount: amount));
     }, changeIndexStarted: (e) async {
       emit(state.copyWith.call(indexStarted: e.index, currentPage: e.page));
+    }, submitCart: (e) async {
+      emit(state.copyWith.call(
+        isLoading: true,
+        transaction: TransactionModel.empty(),
+        failureOption: none(),
+      ));
+      final failureOrSuccess =
+          await _productRepository.submitCart(slotModel: state.cart);
+
+      return emit(failureOrSuccess.fold(
+        (f) {
+          return state.copyWith
+              .call(isLoading: false, failureOption: optionOf(f));
+        },
+        (transaction) => state.copyWith.call(
+            transaction: transaction, isLoading: false, failureOption: none()),
+      ));
     }, reset: (e) async {
       emit(ProductState.initial());
     });

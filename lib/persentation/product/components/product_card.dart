@@ -58,6 +58,7 @@ class ProductCard extends StatelessWidget {
                       Expanded(
                           child: slotModel.stock == 0
                               ? PrimaryButton(
+                                  onTap: () {},
                                   color: buttonDisable,
                                   title: AppLocalizations.of(context)!
                                       .out_of_stock,
@@ -66,6 +67,7 @@ class ProductCard extends StatelessWidget {
                                 )
                               : (slotModel.stock == slotModel.amount
                                   ? PrimaryButton(
+                                      onTap: () {},
                                       color: buttonDisable,
                                       title: AppLocalizations.of(context)!
                                           .out_of_stock,

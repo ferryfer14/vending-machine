@@ -2,10 +2,13 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:standart_project/app_constant.dart';
 import 'package:standart_project/domain/product/slot_model.dart';
+import 'package:standart_project/infrastructure/product/slot_dtos.dart';
 
+import '../../common/exceptions/exceptions.dart';
 import '../../domain/product/i_product_repository.dart';
 import '../../domain/product/page_model.dart';
 import '../../domain/product/product_failure.dart';
+import '../../domain/transaction/transaction_model.dart';
 import 'data_sources/remote_data_provider.dart';
 
 @Injectable(as: IProductRepository)
@@ -29,6 +32,23 @@ class ProductRepository implements IProductRepository {
       });
     } catch (e) {
       return left(const ProductFailure.notFound());
+    }
+  }
+
+  @override
+  Future<Either<ProductFailure, TransactionModel>> submitCart(
+      {required List<SlotModel> slotModel}) async {
+    try {
+      final slotModelDto =
+          slotModel.map((e) => SlotModelDto.fromDomain(e)).toList();
+      final response = await productRemoteDataProvider.submitCart(
+          slotModelDto: slotModelDto);
+
+      return response.fold((l) => left(l), (items) {
+        return right(items.toDomain());
+      });
+    } on AppException catch (e) {
+      return left(ProductFailure.appException(e));
     }
   }
 }
