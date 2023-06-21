@@ -26,6 +26,7 @@ mixin _$TransactionEvent {
     required TResult Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)
         success,
+    required TResult Function(int id) checkStatusTransaction,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +39,7 @@ mixin _$TransactionEvent {
     TResult? Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)?
         success,
+    TResult? Function(int id)? checkStatusTransaction,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +52,7 @@ mixin _$TransactionEvent {
     TResult Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)?
         success,
+    TResult Function(int id)? checkStatusTransaction,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +62,8 @@ mixin _$TransactionEvent {
     required TResult Function(_Submited value) submited,
     required TResult Function(_Drop value) drop,
     required TResult Function(_Success value) success,
+    required TResult Function(_CheckStatusTransaction value)
+        checkStatusTransaction,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,6 +72,7 @@ mixin _$TransactionEvent {
     TResult? Function(_Submited value)? submited,
     TResult? Function(_Drop value)? drop,
     TResult? Function(_Success value)? success,
+    TResult? Function(_CheckStatusTransaction value)? checkStatusTransaction,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +81,7 @@ mixin _$TransactionEvent {
     TResult Function(_Submited value)? submited,
     TResult Function(_Drop value)? drop,
     TResult Function(_Success value)? success,
+    TResult Function(_CheckStatusTransaction value)? checkStatusTransaction,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -143,6 +150,7 @@ class _$_Started implements _Started {
     required TResult Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)
         success,
+    required TResult Function(int id) checkStatusTransaction,
   }) {
     return started();
   }
@@ -158,6 +166,7 @@ class _$_Started implements _Started {
     TResult? Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)?
         success,
+    TResult? Function(int id)? checkStatusTransaction,
   }) {
     return started?.call();
   }
@@ -173,6 +182,7 @@ class _$_Started implements _Started {
     TResult Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)?
         success,
+    TResult Function(int id)? checkStatusTransaction,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -188,6 +198,8 @@ class _$_Started implements _Started {
     required TResult Function(_Submited value) submited,
     required TResult Function(_Drop value) drop,
     required TResult Function(_Success value) success,
+    required TResult Function(_CheckStatusTransaction value)
+        checkStatusTransaction,
   }) {
     return started(this);
   }
@@ -199,6 +211,7 @@ class _$_Started implements _Started {
     TResult? Function(_Submited value)? submited,
     TResult? Function(_Drop value)? drop,
     TResult? Function(_Success value)? success,
+    TResult? Function(_CheckStatusTransaction value)? checkStatusTransaction,
   }) {
     return started?.call(this);
   }
@@ -210,6 +223,7 @@ class _$_Started implements _Started {
     TResult Function(_Submited value)? submited,
     TResult Function(_Drop value)? drop,
     TResult Function(_Success value)? success,
+    TResult Function(_CheckStatusTransaction value)? checkStatusTransaction,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -313,6 +327,7 @@ class _$_Submited implements _Submited {
     required TResult Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)
         success,
+    required TResult Function(int id) checkStatusTransaction,
   }) {
     return submited(id, name, isLoading);
   }
@@ -328,6 +343,7 @@ class _$_Submited implements _Submited {
     TResult? Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)?
         success,
+    TResult? Function(int id)? checkStatusTransaction,
   }) {
     return submited?.call(id, name, isLoading);
   }
@@ -343,6 +359,7 @@ class _$_Submited implements _Submited {
     TResult Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)?
         success,
+    TResult Function(int id)? checkStatusTransaction,
     required TResult orElse(),
   }) {
     if (submited != null) {
@@ -358,6 +375,8 @@ class _$_Submited implements _Submited {
     required TResult Function(_Submited value) submited,
     required TResult Function(_Drop value) drop,
     required TResult Function(_Success value) success,
+    required TResult Function(_CheckStatusTransaction value)
+        checkStatusTransaction,
   }) {
     return submited(this);
   }
@@ -369,6 +388,7 @@ class _$_Submited implements _Submited {
     TResult? Function(_Submited value)? submited,
     TResult? Function(_Drop value)? drop,
     TResult? Function(_Success value)? success,
+    TResult? Function(_CheckStatusTransaction value)? checkStatusTransaction,
   }) {
     return submited?.call(this);
   }
@@ -380,6 +400,7 @@ class _$_Submited implements _Submited {
     TResult Function(_Submited value)? submited,
     TResult Function(_Drop value)? drop,
     TResult Function(_Success value)? success,
+    TResult Function(_CheckStatusTransaction value)? checkStatusTransaction,
     required TResult orElse(),
   }) {
     if (submited != null) {
@@ -502,6 +523,7 @@ class _$_Drop implements _Drop {
     required TResult Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)
         success,
+    required TResult Function(int id) checkStatusTransaction,
   }) {
     return drop(slot_id, transaction_id, slot_name, isLoading);
   }
@@ -517,6 +539,7 @@ class _$_Drop implements _Drop {
     TResult? Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)?
         success,
+    TResult? Function(int id)? checkStatusTransaction,
   }) {
     return drop?.call(slot_id, transaction_id, slot_name, isLoading);
   }
@@ -532,6 +555,7 @@ class _$_Drop implements _Drop {
     TResult Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)?
         success,
+    TResult Function(int id)? checkStatusTransaction,
     required TResult orElse(),
   }) {
     if (drop != null) {
@@ -547,6 +571,8 @@ class _$_Drop implements _Drop {
     required TResult Function(_Submited value) submited,
     required TResult Function(_Drop value) drop,
     required TResult Function(_Success value) success,
+    required TResult Function(_CheckStatusTransaction value)
+        checkStatusTransaction,
   }) {
     return drop(this);
   }
@@ -558,6 +584,7 @@ class _$_Drop implements _Drop {
     TResult? Function(_Submited value)? submited,
     TResult? Function(_Drop value)? drop,
     TResult? Function(_Success value)? success,
+    TResult? Function(_CheckStatusTransaction value)? checkStatusTransaction,
   }) {
     return drop?.call(this);
   }
@@ -569,6 +596,7 @@ class _$_Drop implements _Drop {
     TResult Function(_Submited value)? submited,
     TResult Function(_Drop value)? drop,
     TResult Function(_Success value)? success,
+    TResult Function(_CheckStatusTransaction value)? checkStatusTransaction,
     required TResult orElse(),
   }) {
     if (drop != null) {
@@ -693,6 +721,7 @@ class _$_Success implements _Success {
     required TResult Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)
         success,
+    required TResult Function(int id) checkStatusTransaction,
   }) {
     return success(slot_id, transaction_id, status_drop, isLoading);
   }
@@ -708,6 +737,7 @@ class _$_Success implements _Success {
     TResult? Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)?
         success,
+    TResult? Function(int id)? checkStatusTransaction,
   }) {
     return success?.call(slot_id, transaction_id, status_drop, isLoading);
   }
@@ -723,6 +753,7 @@ class _$_Success implements _Success {
     TResult Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)?
         success,
+    TResult Function(int id)? checkStatusTransaction,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -738,6 +769,8 @@ class _$_Success implements _Success {
     required TResult Function(_Submited value) submited,
     required TResult Function(_Drop value) drop,
     required TResult Function(_Success value) success,
+    required TResult Function(_CheckStatusTransaction value)
+        checkStatusTransaction,
   }) {
     return success(this);
   }
@@ -749,6 +782,7 @@ class _$_Success implements _Success {
     TResult? Function(_Submited value)? submited,
     TResult? Function(_Drop value)? drop,
     TResult? Function(_Success value)? success,
+    TResult? Function(_CheckStatusTransaction value)? checkStatusTransaction,
   }) {
     return success?.call(this);
   }
@@ -760,6 +794,7 @@ class _$_Success implements _Success {
     TResult Function(_Submited value)? submited,
     TResult Function(_Drop value)? drop,
     TResult Function(_Success value)? success,
+    TResult Function(_CheckStatusTransaction value)? checkStatusTransaction,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -784,7 +819,175 @@ abstract class _Success implements TransactionEvent {
 }
 
 /// @nodoc
+abstract class _$$_CheckStatusTransactionCopyWith<$Res> {
+  factory _$$_CheckStatusTransactionCopyWith(_$_CheckStatusTransaction value,
+          $Res Function(_$_CheckStatusTransaction) then) =
+      __$$_CheckStatusTransactionCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int id});
+}
+
+/// @nodoc
+class __$$_CheckStatusTransactionCopyWithImpl<$Res>
+    extends _$TransactionEventCopyWithImpl<$Res, _$_CheckStatusTransaction>
+    implements _$$_CheckStatusTransactionCopyWith<$Res> {
+  __$$_CheckStatusTransactionCopyWithImpl(_$_CheckStatusTransaction _value,
+      $Res Function(_$_CheckStatusTransaction) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$_CheckStatusTransaction(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_CheckStatusTransaction implements _CheckStatusTransaction {
+  const _$_CheckStatusTransaction(this.id);
+
+  @override
+  final int id;
+
+  @override
+  String toString() {
+    return 'TransactionEvent.checkStatusTransaction(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CheckStatusTransaction &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CheckStatusTransactionCopyWith<_$_CheckStatusTransaction> get copyWith =>
+      __$$_CheckStatusTransactionCopyWithImpl<_$_CheckStatusTransaction>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(int id, String name, bool isLoading) submited,
+    required TResult Function(
+            int slot_id, int transaction_id, String slot_name, bool isLoading)
+        drop,
+    required TResult Function(
+            int slot_id, int transaction_id, bool status_drop, bool isLoading)
+        success,
+    required TResult Function(int id) checkStatusTransaction,
+  }) {
+    return checkStatusTransaction(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(int id, String name, bool isLoading)? submited,
+    TResult? Function(
+            int slot_id, int transaction_id, String slot_name, bool isLoading)?
+        drop,
+    TResult? Function(
+            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
+        success,
+    TResult? Function(int id)? checkStatusTransaction,
+  }) {
+    return checkStatusTransaction?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(int id, String name, bool isLoading)? submited,
+    TResult Function(
+            int slot_id, int transaction_id, String slot_name, bool isLoading)?
+        drop,
+    TResult Function(
+            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
+        success,
+    TResult Function(int id)? checkStatusTransaction,
+    required TResult orElse(),
+  }) {
+    if (checkStatusTransaction != null) {
+      return checkStatusTransaction(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Submited value) submited,
+    required TResult Function(_Drop value) drop,
+    required TResult Function(_Success value) success,
+    required TResult Function(_CheckStatusTransaction value)
+        checkStatusTransaction,
+  }) {
+    return checkStatusTransaction(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Submited value)? submited,
+    TResult? Function(_Drop value)? drop,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_CheckStatusTransaction value)? checkStatusTransaction,
+  }) {
+    return checkStatusTransaction?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Submited value)? submited,
+    TResult Function(_Drop value)? drop,
+    TResult Function(_Success value)? success,
+    TResult Function(_CheckStatusTransaction value)? checkStatusTransaction,
+    required TResult orElse(),
+  }) {
+    if (checkStatusTransaction != null) {
+      return checkStatusTransaction(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CheckStatusTransaction implements TransactionEvent {
+  const factory _CheckStatusTransaction(final int id) =
+      _$_CheckStatusTransaction;
+
+  int get id;
+  @JsonKey(ignore: true)
+  _$$_CheckStatusTransactionCopyWith<_$_CheckStatusTransaction> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$TransactionState {
+  bool get isPay => throw _privateConstructorUsedError;
+  TransactionModel get transactionModel => throw _privateConstructorUsedError;
   bool? get status_drop => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   int get slot_id => throw _privateConstructorUsedError;
@@ -805,12 +1008,16 @@ abstract class $TransactionStateCopyWith<$Res> {
       _$TransactionStateCopyWithImpl<$Res, TransactionState>;
   @useResult
   $Res call(
-      {bool? status_drop,
+      {bool isPay,
+      TransactionModel transactionModel,
+      bool? status_drop,
       bool isLoading,
       int slot_id,
       int transaction_id,
       String slot_name,
       Option<TransactionFailure> failureOption});
+
+  $TransactionModelCopyWith<$Res> get transactionModel;
 }
 
 /// @nodoc
@@ -826,6 +1033,8 @@ class _$TransactionStateCopyWithImpl<$Res, $Val extends TransactionState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? isPay = null,
+    Object? transactionModel = null,
     Object? status_drop = freezed,
     Object? isLoading = null,
     Object? slot_id = null,
@@ -834,6 +1043,14 @@ class _$TransactionStateCopyWithImpl<$Res, $Val extends TransactionState>
     Object? failureOption = null,
   }) {
     return _then(_value.copyWith(
+      isPay: null == isPay
+          ? _value.isPay
+          : isPay // ignore: cast_nullable_to_non_nullable
+              as bool,
+      transactionModel: null == transactionModel
+          ? _value.transactionModel
+          : transactionModel // ignore: cast_nullable_to_non_nullable
+              as TransactionModel,
       status_drop: freezed == status_drop
           ? _value.status_drop
           : status_drop // ignore: cast_nullable_to_non_nullable
@@ -860,6 +1077,14 @@ class _$TransactionStateCopyWithImpl<$Res, $Val extends TransactionState>
               as Option<TransactionFailure>,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TransactionModelCopyWith<$Res> get transactionModel {
+    return $TransactionModelCopyWith<$Res>(_value.transactionModel, (value) {
+      return _then(_value.copyWith(transactionModel: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -871,12 +1096,17 @@ abstract class _$$_TransactionStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool? status_drop,
+      {bool isPay,
+      TransactionModel transactionModel,
+      bool? status_drop,
       bool isLoading,
       int slot_id,
       int transaction_id,
       String slot_name,
       Option<TransactionFailure> failureOption});
+
+  @override
+  $TransactionModelCopyWith<$Res> get transactionModel;
 }
 
 /// @nodoc
@@ -890,6 +1120,8 @@ class __$$_TransactionStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? isPay = null,
+    Object? transactionModel = null,
     Object? status_drop = freezed,
     Object? isLoading = null,
     Object? slot_id = null,
@@ -898,6 +1130,14 @@ class __$$_TransactionStateCopyWithImpl<$Res>
     Object? failureOption = null,
   }) {
     return _then(_$_TransactionState(
+      isPay: null == isPay
+          ? _value.isPay
+          : isPay // ignore: cast_nullable_to_non_nullable
+              as bool,
+      transactionModel: null == transactionModel
+          ? _value.transactionModel
+          : transactionModel // ignore: cast_nullable_to_non_nullable
+              as TransactionModel,
       status_drop: freezed == status_drop
           ? _value.status_drop
           : status_drop // ignore: cast_nullable_to_non_nullable
@@ -930,13 +1170,19 @@ class __$$_TransactionStateCopyWithImpl<$Res>
 
 class _$_TransactionState implements _TransactionState {
   const _$_TransactionState(
-      {this.status_drop,
+      {required this.isPay,
+      required this.transactionModel,
+      this.status_drop,
       required this.isLoading,
       required this.slot_id,
       required this.transaction_id,
       required this.slot_name,
       required this.failureOption});
 
+  @override
+  final bool isPay;
+  @override
+  final TransactionModel transactionModel;
   @override
   final bool? status_drop;
   @override
@@ -952,7 +1198,7 @@ class _$_TransactionState implements _TransactionState {
 
   @override
   String toString() {
-    return 'TransactionState(status_drop: $status_drop, isLoading: $isLoading, slot_id: $slot_id, transaction_id: $transaction_id, slot_name: $slot_name, failureOption: $failureOption)';
+    return 'TransactionState(isPay: $isPay, transactionModel: $transactionModel, status_drop: $status_drop, isLoading: $isLoading, slot_id: $slot_id, transaction_id: $transaction_id, slot_name: $slot_name, failureOption: $failureOption)';
   }
 
   @override
@@ -960,6 +1206,9 @@ class _$_TransactionState implements _TransactionState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TransactionState &&
+            (identical(other.isPay, isPay) || other.isPay == isPay) &&
+            (identical(other.transactionModel, transactionModel) ||
+                other.transactionModel == transactionModel) &&
             (identical(other.status_drop, status_drop) ||
                 other.status_drop == status_drop) &&
             (identical(other.isLoading, isLoading) ||
@@ -974,8 +1223,16 @@ class _$_TransactionState implements _TransactionState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status_drop, isLoading, slot_id,
-      transaction_id, slot_name, failureOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isPay,
+      transactionModel,
+      status_drop,
+      isLoading,
+      slot_id,
+      transaction_id,
+      slot_name,
+      failureOption);
 
   @JsonKey(ignore: true)
   @override
@@ -986,7 +1243,9 @@ class _$_TransactionState implements _TransactionState {
 
 abstract class _TransactionState implements TransactionState {
   const factory _TransactionState(
-          {final bool? status_drop,
+          {required final bool isPay,
+          required final TransactionModel transactionModel,
+          final bool? status_drop,
           required final bool isLoading,
           required final int slot_id,
           required final int transaction_id,
@@ -994,6 +1253,10 @@ abstract class _TransactionState implements TransactionState {
           required final Option<TransactionFailure> failureOption}) =
       _$_TransactionState;
 
+  @override
+  bool get isPay;
+  @override
+  TransactionModel get transactionModel;
   @override
   bool? get status_drop;
   @override

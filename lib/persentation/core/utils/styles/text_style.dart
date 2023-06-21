@@ -403,6 +403,18 @@ const ts16Prim600 = TextStyle(
   color: primaryColor,
   fontWeight: FontWeight.w600,
 );
+const ts16Pending600 = TextStyle(
+  fontFamily: plusjakarta,
+  fontSize: 16,
+  color: pendingColor,
+  fontWeight: FontWeight.w600,
+);
+const ts16Success600 = TextStyle(
+  fontFamily: plusjakarta,
+  fontSize: 16,
+  color: greenColor,
+  fontWeight: FontWeight.w600,
+);
 
 /// [FONTSIZE = 20 ==========================================]
 
@@ -520,6 +532,12 @@ const ts24Black600 = TextStyle(
   fontFamily: plusjakarta,
   fontSize: 24,
   color: black,
+  fontWeight: FontWeight.w600,
+);
+const ts24Success600 = TextStyle(
+  fontFamily: plusjakarta,
+  fontSize: 24,
+  color: greenColor,
   fontWeight: FontWeight.w600,
 );
 const ts24White400 = TextStyle(

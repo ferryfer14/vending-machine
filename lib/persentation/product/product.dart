@@ -7,12 +7,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:standart_project/application/product/product_bloc.dart';
+import 'package:standart_project/application/transaction/transaction_bloc.dart';
 import 'package:standart_project/domain/product/slot_model.dart';
 import 'package:standart_project/persentation/core/utils/spacing/sizebox.dart';
 import 'package:standart_project/persentation/core/utils/styles/text_style.dart';
 import 'package:standart_project/routes/app_router.dart';
 
 import '../../app_constant.dart';
+import '../../domain/transaction/transaction_model.dart';
 import '../../injection.dart';
 import '../core/functions/unfocus_widget.dart';
 import '../core/utils/spacing/padding.dart';
@@ -23,11 +25,13 @@ import 'components/button_arrow.dart';
 import 'components/circle_caraousel.dart';
 import 'components/popup_cart.dart';
 import 'components/popup_detail.dart';
+import 'components/popup_drop.dart';
+import 'components/popup_qris.dart';
 import 'components/product_card.dart';
 import 'components/title_product.dart';
 
 class ProductPage extends StatefulWidget {
-  ProductPage({Key? key}) : super(key: key);
+  const ProductPage({Key? key}) : super(key: key);
   @override
   State<ProductPage> createState() => _ProductPageState();
 }
@@ -53,6 +57,73 @@ class _ProductPageState extends State<ProductPage> {
 
   navigateHome() {
     context.router.replaceAll([CaraouselRoute()]);
+  }
+
+  Future<void> popupDrop(
+      BuildContext parentContext, List<SlotModel> listSlotModel) async {
+    showDialog(
+        barrierDismissible: false,
+        context: parentContext,
+        builder: (BuildContext context) {
+          return BlocProvider.value(
+              value: parentContext.read<TransactionBloc>(),
+              child: BlocConsumer<TransactionBloc, TransactionState>(
+                  listener: (context, state) {},
+                  builder: (context, state) {
+                    return Dialog(
+                        backgroundColor: Colors.transparent,
+                        insetPadding: padall12,
+                        child: Wrap(children: [
+                          PopupDrop(listSlotModel: listSlotModel)
+                        ]));
+                  }));
+        });
+  }
+
+  Future<void> popupQris(BuildContext parentContext,
+      List<SlotModel> listSlotModel, TransactionModel transactionModel) async {
+    showDialog(
+        barrierDismissible: false,
+        context: parentContext,
+        builder: (BuildContext context) {
+          return MultiBlocProvider(
+              providers: [
+                BlocProvider.value(
+                    value: parentContext.read<TransactionBloc>()
+                      ..add(TransactionEvent.checkStatusTransaction(
+                          transactionModel.id!))),
+                BlocProvider.value(value: parentContext.read<ProductBloc>()),
+              ],
+              child: BlocListener<TransactionBloc, TransactionState>(
+                  listener: (context, state) {
+                    if (searchOnStoppedTyping != null) {
+                      searchOnStoppedTyping?.cancel(); // clear timer
+                    }
+                    if (state.isPay == false &&
+                        state.transactionModel.id! > 0) {
+                      context.read<TransactionBloc>().add(
+                          TransactionEvent.checkStatusTransaction(
+                              transactionModel.id!));
+                    }
+                    if (state.isPay) {
+                      Navigator.pop(context);
+                      popupDrop(parentContext, listSlotModel);
+                    }
+                  },
+                  child: Dialog(
+                      backgroundColor: Colors.transparent,
+                      insetPadding: padall12,
+                      child: Wrap(children: [
+                        PopupQris(
+                          transactionModel: transactionModel,
+                          onClose: () {
+                            parentContext.read<ProductBloc>().add(
+                                const ProductEvent.started(isRefresh: true));
+                            Navigator.pop(context);
+                          },
+                        )
+                      ]))));
+        });
   }
 
   Future<void> popupCart(BuildContext parentContext) async {
@@ -92,8 +163,11 @@ class _ProductPageState extends State<ProductPage> {
                         orElse: () => null);
                   });
                 });
-              },
-                  builder: (context, state) {
+                if (state.transaction.id! > 0) {
+                  Navigator.pop(context);
+                  popupQris(parentContext, state.cart, state.transaction);
+                }
+              }, builder: (context, state) {
                 return Dialog(
                     backgroundColor: Colors.transparent,
                     insetPadding: padall12,
@@ -154,9 +228,15 @@ class _ProductPageState extends State<ProductPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider(
         create: (context) => getIt<ProductBloc>()
-          ..add(const ProductEvent.started(isRefresh: true)),
+                ..add(const ProductEvent.started(isRefresh: true))),
+          BlocProvider(
+              create: (context) => getIt<TransactionBloc>()
+                ..add(const TransactionEvent.started()))
+        ],
         child: Scaffold(
           body: LoaderOverlay(
               useDefaultLoading: false,

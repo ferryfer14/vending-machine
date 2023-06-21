@@ -95,6 +95,10 @@ dependencies:
   loader_overlay: ^2.2.0
   image_network: ^2.5.2
   badges: ^3.1.1
+  qr_flutter: ^4.0.0
+  flutter_animation_progress_bar: ^2.3.1
+  timer_count_down: ^2.2.2
+  simple_circular_progress_bar: ^1.0.2
 
 dev_dependencies:
   flutter_test:

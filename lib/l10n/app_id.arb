@@ -26,6 +26,8 @@
     "detail_product" : "Detail Produk",
     "choose" : "Pilih",
     "process" : "Prosess",
+    "processing" : "Processing",
+    "successed" : "Success",
     "out_of_stock" : "Stok kosong",
     "waiting" : "Menunggu barang",
     "release" : "Barang dirilis",
@@ -57,5 +59,10 @@
             }
         }
     },
-    "pay_qris" : "Bayar dengan QRIS"
+    "pay_qris" : "Bayar dengan QRIS",
+    "qr_code" : "QR kode pembayaran",
+    "note_qr" : "Jika kamu memiliki permasalahan pada pembayaran, silakan hubungi kontak tersebut 083849788322",
+    "waiting_coming" : "Tunggu item kamu tiba",
+    "payment_success" : "Pembayaran sukses",
+    "payment_des" : "Your payment has been received and your order is being processed. Wait for your product to drop and pick it up below."
 }

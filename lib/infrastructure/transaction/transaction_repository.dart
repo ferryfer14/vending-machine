@@ -4,6 +4,7 @@ import 'package:standart_project/domain/transaction/transaction_failure.dart';
 
 import '../../common/exceptions/exceptions.dart';
 import '../../domain/transaction/i_transaction_repository.dart';
+import '../../domain/transaction/transaction_model.dart';
 import 'data_sources/remote_data_provider.dart';
 
 @Injectable(as: ITransactionRepository)
@@ -58,6 +59,21 @@ class TransactionRepository implements ITransactionRepository {
         },
         (unit) => right(unit),
       );
+    } on AppException catch (e) {
+      return left(TransactionFailure.appException(e));
+    }
+  }
+
+  @override
+  Future<Either<TransactionFailure, TransactionModel>> checkStatusTransaction(
+      {required int id}) async {
+    try {
+      final response =
+          await transactionRemoteDataProvider.checkStatusTransaction(id: id);
+
+      return response.fold((l) => left(l), (items) {
+        return right(items.toDomain());
+      });
     } on AppException catch (e) {
       return left(TransactionFailure.appException(e));
     }

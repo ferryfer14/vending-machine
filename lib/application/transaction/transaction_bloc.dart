@@ -8,6 +8,7 @@ import 'package:injectable/injectable.dart';
 import 'package:standart_project/domain/transaction/transaction_failure.dart';
 
 import '../../domain/transaction/i_transaction_repository.dart';
+import '../../domain/transaction/transaction_model.dart';
 part 'transaction_bloc.freezed.dart';
 part 'transaction_event.dart';
 part 'transaction_state.dart';
@@ -110,6 +111,31 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
                 failureOption: none()),
           ));
         }
+      },
+      checkStatusTransaction: (e) async {
+        emit(state.copyWith.call(
+          isLoading: true,
+          isPay: false,
+          transactionModel: TransactionModel.empty(),
+          failureOption: none(),
+        ));
+        final failureOrSuccess =
+            await _transactionRepository.checkStatusTransaction(id: e.id);
+
+        return emit(failureOrSuccess.fold(
+          (f) {
+            return state.copyWith
+                .call(isLoading: false, failureOption: optionOf(f));
+          },
+          (transaction) {
+            bool isPay = transaction.status == 'Paid' ? true : false;
+            return state.copyWith.call(
+                transactionModel: transaction,
+                isLoading: false,
+                isPay: isPay,
+                failureOption: none());
+          },
+        ));
       },
     );
   }

@@ -26,6 +26,8 @@
     "detail_product" : "Detail Product",
     "choose" : "Choose",
     "process" : "Prosess",
+    "processing" : "Processing",
+    "successed" : "Success",
     "out_of_stock" : "Out of Stock",
     "waiting": "Waiting for goods",
     "release" : "Items released",
@@ -57,5 +59,10 @@
             }
         }
     },
-    "pay_qris" : "Pay with QRIS"
+    "pay_qris" : "Pay with QRIS",
+    "qr_code" : "QR Code Payment",
+    "note_qr" : "If you experience problems with payment, please contact our Contact Person at 083849788322",
+    "waiting_coming" : "Waiting for Item Coming",
+    "payment_success" : "Payment Success",
+    "payment_des" : "Your payment has been received and your order is being processed. Wait for your product to drop and pick it up below."
 }

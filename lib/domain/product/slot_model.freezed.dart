@@ -22,6 +22,7 @@ mixin _$SlotModel {
   VendingModel? get vending => throw _privateConstructorUsedError;
   int? get price => throw _privateConstructorUsedError;
   int? get stock => throw _privateConstructorUsedError;
+  bool? get drop => throw _privateConstructorUsedError;
   int? get amount => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -41,6 +42,7 @@ abstract class $SlotModelCopyWith<$Res> {
       VendingModel? vending,
       int? price,
       int? stock,
+      bool? drop,
       int? amount});
 
   $ProductModelCopyWith<$Res>? get product;
@@ -66,6 +68,7 @@ class _$SlotModelCopyWithImpl<$Res, $Val extends SlotModel>
     Object? vending = freezed,
     Object? price = freezed,
     Object? stock = freezed,
+    Object? drop = freezed,
     Object? amount = freezed,
   }) {
     return _then(_value.copyWith(
@@ -93,6 +96,10 @@ class _$SlotModelCopyWithImpl<$Res, $Val extends SlotModel>
           ? _value.stock
           : stock // ignore: cast_nullable_to_non_nullable
               as int?,
+      drop: freezed == drop
+          ? _value.drop
+          : drop // ignore: cast_nullable_to_non_nullable
+              as bool?,
       amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -139,6 +146,7 @@ abstract class _$$_SlotModelCopyWith<$Res> implements $SlotModelCopyWith<$Res> {
       VendingModel? vending,
       int? price,
       int? stock,
+      bool? drop,
       int? amount});
 
   @override
@@ -164,6 +172,7 @@ class __$$_SlotModelCopyWithImpl<$Res>
     Object? vending = freezed,
     Object? price = freezed,
     Object? stock = freezed,
+    Object? drop = freezed,
     Object? amount = freezed,
   }) {
     return _then(_$_SlotModel(
@@ -191,6 +200,10 @@ class __$$_SlotModelCopyWithImpl<$Res>
           ? _value.stock
           : stock // ignore: cast_nullable_to_non_nullable
               as int?,
+      drop: freezed == drop
+          ? _value.drop
+          : drop // ignore: cast_nullable_to_non_nullable
+              as bool?,
       amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -209,6 +222,7 @@ class _$_SlotModel extends _SlotModel {
       this.vending,
       this.price,
       this.stock,
+      this.drop,
       this.amount})
       : super._();
 
@@ -225,11 +239,13 @@ class _$_SlotModel extends _SlotModel {
   @override
   final int? stock;
   @override
+  final bool? drop;
+  @override
   final int? amount;
 
   @override
   String toString() {
-    return 'SlotModel(id: $id, name: $name, product: $product, vending: $vending, price: $price, stock: $stock, amount: $amount)';
+    return 'SlotModel(id: $id, name: $name, product: $product, vending: $vending, price: $price, stock: $stock, drop: $drop, amount: $amount)';
   }
 
   @override
@@ -243,12 +259,13 @@ class _$_SlotModel extends _SlotModel {
             (identical(other.vending, vending) || other.vending == vending) &&
             (identical(other.price, price) || other.price == price) &&
             (identical(other.stock, stock) || other.stock == stock) &&
+            (identical(other.drop, drop) || other.drop == drop) &&
             (identical(other.amount, amount) || other.amount == amount));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, name, product, vending, price, stock, amount);
+      runtimeType, id, name, product, vending, price, stock, drop, amount);
 
   @JsonKey(ignore: true)
   @override
@@ -265,6 +282,7 @@ abstract class _SlotModel extends SlotModel {
       final VendingModel? vending,
       final int? price,
       final int? stock,
+      final bool? drop,
       final int? amount}) = _$_SlotModel;
   const _SlotModel._() : super._();
 
@@ -280,6 +298,8 @@ abstract class _SlotModel extends SlotModel {
   int? get price;
   @override
   int? get stock;
+  @override
+  bool? get drop;
   @override
   int? get amount;
   @override

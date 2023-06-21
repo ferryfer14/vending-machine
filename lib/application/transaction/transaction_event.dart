@@ -12,4 +12,7 @@ class TransactionEvent with _$TransactionEvent {
   const factory TransactionEvent.success(
       int slot_id, int transaction_id, bool status_drop,
       {@Default(false) bool isLoading}) = _Success;
+
+
+  const factory TransactionEvent.checkStatusTransaction(int id) = _CheckStatusTransaction;
 }

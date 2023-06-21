@@ -44,6 +44,7 @@ class SlotModelDto with _$SlotModelDto {
         vending: vending?.toDomain() ?? VendingModel.empty(),
         price: price ?? 0,
         stock: stock ?? 0,
+        drop: false,
         amount: amount ?? 0);
   }
 }

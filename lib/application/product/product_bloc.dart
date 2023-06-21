@@ -49,6 +49,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
             hasReachedMax: items.last!,
             failureOption: none(),
             totalCart: 0,
+            isPay: false,
             totalPrice: 0,
             cart: List.empty(),
             isLoading: false);
@@ -82,6 +83,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
             page: e.page,
             items: items,
             totalPage: totalPage,
+            transaction: TransactionModel.empty(),
             failureOption: none(),
             isLoading: false,
           );
@@ -136,7 +138,10 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
               .call(isLoading: false, failureOption: optionOf(f));
         },
         (transaction) => state.copyWith.call(
-            transaction: transaction, isLoading: false, failureOption: none()),
+            transaction: transaction,
+            isLoading: false,
+            isPay: false,
+            failureOption: none()),
       ));
     }, reset: (e) async {
       emit(ProductState.initial());

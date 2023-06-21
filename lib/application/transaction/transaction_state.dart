@@ -3,6 +3,8 @@ part of 'transaction_bloc.dart';
 @freezed
 class TransactionState with _$TransactionState {
   const factory TransactionState({
+    required bool isPay,
+    required TransactionModel transactionModel,
     bool? status_drop,
     required bool isLoading,
     required int slot_id,
@@ -17,5 +19,7 @@ class TransactionState with _$TransactionState {
       transaction_id: 0,
       slot_name: '',
       status_drop: null,
+      transactionModel: TransactionModel.empty(),
+      isPay: false,
       isLoading: true);
 }

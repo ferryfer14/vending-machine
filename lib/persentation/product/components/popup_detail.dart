@@ -7,9 +7,6 @@ import 'package:standart_project/persentation/core/functions/currency_format.dar
 import '../../../app_constant.dart';
 import '../../../domain/product/slot_model.dart';
 import '../../core/functions/button_circle.dart';
-import '../../core/functions/button_field.dart';
-import '../../core/functions/button_icon_bottom.dart';
-import '../../core/utils/border/border_radius.dart';
 import '../../core/utils/spacing/padding.dart';
 import '../../core/utils/spacing/sizebox.dart';
 import '../../core/utils/styles/colors.dart';
@@ -17,18 +14,18 @@ import '../../core/utils/styles/text_style.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PopupDetail extends StatelessWidget {
-  PopupDetail(
+  const PopupDetail(
       {super.key,
       required this.slotModel,
       required this.amount,
       required this.onAdd,
       required this.onMin,
       required this.onCart});
-  SlotModel slotModel;
-  int amount;
-  VoidCallback onCart;
-  VoidCallback onAdd;
-  VoidCallback onMin;
+  final SlotModel slotModel;
+  final int amount;
+  final VoidCallback onCart;
+  final VoidCallback onAdd;
+  final VoidCallback onMin;
 
   @override
   Widget build(BuildContext context) {

@@ -16,6 +16,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../../domain/transaction/transaction_failure.dart';
+import '../transaction_dtos.dart';
 
 @injectable
 class TransactionRemoteDataProvider {
@@ -127,6 +128,38 @@ class TransactionRemoteDataProvider {
         return right(unit);
       } else if (response.statusCode == 400) {
         return left(const TransactionFailure.unexpectedError());
+      } else if (response.statusCode == 401) {
+        return left(const TransactionFailure.appException(
+            AppException.unauthenticatedException()));
+      }
+    } catch (e) {
+      return left(const TransactionFailure.appException(
+          AppException.badNetworkException()));
+    }
+    return left(const TransactionFailure.unexpectedError());
+  }
+
+
+  Future<Either<TransactionFailure, TransactionModelDto>> checkStatusTransaction(
+      {required int id}) async {
+    final token = prefs.getString(vAccessToken);
+    try {
+      final response = await apiClient.get(
+        "${env.baseUrl}v1/transaction/$id",
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': 'bearer $token',
+        },
+        followRedirects: false,
+        validateStatus: (status) => status! < 500,
+      );
+
+      if (response.statusCode == 200) {
+        return right(TransactionModelDto.fromJson(response.data));
+      } else if (response.statusCode == 400) {
+        return left(  TransactionFailure.appException(
+            AppException.unexpectedException(
+                errorMessage: response.data['error'])));
       } else if (response.statusCode == 401) {
         return left(const TransactionFailure.appException(
             AppException.unauthenticatedException()));

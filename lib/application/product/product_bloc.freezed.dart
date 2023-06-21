@@ -1253,6 +1253,7 @@ mixin _$ProductState {
   int get idSelected => throw _privateConstructorUsedError;
   int get indexStarted => throw _privateConstructorUsedError;
   int get indexSelected => throw _privateConstructorUsedError;
+  bool get isPay => throw _privateConstructorUsedError;
   Option<ProductFailure> get failureOption =>
       throw _privateConstructorUsedError;
   Option<Either<ProductFailure, Unit>> get failureOrSuccess =>
@@ -1285,6 +1286,7 @@ abstract class $ProductStateCopyWith<$Res> {
       int idSelected,
       int indexStarted,
       int indexSelected,
+      bool isPay,
       Option<ProductFailure> failureOption,
       Option<Either<ProductFailure, Unit>> failureOrSuccess});
 
@@ -1320,6 +1322,7 @@ class _$ProductStateCopyWithImpl<$Res, $Val extends ProductState>
     Object? idSelected = null,
     Object? indexStarted = null,
     Object? indexSelected = null,
+    Object? isPay = null,
     Object? failureOption = null,
     Object? failureOrSuccess = null,
   }) {
@@ -1384,6 +1387,10 @@ class _$ProductStateCopyWithImpl<$Res, $Val extends ProductState>
           ? _value.indexSelected
           : indexSelected // ignore: cast_nullable_to_non_nullable
               as int,
+      isPay: null == isPay
+          ? _value.isPay
+          : isPay // ignore: cast_nullable_to_non_nullable
+              as bool,
       failureOption: null == failureOption
           ? _value.failureOption
           : failureOption // ignore: cast_nullable_to_non_nullable
@@ -1436,6 +1443,7 @@ abstract class _$$_ProductStateCopyWith<$Res>
       int idSelected,
       int indexStarted,
       int indexSelected,
+      bool isPay,
       Option<ProductFailure> failureOption,
       Option<Either<ProductFailure, Unit>> failureOrSuccess});
 
@@ -1471,6 +1479,7 @@ class __$$_ProductStateCopyWithImpl<$Res>
     Object? idSelected = null,
     Object? indexStarted = null,
     Object? indexSelected = null,
+    Object? isPay = null,
     Object? failureOption = null,
     Object? failureOrSuccess = null,
   }) {
@@ -1535,6 +1544,10 @@ class __$$_ProductStateCopyWithImpl<$Res>
           ? _value.indexSelected
           : indexSelected // ignore: cast_nullable_to_non_nullable
               as int,
+      isPay: null == isPay
+          ? _value.isPay
+          : isPay // ignore: cast_nullable_to_non_nullable
+              as bool,
       failureOption: null == failureOption
           ? _value.failureOption
           : failureOption // ignore: cast_nullable_to_non_nullable
@@ -1566,6 +1579,7 @@ class _$_ProductState implements _ProductState {
       required this.idSelected,
       required this.indexStarted,
       required this.indexSelected,
+      required this.isPay,
       required this.failureOption,
       required this.failureOrSuccess})
       : _cart = cart;
@@ -1607,13 +1621,15 @@ class _$_ProductState implements _ProductState {
   @override
   final int indexSelected;
   @override
+  final bool isPay;
+  @override
   final Option<ProductFailure> failureOption;
   @override
   final Option<Either<ProductFailure, Unit>> failureOrSuccess;
 
   @override
   String toString() {
-    return 'ProductState(items: $items, transaction: $transaction, cart: $cart, hasReachedMax: $hasReachedMax, isLoading: $isLoading, page: $page, currentPage: $currentPage, amount: $amount, totalPage: $totalPage, totalPrice: $totalPrice, totalCart: $totalCart, size: $size, idSelected: $idSelected, indexStarted: $indexStarted, indexSelected: $indexSelected, failureOption: $failureOption, failureOrSuccess: $failureOrSuccess)';
+    return 'ProductState(items: $items, transaction: $transaction, cart: $cart, hasReachedMax: $hasReachedMax, isLoading: $isLoading, page: $page, currentPage: $currentPage, amount: $amount, totalPage: $totalPage, totalPrice: $totalPrice, totalCart: $totalCart, size: $size, idSelected: $idSelected, indexStarted: $indexStarted, indexSelected: $indexSelected, isPay: $isPay, failureOption: $failureOption, failureOrSuccess: $failureOrSuccess)';
   }
 
   @override
@@ -1646,6 +1662,7 @@ class _$_ProductState implements _ProductState {
                 other.indexStarted == indexStarted) &&
             (identical(other.indexSelected, indexSelected) ||
                 other.indexSelected == indexSelected) &&
+            (identical(other.isPay, isPay) || other.isPay == isPay) &&
             (identical(other.failureOption, failureOption) ||
                 other.failureOption == failureOption) &&
             (identical(other.failureOrSuccess, failureOrSuccess) ||
@@ -1670,6 +1687,7 @@ class _$_ProductState implements _ProductState {
       idSelected,
       indexStarted,
       indexSelected,
+      isPay,
       failureOption,
       failureOrSuccess);
 
@@ -1697,6 +1715,7 @@ abstract class _ProductState implements ProductState {
       required final int idSelected,
       required final int indexStarted,
       required final int indexSelected,
+      required final bool isPay,
       required final Option<ProductFailure> failureOption,
       required final Option<Either<ProductFailure, Unit>>
           failureOrSuccess}) = _$_ProductState;
@@ -1731,6 +1750,8 @@ abstract class _ProductState implements ProductState {
   int get indexStarted;
   @override
   int get indexSelected;
+  @override
+  bool get isPay;
   @override
   Option<ProductFailure> get failureOption;
   @override

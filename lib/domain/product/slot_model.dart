@@ -15,6 +15,7 @@ class SlotModel with _$SlotModel {
       VendingModel? vending,
       int? price,
       int? stock,
+      bool? drop,
       int? amount}) = _SlotModel;
 
   factory SlotModel.empty() => SlotModel(
@@ -24,5 +25,6 @@ class SlotModel with _$SlotModel {
       vending: VendingModel.empty(),
       price: 0,
       stock: 0,
+      drop: false,
       amount: 0);
 }

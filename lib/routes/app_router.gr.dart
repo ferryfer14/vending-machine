@@ -18,19 +18,15 @@ class _$AppRouter extends RootStackRouter {
   @override
   final Map<String, PageFactory> pagesMap = {
     CaraouselRoute.name: (routeData) {
-      final args = routeData.argsAs<CaraouselRouteArgs>(
-          orElse: () => const CaraouselRouteArgs());
       return MaterialPageX<dynamic>(
         routeData: routeData,
-        child: CaraouselPage(key: args.key),
+        child: const CaraouselPage(),
       );
     },
     ProductRoute.name: (routeData) {
-      final args = routeData.argsAs<ProductRouteArgs>(
-          orElse: () => const ProductRouteArgs());
       return CustomPage<dynamic>(
         routeData: routeData,
-        child: ProductPage(key: args.key),
+        child: const ProductPage(),
         transitionsBuilder: TransitionsBuilders.slideLeft,
         opaque: true,
         barrierDismissible: false,
@@ -53,48 +49,24 @@ class _$AppRouter extends RootStackRouter {
 
 /// generated route for
 /// [CaraouselPage]
-class CaraouselRoute extends PageRouteInfo<CaraouselRouteArgs> {
-  CaraouselRoute({Key? key})
+class CaraouselRoute extends PageRouteInfo<void> {
+  const CaraouselRoute()
       : super(
           CaraouselRoute.name,
           path: '/',
-          args: CaraouselRouteArgs(key: key),
         );
 
   static const String name = 'CaraouselRoute';
 }
 
-class CaraouselRouteArgs {
-  const CaraouselRouteArgs({this.key});
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'CaraouselRouteArgs{key: $key}';
-  }
-}
-
 /// generated route for
 /// [ProductPage]
-class ProductRoute extends PageRouteInfo<ProductRouteArgs> {
-  ProductRoute({Key? key})
+class ProductRoute extends PageRouteInfo<void> {
+  const ProductRoute()
       : super(
           ProductRoute.name,
           path: 'product',
-          args: ProductRouteArgs(key: key),
         );
 
   static const String name = 'ProductRoute';
-}
-
-class ProductRouteArgs {
-  const ProductRouteArgs({this.key});
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'ProductRouteArgs{key: $key}';
-  }
 }
