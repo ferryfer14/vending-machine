@@ -70,7 +70,18 @@ class PopupDrop extends StatelessWidget {
           siboh24,
           ...List.generate(listSlotModel.length,
               (index) => ListItemDrop(slotModel: listSlotModel[index])),
-          siboh24
+          siboh64,
+          Center(
+            child: SizedBox(
+                width: 500,
+                child: Text(AppLocalizations.of(context)!.take_your_item,
+                    textAlign: TextAlign.center, style: ts32Primary400)),
+          ),
+          siboh16,
+          const Center(
+              child: Icon(Icons.keyboard_double_arrow_down_sharp,
+                  color: primaryColor, size: 50)),
+          siboh16,
         ]));
   }
 }

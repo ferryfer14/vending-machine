@@ -7,6 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:standart_project/domain/transaction/transaction_failure.dart';
 
+import '../../domain/product/slot_model.dart';
 import '../../domain/transaction/i_transaction_repository.dart';
 import '../../domain/transaction/transaction_model.dart';
 part 'transaction_bloc.freezed.dart';
@@ -29,60 +30,31 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
       started: (_) async {
         emit(TransactionState.initial());
       },
-      submited: (e) async {
-        if (e.isLoading) {
-          emit(state.copyWith.call(isLoading: true));
-
-          Either<TransactionFailure, int>? failureOrSuccess;
-
-          failureOrSuccess =
-              await _transactionRepository.submit(id: e.id.toString());
-
-          emit(failureOrSuccess.fold(
-            (f) {
-              return state.copyWith.call(
-                  isLoading: false,
-                  slot_id: e.id,
-                  slot_name: e.name,
-                  failureOption: optionOf(f));
-            },
-            (transaction_id) => state.copyWith.call(
-                slot_id: e.id,
-                transaction_id: transaction_id,
-                isLoading: false,
-                slot_name: e.name,
-                failureOption: none()),
-          ));
-        }
-      },
       drop: (e) async {
-        if (e.isLoading) {
-          emit(state.copyWith
-              .call(isLoading: true, transaction_id: e.transaction_id));
-
-          Either<TransactionFailure, Unit>? failureOrSuccess;
-
-          failureOrSuccess = await _transactionRepository.drop(
-              id: e.slot_id,
-              transaction_id: e.transaction_id,
-              slot_name: e.slot_name);
-
-          return emit(failureOrSuccess.fold(
-            (f) {
-              return state.copyWith.call(
+        if (e.listSlotModel.length > 0) {
+          List<SlotModel> listSlotModel = [...e.listSlotModel];
+          listSlotModel.map((slotModel) async {
+            Either<TransactionFailure, Unit> failureOrSuccess =
+                await _transactionRepository.drop(
+                    slotName: slotModel.name!);
+            emit(failureOrSuccess.fold(
+              (f) {
+                slotModel.statusDrop = 
+                return state.copyWith.call(
+                    isLoading: false,
+                    slot_id: e.slot_id,
+                    transaction_id: e.transaction_id,
+                    status_drop: false,
+                    failureOption: optionOf(f));
+              },
+              (_) => state.copyWith.call(
                   isLoading: false,
                   slot_id: e.slot_id,
                   transaction_id: e.transaction_id,
-                  status_drop: false,
-                  failureOption: optionOf(f));
-            },
-            (_) => state.copyWith.call(
-                isLoading: false,
-                slot_id: e.slot_id,
-                transaction_id: e.transaction_id,
-                status_drop: true,
-                failureOption: none()),
-          ));
+                  status_drop: true,
+                  failureOption: none()),
+            ));
+          });
         }
       },
       success: (e) async {
@@ -99,13 +71,12 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
 
           return emit(failureOrSuccess.fold(
             (f) {
-              return state.copyWith
-                  .call(isLoading: false,
+              return state.copyWith.call(
+                  isLoading: false,
                   transaction_id: e.transaction_id,
                   failureOption: optionOf(f));
             },
-            (_) =>
-                state.copyWith.call(
+            (_) => state.copyWith.call(
                 isLoading: false,
                 transaction_id: e.transaction_id,
                 failureOption: none()),

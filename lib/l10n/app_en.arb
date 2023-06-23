@@ -29,6 +29,7 @@
     "processing" : "Processing",
     "successed" : "Success",
     "out_of_stock" : "Out of Stock",
+    "waitings": "Waiting",
     "waiting": "Waiting for goods",
     "release" : "Items released",
     "processed" : "Transaction processed",
@@ -64,5 +65,6 @@
     "note_qr" : "If you experience problems with payment, please contact our Contact Person at 083849788322",
     "waiting_coming" : "Waiting for Item Coming",
     "payment_success" : "Payment Success",
-    "payment_des" : "Your payment has been received and your order is being processed. Wait for your product to drop and pick it up below."
+    "payment_des" : "Your payment has been received and your order is being processed. Wait for your product to drop and pick it up below.",
+    "take_your_item" : "Take your Item Below"
 }

@@ -528,6 +528,12 @@ const ts24Primary400 = TextStyle(
   fontWeight: FontWeight.w400,
 );
 
+const ts24Pending400 = TextStyle(
+  fontFamily: plusjakarta,
+  fontSize: 24,
+  color: pendingColor,
+  fontWeight: FontWeight.w400,
+);
 const ts24Black600 = TextStyle(
   fontFamily: plusjakarta,
   fontSize: 24,

@@ -13,28 +13,11 @@ class TransactionRepository implements ITransactionRepository {
 
   TransactionRepository(this.transactionRemoteDataProvider);
   @override
-  Future<Either<TransactionFailure, int>> submit(
-      {required String id}) async {
-    try {
-      final response = await transactionRemoteDataProvider.submit(
-          id: id);
-
-      return response.fold(
-        (failure) {
-          return left(failure);
-        },
-        (unit) => right(unit),
-      );
-    } on AppException catch (e) {
-      return left(TransactionFailure.appException(e));
-    }
-  }
-  @override
   Future<Either<TransactionFailure, Unit>> drop(
-      {required int id, required String slot_name, required int transaction_id}) async {
+      {required String slotName}) async {
     try {
-      final response = await transactionRemoteDataProvider.drop(
-          slot_id: id, transaction_id: transaction_id, slot: slot_name);
+      final response =
+          await transactionRemoteDataProvider.drop(slotName: slotName);
 
       return response.fold(
         (failure) {

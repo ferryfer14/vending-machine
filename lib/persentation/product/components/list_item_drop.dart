@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:standart_project/persentation/core/functions/currency_format.dart';
-import 'package:standart_project/persentation/core/utils/border/border_radius.dart';
 import 'package:standart_project/persentation/core/utils/spacing/padding.dart';
 import 'package:standart_project/persentation/core/utils/styles/colors.dart';
 import 'package:standart_project/persentation/core/utils/styles/text_style.dart';
+import 'package:standart_project/persentation/product/components/circular_text.dart';
 
 import '../../../domain/product/slot_model.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -34,32 +33,37 @@ class ListItemDrop extends StatelessWidget {
             Text("${slotModel.amount!}x", style: ts24Secondary400),
           ],
         )),
-        slotModel.drop == false
-            ? SimpleCircularProgressBar(
+        slotModel.statusDrop == 0
+            ? CircularText(
                 backColor: neutralColor,
-                mergeMode: true,
-                progressColors: [primaryColor, primaryColor.withOpacity(0.4)],
-                fullProgressColor: primaryColor,
-                onGetText: (value) {
-                  return Text('0/${slotModel.amount!}', style: ts16Prim600);
-                },
-              )
-            : SimpleCircularProgressBar(
+                progressColor: pendingColor,
+                widgetText: Text('${slotModel.amount!}/${slotModel.amount!}',
+                    style: ts16Pending600),
+              ) 
+            : (slotModel.statusDrop == 1
+                ? CircularText(
                 backColor: neutralColor,
-                mergeMode: true,
-                progressColors: [greenColor, greenColor.withOpacity(0.4)],
-                fullProgressColor: greenColor,
-                onGetText: (value) {
-                  return Text('${slotModel.amount!}/${slotModel.amount!}',
-                      style: ts16Success600);
-                },
-              ),
+                    progressColor: primaryColor,
+                    widgetText: Text(
+                        '${slotModel.amount!}/${slotModel.amount!}',
+                        style: ts16Prim600),
+                  )
+                : CircularText(
+                    backColor: neutralColor,
+                    progressColor: greenColor,
+                    widgetText: Text(
+                        '${slotModel.amount!}/${slotModel.amount!}',
+                        style: ts16Success600),
+                  )),
         sibow16,
-        slotModel.drop == false
-            ? Text(AppLocalizations.of(context)!.processing,
-                style: ts24Primary400)
-            : Text(AppLocalizations.of(context)!.successed,
-                style: ts24Success600)
+        slotModel.statusDrop == 0
+            ? Text(AppLocalizations.of(context)!.waitings,
+                style: ts24Pending400)
+            : (slotModel.statusDrop == 1
+                ? Text(AppLocalizations.of(context)!.processing,
+                    style: ts24Primary400)
+                : Text(AppLocalizations.of(context)!.successed,
+                    style: ts24Success600))
       ]),
     );
   }

@@ -281,7 +281,8 @@ class _ProductPageState extends State<ProductPage> {
                                         siboh24,
                                         TitleProduct(
                                           totalCart: state.totalCart,
-                                          onTap: () => popupCart(context),
+                                          onTap: () =>
+                                              popupDrop(context, state.cart),
                                         ),
                                         siboh24,
                                         CarouselSlider.builder(

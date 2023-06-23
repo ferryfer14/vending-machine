@@ -32,6 +32,8 @@ mixin _$SlotModelDto {
   int? get price => throw _privateConstructorUsedError;
   @JsonKey(name: 'stock')
   int? get stock => throw _privateConstructorUsedError;
+  @JsonKey(name: 'statusDrop')
+  int? get statusDrop => throw _privateConstructorUsedError;
   @JsonKey(name: 'amount')
   int? get amount => throw _privateConstructorUsedError;
 
@@ -54,6 +56,7 @@ abstract class $SlotModelDtoCopyWith<$Res> {
       @JsonKey(name: 'vending') VendingModelDto? vending,
       @JsonKey(name: 'price') int? price,
       @JsonKey(name: 'stock') int? stock,
+      @JsonKey(name: 'statusDrop') int? statusDrop,
       @JsonKey(name: 'amount') int? amount});
 
   $ProductModelDtoCopyWith<$Res>? get product;
@@ -79,6 +82,7 @@ class _$SlotModelDtoCopyWithImpl<$Res, $Val extends SlotModelDto>
     Object? vending = freezed,
     Object? price = freezed,
     Object? stock = freezed,
+    Object? statusDrop = freezed,
     Object? amount = freezed,
   }) {
     return _then(_value.copyWith(
@@ -105,6 +109,10 @@ class _$SlotModelDtoCopyWithImpl<$Res, $Val extends SlotModelDto>
       stock: freezed == stock
           ? _value.stock
           : stock // ignore: cast_nullable_to_non_nullable
+              as int?,
+      statusDrop: freezed == statusDrop
+          ? _value.statusDrop
+          : statusDrop // ignore: cast_nullable_to_non_nullable
               as int?,
       amount: freezed == amount
           ? _value.amount
@@ -153,6 +161,7 @@ abstract class _$$_SlotModelDtoCopyWith<$Res>
       @JsonKey(name: 'vending') VendingModelDto? vending,
       @JsonKey(name: 'price') int? price,
       @JsonKey(name: 'stock') int? stock,
+      @JsonKey(name: 'statusDrop') int? statusDrop,
       @JsonKey(name: 'amount') int? amount});
 
   @override
@@ -178,6 +187,7 @@ class __$$_SlotModelDtoCopyWithImpl<$Res>
     Object? vending = freezed,
     Object? price = freezed,
     Object? stock = freezed,
+    Object? statusDrop = freezed,
     Object? amount = freezed,
   }) {
     return _then(_$_SlotModelDto(
@@ -205,6 +215,10 @@ class __$$_SlotModelDtoCopyWithImpl<$Res>
           ? _value.stock
           : stock // ignore: cast_nullable_to_non_nullable
               as int?,
+      statusDrop: freezed == statusDrop
+          ? _value.statusDrop
+          : statusDrop // ignore: cast_nullable_to_non_nullable
+              as int?,
       amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -223,6 +237,7 @@ class _$_SlotModelDto extends _SlotModelDto {
       @JsonKey(name: 'vending') this.vending,
       @JsonKey(name: 'price') this.price,
       @JsonKey(name: 'stock') this.stock,
+      @JsonKey(name: 'statusDrop') this.statusDrop,
       @JsonKey(name: 'amount') this.amount})
       : super._();
 
@@ -248,12 +263,15 @@ class _$_SlotModelDto extends _SlotModelDto {
   @JsonKey(name: 'stock')
   final int? stock;
   @override
+  @JsonKey(name: 'statusDrop')
+  final int? statusDrop;
+  @override
   @JsonKey(name: 'amount')
   final int? amount;
 
   @override
   String toString() {
-    return 'SlotModelDto(id: $id, name: $name, product: $product, vending: $vending, price: $price, stock: $stock, amount: $amount)';
+    return 'SlotModelDto(id: $id, name: $name, product: $product, vending: $vending, price: $price, stock: $stock, statusDrop: $statusDrop, amount: $amount)';
   }
 
   @override
@@ -267,13 +285,15 @@ class _$_SlotModelDto extends _SlotModelDto {
             (identical(other.vending, vending) || other.vending == vending) &&
             (identical(other.price, price) || other.price == price) &&
             (identical(other.stock, stock) || other.stock == stock) &&
+            (identical(other.statusDrop, statusDrop) ||
+                other.statusDrop == statusDrop) &&
             (identical(other.amount, amount) || other.amount == amount));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, name, product, vending, price, stock, amount);
+  int get hashCode => Object.hash(runtimeType, id, name, product, vending,
+      price, stock, statusDrop, amount);
 
   @JsonKey(ignore: true)
   @override
@@ -297,6 +317,7 @@ abstract class _SlotModelDto extends SlotModelDto {
       @JsonKey(name: 'vending') final VendingModelDto? vending,
       @JsonKey(name: 'price') final int? price,
       @JsonKey(name: 'stock') final int? stock,
+      @JsonKey(name: 'statusDrop') final int? statusDrop,
       @JsonKey(name: 'amount') final int? amount}) = _$_SlotModelDto;
   const _SlotModelDto._() : super._();
 
@@ -321,6 +342,9 @@ abstract class _SlotModelDto extends SlotModelDto {
   @override
   @JsonKey(name: 'stock')
   int? get stock;
+  @override
+  @JsonKey(name: 'statusDrop')
+  int? get statusDrop;
   @override
   @JsonKey(name: 'amount')
   int? get amount;

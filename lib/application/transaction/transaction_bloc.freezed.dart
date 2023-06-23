@@ -19,10 +19,7 @@ mixin _$TransactionEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(int id, String name, bool isLoading) submited,
-    required TResult Function(
-            int slot_id, int transaction_id, String slot_name, bool isLoading)
-        drop,
+    required TResult Function(List<SlotModel> listSlotModel) drop,
     required TResult Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)
         success,
@@ -32,10 +29,7 @@ mixin _$TransactionEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(int id, String name, bool isLoading)? submited,
-    TResult? Function(
-            int slot_id, int transaction_id, String slot_name, bool isLoading)?
-        drop,
+    TResult? Function(List<SlotModel> listSlotModel)? drop,
     TResult? Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)?
         success,
@@ -45,10 +39,7 @@ mixin _$TransactionEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(int id, String name, bool isLoading)? submited,
-    TResult Function(
-            int slot_id, int transaction_id, String slot_name, bool isLoading)?
-        drop,
+    TResult Function(List<SlotModel> listSlotModel)? drop,
     TResult Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)?
         success,
@@ -59,7 +50,6 @@ mixin _$TransactionEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_Submited value) submited,
     required TResult Function(_Drop value) drop,
     required TResult Function(_Success value) success,
     required TResult Function(_CheckStatusTransaction value)
@@ -69,7 +59,6 @@ mixin _$TransactionEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_Submited value)? submited,
     TResult? Function(_Drop value)? drop,
     TResult? Function(_Success value)? success,
     TResult? Function(_CheckStatusTransaction value)? checkStatusTransaction,
@@ -78,7 +67,6 @@ mixin _$TransactionEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_Submited value)? submited,
     TResult Function(_Drop value)? drop,
     TResult Function(_Success value)? success,
     TResult Function(_CheckStatusTransaction value)? checkStatusTransaction,
@@ -143,10 +131,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(int id, String name, bool isLoading) submited,
-    required TResult Function(
-            int slot_id, int transaction_id, String slot_name, bool isLoading)
-        drop,
+    required TResult Function(List<SlotModel> listSlotModel) drop,
     required TResult Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)
         success,
@@ -159,10 +144,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(int id, String name, bool isLoading)? submited,
-    TResult? Function(
-            int slot_id, int transaction_id, String slot_name, bool isLoading)?
-        drop,
+    TResult? Function(List<SlotModel> listSlotModel)? drop,
     TResult? Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)?
         success,
@@ -175,10 +157,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(int id, String name, bool isLoading)? submited,
-    TResult Function(
-            int slot_id, int transaction_id, String slot_name, bool isLoading)?
-        drop,
+    TResult Function(List<SlotModel> listSlotModel)? drop,
     TResult Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)?
         success,
@@ -195,7 +174,6 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_Submited value) submited,
     required TResult Function(_Drop value) drop,
     required TResult Function(_Success value) success,
     required TResult Function(_CheckStatusTransaction value)
@@ -208,7 +186,6 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_Submited value)? submited,
     TResult? Function(_Drop value)? drop,
     TResult? Function(_Success value)? success,
     TResult? Function(_CheckStatusTransaction value)? checkStatusTransaction,
@@ -220,7 +197,6 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_Submited value)? submited,
     TResult Function(_Drop value)? drop,
     TResult Function(_Success value)? success,
     TResult Function(_CheckStatusTransaction value)? checkStatusTransaction,
@@ -238,197 +214,11 @@ abstract class _Started implements TransactionEvent {
 }
 
 /// @nodoc
-abstract class _$$_SubmitedCopyWith<$Res> {
-  factory _$$_SubmitedCopyWith(
-          _$_Submited value, $Res Function(_$_Submited) then) =
-      __$$_SubmitedCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int id, String name, bool isLoading});
-}
-
-/// @nodoc
-class __$$_SubmitedCopyWithImpl<$Res>
-    extends _$TransactionEventCopyWithImpl<$Res, _$_Submited>
-    implements _$$_SubmitedCopyWith<$Res> {
-  __$$_SubmitedCopyWithImpl(
-      _$_Submited _value, $Res Function(_$_Submited) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? isLoading = null,
-  }) {
-    return _then(_$_Submited(
-      null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_Submited implements _Submited {
-  const _$_Submited(this.id, this.name, {this.isLoading = false});
-
-  @override
-  final int id;
-  @override
-  final String name;
-  @override
-  @JsonKey()
-  final bool isLoading;
-
-  @override
-  String toString() {
-    return 'TransactionEvent.submited(id: $id, name: $name, isLoading: $isLoading)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Submited &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, id, name, isLoading);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_SubmitedCopyWith<_$_Submited> get copyWith =>
-      __$$_SubmitedCopyWithImpl<_$_Submited>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function(int id, String name, bool isLoading) submited,
-    required TResult Function(
-            int slot_id, int transaction_id, String slot_name, bool isLoading)
-        drop,
-    required TResult Function(
-            int slot_id, int transaction_id, bool status_drop, bool isLoading)
-        success,
-    required TResult Function(int id) checkStatusTransaction,
-  }) {
-    return submited(id, name, isLoading);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function(int id, String name, bool isLoading)? submited,
-    TResult? Function(
-            int slot_id, int transaction_id, String slot_name, bool isLoading)?
-        drop,
-    TResult? Function(
-            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
-        success,
-    TResult? Function(int id)? checkStatusTransaction,
-  }) {
-    return submited?.call(id, name, isLoading);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(int id, String name, bool isLoading)? submited,
-    TResult Function(
-            int slot_id, int transaction_id, String slot_name, bool isLoading)?
-        drop,
-    TResult Function(
-            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
-        success,
-    TResult Function(int id)? checkStatusTransaction,
-    required TResult orElse(),
-  }) {
-    if (submited != null) {
-      return submited(id, name, isLoading);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_Submited value) submited,
-    required TResult Function(_Drop value) drop,
-    required TResult Function(_Success value) success,
-    required TResult Function(_CheckStatusTransaction value)
-        checkStatusTransaction,
-  }) {
-    return submited(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_Submited value)? submited,
-    TResult? Function(_Drop value)? drop,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_CheckStatusTransaction value)? checkStatusTransaction,
-  }) {
-    return submited?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_Submited value)? submited,
-    TResult Function(_Drop value)? drop,
-    TResult Function(_Success value)? success,
-    TResult Function(_CheckStatusTransaction value)? checkStatusTransaction,
-    required TResult orElse(),
-  }) {
-    if (submited != null) {
-      return submited(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Submited implements TransactionEvent {
-  const factory _Submited(final int id, final String name,
-      {final bool isLoading}) = _$_Submited;
-
-  int get id;
-  String get name;
-  bool get isLoading;
-  @JsonKey(ignore: true)
-  _$$_SubmitedCopyWith<_$_Submited> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
 abstract class _$$_DropCopyWith<$Res> {
   factory _$$_DropCopyWith(_$_Drop value, $Res Function(_$_Drop) then) =
       __$$_DropCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {int slot_id, int transaction_id, String slot_name, bool isLoading});
+  $Res call({List<SlotModel> listSlotModel});
 }
 
 /// @nodoc
@@ -441,28 +231,13 @@ class __$$_DropCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? slot_id = null,
-    Object? transaction_id = null,
-    Object? slot_name = null,
-    Object? isLoading = null,
+    Object? listSlotModel = null,
   }) {
     return _then(_$_Drop(
-      null == slot_id
-          ? _value.slot_id
-          : slot_id // ignore: cast_nullable_to_non_nullable
-              as int,
-      null == transaction_id
-          ? _value.transaction_id
-          : transaction_id // ignore: cast_nullable_to_non_nullable
-              as int,
-      null == slot_name
-          ? _value.slot_name
-          : slot_name // ignore: cast_nullable_to_non_nullable
-              as String,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
+      null == listSlotModel
+          ? _value._listSlotModel
+          : listSlotModel // ignore: cast_nullable_to_non_nullable
+              as List<SlotModel>,
     ));
   }
 }
@@ -470,22 +245,20 @@ class __$$_DropCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Drop implements _Drop {
-  const _$_Drop(this.slot_id, this.transaction_id, this.slot_name,
-      {this.isLoading = false});
+  const _$_Drop(final List<SlotModel> listSlotModel)
+      : _listSlotModel = listSlotModel;
 
+  final List<SlotModel> _listSlotModel;
   @override
-  final int slot_id;
-  @override
-  final int transaction_id;
-  @override
-  final String slot_name;
-  @override
-  @JsonKey()
-  final bool isLoading;
+  List<SlotModel> get listSlotModel {
+    if (_listSlotModel is EqualUnmodifiableListView) return _listSlotModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listSlotModel);
+  }
 
   @override
   String toString() {
-    return 'TransactionEvent.drop(slot_id: $slot_id, transaction_id: $transaction_id, slot_name: $slot_name, isLoading: $isLoading)';
+    return 'TransactionEvent.drop(listSlotModel: $listSlotModel)';
   }
 
   @override
@@ -493,18 +266,13 @@ class _$_Drop implements _Drop {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Drop &&
-            (identical(other.slot_id, slot_id) || other.slot_id == slot_id) &&
-            (identical(other.transaction_id, transaction_id) ||
-                other.transaction_id == transaction_id) &&
-            (identical(other.slot_name, slot_name) ||
-                other.slot_name == slot_name) &&
-            (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading));
+            const DeepCollectionEquality()
+                .equals(other._listSlotModel, _listSlotModel));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, slot_id, transaction_id, slot_name, isLoading);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_listSlotModel));
 
   @JsonKey(ignore: true)
   @override
@@ -516,42 +284,33 @@ class _$_Drop implements _Drop {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(int id, String name, bool isLoading) submited,
-    required TResult Function(
-            int slot_id, int transaction_id, String slot_name, bool isLoading)
-        drop,
+    required TResult Function(List<SlotModel> listSlotModel) drop,
     required TResult Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)
         success,
     required TResult Function(int id) checkStatusTransaction,
   }) {
-    return drop(slot_id, transaction_id, slot_name, isLoading);
+    return drop(listSlotModel);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(int id, String name, bool isLoading)? submited,
-    TResult? Function(
-            int slot_id, int transaction_id, String slot_name, bool isLoading)?
-        drop,
+    TResult? Function(List<SlotModel> listSlotModel)? drop,
     TResult? Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)?
         success,
     TResult? Function(int id)? checkStatusTransaction,
   }) {
-    return drop?.call(slot_id, transaction_id, slot_name, isLoading);
+    return drop?.call(listSlotModel);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(int id, String name, bool isLoading)? submited,
-    TResult Function(
-            int slot_id, int transaction_id, String slot_name, bool isLoading)?
-        drop,
+    TResult Function(List<SlotModel> listSlotModel)? drop,
     TResult Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)?
         success,
@@ -559,7 +318,7 @@ class _$_Drop implements _Drop {
     required TResult orElse(),
   }) {
     if (drop != null) {
-      return drop(slot_id, transaction_id, slot_name, isLoading);
+      return drop(listSlotModel);
     }
     return orElse();
   }
@@ -568,7 +327,6 @@ class _$_Drop implements _Drop {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_Submited value) submited,
     required TResult Function(_Drop value) drop,
     required TResult Function(_Success value) success,
     required TResult Function(_CheckStatusTransaction value)
@@ -581,7 +339,6 @@ class _$_Drop implements _Drop {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_Submited value)? submited,
     TResult? Function(_Drop value)? drop,
     TResult? Function(_Success value)? success,
     TResult? Function(_CheckStatusTransaction value)? checkStatusTransaction,
@@ -593,7 +350,6 @@ class _$_Drop implements _Drop {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_Submited value)? submited,
     TResult Function(_Drop value)? drop,
     TResult Function(_Success value)? success,
     TResult Function(_CheckStatusTransaction value)? checkStatusTransaction,
@@ -607,14 +363,9 @@ class _$_Drop implements _Drop {
 }
 
 abstract class _Drop implements TransactionEvent {
-  const factory _Drop(
-      final int slot_id, final int transaction_id, final String slot_name,
-      {final bool isLoading}) = _$_Drop;
+  const factory _Drop(final List<SlotModel> listSlotModel) = _$_Drop;
 
-  int get slot_id;
-  int get transaction_id;
-  String get slot_name;
-  bool get isLoading;
+  List<SlotModel> get listSlotModel;
   @JsonKey(ignore: true)
   _$$_DropCopyWith<_$_Drop> get copyWith => throw _privateConstructorUsedError;
 }
@@ -714,10 +465,7 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(int id, String name, bool isLoading) submited,
-    required TResult Function(
-            int slot_id, int transaction_id, String slot_name, bool isLoading)
-        drop,
+    required TResult Function(List<SlotModel> listSlotModel) drop,
     required TResult Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)
         success,
@@ -730,10 +478,7 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(int id, String name, bool isLoading)? submited,
-    TResult? Function(
-            int slot_id, int transaction_id, String slot_name, bool isLoading)?
-        drop,
+    TResult? Function(List<SlotModel> listSlotModel)? drop,
     TResult? Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)?
         success,
@@ -746,10 +491,7 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(int id, String name, bool isLoading)? submited,
-    TResult Function(
-            int slot_id, int transaction_id, String slot_name, bool isLoading)?
-        drop,
+    TResult Function(List<SlotModel> listSlotModel)? drop,
     TResult Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)?
         success,
@@ -766,7 +508,6 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_Submited value) submited,
     required TResult Function(_Drop value) drop,
     required TResult Function(_Success value) success,
     required TResult Function(_CheckStatusTransaction value)
@@ -779,7 +520,6 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_Submited value)? submited,
     TResult? Function(_Drop value)? drop,
     TResult? Function(_Success value)? success,
     TResult? Function(_CheckStatusTransaction value)? checkStatusTransaction,
@@ -791,7 +531,6 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_Submited value)? submited,
     TResult Function(_Drop value)? drop,
     TResult Function(_Success value)? success,
     TResult Function(_CheckStatusTransaction value)? checkStatusTransaction,
@@ -884,10 +623,7 @@ class _$_CheckStatusTransaction implements _CheckStatusTransaction {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(int id, String name, bool isLoading) submited,
-    required TResult Function(
-            int slot_id, int transaction_id, String slot_name, bool isLoading)
-        drop,
+    required TResult Function(List<SlotModel> listSlotModel) drop,
     required TResult Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)
         success,
@@ -900,10 +636,7 @@ class _$_CheckStatusTransaction implements _CheckStatusTransaction {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(int id, String name, bool isLoading)? submited,
-    TResult? Function(
-            int slot_id, int transaction_id, String slot_name, bool isLoading)?
-        drop,
+    TResult? Function(List<SlotModel> listSlotModel)? drop,
     TResult? Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)?
         success,
@@ -916,10 +649,7 @@ class _$_CheckStatusTransaction implements _CheckStatusTransaction {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(int id, String name, bool isLoading)? submited,
-    TResult Function(
-            int slot_id, int transaction_id, String slot_name, bool isLoading)?
-        drop,
+    TResult Function(List<SlotModel> listSlotModel)? drop,
     TResult Function(
             int slot_id, int transaction_id, bool status_drop, bool isLoading)?
         success,
@@ -936,7 +666,6 @@ class _$_CheckStatusTransaction implements _CheckStatusTransaction {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_Submited value) submited,
     required TResult Function(_Drop value) drop,
     required TResult Function(_Success value) success,
     required TResult Function(_CheckStatusTransaction value)
@@ -949,7 +678,6 @@ class _$_CheckStatusTransaction implements _CheckStatusTransaction {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_Submited value)? submited,
     TResult? Function(_Drop value)? drop,
     TResult? Function(_Success value)? success,
     TResult? Function(_CheckStatusTransaction value)? checkStatusTransaction,
@@ -961,7 +689,6 @@ class _$_CheckStatusTransaction implements _CheckStatusTransaction {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_Submited value)? submited,
     TResult Function(_Drop value)? drop,
     TResult Function(_Success value)? success,
     TResult Function(_CheckStatusTransaction value)? checkStatusTransaction,

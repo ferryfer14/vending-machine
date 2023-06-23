@@ -30,6 +30,7 @@
     "successed" : "Success",
     "out_of_stock" : "Stok kosong",
     "waiting" : "Menunggu barang",
+    "waitings": "Mohon tunggu",
     "release" : "Barang dirilis",
     "processed" : "Transaksi diproses",
     "success" : "Transaksi berhasil",
@@ -64,5 +65,6 @@
     "note_qr" : "Jika kamu memiliki permasalahan pada pembayaran, silakan hubungi kontak tersebut 083849788322",
     "waiting_coming" : "Tunggu item kamu tiba",
     "payment_success" : "Pembayaran sukses",
-    "payment_des" : "Your payment has been received and your order is being processed. Wait for your product to drop and pick it up below."
+    "payment_des" : "Your payment has been received and your order is being processed. Wait for your product to drop and pick it up below.",
+    "take_your_item" : "Take your Item Below"
 }

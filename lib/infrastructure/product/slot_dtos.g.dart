@@ -18,6 +18,7 @@ _$_SlotModelDto _$$_SlotModelDtoFromJson(Map<String, dynamic> json) =>
           : VendingModelDto.fromJson(json['vending'] as Map<String, dynamic>),
       price: json['price'] as int?,
       stock: json['stock'] as int?,
+      statusDrop: json['statusDrop'] as int?,
       amount: json['amount'] as int?,
     );
 
@@ -29,5 +30,6 @@ Map<String, dynamic> _$$_SlotModelDtoToJson(_$_SlotModelDto instance) =>
       'vending': instance.vending,
       'price': instance.price,
       'stock': instance.stock,
+      'statusDrop': instance.statusDrop,
       'amount': instance.amount,
     };
