@@ -7,7 +7,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:standart_project/domain/transaction/transaction_failure.dart';
 
+import '../../app_constant.dart';
+import '../../domain/drop/drop_model.dart';
 import '../../domain/product/slot_model.dart';
+import '../../domain/sensor/sensor_model.dart';
 import '../../domain/transaction/i_transaction_repository.dart';
 import '../../domain/transaction/transaction_model.dart';
 part 'transaction_bloc.freezed.dart';
@@ -31,30 +34,90 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
         emit(TransactionState.initial());
       },
       drop: (e) async {
-        if (e.listSlotModel.length > 0) {
+        if (e.listSlotModel.isNotEmpty) {
           List<SlotModel> listSlotModel = [...e.listSlotModel];
-          listSlotModel.map((slotModel) async {
+          List<DropModel> listDropVending = [];
+          List<SensorModel> listSensorVending = [];
+          for (var slotModel in listSlotModel) {
+            listDropVending.add(DropModel(
+                slot_number: slotModel.id,
+                slot: int.parse(slotModel.name!),
+                amount: slotModel.amount,
+                quantity_error: 0,
+                quantity_success: 0));
+            for (var i = 0; i < slotModel.amount!; i++) {
+              listSensorVending.add(SensorModel(
+                  slot: slotModel.id,
+                  slotName: int.parse(slotModel.name!),
+                  value: false,
+                  code: '0',
+                  description: ''));
+            }
+          }
+
+          for (var sensorModel in listSensorVending) {
             Either<TransactionFailure, Unit> failureOrSuccess =
                 await _transactionRepository.drop(
-                    slotName: slotModel.name!);
-            emit(failureOrSuccess.fold(
+                    slotName: sensorModel.slotName!.toString());
+            failureOrSuccess.fold(
               (f) {
-                slotModel.statusDrop = 
-                return state.copyWith.call(
-                    isLoading: false,
-                    slot_id: e.slot_id,
-                    transaction_id: e.transaction_id,
-                    status_drop: false,
-                    failureOption: optionOf(f));
+                int quantityError = listDropVending[listDropVending.indexWhere(
+                        (element) => element.slot_number == sensorModel.slot)]
+                    .quantity_error!;
+                DropModel drModel = listDropVending[listDropVending.indexWhere(
+                    (element) => element.slot_number == sensorModel.slot)];
+                listDropVending[listDropVending.indexWhere(
+                        (element) => element.slot_number == sensorModel.slot)] =
+                    DropModel(
+                        slot_number: sensorModel.slot,
+                        slot: sensorModel.slotName,
+                        amount: drModel.amount,
+                        quantity_error: quantityError + 1,
+                        quantity_success: drModel.quantity_success);
+
+                listSensorVending[listSensorVending.indexWhere(
+                        (element) => element.slot == sensorModel.slot)] = SensorModel(
+                          code: sensorModel.code,
+                          description: vErrorDrop,
+                          value: false,
+                          slot: sensorModel.slot,
+                          slotName: sensorModel.slotName,
+                        );
               },
-              (_) => state.copyWith.call(
-                  isLoading: false,
-                  slot_id: e.slot_id,
-                  transaction_id: e.transaction_id,
-                  status_drop: true,
-                  failureOption: none()),
-            ));
-          });
+              (transaction) {
+                int quantitySuccess = listDropVending[
+                        listDropVending.indexWhere((element) =>
+                            element.slot_number == sensorModel.slot)]
+                    .quantity_success!;
+                DropModel drModel = listDropVending[listDropVending.indexWhere(
+                    (element) => element.slot_number == sensorModel.slot)];
+                listDropVending[listDropVending.indexWhere(
+                        (element) => element.slot_number == sensorModel.slot)] =
+                    DropModel(
+                        slot_number: sensorModel.slot,
+                        slot: sensorModel.slotName,
+                        amount: drModel.amount,
+                        quantity_error: drModel.quantity_error,
+                        quantity_success: quantitySuccess + 1);
+
+                listSensorVending[listSensorVending.indexWhere(
+                        (element) => element.slot == sensorModel.slot)] = SensorModel(
+                          code: sensorModel.code,
+                          description: vSuccessDrop,
+                          value: true,
+                          slot: sensorModel.slot,
+                          slotName: sensorModel.slotName,
+                        );
+              },
+            );
+          }
+
+          List<DropModel> listDrop =
+              listDropVending.where((o) => o.quantity_error! > 0).toList();
+          emit(state.copyWith.call(
+              statusDrop: listDrop.isEmpty ? 1 : 2,
+              listDropModel: listDropVending,
+              listSensorModel: listSensorVending));
         }
       },
       success: (e) async {

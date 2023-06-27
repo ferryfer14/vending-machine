@@ -5,8 +5,10 @@ class TransactionState with _$TransactionState {
   const factory TransactionState({
     required bool isPay,
     required TransactionModel transactionModel,
-    bool? status_drop,
+    required List<DropModel> listDropModel,
+    required List<SensorModel> listSensorModel,
     required bool isLoading,
+    required int statusDrop,
     required int slot_id,
     required int transaction_id,
     required String slot_name,
@@ -18,7 +20,9 @@ class TransactionState with _$TransactionState {
       slot_id: 0,
       transaction_id: 0,
       slot_name: '',
-      status_drop: null,
+      listSensorModel: List.empty(),
+      listDropModel: List.empty(),
+      statusDrop: 0,
       transactionModel: TransactionModel.empty(),
       isPay: false,
       isLoading: true);

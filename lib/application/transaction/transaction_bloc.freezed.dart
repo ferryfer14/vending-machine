@@ -715,8 +715,10 @@ abstract class _CheckStatusTransaction implements TransactionEvent {
 mixin _$TransactionState {
   bool get isPay => throw _privateConstructorUsedError;
   TransactionModel get transactionModel => throw _privateConstructorUsedError;
-  bool? get status_drop => throw _privateConstructorUsedError;
+  List<DropModel> get listDropModel => throw _privateConstructorUsedError;
+  List<SensorModel> get listSensorModel => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
+  int get statusDrop => throw _privateConstructorUsedError;
   int get slot_id => throw _privateConstructorUsedError;
   int get transaction_id => throw _privateConstructorUsedError;
   String get slot_name => throw _privateConstructorUsedError;
@@ -737,8 +739,10 @@ abstract class $TransactionStateCopyWith<$Res> {
   $Res call(
       {bool isPay,
       TransactionModel transactionModel,
-      bool? status_drop,
+      List<DropModel> listDropModel,
+      List<SensorModel> listSensorModel,
       bool isLoading,
+      int statusDrop,
       int slot_id,
       int transaction_id,
       String slot_name,
@@ -762,8 +766,10 @@ class _$TransactionStateCopyWithImpl<$Res, $Val extends TransactionState>
   $Res call({
     Object? isPay = null,
     Object? transactionModel = null,
-    Object? status_drop = freezed,
+    Object? listDropModel = null,
+    Object? listSensorModel = null,
     Object? isLoading = null,
+    Object? statusDrop = null,
     Object? slot_id = null,
     Object? transaction_id = null,
     Object? slot_name = null,
@@ -778,14 +784,22 @@ class _$TransactionStateCopyWithImpl<$Res, $Val extends TransactionState>
           ? _value.transactionModel
           : transactionModel // ignore: cast_nullable_to_non_nullable
               as TransactionModel,
-      status_drop: freezed == status_drop
-          ? _value.status_drop
-          : status_drop // ignore: cast_nullable_to_non_nullable
-              as bool?,
+      listDropModel: null == listDropModel
+          ? _value.listDropModel
+          : listDropModel // ignore: cast_nullable_to_non_nullable
+              as List<DropModel>,
+      listSensorModel: null == listSensorModel
+          ? _value.listSensorModel
+          : listSensorModel // ignore: cast_nullable_to_non_nullable
+              as List<SensorModel>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      statusDrop: null == statusDrop
+          ? _value.statusDrop
+          : statusDrop // ignore: cast_nullable_to_non_nullable
+              as int,
       slot_id: null == slot_id
           ? _value.slot_id
           : slot_id // ignore: cast_nullable_to_non_nullable
@@ -825,8 +839,10 @@ abstract class _$$_TransactionStateCopyWith<$Res>
   $Res call(
       {bool isPay,
       TransactionModel transactionModel,
-      bool? status_drop,
+      List<DropModel> listDropModel,
+      List<SensorModel> listSensorModel,
       bool isLoading,
+      int statusDrop,
       int slot_id,
       int transaction_id,
       String slot_name,
@@ -849,8 +865,10 @@ class __$$_TransactionStateCopyWithImpl<$Res>
   $Res call({
     Object? isPay = null,
     Object? transactionModel = null,
-    Object? status_drop = freezed,
+    Object? listDropModel = null,
+    Object? listSensorModel = null,
     Object? isLoading = null,
+    Object? statusDrop = null,
     Object? slot_id = null,
     Object? transaction_id = null,
     Object? slot_name = null,
@@ -865,14 +883,22 @@ class __$$_TransactionStateCopyWithImpl<$Res>
           ? _value.transactionModel
           : transactionModel // ignore: cast_nullable_to_non_nullable
               as TransactionModel,
-      status_drop: freezed == status_drop
-          ? _value.status_drop
-          : status_drop // ignore: cast_nullable_to_non_nullable
-              as bool?,
+      listDropModel: null == listDropModel
+          ? _value._listDropModel
+          : listDropModel // ignore: cast_nullable_to_non_nullable
+              as List<DropModel>,
+      listSensorModel: null == listSensorModel
+          ? _value._listSensorModel
+          : listSensorModel // ignore: cast_nullable_to_non_nullable
+              as List<SensorModel>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      statusDrop: null == statusDrop
+          ? _value.statusDrop
+          : statusDrop // ignore: cast_nullable_to_non_nullable
+              as int,
       slot_id: null == slot_id
           ? _value.slot_id
           : slot_id // ignore: cast_nullable_to_non_nullable
@@ -899,21 +925,41 @@ class _$_TransactionState implements _TransactionState {
   const _$_TransactionState(
       {required this.isPay,
       required this.transactionModel,
-      this.status_drop,
+      required final List<DropModel> listDropModel,
+      required final List<SensorModel> listSensorModel,
       required this.isLoading,
+      required this.statusDrop,
       required this.slot_id,
       required this.transaction_id,
       required this.slot_name,
-      required this.failureOption});
+      required this.failureOption})
+      : _listDropModel = listDropModel,
+        _listSensorModel = listSensorModel;
 
   @override
   final bool isPay;
   @override
   final TransactionModel transactionModel;
+  final List<DropModel> _listDropModel;
   @override
-  final bool? status_drop;
+  List<DropModel> get listDropModel {
+    if (_listDropModel is EqualUnmodifiableListView) return _listDropModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listDropModel);
+  }
+
+  final List<SensorModel> _listSensorModel;
+  @override
+  List<SensorModel> get listSensorModel {
+    if (_listSensorModel is EqualUnmodifiableListView) return _listSensorModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listSensorModel);
+  }
+
   @override
   final bool isLoading;
+  @override
+  final int statusDrop;
   @override
   final int slot_id;
   @override
@@ -925,7 +971,7 @@ class _$_TransactionState implements _TransactionState {
 
   @override
   String toString() {
-    return 'TransactionState(isPay: $isPay, transactionModel: $transactionModel, status_drop: $status_drop, isLoading: $isLoading, slot_id: $slot_id, transaction_id: $transaction_id, slot_name: $slot_name, failureOption: $failureOption)';
+    return 'TransactionState(isPay: $isPay, transactionModel: $transactionModel, listDropModel: $listDropModel, listSensorModel: $listSensorModel, isLoading: $isLoading, statusDrop: $statusDrop, slot_id: $slot_id, transaction_id: $transaction_id, slot_name: $slot_name, failureOption: $failureOption)';
   }
 
   @override
@@ -936,10 +982,14 @@ class _$_TransactionState implements _TransactionState {
             (identical(other.isPay, isPay) || other.isPay == isPay) &&
             (identical(other.transactionModel, transactionModel) ||
                 other.transactionModel == transactionModel) &&
-            (identical(other.status_drop, status_drop) ||
-                other.status_drop == status_drop) &&
+            const DeepCollectionEquality()
+                .equals(other._listDropModel, _listDropModel) &&
+            const DeepCollectionEquality()
+                .equals(other._listSensorModel, _listSensorModel) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(other.statusDrop, statusDrop) ||
+                other.statusDrop == statusDrop) &&
             (identical(other.slot_id, slot_id) || other.slot_id == slot_id) &&
             (identical(other.transaction_id, transaction_id) ||
                 other.transaction_id == transaction_id) &&
@@ -954,8 +1004,10 @@ class _$_TransactionState implements _TransactionState {
       runtimeType,
       isPay,
       transactionModel,
-      status_drop,
+      const DeepCollectionEquality().hash(_listDropModel),
+      const DeepCollectionEquality().hash(_listSensorModel),
       isLoading,
+      statusDrop,
       slot_id,
       transaction_id,
       slot_name,
@@ -972,8 +1024,10 @@ abstract class _TransactionState implements TransactionState {
   const factory _TransactionState(
           {required final bool isPay,
           required final TransactionModel transactionModel,
-          final bool? status_drop,
+          required final List<DropModel> listDropModel,
+          required final List<SensorModel> listSensorModel,
           required final bool isLoading,
+          required final int statusDrop,
           required final int slot_id,
           required final int transaction_id,
           required final String slot_name,
@@ -985,9 +1039,13 @@ abstract class _TransactionState implements TransactionState {
   @override
   TransactionModel get transactionModel;
   @override
-  bool? get status_drop;
+  List<DropModel> get listDropModel;
+  @override
+  List<SensorModel> get listSensorModel;
   @override
   bool get isLoading;
+  @override
+  int get statusDrop;
   @override
   int get slot_id;
   @override

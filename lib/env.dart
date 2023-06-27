@@ -40,10 +40,10 @@ class DevEnv implements Env {
   String get notificationTopic => "notification_dev";
 
   @override
-  String get username => "VM-0003";
+  String get username => "VMK-001";
 
   @override
-  String get password => "GVpUtiLWFV";
+  String get password => "ZpmxAYTsh7";
 
   @override
   int get refreshTokenMillis => 1000 * 60 * 30;

@@ -17,6 +17,8 @@ const vPermission = 'permission';
 const vAssetSvg = 'assets/images/svg/';
 const vAssetPng = 'assets/images/png/';
 const vAssetJpg = 'assets/images/jpg/';
+const vErrorDrop = 'Sensor tidak mendeteksi barang jatuh';
+const vSuccessDrop = 'Sensor berhasil mendekteksi barang';
 
 final GlobalKey<ScaffoldMessengerState> snackbarKey =
     GlobalKey<ScaffoldMessengerState>();
