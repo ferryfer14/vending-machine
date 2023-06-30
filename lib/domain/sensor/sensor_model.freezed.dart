@@ -16,9 +16,13 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SensorModel {
+  int? get id => throw _privateConstructorUsedError;
   String? get code => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
   bool? get value => throw _privateConstructorUsedError;
+  SensorCategoryModel? get sensorCategoryModel =>
+      throw _privateConstructorUsedError;
   int? get slot => throw _privateConstructorUsedError;
   int? get slotName => throw _privateConstructorUsedError;
 
@@ -34,11 +38,16 @@ abstract class $SensorModelCopyWith<$Res> {
       _$SensorModelCopyWithImpl<$Res, SensorModel>;
   @useResult
   $Res call(
-      {String? code,
+      {int? id,
+      String? code,
       String? description,
+      String? title,
       bool? value,
+      SensorCategoryModel? sensorCategoryModel,
       int? slot,
       int? slotName});
+
+  $SensorCategoryModelCopyWith<$Res>? get sensorCategoryModel;
 }
 
 /// @nodoc
@@ -54,13 +63,20 @@ class _$SensorModelCopyWithImpl<$Res, $Val extends SensorModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? code = freezed,
     Object? description = freezed,
+    Object? title = freezed,
     Object? value = freezed,
+    Object? sensorCategoryModel = freezed,
     Object? slot = freezed,
     Object? slotName = freezed,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -69,10 +85,18 @@ class _$SensorModelCopyWithImpl<$Res, $Val extends SensorModel>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
       value: freezed == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as bool?,
+      sensorCategoryModel: freezed == sensorCategoryModel
+          ? _value.sensorCategoryModel
+          : sensorCategoryModel // ignore: cast_nullable_to_non_nullable
+              as SensorCategoryModel?,
       slot: freezed == slot
           ? _value.slot
           : slot // ignore: cast_nullable_to_non_nullable
@@ -82,6 +106,19 @@ class _$SensorModelCopyWithImpl<$Res, $Val extends SensorModel>
           : slotName // ignore: cast_nullable_to_non_nullable
               as int?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SensorCategoryModelCopyWith<$Res>? get sensorCategoryModel {
+    if (_value.sensorCategoryModel == null) {
+      return null;
+    }
+
+    return $SensorCategoryModelCopyWith<$Res>(_value.sensorCategoryModel!,
+        (value) {
+      return _then(_value.copyWith(sensorCategoryModel: value) as $Val);
+    });
   }
 }
 
@@ -94,11 +131,17 @@ abstract class _$$_SensorModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? code,
+      {int? id,
+      String? code,
       String? description,
+      String? title,
       bool? value,
+      SensorCategoryModel? sensorCategoryModel,
       int? slot,
       int? slotName});
+
+  @override
+  $SensorCategoryModelCopyWith<$Res>? get sensorCategoryModel;
 }
 
 /// @nodoc
@@ -112,13 +155,20 @@ class __$$_SensorModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? code = freezed,
     Object? description = freezed,
+    Object? title = freezed,
     Object? value = freezed,
+    Object? sensorCategoryModel = freezed,
     Object? slot = freezed,
     Object? slotName = freezed,
   }) {
     return _then(_$_SensorModel(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -127,10 +177,18 @@ class __$$_SensorModelCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
       value: freezed == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as bool?,
+      sensorCategoryModel: freezed == sensorCategoryModel
+          ? _value.sensorCategoryModel
+          : sensorCategoryModel // ignore: cast_nullable_to_non_nullable
+              as SensorCategoryModel?,
       slot: freezed == slot
           ? _value.slot
           : slot // ignore: cast_nullable_to_non_nullable
@@ -147,15 +205,28 @@ class __$$_SensorModelCopyWithImpl<$Res>
 
 class _$_SensorModel extends _SensorModel {
   const _$_SensorModel(
-      {this.code, this.description, this.value, this.slot, this.slotName})
+      {this.id,
+      this.code,
+      this.description,
+      this.title,
+      this.value,
+      this.sensorCategoryModel,
+      this.slot,
+      this.slotName})
       : super._();
 
+  @override
+  final int? id;
   @override
   final String? code;
   @override
   final String? description;
   @override
+  final String? title;
+  @override
   final bool? value;
+  @override
+  final SensorCategoryModel? sensorCategoryModel;
   @override
   final int? slot;
   @override
@@ -163,7 +234,7 @@ class _$_SensorModel extends _SensorModel {
 
   @override
   String toString() {
-    return 'SensorModel(code: $code, description: $description, value: $value, slot: $slot, slotName: $slotName)';
+    return 'SensorModel(id: $id, code: $code, description: $description, title: $title, value: $value, sensorCategoryModel: $sensorCategoryModel, slot: $slot, slotName: $slotName)';
   }
 
   @override
@@ -171,18 +242,22 @@ class _$_SensorModel extends _SensorModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SensorModel &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.code, code) || other.code == code) &&
             (identical(other.description, description) ||
                 other.description == description) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.value, value) || other.value == value) &&
+            (identical(other.sensorCategoryModel, sensorCategoryModel) ||
+                other.sensorCategoryModel == sensorCategoryModel) &&
             (identical(other.slot, slot) || other.slot == slot) &&
             (identical(other.slotName, slotName) ||
                 other.slotName == slotName));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, code, description, value, slot, slotName);
+  int get hashCode => Object.hash(runtimeType, id, code, description, title,
+      value, sensorCategoryModel, slot, slotName);
 
   @JsonKey(ignore: true)
   @override
@@ -193,19 +268,28 @@ class _$_SensorModel extends _SensorModel {
 
 abstract class _SensorModel extends SensorModel {
   const factory _SensorModel(
-      {final String? code,
+      {final int? id,
+      final String? code,
       final String? description,
+      final String? title,
       final bool? value,
+      final SensorCategoryModel? sensorCategoryModel,
       final int? slot,
       final int? slotName}) = _$_SensorModel;
   const _SensorModel._() : super._();
 
   @override
+  int? get id;
+  @override
   String? get code;
   @override
   String? get description;
   @override
+  String? get title;
+  @override
   bool? get value;
+  @override
+  SensorCategoryModel? get sensorCategoryModel;
   @override
   int? get slot;
   @override

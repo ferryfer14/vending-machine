@@ -76,6 +76,7 @@ class PopupDetail extends StatelessWidget {
                         children: [
                           Expanded(
                               child: Container(
+                                  padding: padright16,
                                   decoration: const BoxDecoration(
                                     color: white,
                                   ),

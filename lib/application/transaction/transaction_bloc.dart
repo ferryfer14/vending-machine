@@ -12,6 +12,7 @@ import '../../domain/drop/drop_model.dart';
 import '../../domain/product/slot_model.dart';
 import '../../domain/sensor/sensor_model.dart';
 import '../../domain/transaction/i_transaction_repository.dart';
+import '../../domain/transaction/refund_model.dart';
 import '../../domain/transaction/transaction_model.dart';
 part 'transaction_bloc.freezed.dart';
 part 'transaction_event.dart';
@@ -31,18 +32,68 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
   ) {
     return event.map(
       started: (_) async {
-        emit(TransactionState.initial());
+        Either<TransactionFailure, List<SensorModel>> failureOrSuccess =
+            await _transactionRepository.getSensor();
+
+        return emit(failureOrSuccess.fold(
+          // ignore: void_checks
+          (f) {
+            if (f == const TransactionFailure.emptyList()) {
+              return state.copyWith.call(
+                  isLoading: false,
+                  listMySensorModel: List.empty(),
+                  slot_id: 0,
+                  transaction_id: 0,
+                  slot_name: '',
+                  listSensorModel: List.empty(),
+                  listDropModel: List.empty(),
+                  statusDrop: 0,
+                  transactionModel: TransactionModel.empty(),
+                  isPay: false);
+            }
+            return state.copyWith.call(
+                listMySensorModel: List.empty(),
+                failureOption: optionOf(f),
+                isLoading: false,
+                slot_id: 0,
+                transaction_id: 0,
+                slot_name: '',
+                listSensorModel: List.empty(),
+                listDropModel: List.empty(),
+                statusDrop: 0,
+                transactionModel: TransactionModel.empty(),
+                isPay: false);
+          },
+          (items) => state.copyWith.call(
+              listMySensorModel: items,
+              failureOption: none(),
+              isLoading: false,
+              slot_id: 0,
+              transaction_id: 0,
+              slot_name: '',
+              listSensorModel: List.empty(),
+              listDropModel: List.empty(),
+              statusDrop: 0,
+              transactionModel: TransactionModel.empty(),
+              isPay: false),
+        ));
       },
       drop: (e) async {
         if (e.listSlotModel.isNotEmpty) {
           List<SlotModel> listSlotModel = [...e.listSlotModel];
+          SensorModel mySensor = state.listMySensorModel[state.listMySensorModel
+              .indexWhere(
+                  (element) => element.sensorCategoryModel!.name! == 'drop')];
           List<DropModel> listDropVending = [];
           List<SensorModel> listSensorVending = [];
           for (var slotModel in listSlotModel) {
             listDropVending.add(DropModel(
                 slot_number: slotModel.id,
+                product: slotModel.product,
                 slot: int.parse(slotModel.name!),
                 amount: slotModel.amount,
+                statusDrop: 0,
+                dropped: 0,
                 quantity_error: 0,
                 quantity_success: 0));
             for (var i = 0; i < slotModel.amount!; i++) {
@@ -56,60 +107,80 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
           }
 
           for (var sensorModel in listSensorVending) {
+            emit(state.copyWith.call(isLoading: true, readyDrop: true));
             Either<TransactionFailure, Unit> failureOrSuccess =
                 await _transactionRepository.drop(
                     slotName: sensorModel.slotName!.toString());
-            failureOrSuccess.fold(
+            emit(failureOrSuccess.fold(
               (f) {
-                int quantityError = listDropVending[listDropVending.indexWhere(
-                        (element) => element.slot_number == sensorModel.slot)]
-                    .quantity_error!;
                 DropModel drModel = listDropVending[listDropVending.indexWhere(
                     (element) => element.slot_number == sensorModel.slot)];
+                int statusDrop = 0;
+                statusDrop = drModel.quantity_error! + 1 > 0
+                    ? 3
+                    : (drModel.dropped! + 1 != drModel.amount ? 1 : 2);
                 listDropVending[listDropVending.indexWhere(
                         (element) => element.slot_number == sensorModel.slot)] =
                     DropModel(
                         slot_number: sensorModel.slot,
                         slot: sensorModel.slotName,
                         amount: drModel.amount,
-                        quantity_error: quantityError + 1,
+                        product: drModel.product,
+                        statusDrop: statusDrop,
+                        dropped: drModel.dropped! + 1,
+                        quantity_error: drModel.quantity_error! + 1,
                         quantity_success: drModel.quantity_success);
 
                 listSensorVending[listSensorVending.indexWhere(
-                        (element) => element.slot == sensorModel.slot)] = SensorModel(
-                          code: sensorModel.code,
-                          description: vErrorDrop,
-                          value: false,
-                          slot: sensorModel.slot,
-                          slotName: sensorModel.slotName,
-                        );
+                        (element) => element.slot == sensorModel.slot)] =
+                    SensorModel(
+                  code: mySensor.code,
+                  description: vErrorDrop,
+                  value: false,
+                  slot: sensorModel.slot,
+                  slotName: sensorModel.slotName,
+                );
+                return state.copyWith.call(
+                    isLoading: false,
+                    listDropModel: listDropVending,
+                    listSensorModel: listSensorVending);
               },
               (transaction) {
-                int quantitySuccess = listDropVending[
-                        listDropVending.indexWhere((element) =>
-                            element.slot_number == sensorModel.slot)]
-                    .quantity_success!;
                 DropModel drModel = listDropVending[listDropVending.indexWhere(
                     (element) => element.slot_number == sensorModel.slot)];
+                int statusDrop = 0;
+                statusDrop = drModel.quantity_error! > 0
+                    ? 3
+                    : (drModel.dropped! + 1 != drModel.amount ? 1 : 2);
                 listDropVending[listDropVending.indexWhere(
                         (element) => element.slot_number == sensorModel.slot)] =
                     DropModel(
                         slot_number: sensorModel.slot,
                         slot: sensorModel.slotName,
                         amount: drModel.amount,
+                        statusDrop: statusDrop,
+                        product: drModel.product,
+                        dropped: drModel.dropped! + 1,
                         quantity_error: drModel.quantity_error,
-                        quantity_success: quantitySuccess + 1);
+                        quantity_success: drModel.quantity_success! + 1);
 
                 listSensorVending[listSensorVending.indexWhere(
-                        (element) => element.slot == sensorModel.slot)] = SensorModel(
-                          code: sensorModel.code,
-                          description: vSuccessDrop,
-                          value: true,
-                          slot: sensorModel.slot,
-                          slotName: sensorModel.slotName,
-                        );
+                        (element) => element.slot == sensorModel.slot)] =
+                    SensorModel(
+                  code: mySensor.code,
+                  description: vSuccessDrop,
+                  value: true,
+                  slot: sensorModel.slot,
+                  slotName: sensorModel.slotName,
+                );
+                return state.copyWith.call(
+                    isLoading: false,
+                    listDropModel: listDropVending,
+                    listSensorModel: listSensorVending);
               },
-            );
+            ));
+
+            await Future.delayed(const Duration(seconds: 3));
           }
 
           List<DropModel> listDrop =
@@ -117,31 +188,27 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
           emit(state.copyWith.call(
               statusDrop: listDrop.isEmpty ? 1 : 2,
               listDropModel: listDropVending,
+              // isLoading: false,
               listSensorModel: listSensorVending));
         }
       },
-      success: (e) async {
+      finish: (e) async {
+        emit(state.copyWith.call(failureOption: none()));
         if (e.isLoading) {
-          // emit(state.copyWith
-          //     .call(isLoading: true, transaction_id: e.transaction_id));
-
-          Either<TransactionFailure, Unit>? failureOrSuccess;
-          bool drop = e.status_drop;
-          failureOrSuccess = await _transactionRepository.success(
-              id: e.slot_id,
-              transaction_id: e.transaction_id,
-              status: drop ? 1 : 0);
+          final failureOrSuccess = await _transactionRepository.finish(
+              listSensorModel: state.listSensorModel,
+              transactionId: state.transactionModel.id!,
+              transactionCode: state.transactionModel.transaction_code!);
 
           return emit(failureOrSuccess.fold(
             (f) {
               return state.copyWith.call(
-                  isLoading: false,
-                  transaction_id: e.transaction_id,
-                  failureOption: optionOf(f));
+                  isLoading: false, isFinish: true, failureOption: optionOf(f));
             },
-            (_) => state.copyWith.call(
+            (refundModel) => state.copyWith.call(
                 isLoading: false,
-                transaction_id: e.transaction_id,
+                refundModel: refundModel,
+                isFinish: true,
                 failureOption: none()),
           ));
         }
@@ -153,6 +220,7 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
           transactionModel: TransactionModel.empty(),
           failureOption: none(),
         ));
+        await Future.delayed(const Duration(seconds: 3));
         final failureOrSuccess =
             await _transactionRepository.checkStatusTransaction(id: e.id);
 

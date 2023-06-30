@@ -1,15 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:standart_project/persentation/product/components/list_item_drop.dart';
-import '../../../domain/product/slot_model.dart';
+import '../../../domain/drop/drop_model.dart';
 import '../../core/utils/spacing/sizebox.dart';
 import '../../core/utils/styles/colors.dart';
 import '../../core/utils/styles/text_style.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PopupDrop extends StatelessWidget {
-  const PopupDrop({super.key, required this.listSlotModel});
-  final List<SlotModel> listSlotModel;
+  const PopupDrop({super.key, required this.listDropModel});
+  final List<DropModel> listDropModel;
 
   @override
   Widget build(BuildContext context) {
@@ -68,8 +68,8 @@ class PopupDrop extends StatelessWidget {
             color: backgroundImage,
           ),
           siboh24,
-          ...List.generate(listSlotModel.length,
-              (index) => ListItemDrop(slotModel: listSlotModel[index])),
+          ...List.generate(listDropModel.length,
+              (index) => ListItemDrop(dropModel: listDropModel[index])),
           siboh64,
           Center(
             child: SizedBox(

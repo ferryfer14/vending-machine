@@ -20,9 +20,7 @@ mixin _$TransactionEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(List<SlotModel> listSlotModel) drop,
-    required TResult Function(
-            int slot_id, int transaction_id, bool status_drop, bool isLoading)
-        success,
+    required TResult Function(bool isLoading) finish,
     required TResult Function(int id) checkStatusTransaction,
   }) =>
       throw _privateConstructorUsedError;
@@ -30,9 +28,7 @@ mixin _$TransactionEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(List<SlotModel> listSlotModel)? drop,
-    TResult? Function(
-            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
-        success,
+    TResult? Function(bool isLoading)? finish,
     TResult? Function(int id)? checkStatusTransaction,
   }) =>
       throw _privateConstructorUsedError;
@@ -40,9 +36,7 @@ mixin _$TransactionEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(List<SlotModel> listSlotModel)? drop,
-    TResult Function(
-            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
-        success,
+    TResult Function(bool isLoading)? finish,
     TResult Function(int id)? checkStatusTransaction,
     required TResult orElse(),
   }) =>
@@ -51,7 +45,7 @@ mixin _$TransactionEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Drop value) drop,
-    required TResult Function(_Success value) success,
+    required TResult Function(_Finish value) finish,
     required TResult Function(_CheckStatusTransaction value)
         checkStatusTransaction,
   }) =>
@@ -60,7 +54,7 @@ mixin _$TransactionEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Drop value)? drop,
-    TResult? Function(_Success value)? success,
+    TResult? Function(_Finish value)? finish,
     TResult? Function(_CheckStatusTransaction value)? checkStatusTransaction,
   }) =>
       throw _privateConstructorUsedError;
@@ -68,7 +62,7 @@ mixin _$TransactionEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Drop value)? drop,
-    TResult Function(_Success value)? success,
+    TResult Function(_Finish value)? finish,
     TResult Function(_CheckStatusTransaction value)? checkStatusTransaction,
     required TResult orElse(),
   }) =>
@@ -132,9 +126,7 @@ class _$_Started implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(List<SlotModel> listSlotModel) drop,
-    required TResult Function(
-            int slot_id, int transaction_id, bool status_drop, bool isLoading)
-        success,
+    required TResult Function(bool isLoading) finish,
     required TResult Function(int id) checkStatusTransaction,
   }) {
     return started();
@@ -145,9 +137,7 @@ class _$_Started implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(List<SlotModel> listSlotModel)? drop,
-    TResult? Function(
-            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
-        success,
+    TResult? Function(bool isLoading)? finish,
     TResult? Function(int id)? checkStatusTransaction,
   }) {
     return started?.call();
@@ -158,9 +148,7 @@ class _$_Started implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(List<SlotModel> listSlotModel)? drop,
-    TResult Function(
-            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
-        success,
+    TResult Function(bool isLoading)? finish,
     TResult Function(int id)? checkStatusTransaction,
     required TResult orElse(),
   }) {
@@ -175,7 +163,7 @@ class _$_Started implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Drop value) drop,
-    required TResult Function(_Success value) success,
+    required TResult Function(_Finish value) finish,
     required TResult Function(_CheckStatusTransaction value)
         checkStatusTransaction,
   }) {
@@ -187,7 +175,7 @@ class _$_Started implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Drop value)? drop,
-    TResult? Function(_Success value)? success,
+    TResult? Function(_Finish value)? finish,
     TResult? Function(_CheckStatusTransaction value)? checkStatusTransaction,
   }) {
     return started?.call(this);
@@ -198,7 +186,7 @@ class _$_Started implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Drop value)? drop,
-    TResult Function(_Success value)? success,
+    TResult Function(_Finish value)? finish,
     TResult Function(_CheckStatusTransaction value)? checkStatusTransaction,
     required TResult orElse(),
   }) {
@@ -285,9 +273,7 @@ class _$_Drop implements _Drop {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(List<SlotModel> listSlotModel) drop,
-    required TResult Function(
-            int slot_id, int transaction_id, bool status_drop, bool isLoading)
-        success,
+    required TResult Function(bool isLoading) finish,
     required TResult Function(int id) checkStatusTransaction,
   }) {
     return drop(listSlotModel);
@@ -298,9 +284,7 @@ class _$_Drop implements _Drop {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(List<SlotModel> listSlotModel)? drop,
-    TResult? Function(
-            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
-        success,
+    TResult? Function(bool isLoading)? finish,
     TResult? Function(int id)? checkStatusTransaction,
   }) {
     return drop?.call(listSlotModel);
@@ -311,9 +295,7 @@ class _$_Drop implements _Drop {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(List<SlotModel> listSlotModel)? drop,
-    TResult Function(
-            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
-        success,
+    TResult Function(bool isLoading)? finish,
     TResult Function(int id)? checkStatusTransaction,
     required TResult orElse(),
   }) {
@@ -328,7 +310,7 @@ class _$_Drop implements _Drop {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Drop value) drop,
-    required TResult Function(_Success value) success,
+    required TResult Function(_Finish value) finish,
     required TResult Function(_CheckStatusTransaction value)
         checkStatusTransaction,
   }) {
@@ -340,7 +322,7 @@ class _$_Drop implements _Drop {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Drop value)? drop,
-    TResult? Function(_Success value)? success,
+    TResult? Function(_Finish value)? finish,
     TResult? Function(_CheckStatusTransaction value)? checkStatusTransaction,
   }) {
     return drop?.call(this);
@@ -351,7 +333,7 @@ class _$_Drop implements _Drop {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Drop value)? drop,
-    TResult Function(_Success value)? success,
+    TResult Function(_Finish value)? finish,
     TResult Function(_CheckStatusTransaction value)? checkStatusTransaction,
     required TResult orElse(),
   }) {
@@ -371,43 +353,26 @@ abstract class _Drop implements TransactionEvent {
 }
 
 /// @nodoc
-abstract class _$$_SuccessCopyWith<$Res> {
-  factory _$$_SuccessCopyWith(
-          _$_Success value, $Res Function(_$_Success) then) =
-      __$$_SuccessCopyWithImpl<$Res>;
+abstract class _$$_FinishCopyWith<$Res> {
+  factory _$$_FinishCopyWith(_$_Finish value, $Res Function(_$_Finish) then) =
+      __$$_FinishCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {int slot_id, int transaction_id, bool status_drop, bool isLoading});
+  $Res call({bool isLoading});
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<$Res>
-    extends _$TransactionEventCopyWithImpl<$Res, _$_Success>
-    implements _$$_SuccessCopyWith<$Res> {
-  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+class __$$_FinishCopyWithImpl<$Res>
+    extends _$TransactionEventCopyWithImpl<$Res, _$_Finish>
+    implements _$$_FinishCopyWith<$Res> {
+  __$$_FinishCopyWithImpl(_$_Finish _value, $Res Function(_$_Finish) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? slot_id = null,
-    Object? transaction_id = null,
-    Object? status_drop = null,
     Object? isLoading = null,
   }) {
-    return _then(_$_Success(
-      null == slot_id
-          ? _value.slot_id
-          : slot_id // ignore: cast_nullable_to_non_nullable
-              as int,
-      null == transaction_id
-          ? _value.transaction_id
-          : transaction_id // ignore: cast_nullable_to_non_nullable
-              as int,
-      null == status_drop
-          ? _value.status_drop
-          : status_drop // ignore: cast_nullable_to_non_nullable
-              as bool,
+    return _then(_$_Finish(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -418,60 +383,45 @@ class __$$_SuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Success implements _Success {
-  const _$_Success(this.slot_id, this.transaction_id, this.status_drop,
-      {this.isLoading = false});
+class _$_Finish implements _Finish {
+  const _$_Finish({this.isLoading = false});
 
-  @override
-  final int slot_id;
-  @override
-  final int transaction_id;
-  @override
-  final bool status_drop;
   @override
   @JsonKey()
   final bool isLoading;
 
   @override
   String toString() {
-    return 'TransactionEvent.success(slot_id: $slot_id, transaction_id: $transaction_id, status_drop: $status_drop, isLoading: $isLoading)';
+    return 'TransactionEvent.finish(isLoading: $isLoading)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Success &&
-            (identical(other.slot_id, slot_id) || other.slot_id == slot_id) &&
-            (identical(other.transaction_id, transaction_id) ||
-                other.transaction_id == transaction_id) &&
-            (identical(other.status_drop, status_drop) ||
-                other.status_drop == status_drop) &&
+            other is _$_Finish &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, slot_id, transaction_id, status_drop, isLoading);
+  int get hashCode => Object.hash(runtimeType, isLoading);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SuccessCopyWith<_$_Success> get copyWith =>
-      __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
+  _$$_FinishCopyWith<_$_Finish> get copyWith =>
+      __$$_FinishCopyWithImpl<_$_Finish>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(List<SlotModel> listSlotModel) drop,
-    required TResult Function(
-            int slot_id, int transaction_id, bool status_drop, bool isLoading)
-        success,
+    required TResult Function(bool isLoading) finish,
     required TResult Function(int id) checkStatusTransaction,
   }) {
-    return success(slot_id, transaction_id, status_drop, isLoading);
+    return finish(isLoading);
   }
 
   @override
@@ -479,12 +429,10 @@ class _$_Success implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(List<SlotModel> listSlotModel)? drop,
-    TResult? Function(
-            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
-        success,
+    TResult? Function(bool isLoading)? finish,
     TResult? Function(int id)? checkStatusTransaction,
   }) {
-    return success?.call(slot_id, transaction_id, status_drop, isLoading);
+    return finish?.call(isLoading);
   }
 
   @override
@@ -492,14 +440,12 @@ class _$_Success implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(List<SlotModel> listSlotModel)? drop,
-    TResult Function(
-            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
-        success,
+    TResult Function(bool isLoading)? finish,
     TResult Function(int id)? checkStatusTransaction,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(slot_id, transaction_id, status_drop, isLoading);
+    if (finish != null) {
+      return finish(isLoading);
     }
     return orElse();
   }
@@ -509,11 +455,11 @@ class _$_Success implements _Success {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Drop value) drop,
-    required TResult Function(_Success value) success,
+    required TResult Function(_Finish value) finish,
     required TResult Function(_CheckStatusTransaction value)
         checkStatusTransaction,
   }) {
-    return success(this);
+    return finish(this);
   }
 
   @override
@@ -521,10 +467,10 @@ class _$_Success implements _Success {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Drop value)? drop,
-    TResult? Function(_Success value)? success,
+    TResult? Function(_Finish value)? finish,
     TResult? Function(_CheckStatusTransaction value)? checkStatusTransaction,
   }) {
-    return success?.call(this);
+    return finish?.call(this);
   }
 
   @override
@@ -532,28 +478,23 @@ class _$_Success implements _Success {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Drop value)? drop,
-    TResult Function(_Success value)? success,
+    TResult Function(_Finish value)? finish,
     TResult Function(_CheckStatusTransaction value)? checkStatusTransaction,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(this);
+    if (finish != null) {
+      return finish(this);
     }
     return orElse();
   }
 }
 
-abstract class _Success implements TransactionEvent {
-  const factory _Success(
-      final int slot_id, final int transaction_id, final bool status_drop,
-      {final bool isLoading}) = _$_Success;
+abstract class _Finish implements TransactionEvent {
+  const factory _Finish({final bool isLoading}) = _$_Finish;
 
-  int get slot_id;
-  int get transaction_id;
-  bool get status_drop;
   bool get isLoading;
   @JsonKey(ignore: true)
-  _$$_SuccessCopyWith<_$_Success> get copyWith =>
+  _$$_FinishCopyWith<_$_Finish> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -624,9 +565,7 @@ class _$_CheckStatusTransaction implements _CheckStatusTransaction {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(List<SlotModel> listSlotModel) drop,
-    required TResult Function(
-            int slot_id, int transaction_id, bool status_drop, bool isLoading)
-        success,
+    required TResult Function(bool isLoading) finish,
     required TResult Function(int id) checkStatusTransaction,
   }) {
     return checkStatusTransaction(id);
@@ -637,9 +576,7 @@ class _$_CheckStatusTransaction implements _CheckStatusTransaction {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(List<SlotModel> listSlotModel)? drop,
-    TResult? Function(
-            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
-        success,
+    TResult? Function(bool isLoading)? finish,
     TResult? Function(int id)? checkStatusTransaction,
   }) {
     return checkStatusTransaction?.call(id);
@@ -650,9 +587,7 @@ class _$_CheckStatusTransaction implements _CheckStatusTransaction {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(List<SlotModel> listSlotModel)? drop,
-    TResult Function(
-            int slot_id, int transaction_id, bool status_drop, bool isLoading)?
-        success,
+    TResult Function(bool isLoading)? finish,
     TResult Function(int id)? checkStatusTransaction,
     required TResult orElse(),
   }) {
@@ -667,7 +602,7 @@ class _$_CheckStatusTransaction implements _CheckStatusTransaction {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Drop value) drop,
-    required TResult Function(_Success value) success,
+    required TResult Function(_Finish value) finish,
     required TResult Function(_CheckStatusTransaction value)
         checkStatusTransaction,
   }) {
@@ -679,7 +614,7 @@ class _$_CheckStatusTransaction implements _CheckStatusTransaction {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Drop value)? drop,
-    TResult? Function(_Success value)? success,
+    TResult? Function(_Finish value)? finish,
     TResult? Function(_CheckStatusTransaction value)? checkStatusTransaction,
   }) {
     return checkStatusTransaction?.call(this);
@@ -690,7 +625,7 @@ class _$_CheckStatusTransaction implements _CheckStatusTransaction {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Drop value)? drop,
-    TResult Function(_Success value)? success,
+    TResult Function(_Finish value)? finish,
     TResult Function(_CheckStatusTransaction value)? checkStatusTransaction,
     required TResult orElse(),
   }) {
@@ -715,9 +650,13 @@ abstract class _CheckStatusTransaction implements TransactionEvent {
 mixin _$TransactionState {
   bool get isPay => throw _privateConstructorUsedError;
   TransactionModel get transactionModel => throw _privateConstructorUsedError;
+  RefundModel get refundModel => throw _privateConstructorUsedError;
   List<DropModel> get listDropModel => throw _privateConstructorUsedError;
+  List<SensorModel> get listMySensorModel => throw _privateConstructorUsedError;
   List<SensorModel> get listSensorModel => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get readyDrop => throw _privateConstructorUsedError;
+  bool get isFinish => throw _privateConstructorUsedError;
   int get statusDrop => throw _privateConstructorUsedError;
   int get slot_id => throw _privateConstructorUsedError;
   int get transaction_id => throw _privateConstructorUsedError;
@@ -739,9 +678,13 @@ abstract class $TransactionStateCopyWith<$Res> {
   $Res call(
       {bool isPay,
       TransactionModel transactionModel,
+      RefundModel refundModel,
       List<DropModel> listDropModel,
+      List<SensorModel> listMySensorModel,
       List<SensorModel> listSensorModel,
       bool isLoading,
+      bool readyDrop,
+      bool isFinish,
       int statusDrop,
       int slot_id,
       int transaction_id,
@@ -749,6 +692,7 @@ abstract class $TransactionStateCopyWith<$Res> {
       Option<TransactionFailure> failureOption});
 
   $TransactionModelCopyWith<$Res> get transactionModel;
+  $RefundModelCopyWith<$Res> get refundModel;
 }
 
 /// @nodoc
@@ -766,9 +710,13 @@ class _$TransactionStateCopyWithImpl<$Res, $Val extends TransactionState>
   $Res call({
     Object? isPay = null,
     Object? transactionModel = null,
+    Object? refundModel = null,
     Object? listDropModel = null,
+    Object? listMySensorModel = null,
     Object? listSensorModel = null,
     Object? isLoading = null,
+    Object? readyDrop = null,
+    Object? isFinish = null,
     Object? statusDrop = null,
     Object? slot_id = null,
     Object? transaction_id = null,
@@ -784,10 +732,18 @@ class _$TransactionStateCopyWithImpl<$Res, $Val extends TransactionState>
           ? _value.transactionModel
           : transactionModel // ignore: cast_nullable_to_non_nullable
               as TransactionModel,
+      refundModel: null == refundModel
+          ? _value.refundModel
+          : refundModel // ignore: cast_nullable_to_non_nullable
+              as RefundModel,
       listDropModel: null == listDropModel
           ? _value.listDropModel
           : listDropModel // ignore: cast_nullable_to_non_nullable
               as List<DropModel>,
+      listMySensorModel: null == listMySensorModel
+          ? _value.listMySensorModel
+          : listMySensorModel // ignore: cast_nullable_to_non_nullable
+              as List<SensorModel>,
       listSensorModel: null == listSensorModel
           ? _value.listSensorModel
           : listSensorModel // ignore: cast_nullable_to_non_nullable
@@ -795,6 +751,14 @@ class _$TransactionStateCopyWithImpl<$Res, $Val extends TransactionState>
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      readyDrop: null == readyDrop
+          ? _value.readyDrop
+          : readyDrop // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isFinish: null == isFinish
+          ? _value.isFinish
+          : isFinish // ignore: cast_nullable_to_non_nullable
               as bool,
       statusDrop: null == statusDrop
           ? _value.statusDrop
@@ -826,6 +790,14 @@ class _$TransactionStateCopyWithImpl<$Res, $Val extends TransactionState>
       return _then(_value.copyWith(transactionModel: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RefundModelCopyWith<$Res> get refundModel {
+    return $RefundModelCopyWith<$Res>(_value.refundModel, (value) {
+      return _then(_value.copyWith(refundModel: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -839,9 +811,13 @@ abstract class _$$_TransactionStateCopyWith<$Res>
   $Res call(
       {bool isPay,
       TransactionModel transactionModel,
+      RefundModel refundModel,
       List<DropModel> listDropModel,
+      List<SensorModel> listMySensorModel,
       List<SensorModel> listSensorModel,
       bool isLoading,
+      bool readyDrop,
+      bool isFinish,
       int statusDrop,
       int slot_id,
       int transaction_id,
@@ -850,6 +826,8 @@ abstract class _$$_TransactionStateCopyWith<$Res>
 
   @override
   $TransactionModelCopyWith<$Res> get transactionModel;
+  @override
+  $RefundModelCopyWith<$Res> get refundModel;
 }
 
 /// @nodoc
@@ -865,9 +843,13 @@ class __$$_TransactionStateCopyWithImpl<$Res>
   $Res call({
     Object? isPay = null,
     Object? transactionModel = null,
+    Object? refundModel = null,
     Object? listDropModel = null,
+    Object? listMySensorModel = null,
     Object? listSensorModel = null,
     Object? isLoading = null,
+    Object? readyDrop = null,
+    Object? isFinish = null,
     Object? statusDrop = null,
     Object? slot_id = null,
     Object? transaction_id = null,
@@ -883,10 +865,18 @@ class __$$_TransactionStateCopyWithImpl<$Res>
           ? _value.transactionModel
           : transactionModel // ignore: cast_nullable_to_non_nullable
               as TransactionModel,
+      refundModel: null == refundModel
+          ? _value.refundModel
+          : refundModel // ignore: cast_nullable_to_non_nullable
+              as RefundModel,
       listDropModel: null == listDropModel
           ? _value._listDropModel
           : listDropModel // ignore: cast_nullable_to_non_nullable
               as List<DropModel>,
+      listMySensorModel: null == listMySensorModel
+          ? _value._listMySensorModel
+          : listMySensorModel // ignore: cast_nullable_to_non_nullable
+              as List<SensorModel>,
       listSensorModel: null == listSensorModel
           ? _value._listSensorModel
           : listSensorModel // ignore: cast_nullable_to_non_nullable
@@ -894,6 +884,14 @@ class __$$_TransactionStateCopyWithImpl<$Res>
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      readyDrop: null == readyDrop
+          ? _value.readyDrop
+          : readyDrop // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isFinish: null == isFinish
+          ? _value.isFinish
+          : isFinish // ignore: cast_nullable_to_non_nullable
               as bool,
       statusDrop: null == statusDrop
           ? _value.statusDrop
@@ -925,27 +923,43 @@ class _$_TransactionState implements _TransactionState {
   const _$_TransactionState(
       {required this.isPay,
       required this.transactionModel,
+      required this.refundModel,
       required final List<DropModel> listDropModel,
+      required final List<SensorModel> listMySensorModel,
       required final List<SensorModel> listSensorModel,
       required this.isLoading,
+      required this.readyDrop,
+      required this.isFinish,
       required this.statusDrop,
       required this.slot_id,
       required this.transaction_id,
       required this.slot_name,
       required this.failureOption})
       : _listDropModel = listDropModel,
+        _listMySensorModel = listMySensorModel,
         _listSensorModel = listSensorModel;
 
   @override
   final bool isPay;
   @override
   final TransactionModel transactionModel;
+  @override
+  final RefundModel refundModel;
   final List<DropModel> _listDropModel;
   @override
   List<DropModel> get listDropModel {
     if (_listDropModel is EqualUnmodifiableListView) return _listDropModel;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_listDropModel);
+  }
+
+  final List<SensorModel> _listMySensorModel;
+  @override
+  List<SensorModel> get listMySensorModel {
+    if (_listMySensorModel is EqualUnmodifiableListView)
+      return _listMySensorModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listMySensorModel);
   }
 
   final List<SensorModel> _listSensorModel;
@@ -959,6 +973,10 @@ class _$_TransactionState implements _TransactionState {
   @override
   final bool isLoading;
   @override
+  final bool readyDrop;
+  @override
+  final bool isFinish;
+  @override
   final int statusDrop;
   @override
   final int slot_id;
@@ -971,7 +989,7 @@ class _$_TransactionState implements _TransactionState {
 
   @override
   String toString() {
-    return 'TransactionState(isPay: $isPay, transactionModel: $transactionModel, listDropModel: $listDropModel, listSensorModel: $listSensorModel, isLoading: $isLoading, statusDrop: $statusDrop, slot_id: $slot_id, transaction_id: $transaction_id, slot_name: $slot_name, failureOption: $failureOption)';
+    return 'TransactionState(isPay: $isPay, transactionModel: $transactionModel, refundModel: $refundModel, listDropModel: $listDropModel, listMySensorModel: $listMySensorModel, listSensorModel: $listSensorModel, isLoading: $isLoading, readyDrop: $readyDrop, isFinish: $isFinish, statusDrop: $statusDrop, slot_id: $slot_id, transaction_id: $transaction_id, slot_name: $slot_name, failureOption: $failureOption)';
   }
 
   @override
@@ -982,12 +1000,20 @@ class _$_TransactionState implements _TransactionState {
             (identical(other.isPay, isPay) || other.isPay == isPay) &&
             (identical(other.transactionModel, transactionModel) ||
                 other.transactionModel == transactionModel) &&
+            (identical(other.refundModel, refundModel) ||
+                other.refundModel == refundModel) &&
             const DeepCollectionEquality()
                 .equals(other._listDropModel, _listDropModel) &&
+            const DeepCollectionEquality()
+                .equals(other._listMySensorModel, _listMySensorModel) &&
             const DeepCollectionEquality()
                 .equals(other._listSensorModel, _listSensorModel) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(other.readyDrop, readyDrop) ||
+                other.readyDrop == readyDrop) &&
+            (identical(other.isFinish, isFinish) ||
+                other.isFinish == isFinish) &&
             (identical(other.statusDrop, statusDrop) ||
                 other.statusDrop == statusDrop) &&
             (identical(other.slot_id, slot_id) || other.slot_id == slot_id) &&
@@ -1004,9 +1030,13 @@ class _$_TransactionState implements _TransactionState {
       runtimeType,
       isPay,
       transactionModel,
+      refundModel,
       const DeepCollectionEquality().hash(_listDropModel),
+      const DeepCollectionEquality().hash(_listMySensorModel),
       const DeepCollectionEquality().hash(_listSensorModel),
       isLoading,
+      readyDrop,
+      isFinish,
       statusDrop,
       slot_id,
       transaction_id,
@@ -1024,9 +1054,13 @@ abstract class _TransactionState implements TransactionState {
   const factory _TransactionState(
           {required final bool isPay,
           required final TransactionModel transactionModel,
+          required final RefundModel refundModel,
           required final List<DropModel> listDropModel,
+          required final List<SensorModel> listMySensorModel,
           required final List<SensorModel> listSensorModel,
           required final bool isLoading,
+          required final bool readyDrop,
+          required final bool isFinish,
           required final int statusDrop,
           required final int slot_id,
           required final int transaction_id,
@@ -1039,11 +1073,19 @@ abstract class _TransactionState implements TransactionState {
   @override
   TransactionModel get transactionModel;
   @override
+  RefundModel get refundModel;
+  @override
   List<DropModel> get listDropModel;
+  @override
+  List<SensorModel> get listMySensorModel;
   @override
   List<SensorModel> get listSensorModel;
   @override
   bool get isLoading;
+  @override
+  bool get readyDrop;
+  @override
+  bool get isFinish;
   @override
   int get statusDrop;
   @override

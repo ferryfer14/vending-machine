@@ -18,7 +18,10 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$DropModel {
   int? get slot_number => throw _privateConstructorUsedError;
   int? get slot => throw _privateConstructorUsedError;
+  ProductModel? get product => throw _privateConstructorUsedError;
   int? get amount => throw _privateConstructorUsedError;
+  int? get dropped => throw _privateConstructorUsedError;
+  int? get statusDrop => throw _privateConstructorUsedError;
   int? get quantity_success => throw _privateConstructorUsedError;
   int? get quantity_error => throw _privateConstructorUsedError;
 
@@ -35,9 +38,14 @@ abstract class $DropModelCopyWith<$Res> {
   $Res call(
       {int? slot_number,
       int? slot,
+      ProductModel? product,
       int? amount,
+      int? dropped,
+      int? statusDrop,
       int? quantity_success,
       int? quantity_error});
+
+  $ProductModelCopyWith<$Res>? get product;
 }
 
 /// @nodoc
@@ -55,7 +63,10 @@ class _$DropModelCopyWithImpl<$Res, $Val extends DropModel>
   $Res call({
     Object? slot_number = freezed,
     Object? slot = freezed,
+    Object? product = freezed,
     Object? amount = freezed,
+    Object? dropped = freezed,
+    Object? statusDrop = freezed,
     Object? quantity_success = freezed,
     Object? quantity_error = freezed,
   }) {
@@ -68,9 +79,21 @@ class _$DropModelCopyWithImpl<$Res, $Val extends DropModel>
           ? _value.slot
           : slot // ignore: cast_nullable_to_non_nullable
               as int?,
+      product: freezed == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as ProductModel?,
       amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      dropped: freezed == dropped
+          ? _value.dropped
+          : dropped // ignore: cast_nullable_to_non_nullable
+              as int?,
+      statusDrop: freezed == statusDrop
+          ? _value.statusDrop
+          : statusDrop // ignore: cast_nullable_to_non_nullable
               as int?,
       quantity_success: freezed == quantity_success
           ? _value.quantity_success
@@ -81,6 +104,18 @@ class _$DropModelCopyWithImpl<$Res, $Val extends DropModel>
           : quantity_error // ignore: cast_nullable_to_non_nullable
               as int?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ProductModelCopyWith<$Res>? get product {
+    if (_value.product == null) {
+      return null;
+    }
+
+    return $ProductModelCopyWith<$Res>(_value.product!, (value) {
+      return _then(_value.copyWith(product: value) as $Val);
+    });
   }
 }
 
@@ -94,9 +129,15 @@ abstract class _$$_DropModelCopyWith<$Res> implements $DropModelCopyWith<$Res> {
   $Res call(
       {int? slot_number,
       int? slot,
+      ProductModel? product,
       int? amount,
+      int? dropped,
+      int? statusDrop,
       int? quantity_success,
       int? quantity_error});
+
+  @override
+  $ProductModelCopyWith<$Res>? get product;
 }
 
 /// @nodoc
@@ -112,7 +153,10 @@ class __$$_DropModelCopyWithImpl<$Res>
   $Res call({
     Object? slot_number = freezed,
     Object? slot = freezed,
+    Object? product = freezed,
     Object? amount = freezed,
+    Object? dropped = freezed,
+    Object? statusDrop = freezed,
     Object? quantity_success = freezed,
     Object? quantity_error = freezed,
   }) {
@@ -125,9 +169,21 @@ class __$$_DropModelCopyWithImpl<$Res>
           ? _value.slot
           : slot // ignore: cast_nullable_to_non_nullable
               as int?,
+      product: freezed == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as ProductModel?,
       amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      dropped: freezed == dropped
+          ? _value.dropped
+          : dropped // ignore: cast_nullable_to_non_nullable
+              as int?,
+      statusDrop: freezed == statusDrop
+          ? _value.statusDrop
+          : statusDrop // ignore: cast_nullable_to_non_nullable
               as int?,
       quantity_success: freezed == quantity_success
           ? _value.quantity_success
@@ -147,7 +203,10 @@ class _$_DropModel extends _DropModel {
   const _$_DropModel(
       {this.slot_number,
       this.slot,
+      this.product,
       this.amount,
+      this.dropped,
+      this.statusDrop,
       this.quantity_success,
       this.quantity_error})
       : super._();
@@ -157,7 +216,13 @@ class _$_DropModel extends _DropModel {
   @override
   final int? slot;
   @override
+  final ProductModel? product;
+  @override
   final int? amount;
+  @override
+  final int? dropped;
+  @override
+  final int? statusDrop;
   @override
   final int? quantity_success;
   @override
@@ -165,7 +230,7 @@ class _$_DropModel extends _DropModel {
 
   @override
   String toString() {
-    return 'DropModel(slot_number: $slot_number, slot: $slot, amount: $amount, quantity_success: $quantity_success, quantity_error: $quantity_error)';
+    return 'DropModel(slot_number: $slot_number, slot: $slot, product: $product, amount: $amount, dropped: $dropped, statusDrop: $statusDrop, quantity_success: $quantity_success, quantity_error: $quantity_error)';
   }
 
   @override
@@ -176,7 +241,11 @@ class _$_DropModel extends _DropModel {
             (identical(other.slot_number, slot_number) ||
                 other.slot_number == slot_number) &&
             (identical(other.slot, slot) || other.slot == slot) &&
+            (identical(other.product, product) || other.product == product) &&
             (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.dropped, dropped) || other.dropped == dropped) &&
+            (identical(other.statusDrop, statusDrop) ||
+                other.statusDrop == statusDrop) &&
             (identical(other.quantity_success, quantity_success) ||
                 other.quantity_success == quantity_success) &&
             (identical(other.quantity_error, quantity_error) ||
@@ -184,8 +253,8 @@ class _$_DropModel extends _DropModel {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, slot_number, slot, amount, quantity_success, quantity_error);
+  int get hashCode => Object.hash(runtimeType, slot_number, slot, product,
+      amount, dropped, statusDrop, quantity_success, quantity_error);
 
   @JsonKey(ignore: true)
   @override
@@ -198,7 +267,10 @@ abstract class _DropModel extends DropModel {
   const factory _DropModel(
       {final int? slot_number,
       final int? slot,
+      final ProductModel? product,
       final int? amount,
+      final int? dropped,
+      final int? statusDrop,
       final int? quantity_success,
       final int? quantity_error}) = _$_DropModel;
   const _DropModel._() : super._();
@@ -208,7 +280,13 @@ abstract class _DropModel extends DropModel {
   @override
   int? get slot;
   @override
+  ProductModel? get product;
+  @override
   int? get amount;
+  @override
+  int? get dropped;
+  @override
+  int? get statusDrop;
   @override
   int? get quantity_success;
   @override

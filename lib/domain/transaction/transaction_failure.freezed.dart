@@ -18,18 +18,21 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$TransactionFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() emptyList,
     required TResult Function() unexpectedError,
     required TResult Function(AppException exception) appException,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? emptyList,
     TResult? Function()? unexpectedError,
     TResult? Function(AppException exception)? appException,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? emptyList,
     TResult Function()? unexpectedError,
     TResult Function(AppException exception)? appException,
     required TResult orElse(),
@@ -37,18 +40,21 @@ mixin _$TransactionFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_EmptyList value) emptyList,
     required TResult Function(_UnexpectedError value) unexpectedError,
     required TResult Function(_AppException value) appException,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_EmptyList value)? emptyList,
     TResult? Function(_UnexpectedError value)? unexpectedError,
     TResult? Function(_AppException value)? appException,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_EmptyList value)? emptyList,
     TResult Function(_UnexpectedError value)? unexpectedError,
     TResult Function(_AppException value)? appException,
     required TResult orElse(),
@@ -72,6 +78,114 @@ class _$TransactionFailureCopyWithImpl<$Res, $Val extends TransactionFailure>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$_EmptyListCopyWith<$Res> {
+  factory _$$_EmptyListCopyWith(
+          _$_EmptyList value, $Res Function(_$_EmptyList) then) =
+      __$$_EmptyListCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_EmptyListCopyWithImpl<$Res>
+    extends _$TransactionFailureCopyWithImpl<$Res, _$_EmptyList>
+    implements _$$_EmptyListCopyWith<$Res> {
+  __$$_EmptyListCopyWithImpl(
+      _$_EmptyList _value, $Res Function(_$_EmptyList) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_EmptyList implements _EmptyList {
+  const _$_EmptyList();
+
+  @override
+  String toString() {
+    return 'TransactionFailure.emptyList()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_EmptyList);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() emptyList,
+    required TResult Function() unexpectedError,
+    required TResult Function(AppException exception) appException,
+  }) {
+    return emptyList();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? emptyList,
+    TResult? Function()? unexpectedError,
+    TResult? Function(AppException exception)? appException,
+  }) {
+    return emptyList?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? emptyList,
+    TResult Function()? unexpectedError,
+    TResult Function(AppException exception)? appException,
+    required TResult orElse(),
+  }) {
+    if (emptyList != null) {
+      return emptyList();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_EmptyList value) emptyList,
+    required TResult Function(_UnexpectedError value) unexpectedError,
+    required TResult Function(_AppException value) appException,
+  }) {
+    return emptyList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_EmptyList value)? emptyList,
+    TResult? Function(_UnexpectedError value)? unexpectedError,
+    TResult? Function(_AppException value)? appException,
+  }) {
+    return emptyList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_EmptyList value)? emptyList,
+    TResult Function(_UnexpectedError value)? unexpectedError,
+    TResult Function(_AppException value)? appException,
+    required TResult orElse(),
+  }) {
+    if (emptyList != null) {
+      return emptyList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EmptyList implements TransactionFailure {
+  const factory _EmptyList() = _$_EmptyList;
 }
 
 /// @nodoc
@@ -112,6 +226,7 @@ class _$_UnexpectedError implements _UnexpectedError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() emptyList,
     required TResult Function() unexpectedError,
     required TResult Function(AppException exception) appException,
   }) {
@@ -121,6 +236,7 @@ class _$_UnexpectedError implements _UnexpectedError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? emptyList,
     TResult? Function()? unexpectedError,
     TResult? Function(AppException exception)? appException,
   }) {
@@ -130,6 +246,7 @@ class _$_UnexpectedError implements _UnexpectedError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? emptyList,
     TResult Function()? unexpectedError,
     TResult Function(AppException exception)? appException,
     required TResult orElse(),
@@ -143,6 +260,7 @@ class _$_UnexpectedError implements _UnexpectedError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_EmptyList value) emptyList,
     required TResult Function(_UnexpectedError value) unexpectedError,
     required TResult Function(_AppException value) appException,
   }) {
@@ -152,6 +270,7 @@ class _$_UnexpectedError implements _UnexpectedError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_EmptyList value)? emptyList,
     TResult? Function(_UnexpectedError value)? unexpectedError,
     TResult? Function(_AppException value)? appException,
   }) {
@@ -161,6 +280,7 @@ class _$_UnexpectedError implements _UnexpectedError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_EmptyList value)? emptyList,
     TResult Function(_UnexpectedError value)? unexpectedError,
     TResult Function(_AppException value)? appException,
     required TResult orElse(),
@@ -251,6 +371,7 @@ class _$_AppException implements _AppException {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() emptyList,
     required TResult Function() unexpectedError,
     required TResult Function(AppException exception) appException,
   }) {
@@ -260,6 +381,7 @@ class _$_AppException implements _AppException {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? emptyList,
     TResult? Function()? unexpectedError,
     TResult? Function(AppException exception)? appException,
   }) {
@@ -269,6 +391,7 @@ class _$_AppException implements _AppException {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? emptyList,
     TResult Function()? unexpectedError,
     TResult Function(AppException exception)? appException,
     required TResult orElse(),
@@ -282,6 +405,7 @@ class _$_AppException implements _AppException {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_EmptyList value) emptyList,
     required TResult Function(_UnexpectedError value) unexpectedError,
     required TResult Function(_AppException value) appException,
   }) {
@@ -291,6 +415,7 @@ class _$_AppException implements _AppException {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_EmptyList value)? emptyList,
     TResult? Function(_UnexpectedError value)? unexpectedError,
     TResult? Function(_AppException value)? appException,
   }) {
@@ -300,6 +425,7 @@ class _$_AppException implements _AppException {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_EmptyList value)? emptyList,
     TResult Function(_UnexpectedError value)? unexpectedError,
     TResult Function(_AppException value)? appException,
     required TResult orElse(),

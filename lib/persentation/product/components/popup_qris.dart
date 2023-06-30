@@ -18,7 +18,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class PopupQris extends StatelessWidget {
-  const   PopupQris({super.key, required this.transactionModel, required this.onClose});
+  const PopupQris(
+      {super.key, required this.transactionModel, required this.onClose});
   final TransactionModel transactionModel;
   final VoidCallback onClose;
 
@@ -126,7 +127,8 @@ class PopupQris extends StatelessWidget {
             siboh24,
             Center(
                 child: Text(AppLocalizations.of(context)!.note_qr,
-                    textAlign: TextAlign.center, style: ts24Secondary400))
+                    textAlign: TextAlign.center, style: ts24Secondary400)),
+            siboh24,
           ],
         ));
   }

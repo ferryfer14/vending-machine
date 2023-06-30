@@ -20,6 +20,10 @@ SensorModelDto _$SensorModelDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SensorModelDto {
+  @JsonKey(name: 'id')
+  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'title')
+  String? get title => throw _privateConstructorUsedError;
   @JsonKey(name: 'code')
   String? get code => throw _privateConstructorUsedError;
   @JsonKey(name: 'description')
@@ -28,6 +32,9 @@ mixin _$SensorModelDto {
   bool? get value => throw _privateConstructorUsedError;
   @JsonKey(name: 'slot_name')
   int? get slotName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'category')
+  SensorCategoryDto? get sensorCategoryDto =>
+      throw _privateConstructorUsedError;
   @JsonKey(name: 'slot')
   int? get slot => throw _privateConstructorUsedError;
 
@@ -44,11 +51,16 @@ abstract class $SensorModelDtoCopyWith<$Res> {
       _$SensorModelDtoCopyWithImpl<$Res, SensorModelDto>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'code') String? code,
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'title') String? title,
+      @JsonKey(name: 'code') String? code,
       @JsonKey(name: 'description') String? description,
       @JsonKey(name: 'value') bool? value,
       @JsonKey(name: 'slot_name') int? slotName,
+      @JsonKey(name: 'category') SensorCategoryDto? sensorCategoryDto,
       @JsonKey(name: 'slot') int? slot});
+
+  $SensorCategoryDtoCopyWith<$Res>? get sensorCategoryDto;
 }
 
 /// @nodoc
@@ -64,13 +76,24 @@ class _$SensorModelDtoCopyWithImpl<$Res, $Val extends SensorModelDto>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
+    Object? title = freezed,
     Object? code = freezed,
     Object? description = freezed,
     Object? value = freezed,
     Object? slotName = freezed,
+    Object? sensorCategoryDto = freezed,
     Object? slot = freezed,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
       code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -87,11 +110,27 @@ class _$SensorModelDtoCopyWithImpl<$Res, $Val extends SensorModelDto>
           ? _value.slotName
           : slotName // ignore: cast_nullable_to_non_nullable
               as int?,
+      sensorCategoryDto: freezed == sensorCategoryDto
+          ? _value.sensorCategoryDto
+          : sensorCategoryDto // ignore: cast_nullable_to_non_nullable
+              as SensorCategoryDto?,
       slot: freezed == slot
           ? _value.slot
           : slot // ignore: cast_nullable_to_non_nullable
               as int?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SensorCategoryDtoCopyWith<$Res>? get sensorCategoryDto {
+    if (_value.sensorCategoryDto == null) {
+      return null;
+    }
+
+    return $SensorCategoryDtoCopyWith<$Res>(_value.sensorCategoryDto!, (value) {
+      return _then(_value.copyWith(sensorCategoryDto: value) as $Val);
+    });
   }
 }
 
@@ -104,11 +143,17 @@ abstract class _$$_SensorModelDtoCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'code') String? code,
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'title') String? title,
+      @JsonKey(name: 'code') String? code,
       @JsonKey(name: 'description') String? description,
       @JsonKey(name: 'value') bool? value,
       @JsonKey(name: 'slot_name') int? slotName,
+      @JsonKey(name: 'category') SensorCategoryDto? sensorCategoryDto,
       @JsonKey(name: 'slot') int? slot});
+
+  @override
+  $SensorCategoryDtoCopyWith<$Res>? get sensorCategoryDto;
 }
 
 /// @nodoc
@@ -122,13 +167,24 @@ class __$$_SensorModelDtoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
+    Object? title = freezed,
     Object? code = freezed,
     Object? description = freezed,
     Object? value = freezed,
     Object? slotName = freezed,
+    Object? sensorCategoryDto = freezed,
     Object? slot = freezed,
   }) {
     return _then(_$_SensorModelDto(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
       code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -145,6 +201,10 @@ class __$$_SensorModelDtoCopyWithImpl<$Res>
           ? _value.slotName
           : slotName // ignore: cast_nullable_to_non_nullable
               as int?,
+      sensorCategoryDto: freezed == sensorCategoryDto
+          ? _value.sensorCategoryDto
+          : sensorCategoryDto // ignore: cast_nullable_to_non_nullable
+              as SensorCategoryDto?,
       slot: freezed == slot
           ? _value.slot
           : slot // ignore: cast_nullable_to_non_nullable
@@ -157,16 +217,25 @@ class __$$_SensorModelDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SensorModelDto extends _SensorModelDto {
   const _$_SensorModelDto(
-      {@JsonKey(name: 'code') this.code,
+      {@JsonKey(name: 'id') this.id,
+      @JsonKey(name: 'title') this.title,
+      @JsonKey(name: 'code') this.code,
       @JsonKey(name: 'description') this.description,
       @JsonKey(name: 'value') this.value,
       @JsonKey(name: 'slot_name') this.slotName,
+      @JsonKey(name: 'category') this.sensorCategoryDto,
       @JsonKey(name: 'slot') this.slot})
       : super._();
 
   factory _$_SensorModelDto.fromJson(Map<String, dynamic> json) =>
       _$$_SensorModelDtoFromJson(json);
 
+  @override
+  @JsonKey(name: 'id')
+  final int? id;
+  @override
+  @JsonKey(name: 'title')
+  final String? title;
   @override
   @JsonKey(name: 'code')
   final String? code;
@@ -180,12 +249,15 @@ class _$_SensorModelDto extends _SensorModelDto {
   @JsonKey(name: 'slot_name')
   final int? slotName;
   @override
+  @JsonKey(name: 'category')
+  final SensorCategoryDto? sensorCategoryDto;
+  @override
   @JsonKey(name: 'slot')
   final int? slot;
 
   @override
   String toString() {
-    return 'SensorModelDto(code: $code, description: $description, value: $value, slotName: $slotName, slot: $slot)';
+    return 'SensorModelDto(id: $id, title: $title, code: $code, description: $description, value: $value, slotName: $slotName, sensorCategoryDto: $sensorCategoryDto, slot: $slot)';
   }
 
   @override
@@ -193,19 +265,23 @@ class _$_SensorModelDto extends _SensorModelDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SensorModelDto &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.code, code) || other.code == code) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.value, value) || other.value == value) &&
             (identical(other.slotName, slotName) ||
                 other.slotName == slotName) &&
+            (identical(other.sensorCategoryDto, sensorCategoryDto) ||
+                other.sensorCategoryDto == sensorCategoryDto) &&
             (identical(other.slot, slot) || other.slot == slot));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, code, description, value, slotName, slot);
+  int get hashCode => Object.hash(runtimeType, id, title, code, description,
+      value, slotName, sensorCategoryDto, slot);
 
   @JsonKey(ignore: true)
   @override
@@ -223,16 +299,25 @@ class _$_SensorModelDto extends _SensorModelDto {
 
 abstract class _SensorModelDto extends SensorModelDto {
   const factory _SensorModelDto(
-      {@JsonKey(name: 'code') final String? code,
+      {@JsonKey(name: 'id') final int? id,
+      @JsonKey(name: 'title') final String? title,
+      @JsonKey(name: 'code') final String? code,
       @JsonKey(name: 'description') final String? description,
       @JsonKey(name: 'value') final bool? value,
       @JsonKey(name: 'slot_name') final int? slotName,
+      @JsonKey(name: 'category') final SensorCategoryDto? sensorCategoryDto,
       @JsonKey(name: 'slot') final int? slot}) = _$_SensorModelDto;
   const _SensorModelDto._() : super._();
 
   factory _SensorModelDto.fromJson(Map<String, dynamic> json) =
       _$_SensorModelDto.fromJson;
 
+  @override
+  @JsonKey(name: 'id')
+  int? get id;
+  @override
+  @JsonKey(name: 'title')
+  String? get title;
   @override
   @JsonKey(name: 'code')
   String? get code;
@@ -245,6 +330,9 @@ abstract class _SensorModelDto extends SensorModelDto {
   @override
   @JsonKey(name: 'slot_name')
   int? get slotName;
+  @override
+  @JsonKey(name: 'category')
+  SensorCategoryDto? get sensorCategoryDto;
   @override
   @JsonKey(name: 'slot')
   int? get slot;

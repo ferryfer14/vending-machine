@@ -6,6 +6,7 @@ part 'transaction_failure.freezed.dart';
 
 @freezed
 class TransactionFailure with _$TransactionFailure {
+  const factory TransactionFailure.emptyList() = _EmptyList;
   const factory TransactionFailure.unexpectedError() = _UnexpectedError;
 
   const factory TransactionFailure.appException(

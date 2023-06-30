@@ -9,8 +9,11 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:standart_project/application/product/product_bloc.dart';
 import 'package:standart_project/application/transaction/transaction_bloc.dart';
 import 'package:standart_project/domain/product/slot_model.dart';
+import 'package:standart_project/domain/transaction/refund_model.dart';
 import 'package:standart_project/persentation/core/utils/spacing/sizebox.dart';
 import 'package:standart_project/persentation/core/utils/styles/text_style.dart';
+import 'package:standart_project/persentation/product/components/popup_refund.dart';
+import 'package:standart_project/persentation/product/components/popup_success.dart';
 import 'package:standart_project/routes/app_router.dart';
 
 import '../../app_constant.dart';
@@ -59,24 +62,96 @@ class _ProductPageState extends State<ProductPage> {
     context.router.replaceAll([CaraouselRoute()]);
   }
 
+  Future<void> popupSuccess(BuildContext parentContext) async {
+    showDialog(
+        barrierDismissible: false,
+        context: parentContext,
+        builder: (BuildContext context) {
+          return MultiBlocProvider(
+              providers: [
+                BlocProvider.value(
+                    value: parentContext.read<TransactionBloc>()),
+                BlocProvider.value(value: parentContext.read<ProductBloc>()),
+              ],
+              child: Dialog(
+                  backgroundColor: Colors.transparent,
+                  insetPadding: padall12,
+                  child: Wrap(children: [
+                    PopupSuccess(
+                      onClose: () {
+                        parentContext.router
+                            .replaceAll([const CaraouselRoute()]);
+                      },
+                    )
+                  ])));
+        });
+  }
+
+  Future<void> popupFailed(BuildContext parentContext,
+      TransactionModel transactionModel, RefundModel refundModel) async {
+    showDialog(
+        barrierDismissible: false,
+        context: parentContext,
+        builder: (BuildContext context) {
+          return MultiBlocProvider(
+              providers: [
+                BlocProvider.value(
+                    value: parentContext.read<TransactionBloc>()),
+                BlocProvider.value(value: parentContext.read<ProductBloc>()),
+              ],
+              child: Dialog(
+                  backgroundColor: Colors.transparent,
+                  insetPadding: padall12,
+                  child: Wrap(children: [
+                    PopupRefund(
+                      transactionModel: transactionModel,
+                      refundModel: refundModel,
+                      onClose: () {
+                        parentContext
+                            .read<ProductBloc>()
+                            .add(const ProductEvent.started(isRefresh: true));
+                        parentContext
+                            .read<TransactionBloc>()
+                            .add(const TransactionEvent.started());
+                        Navigator.pop(context);
+                      },
+                    )
+                  ])));
+        });
+  }
+
   Future<void> popupDrop(
       BuildContext parentContext, List<SlotModel> listSlotModel) async {
     showDialog(
         barrierDismissible: false,
         context: parentContext,
         builder: (BuildContext context) {
-          return BlocProvider.value(
-              value: parentContext.read<TransactionBloc>(),
-              child: BlocConsumer<TransactionBloc, TransactionState>(
-                  listener: (context, state) {},
-                  builder: (context, state) {
-                    return Dialog(
-                        backgroundColor: Colors.transparent,
-                        insetPadding: padall12,
-                        child: Wrap(children: [
-                          PopupDrop(listSlotModel: listSlotModel)
-                        ]));
-                  }));
+          return Dialog(
+              backgroundColor: Colors.transparent,
+              insetPadding: padall12,
+              child: Wrap(children: [
+                BlocProvider.value(
+                    value: parentContext.read<TransactionBloc>()
+                      ..add(TransactionEvent.drop(listSlotModel)),
+                    child: BlocConsumer<TransactionBloc, TransactionState>(
+                        listener: (context, state) {
+                      if (state.statusDrop > 0 && state.isFinish == false) {
+                        context.read<TransactionBloc>().add(
+                            const TransactionEvent.finish(isLoading: true));
+                      }
+                      if (state.statusDrop == 1 && state.isFinish == true) {
+                        Navigator.pop(context);
+                        popupSuccess(parentContext);
+                      } else if (state.statusDrop == 2 &&
+                          state.isFinish == true) {
+                        Navigator.pop(context);
+                        popupFailed(parentContext, state.transactionModel,
+                            state.refundModel);
+                      }
+                    }, builder: (context, state) {
+                      return PopupDrop(listDropModel: state.listDropModel);
+                    }))
+              ]));
         });
   }
 
@@ -100,12 +175,13 @@ class _ProductPageState extends State<ProductPage> {
                       searchOnStoppedTyping?.cancel(); // clear timer
                     }
                     if (state.isPay == false &&
-                        state.transactionModel.id! > 0) {
+                        state.transactionModel.id! > 0 &&
+                        state.readyDrop == false) {
                       context.read<TransactionBloc>().add(
                           TransactionEvent.checkStatusTransaction(
                               transactionModel.id!));
                     }
-                    if (state.isPay) {
+                    if (state.isPay == true && state.readyDrop == false) {
                       Navigator.pop(context);
                       popupDrop(parentContext, listSlotModel);
                     }
@@ -138,7 +214,8 @@ class _ProductPageState extends State<ProductPage> {
                 state.failureOption.fold(() => null, (failure) {
                   failure.whenOrNull(unexpectedError: () {
                     customSnackBar(
-                        content: const Text('Unexpected error occurred'),
+                        content: const Text('Unexpected error occurred',
+                            style: ts24White400),
                         context: context,
                         color: redColor);
                   }, noConnection: () {
@@ -231,7 +308,7 @@ class _ProductPageState extends State<ProductPage> {
     return MultiBlocProvider(
         providers: [
           BlocProvider(
-        create: (context) => getIt<ProductBloc>()
+              create: (context) => getIt<ProductBloc>()
                 ..add(const ProductEvent.started(isRefresh: true))),
           BlocProvider(
               create: (context) => getIt<TransactionBloc>()
@@ -281,8 +358,7 @@ class _ProductPageState extends State<ProductPage> {
                                         siboh24,
                                         TitleProduct(
                                           totalCart: state.totalCart,
-                                          onTap: () =>
-                                              popupDrop(context, state.cart),
+                                          onTap: () => popupCart(context),
                                         ),
                                         siboh24,
                                         CarouselSlider.builder(
