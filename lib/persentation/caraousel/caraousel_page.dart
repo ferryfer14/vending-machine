@@ -47,26 +47,24 @@ class CaraouselPage extends StatelessWidget {
             (data) {
               data.fold(
                 (failure) {
-                  failure.whenOrNull(
-                    appException: (v) {
+                  failure.whenOrNull(appException: (v) {
                     v.maybeMap(
                         badNetworkException: (_) {
                           noInternet(context, () {}, 'caraousel');
                         },
                         orElse: () => null);
                   }, invalidUsernameAndPassword: () {
-                      customSnackBar(
-                        context: context,
-                        color: redColor,
-                        duration: const Duration(milliseconds: 3000),
-                        content:
-                            Text(AppLocalizations.of(context)!.invalid_form),
-                      );
-                  }
-                  );
+                    customSnackBar(
+                      context: context,
+                      color: redColor,
+                      duration: const Duration(milliseconds: 3000),
+                      content: Text(AppLocalizations.of(context)!.invalid_form),
+                    );
+                  });
                 },
                 (_) {
-                  context.router.replace(ProductRoute());
+                  context.router.push(WebviewRoute());
+                  // context.router.replace(ProductRoute());
                 },
               );
             },

@@ -41,12 +41,14 @@ class PopupSuccess extends StatelessWidget {
                 child: Text(
               AppLocalizations.of(context)!.success_vm,
               style: ts36Black600,
+              textAlign: TextAlign.center,
             )),
             siboh24,
             Center(
                 child: Text(
               AppLocalizations.of(context)!.note_success,
               style: ts24Black400,
+              textAlign: TextAlign.center,
             )),
             siboh32,
             const Center(

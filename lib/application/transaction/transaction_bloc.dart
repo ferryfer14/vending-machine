@@ -48,7 +48,9 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
                   listSensorModel: List.empty(),
                   listDropModel: List.empty(),
                   statusDrop: 0,
+                  refundModel: RefundModel.empty(),
                   transactionModel: TransactionModel.empty(),
+                  readyDrop: false,
                   isPay: false);
             }
             return state.copyWith.call(
@@ -61,7 +63,9 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
                 listSensorModel: List.empty(),
                 listDropModel: List.empty(),
                 statusDrop: 0,
+                refundModel: RefundModel.empty(),
                 transactionModel: TransactionModel.empty(),
+                readyDrop: false,
                 isPay: false);
           },
           (items) => state.copyWith.call(
@@ -98,6 +102,7 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
                 quantity_success: 0));
             for (var i = 0; i < slotModel.amount!; i++) {
               listSensorVending.add(SensorModel(
+                  id: i + 1,
                   slot: slotModel.id,
                   slotName: int.parse(slotModel.name!),
                   value: false,
@@ -132,8 +137,7 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
                         quantity_success: drModel.quantity_success);
 
                 listSensorVending[listSensorVending.indexWhere(
-                        (element) => element.slot == sensorModel.slot)] =
-                    SensorModel(
+                    (element) => element.id == sensorModel.id)] = SensorModel(
                   code: mySensor.code,
                   description: vErrorDrop,
                   value: false,
@@ -165,8 +169,7 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
                         quantity_success: drModel.quantity_success! + 1);
 
                 listSensorVending[listSensorVending.indexWhere(
-                        (element) => element.slot == sensorModel.slot)] =
-                    SensorModel(
+                    (element) => element.id == sensorModel.id)] = SensorModel(
                   code: mySensor.code,
                   description: vSuccessDrop,
                   value: true,
@@ -217,6 +220,7 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
         emit(state.copyWith.call(
           isLoading: true,
           isPay: false,
+          readyDrop: false,
           transactionModel: TransactionModel.empty(),
           failureOption: none(),
         ));

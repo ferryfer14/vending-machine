@@ -59,7 +59,7 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   navigateHome() {
-    context.router.replaceAll([CaraouselRoute()]);
+    context.router.replaceAll([const CaraouselRoute()]);
   }
 
   Future<void> popupSuccess(BuildContext parentContext) async {
@@ -99,24 +99,27 @@ class _ProductPageState extends State<ProductPage> {
                     value: parentContext.read<TransactionBloc>()),
                 BlocProvider.value(value: parentContext.read<ProductBloc>()),
               ],
-              child: Dialog(
-                  backgroundColor: Colors.transparent,
-                  insetPadding: padall12,
-                  child: Wrap(children: [
-                    PopupRefund(
-                      transactionModel: transactionModel,
-                      refundModel: refundModel,
-                      onClose: () {
-                        parentContext
-                            .read<ProductBloc>()
-                            .add(const ProductEvent.started(isRefresh: true));
-                        parentContext
-                            .read<TransactionBloc>()
-                            .add(const TransactionEvent.started());
-                        Navigator.pop(context);
-                      },
-                    )
-                  ])));
+              child: BlocBuilder<TransactionBloc, TransactionState>(
+                  builder: (context, state) {
+                return Dialog(
+                    backgroundColor: Colors.transparent,
+                    insetPadding: padall12,
+                    child: Wrap(children: [
+                      PopupRefund(
+                        transactionModel: transactionModel,
+                        refundModel: refundModel,
+                        onClose: () {
+                          context
+                              .read<ProductBloc>()
+                              .add(const ProductEvent.started(isRefresh: true));
+                          context
+                              .read<TransactionBloc>()
+                              .add(const TransactionEvent.started());
+                          Navigator.pop(context);
+                        },
+                      )
+                    ]));
+              }));
         });
   }
 
@@ -141,7 +144,14 @@ class _ProductPageState extends State<ProductPage> {
                       }
                       if (state.statusDrop == 1 && state.isFinish == true) {
                         Navigator.pop(context);
-                        popupSuccess(parentContext);
+                        if (state.refundModel.inGame! == true) {
+                          // // parentContext.router.push(WebviewRoute(url: state.refundModel.gameModel!.gameUrl!.getOrElse('')));
+                          // parentContext.router.push(WebviewRoute(
+                          //     url:
+                          //         "https://games.monstercode.net/panjat-pinang/"));
+                        } else {
+                          popupSuccess(parentContext);
+                        }
                       } else if (state.statusDrop == 2 &&
                           state.isFinish == true) {
                         Navigator.pop(context);
@@ -169,36 +179,38 @@ class _ProductPageState extends State<ProductPage> {
                           transactionModel.id!))),
                 BlocProvider.value(value: parentContext.read<ProductBloc>()),
               ],
-              child: BlocListener<TransactionBloc, TransactionState>(
+              child: BlocConsumer<TransactionBloc, TransactionState>(
                   listener: (context, state) {
-                    if (searchOnStoppedTyping != null) {
-                      searchOnStoppedTyping?.cancel(); // clear timer
-                    }
-                    if (state.isPay == false &&
-                        state.transactionModel.id! > 0 &&
-                        state.readyDrop == false) {
-                      context.read<TransactionBloc>().add(
-                          TransactionEvent.checkStatusTransaction(
-                              transactionModel.id!));
-                    }
-                    if (state.isPay == true && state.readyDrop == false) {
-                      Navigator.pop(context);
-                      popupDrop(parentContext, listSlotModel);
-                    }
-                  },
-                  child: Dialog(
-                      backgroundColor: Colors.transparent,
-                      insetPadding: padall12,
-                      child: Wrap(children: [
-                        PopupQris(
-                          transactionModel: transactionModel,
-                          onClose: () {
-                            parentContext.read<ProductBloc>().add(
-                                const ProductEvent.started(isRefresh: true));
-                            Navigator.pop(context);
-                          },
-                        )
-                      ]))));
+                if (searchOnStoppedTyping != null) {
+                  searchOnStoppedTyping?.cancel(); // clear timer
+                }
+                if (state.isPay == false &&
+                    state.transactionModel.id! > 0 &&
+                    state.readyDrop == false) {
+                  context.read<TransactionBloc>().add(
+                      TransactionEvent.checkStatusTransaction(
+                          transactionModel.id!));
+                }
+                if (state.isPay == true && state.readyDrop == false) {
+                  Navigator.pop(context);
+                  popupDrop(parentContext, listSlotModel);
+                }
+              }, builder: (context, state) {
+                return Dialog(
+                    backgroundColor: Colors.transparent,
+                    insetPadding: padall12,
+                    child: Wrap(children: [
+                      PopupQris(
+                        transactionModel: transactionModel,
+                        onClose: () {
+                          context
+                              .read<ProductBloc>()
+                              .add(const ProductEvent.started(isRefresh: true));
+                          Navigator.pop(context);
+                        },
+                      )
+                    ]));
+              }));
         });
   }
 

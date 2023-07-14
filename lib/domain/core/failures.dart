@@ -39,4 +39,12 @@ class ValueFailure<T> with _$ValueFailure<T> {
     required T failedValue,
     required int max,
   }) = ExceedingLength<T>;
+
+  const factory ValueFailure.invalidNominal({
+    required T failedValue,
+  }) = _InvalidNominal<T>;
+
+  const factory ValueFailure.invalidUrl({
+    required T failedValue,
+  }) = _InvalidUrl<T>;
 }

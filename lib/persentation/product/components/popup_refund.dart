@@ -78,7 +78,7 @@ class PopupRefund extends StatelessWidget {
               child: Column(
                 children: [
                   QrImage(
-                    data: refundModel.qr_string!,
+                    data: refundModel.qrString!.getOrElse(''),
                     version: QrVersions.auto,
                     size: 320,
                     gapless: false,

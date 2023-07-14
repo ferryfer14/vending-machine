@@ -51,7 +51,7 @@ Either<ValueFailure<String>, String> validateStringAllowEmpty(String input) {
   return right(input);
 }
 
-Either<ValueFailure<num>, num> validateNumberNotZero(num input) {
+Either<ValueFailure<int>, int> validateNumberNotZero(int input) {
   if (input != 0) {
     return right(input);
   } else {
@@ -71,4 +71,19 @@ Either<ValueFailure<String>, String> validateMaxStringLength(
       max: maxLength,
     ));
   }
+}
+
+Either<ValueFailure<num>, num> validateNominalValue(num input) {
+  if (input > 0) {
+    return right(input);
+  } else {
+    return left(ValueFailure.invalidNominal(failedValue: input));
+  }
+}
+
+Either<ValueFailure<String>, String> validateStringUrl(String input) {
+  if (isURL(input)) {
+    return right(input);
+  }
+  return left(ValueFailure.invalidUrl(failedValue: input));
 }

@@ -25,7 +25,11 @@ mixin _$RefundModelDto {
   @JsonKey(name: 'message')
   String? get message => throw _privateConstructorUsedError;
   @JsonKey(name: 'qr_string')
-  String? get qr_string => throw _privateConstructorUsedError;
+  String? get qrString => throw _privateConstructorUsedError;
+  @JsonKey(name: 'in_game')
+  bool? get inGame => throw _privateConstructorUsedError;
+  @JsonKey(name: 'game')
+  GameModelDto? get gameModelDto => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +46,11 @@ abstract class $RefundModelDtoCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'status') bool? status,
       @JsonKey(name: 'message') String? message,
-      @JsonKey(name: 'qr_string') String? qr_string});
+      @JsonKey(name: 'qr_string') String? qrString,
+      @JsonKey(name: 'in_game') bool? inGame,
+      @JsonKey(name: 'game') GameModelDto? gameModelDto});
+
+  $GameModelDtoCopyWith<$Res>? get gameModelDto;
 }
 
 /// @nodoc
@@ -60,7 +68,9 @@ class _$RefundModelDtoCopyWithImpl<$Res, $Val extends RefundModelDto>
   $Res call({
     Object? status = freezed,
     Object? message = freezed,
-    Object? qr_string = freezed,
+    Object? qrString = freezed,
+    Object? inGame = freezed,
+    Object? gameModelDto = freezed,
   }) {
     return _then(_value.copyWith(
       status: freezed == status
@@ -71,11 +81,31 @@ class _$RefundModelDtoCopyWithImpl<$Res, $Val extends RefundModelDto>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-      qr_string: freezed == qr_string
-          ? _value.qr_string
-          : qr_string // ignore: cast_nullable_to_non_nullable
+      qrString: freezed == qrString
+          ? _value.qrString
+          : qrString // ignore: cast_nullable_to_non_nullable
               as String?,
+      inGame: freezed == inGame
+          ? _value.inGame
+          : inGame // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      gameModelDto: freezed == gameModelDto
+          ? _value.gameModelDto
+          : gameModelDto // ignore: cast_nullable_to_non_nullable
+              as GameModelDto?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $GameModelDtoCopyWith<$Res>? get gameModelDto {
+    if (_value.gameModelDto == null) {
+      return null;
+    }
+
+    return $GameModelDtoCopyWith<$Res>(_value.gameModelDto!, (value) {
+      return _then(_value.copyWith(gameModelDto: value) as $Val);
+    });
   }
 }
 
@@ -90,7 +120,12 @@ abstract class _$$_RefundModelDtoCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'status') bool? status,
       @JsonKey(name: 'message') String? message,
-      @JsonKey(name: 'qr_string') String? qr_string});
+      @JsonKey(name: 'qr_string') String? qrString,
+      @JsonKey(name: 'in_game') bool? inGame,
+      @JsonKey(name: 'game') GameModelDto? gameModelDto});
+
+  @override
+  $GameModelDtoCopyWith<$Res>? get gameModelDto;
 }
 
 /// @nodoc
@@ -106,7 +141,9 @@ class __$$_RefundModelDtoCopyWithImpl<$Res>
   $Res call({
     Object? status = freezed,
     Object? message = freezed,
-    Object? qr_string = freezed,
+    Object? qrString = freezed,
+    Object? inGame = freezed,
+    Object? gameModelDto = freezed,
   }) {
     return _then(_$_RefundModelDto(
       status: freezed == status
@@ -117,10 +154,18 @@ class __$$_RefundModelDtoCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-      qr_string: freezed == qr_string
-          ? _value.qr_string
-          : qr_string // ignore: cast_nullable_to_non_nullable
+      qrString: freezed == qrString
+          ? _value.qrString
+          : qrString // ignore: cast_nullable_to_non_nullable
               as String?,
+      inGame: freezed == inGame
+          ? _value.inGame
+          : inGame // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      gameModelDto: freezed == gameModelDto
+          ? _value.gameModelDto
+          : gameModelDto // ignore: cast_nullable_to_non_nullable
+              as GameModelDto?,
     ));
   }
 }
@@ -131,7 +176,9 @@ class _$_RefundModelDto extends _RefundModelDto {
   const _$_RefundModelDto(
       {@JsonKey(name: 'status') this.status,
       @JsonKey(name: 'message') this.message,
-      @JsonKey(name: 'qr_string') this.qr_string})
+      @JsonKey(name: 'qr_string') this.qrString,
+      @JsonKey(name: 'in_game') this.inGame,
+      @JsonKey(name: 'game') this.gameModelDto})
       : super._();
 
   factory _$_RefundModelDto.fromJson(Map<String, dynamic> json) =>
@@ -145,11 +192,17 @@ class _$_RefundModelDto extends _RefundModelDto {
   final String? message;
   @override
   @JsonKey(name: 'qr_string')
-  final String? qr_string;
+  final String? qrString;
+  @override
+  @JsonKey(name: 'in_game')
+  final bool? inGame;
+  @override
+  @JsonKey(name: 'game')
+  final GameModelDto? gameModelDto;
 
   @override
   String toString() {
-    return 'RefundModelDto(status: $status, message: $message, qr_string: $qr_string)';
+    return 'RefundModelDto(status: $status, message: $message, qrString: $qrString, inGame: $inGame, gameModelDto: $gameModelDto)';
   }
 
   @override
@@ -159,13 +212,17 @@ class _$_RefundModelDto extends _RefundModelDto {
             other is _$_RefundModelDto &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message) &&
-            (identical(other.qr_string, qr_string) ||
-                other.qr_string == qr_string));
+            (identical(other.qrString, qrString) ||
+                other.qrString == qrString) &&
+            (identical(other.inGame, inGame) || other.inGame == inGame) &&
+            (identical(other.gameModelDto, gameModelDto) ||
+                other.gameModelDto == gameModelDto));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, status, message, qr_string);
+  int get hashCode =>
+      Object.hash(runtimeType, status, message, qrString, inGame, gameModelDto);
 
   @JsonKey(ignore: true)
   @override
@@ -183,9 +240,12 @@ class _$_RefundModelDto extends _RefundModelDto {
 
 abstract class _RefundModelDto extends RefundModelDto {
   const factory _RefundModelDto(
-      {@JsonKey(name: 'status') final bool? status,
-      @JsonKey(name: 'message') final String? message,
-      @JsonKey(name: 'qr_string') final String? qr_string}) = _$_RefundModelDto;
+          {@JsonKey(name: 'status') final bool? status,
+          @JsonKey(name: 'message') final String? message,
+          @JsonKey(name: 'qr_string') final String? qrString,
+          @JsonKey(name: 'in_game') final bool? inGame,
+          @JsonKey(name: 'game') final GameModelDto? gameModelDto}) =
+      _$_RefundModelDto;
   const _RefundModelDto._() : super._();
 
   factory _RefundModelDto.fromJson(Map<String, dynamic> json) =
@@ -199,7 +259,13 @@ abstract class _RefundModelDto extends RefundModelDto {
   String? get message;
   @override
   @JsonKey(name: 'qr_string')
-  String? get qr_string;
+  String? get qrString;
+  @override
+  @JsonKey(name: 'in_game')
+  bool? get inGame;
+  @override
+  @JsonKey(name: 'game')
+  GameModelDto? get gameModelDto;
   @override
   @JsonKey(ignore: true)
   _$$_RefundModelDtoCopyWith<_$_RefundModelDto> get copyWith =>

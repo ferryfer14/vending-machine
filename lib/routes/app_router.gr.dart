@@ -32,6 +32,15 @@ class _$AppRouter extends RootStackRouter {
         barrierDismissible: false,
       );
     },
+    WebviewRoute.name: (routeData) {
+      return CustomPage<dynamic>(
+        routeData: routeData,
+        child: const WebviewPage(),
+        transitionsBuilder: TransitionsBuilders.slideLeft,
+        opaque: true,
+        barrierDismissible: false,
+      );
+    },
   };
 
   @override
@@ -43,6 +52,10 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           ProductRoute.name,
           path: 'product',
+        ),
+        RouteConfig(
+          WebviewRoute.name,
+          path: 'webview',
         ),
       ];
 }
@@ -69,4 +82,16 @@ class ProductRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ProductRoute';
+}
+
+/// generated route for
+/// [WebviewPage]
+class WebviewRoute extends PageRouteInfo<void> {
+  const WebviewRoute()
+      : super(
+          WebviewRoute.name,
+          path: 'webview',
+        );
+
+  static const String name = 'WebviewRoute';
 }

@@ -59,6 +59,45 @@ class UniqueId extends ValueObjects<String> {
   const UniqueId._(this.value);
 }
 
+class NumericId extends ValueObjects<int> {
+  @override
+  final Either<ValueFailure<int>, int> value;
+
+  const NumericId._(this.value);
+
+  factory NumericId(int input) {
+    return NumericId._(validateNumberNotZero(input));
+  }
+}
+
+class StringUrl extends ValueObjects<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory StringUrl(String input) {
+    return StringUrl._(
+      validateStringSingleLine(input)
+          .flatMap(validateStringNotEmpty)
+          .flatMap(validateStringUrl),
+    );
+  }
+
+  const StringUrl._(this.value);
+}
+
+class Nominal extends ValueObjects<num> {
+  @override
+  final Either<ValueFailure<num>, num> value;
+
+  factory Nominal(num input) {
+    return Nominal._(
+      validateNominalValue(input),
+    );
+  }
+
+  const Nominal._(this.value);
+}
+
 class StringSingleLine extends ValueObjects<String> {
   @override
   final Either<ValueFailure<String>, String> value;

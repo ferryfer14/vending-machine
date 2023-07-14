@@ -28,6 +28,8 @@ mixin _$ValueFailure<T> {
     required TResult Function(T failedValue) multiLine,
     required TResult Function(T failedValue) invalidSurname,
     required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) invalidNominal,
+    required TResult Function(T failedValue) invalidUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,8 @@ mixin _$ValueFailure<T> {
     TResult? Function(T failedValue)? multiLine,
     TResult? Function(T failedValue)? invalidSurname,
     TResult? Function(T failedValue, int max)? exceedingLength,
+    TResult? Function(T failedValue)? invalidNominal,
+    TResult? Function(T failedValue)? invalidUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,6 +58,8 @@ mixin _$ValueFailure<T> {
     TResult Function(T failedValue)? multiLine,
     TResult Function(T failedValue)? invalidSurname,
     TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? invalidNominal,
+    TResult Function(T failedValue)? invalidUrl,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,6 +75,8 @@ mixin _$ValueFailure<T> {
     required TResult Function(_MultiLine<T> value) multiLine,
     required TResult Function(_InvalidSurname<T> value) invalidSurname,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_InvalidNominal<T> value) invalidNominal,
+    required TResult Function(_InvalidUrl<T> value) invalidUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -83,6 +91,8 @@ mixin _$ValueFailure<T> {
     TResult? Function(_MultiLine<T> value)? multiLine,
     TResult? Function(_InvalidSurname<T> value)? invalidSurname,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
+    TResult? Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult? Function(_InvalidUrl<T> value)? invalidUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -97,6 +107,8 @@ mixin _$ValueFailure<T> {
     TResult Function(_MultiLine<T> value)? multiLine,
     TResult Function(_InvalidSurname<T> value)? invalidSurname,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult Function(_InvalidUrl<T> value)? invalidUrl,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -194,6 +206,8 @@ class _$_InvalidEmail<T> implements _InvalidEmail<T> {
     required TResult Function(T failedValue) multiLine,
     required TResult Function(T failedValue) invalidSurname,
     required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) invalidNominal,
+    required TResult Function(T failedValue) invalidUrl,
   }) {
     return invalidEmail(failedValue);
   }
@@ -210,6 +224,8 @@ class _$_InvalidEmail<T> implements _InvalidEmail<T> {
     TResult? Function(T failedValue)? multiLine,
     TResult? Function(T failedValue)? invalidSurname,
     TResult? Function(T failedValue, int max)? exceedingLength,
+    TResult? Function(T failedValue)? invalidNominal,
+    TResult? Function(T failedValue)? invalidUrl,
   }) {
     return invalidEmail?.call(failedValue);
   }
@@ -226,6 +242,8 @@ class _$_InvalidEmail<T> implements _InvalidEmail<T> {
     TResult Function(T failedValue)? multiLine,
     TResult Function(T failedValue)? invalidSurname,
     TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? invalidNominal,
+    TResult Function(T failedValue)? invalidUrl,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -247,6 +265,8 @@ class _$_InvalidEmail<T> implements _InvalidEmail<T> {
     required TResult Function(_MultiLine<T> value) multiLine,
     required TResult Function(_InvalidSurname<T> value) invalidSurname,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_InvalidNominal<T> value) invalidNominal,
+    required TResult Function(_InvalidUrl<T> value) invalidUrl,
   }) {
     return invalidEmail(this);
   }
@@ -264,6 +284,8 @@ class _$_InvalidEmail<T> implements _InvalidEmail<T> {
     TResult? Function(_MultiLine<T> value)? multiLine,
     TResult? Function(_InvalidSurname<T> value)? invalidSurname,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
+    TResult? Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult? Function(_InvalidUrl<T> value)? invalidUrl,
   }) {
     return invalidEmail?.call(this);
   }
@@ -281,6 +303,8 @@ class _$_InvalidEmail<T> implements _InvalidEmail<T> {
     TResult Function(_MultiLine<T> value)? multiLine,
     TResult Function(_InvalidSurname<T> value)? invalidSurname,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult Function(_InvalidUrl<T> value)? invalidUrl,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -376,6 +400,8 @@ class _$_InvalidPhoneNumber<T> implements _InvalidPhoneNumber<T> {
     required TResult Function(T failedValue) multiLine,
     required TResult Function(T failedValue) invalidSurname,
     required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) invalidNominal,
+    required TResult Function(T failedValue) invalidUrl,
   }) {
     return invalidPhoneNumber(failedValue);
   }
@@ -392,6 +418,8 @@ class _$_InvalidPhoneNumber<T> implements _InvalidPhoneNumber<T> {
     TResult? Function(T failedValue)? multiLine,
     TResult? Function(T failedValue)? invalidSurname,
     TResult? Function(T failedValue, int max)? exceedingLength,
+    TResult? Function(T failedValue)? invalidNominal,
+    TResult? Function(T failedValue)? invalidUrl,
   }) {
     return invalidPhoneNumber?.call(failedValue);
   }
@@ -408,6 +436,8 @@ class _$_InvalidPhoneNumber<T> implements _InvalidPhoneNumber<T> {
     TResult Function(T failedValue)? multiLine,
     TResult Function(T failedValue)? invalidSurname,
     TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? invalidNominal,
+    TResult Function(T failedValue)? invalidUrl,
     required TResult orElse(),
   }) {
     if (invalidPhoneNumber != null) {
@@ -429,6 +459,8 @@ class _$_InvalidPhoneNumber<T> implements _InvalidPhoneNumber<T> {
     required TResult Function(_MultiLine<T> value) multiLine,
     required TResult Function(_InvalidSurname<T> value) invalidSurname,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_InvalidNominal<T> value) invalidNominal,
+    required TResult Function(_InvalidUrl<T> value) invalidUrl,
   }) {
     return invalidPhoneNumber(this);
   }
@@ -446,6 +478,8 @@ class _$_InvalidPhoneNumber<T> implements _InvalidPhoneNumber<T> {
     TResult? Function(_MultiLine<T> value)? multiLine,
     TResult? Function(_InvalidSurname<T> value)? invalidSurname,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
+    TResult? Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult? Function(_InvalidUrl<T> value)? invalidUrl,
   }) {
     return invalidPhoneNumber?.call(this);
   }
@@ -463,6 +497,8 @@ class _$_InvalidPhoneNumber<T> implements _InvalidPhoneNumber<T> {
     TResult Function(_MultiLine<T> value)? multiLine,
     TResult Function(_InvalidSurname<T> value)? invalidSurname,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult Function(_InvalidUrl<T> value)? invalidUrl,
     required TResult orElse(),
   }) {
     if (invalidPhoneNumber != null) {
@@ -557,6 +593,8 @@ class _$_ShortPassword<T> implements _ShortPassword<T> {
     required TResult Function(T failedValue) multiLine,
     required TResult Function(T failedValue) invalidSurname,
     required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) invalidNominal,
+    required TResult Function(T failedValue) invalidUrl,
   }) {
     return shortPassword(failedValue);
   }
@@ -573,6 +611,8 @@ class _$_ShortPassword<T> implements _ShortPassword<T> {
     TResult? Function(T failedValue)? multiLine,
     TResult? Function(T failedValue)? invalidSurname,
     TResult? Function(T failedValue, int max)? exceedingLength,
+    TResult? Function(T failedValue)? invalidNominal,
+    TResult? Function(T failedValue)? invalidUrl,
   }) {
     return shortPassword?.call(failedValue);
   }
@@ -589,6 +629,8 @@ class _$_ShortPassword<T> implements _ShortPassword<T> {
     TResult Function(T failedValue)? multiLine,
     TResult Function(T failedValue)? invalidSurname,
     TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? invalidNominal,
+    TResult Function(T failedValue)? invalidUrl,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -610,6 +652,8 @@ class _$_ShortPassword<T> implements _ShortPassword<T> {
     required TResult Function(_MultiLine<T> value) multiLine,
     required TResult Function(_InvalidSurname<T> value) invalidSurname,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_InvalidNominal<T> value) invalidNominal,
+    required TResult Function(_InvalidUrl<T> value) invalidUrl,
   }) {
     return shortPassword(this);
   }
@@ -627,6 +671,8 @@ class _$_ShortPassword<T> implements _ShortPassword<T> {
     TResult? Function(_MultiLine<T> value)? multiLine,
     TResult? Function(_InvalidSurname<T> value)? invalidSurname,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
+    TResult? Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult? Function(_InvalidUrl<T> value)? invalidUrl,
   }) {
     return shortPassword?.call(this);
   }
@@ -644,6 +690,8 @@ class _$_ShortPassword<T> implements _ShortPassword<T> {
     TResult Function(_MultiLine<T> value)? multiLine,
     TResult Function(_InvalidSurname<T> value)? invalidSurname,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult Function(_InvalidUrl<T> value)? invalidUrl,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -738,6 +786,8 @@ class _$_ShortPin<T> implements _ShortPin<T> {
     required TResult Function(T failedValue) multiLine,
     required TResult Function(T failedValue) invalidSurname,
     required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) invalidNominal,
+    required TResult Function(T failedValue) invalidUrl,
   }) {
     return shortPin(failedValue);
   }
@@ -754,6 +804,8 @@ class _$_ShortPin<T> implements _ShortPin<T> {
     TResult? Function(T failedValue)? multiLine,
     TResult? Function(T failedValue)? invalidSurname,
     TResult? Function(T failedValue, int max)? exceedingLength,
+    TResult? Function(T failedValue)? invalidNominal,
+    TResult? Function(T failedValue)? invalidUrl,
   }) {
     return shortPin?.call(failedValue);
   }
@@ -770,6 +822,8 @@ class _$_ShortPin<T> implements _ShortPin<T> {
     TResult Function(T failedValue)? multiLine,
     TResult Function(T failedValue)? invalidSurname,
     TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? invalidNominal,
+    TResult Function(T failedValue)? invalidUrl,
     required TResult orElse(),
   }) {
     if (shortPin != null) {
@@ -791,6 +845,8 @@ class _$_ShortPin<T> implements _ShortPin<T> {
     required TResult Function(_MultiLine<T> value) multiLine,
     required TResult Function(_InvalidSurname<T> value) invalidSurname,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_InvalidNominal<T> value) invalidNominal,
+    required TResult Function(_InvalidUrl<T> value) invalidUrl,
   }) {
     return shortPin(this);
   }
@@ -808,6 +864,8 @@ class _$_ShortPin<T> implements _ShortPin<T> {
     TResult? Function(_MultiLine<T> value)? multiLine,
     TResult? Function(_InvalidSurname<T> value)? invalidSurname,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
+    TResult? Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult? Function(_InvalidUrl<T> value)? invalidUrl,
   }) {
     return shortPin?.call(this);
   }
@@ -825,6 +883,8 @@ class _$_ShortPin<T> implements _ShortPin<T> {
     TResult Function(_MultiLine<T> value)? multiLine,
     TResult Function(_InvalidSurname<T> value)? invalidSurname,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult Function(_InvalidUrl<T> value)? invalidUrl,
     required TResult orElse(),
   }) {
     if (shortPin != null) {
@@ -924,6 +984,8 @@ class _$_InvalidPasswordConfirmation<T>
     required TResult Function(T failedValue) multiLine,
     required TResult Function(T failedValue) invalidSurname,
     required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) invalidNominal,
+    required TResult Function(T failedValue) invalidUrl,
   }) {
     return invalidPasswordConfimation(failedValue);
   }
@@ -940,6 +1002,8 @@ class _$_InvalidPasswordConfirmation<T>
     TResult? Function(T failedValue)? multiLine,
     TResult? Function(T failedValue)? invalidSurname,
     TResult? Function(T failedValue, int max)? exceedingLength,
+    TResult? Function(T failedValue)? invalidNominal,
+    TResult? Function(T failedValue)? invalidUrl,
   }) {
     return invalidPasswordConfimation?.call(failedValue);
   }
@@ -956,6 +1020,8 @@ class _$_InvalidPasswordConfirmation<T>
     TResult Function(T failedValue)? multiLine,
     TResult Function(T failedValue)? invalidSurname,
     TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? invalidNominal,
+    TResult Function(T failedValue)? invalidUrl,
     required TResult orElse(),
   }) {
     if (invalidPasswordConfimation != null) {
@@ -977,6 +1043,8 @@ class _$_InvalidPasswordConfirmation<T>
     required TResult Function(_MultiLine<T> value) multiLine,
     required TResult Function(_InvalidSurname<T> value) invalidSurname,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_InvalidNominal<T> value) invalidNominal,
+    required TResult Function(_InvalidUrl<T> value) invalidUrl,
   }) {
     return invalidPasswordConfimation(this);
   }
@@ -994,6 +1062,8 @@ class _$_InvalidPasswordConfirmation<T>
     TResult? Function(_MultiLine<T> value)? multiLine,
     TResult? Function(_InvalidSurname<T> value)? invalidSurname,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
+    TResult? Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult? Function(_InvalidUrl<T> value)? invalidUrl,
   }) {
     return invalidPasswordConfimation?.call(this);
   }
@@ -1011,6 +1081,8 @@ class _$_InvalidPasswordConfirmation<T>
     TResult Function(_MultiLine<T> value)? multiLine,
     TResult Function(_InvalidSurname<T> value)? invalidSurname,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult Function(_InvalidUrl<T> value)? invalidUrl,
     required TResult orElse(),
   }) {
     if (invalidPasswordConfimation != null) {
@@ -1105,6 +1177,8 @@ class _$_Empty<T> implements _Empty<T> {
     required TResult Function(T failedValue) multiLine,
     required TResult Function(T failedValue) invalidSurname,
     required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) invalidNominal,
+    required TResult Function(T failedValue) invalidUrl,
   }) {
     return empty(failedValue);
   }
@@ -1121,6 +1195,8 @@ class _$_Empty<T> implements _Empty<T> {
     TResult? Function(T failedValue)? multiLine,
     TResult? Function(T failedValue)? invalidSurname,
     TResult? Function(T failedValue, int max)? exceedingLength,
+    TResult? Function(T failedValue)? invalidNominal,
+    TResult? Function(T failedValue)? invalidUrl,
   }) {
     return empty?.call(failedValue);
   }
@@ -1137,6 +1213,8 @@ class _$_Empty<T> implements _Empty<T> {
     TResult Function(T failedValue)? multiLine,
     TResult Function(T failedValue)? invalidSurname,
     TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? invalidNominal,
+    TResult Function(T failedValue)? invalidUrl,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -1158,6 +1236,8 @@ class _$_Empty<T> implements _Empty<T> {
     required TResult Function(_MultiLine<T> value) multiLine,
     required TResult Function(_InvalidSurname<T> value) invalidSurname,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_InvalidNominal<T> value) invalidNominal,
+    required TResult Function(_InvalidUrl<T> value) invalidUrl,
   }) {
     return empty(this);
   }
@@ -1175,6 +1255,8 @@ class _$_Empty<T> implements _Empty<T> {
     TResult? Function(_MultiLine<T> value)? multiLine,
     TResult? Function(_InvalidSurname<T> value)? invalidSurname,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
+    TResult? Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult? Function(_InvalidUrl<T> value)? invalidUrl,
   }) {
     return empty?.call(this);
   }
@@ -1192,6 +1274,8 @@ class _$_Empty<T> implements _Empty<T> {
     TResult Function(_MultiLine<T> value)? multiLine,
     TResult Function(_InvalidSurname<T> value)? invalidSurname,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult Function(_InvalidUrl<T> value)? invalidUrl,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -1286,6 +1370,8 @@ class _$_MultiLine<T> implements _MultiLine<T> {
     required TResult Function(T failedValue) multiLine,
     required TResult Function(T failedValue) invalidSurname,
     required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) invalidNominal,
+    required TResult Function(T failedValue) invalidUrl,
   }) {
     return multiLine(failedValue);
   }
@@ -1302,6 +1388,8 @@ class _$_MultiLine<T> implements _MultiLine<T> {
     TResult? Function(T failedValue)? multiLine,
     TResult? Function(T failedValue)? invalidSurname,
     TResult? Function(T failedValue, int max)? exceedingLength,
+    TResult? Function(T failedValue)? invalidNominal,
+    TResult? Function(T failedValue)? invalidUrl,
   }) {
     return multiLine?.call(failedValue);
   }
@@ -1318,6 +1406,8 @@ class _$_MultiLine<T> implements _MultiLine<T> {
     TResult Function(T failedValue)? multiLine,
     TResult Function(T failedValue)? invalidSurname,
     TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? invalidNominal,
+    TResult Function(T failedValue)? invalidUrl,
     required TResult orElse(),
   }) {
     if (multiLine != null) {
@@ -1339,6 +1429,8 @@ class _$_MultiLine<T> implements _MultiLine<T> {
     required TResult Function(_MultiLine<T> value) multiLine,
     required TResult Function(_InvalidSurname<T> value) invalidSurname,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_InvalidNominal<T> value) invalidNominal,
+    required TResult Function(_InvalidUrl<T> value) invalidUrl,
   }) {
     return multiLine(this);
   }
@@ -1356,6 +1448,8 @@ class _$_MultiLine<T> implements _MultiLine<T> {
     TResult? Function(_MultiLine<T> value)? multiLine,
     TResult? Function(_InvalidSurname<T> value)? invalidSurname,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
+    TResult? Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult? Function(_InvalidUrl<T> value)? invalidUrl,
   }) {
     return multiLine?.call(this);
   }
@@ -1373,6 +1467,8 @@ class _$_MultiLine<T> implements _MultiLine<T> {
     TResult Function(_MultiLine<T> value)? multiLine,
     TResult Function(_InvalidSurname<T> value)? invalidSurname,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult Function(_InvalidUrl<T> value)? invalidUrl,
     required TResult orElse(),
   }) {
     if (multiLine != null) {
@@ -1468,6 +1564,8 @@ class _$_InvalidSurname<T> implements _InvalidSurname<T> {
     required TResult Function(T failedValue) multiLine,
     required TResult Function(T failedValue) invalidSurname,
     required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) invalidNominal,
+    required TResult Function(T failedValue) invalidUrl,
   }) {
     return invalidSurname(failedValue);
   }
@@ -1484,6 +1582,8 @@ class _$_InvalidSurname<T> implements _InvalidSurname<T> {
     TResult? Function(T failedValue)? multiLine,
     TResult? Function(T failedValue)? invalidSurname,
     TResult? Function(T failedValue, int max)? exceedingLength,
+    TResult? Function(T failedValue)? invalidNominal,
+    TResult? Function(T failedValue)? invalidUrl,
   }) {
     return invalidSurname?.call(failedValue);
   }
@@ -1500,6 +1600,8 @@ class _$_InvalidSurname<T> implements _InvalidSurname<T> {
     TResult Function(T failedValue)? multiLine,
     TResult Function(T failedValue)? invalidSurname,
     TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? invalidNominal,
+    TResult Function(T failedValue)? invalidUrl,
     required TResult orElse(),
   }) {
     if (invalidSurname != null) {
@@ -1521,6 +1623,8 @@ class _$_InvalidSurname<T> implements _InvalidSurname<T> {
     required TResult Function(_MultiLine<T> value) multiLine,
     required TResult Function(_InvalidSurname<T> value) invalidSurname,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_InvalidNominal<T> value) invalidNominal,
+    required TResult Function(_InvalidUrl<T> value) invalidUrl,
   }) {
     return invalidSurname(this);
   }
@@ -1538,6 +1642,8 @@ class _$_InvalidSurname<T> implements _InvalidSurname<T> {
     TResult? Function(_MultiLine<T> value)? multiLine,
     TResult? Function(_InvalidSurname<T> value)? invalidSurname,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
+    TResult? Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult? Function(_InvalidUrl<T> value)? invalidUrl,
   }) {
     return invalidSurname?.call(this);
   }
@@ -1555,6 +1661,8 @@ class _$_InvalidSurname<T> implements _InvalidSurname<T> {
     TResult Function(_MultiLine<T> value)? multiLine,
     TResult Function(_InvalidSurname<T> value)? invalidSurname,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult Function(_InvalidUrl<T> value)? invalidUrl,
     required TResult orElse(),
   }) {
     if (invalidSurname != null) {
@@ -1659,6 +1767,8 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     required TResult Function(T failedValue) multiLine,
     required TResult Function(T failedValue) invalidSurname,
     required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) invalidNominal,
+    required TResult Function(T failedValue) invalidUrl,
   }) {
     return exceedingLength(failedValue, max);
   }
@@ -1675,6 +1785,8 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult? Function(T failedValue)? multiLine,
     TResult? Function(T failedValue)? invalidSurname,
     TResult? Function(T failedValue, int max)? exceedingLength,
+    TResult? Function(T failedValue)? invalidNominal,
+    TResult? Function(T failedValue)? invalidUrl,
   }) {
     return exceedingLength?.call(failedValue, max);
   }
@@ -1691,6 +1803,8 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(T failedValue)? multiLine,
     TResult Function(T failedValue)? invalidSurname,
     TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? invalidNominal,
+    TResult Function(T failedValue)? invalidUrl,
     required TResult orElse(),
   }) {
     if (exceedingLength != null) {
@@ -1712,6 +1826,8 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     required TResult Function(_MultiLine<T> value) multiLine,
     required TResult Function(_InvalidSurname<T> value) invalidSurname,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_InvalidNominal<T> value) invalidNominal,
+    required TResult Function(_InvalidUrl<T> value) invalidUrl,
   }) {
     return exceedingLength(this);
   }
@@ -1729,6 +1845,8 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult? Function(_MultiLine<T> value)? multiLine,
     TResult? Function(_InvalidSurname<T> value)? invalidSurname,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
+    TResult? Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult? Function(_InvalidUrl<T> value)? invalidUrl,
   }) {
     return exceedingLength?.call(this);
   }
@@ -1746,6 +1864,8 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     TResult Function(_MultiLine<T> value)? multiLine,
     TResult Function(_InvalidSurname<T> value)? invalidSurname,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult Function(_InvalidUrl<T> value)? invalidUrl,
     required TResult orElse(),
   }) {
     if (exceedingLength != null) {
@@ -1765,5 +1885,393 @@ abstract class ExceedingLength<T> implements ValueFailure<T> {
   int get max;
   @JsonKey(ignore: true)
   _$$ExceedingLengthCopyWith<T, _$ExceedingLength<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_InvalidNominalCopyWith<T, $Res> {
+  factory _$$_InvalidNominalCopyWith(_$_InvalidNominal<T> value,
+          $Res Function(_$_InvalidNominal<T>) then) =
+      __$$_InvalidNominalCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class __$$_InvalidNominalCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res, _$_InvalidNominal<T>>
+    implements _$$_InvalidNominalCopyWith<T, $Res> {
+  __$$_InvalidNominalCopyWithImpl(
+      _$_InvalidNominal<T> _value, $Res Function(_$_InvalidNominal<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(_$_InvalidNominal<T>(
+      failedValue: freezed == failedValue
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_InvalidNominal<T> implements _InvalidNominal<T> {
+  const _$_InvalidNominal({required this.failedValue});
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.invalidNominal(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_InvalidNominal<T> &&
+            const DeepCollectionEquality()
+                .equals(other.failedValue, failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failedValue));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_InvalidNominalCopyWith<T, _$_InvalidNominal<T>> get copyWith =>
+      __$$_InvalidNominalCopyWithImpl<T, _$_InvalidNominal<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String failedValue) invalidEmail,
+    required TResult Function(String failedValue) invalidPhoneNumber,
+    required TResult Function(String failedValue) shortPassword,
+    required TResult Function(String failedValue) shortPin,
+    required TResult Function(T failedValue) invalidPasswordConfimation,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) multiLine,
+    required TResult Function(T failedValue) invalidSurname,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) invalidNominal,
+    required TResult Function(T failedValue) invalidUrl,
+  }) {
+    return invalidNominal(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String failedValue)? invalidEmail,
+    TResult? Function(String failedValue)? invalidPhoneNumber,
+    TResult? Function(String failedValue)? shortPassword,
+    TResult? Function(String failedValue)? shortPin,
+    TResult? Function(T failedValue)? invalidPasswordConfimation,
+    TResult? Function(T failedValue)? empty,
+    TResult? Function(T failedValue)? multiLine,
+    TResult? Function(T failedValue)? invalidSurname,
+    TResult? Function(T failedValue, int max)? exceedingLength,
+    TResult? Function(T failedValue)? invalidNominal,
+    TResult? Function(T failedValue)? invalidUrl,
+  }) {
+    return invalidNominal?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String failedValue)? invalidEmail,
+    TResult Function(String failedValue)? invalidPhoneNumber,
+    TResult Function(String failedValue)? shortPassword,
+    TResult Function(String failedValue)? shortPin,
+    TResult Function(T failedValue)? invalidPasswordConfimation,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? multiLine,
+    TResult Function(T failedValue)? invalidSurname,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? invalidNominal,
+    TResult Function(T failedValue)? invalidUrl,
+    required TResult orElse(),
+  }) {
+    if (invalidNominal != null) {
+      return invalidNominal(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InvalidEmail<T> value) invalidEmail,
+    required TResult Function(_InvalidPhoneNumber<T> value) invalidPhoneNumber,
+    required TResult Function(_ShortPassword<T> value) shortPassword,
+    required TResult Function(_ShortPin<T> value) shortPin,
+    required TResult Function(_InvalidPasswordConfirmation<T> value)
+        invalidPasswordConfimation,
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_MultiLine<T> value) multiLine,
+    required TResult Function(_InvalidSurname<T> value) invalidSurname,
+    required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_InvalidNominal<T> value) invalidNominal,
+    required TResult Function(_InvalidUrl<T> value) invalidUrl,
+  }) {
+    return invalidNominal(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InvalidEmail<T> value)? invalidEmail,
+    TResult? Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult? Function(_ShortPassword<T> value)? shortPassword,
+    TResult? Function(_ShortPin<T> value)? shortPin,
+    TResult? Function(_InvalidPasswordConfirmation<T> value)?
+        invalidPasswordConfimation,
+    TResult? Function(_Empty<T> value)? empty,
+    TResult? Function(_MultiLine<T> value)? multiLine,
+    TResult? Function(_InvalidSurname<T> value)? invalidSurname,
+    TResult? Function(ExceedingLength<T> value)? exceedingLength,
+    TResult? Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult? Function(_InvalidUrl<T> value)? invalidUrl,
+  }) {
+    return invalidNominal?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InvalidEmail<T> value)? invalidEmail,
+    TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(_ShortPassword<T> value)? shortPassword,
+    TResult Function(_ShortPin<T> value)? shortPin,
+    TResult Function(_InvalidPasswordConfirmation<T> value)?
+        invalidPasswordConfimation,
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_MultiLine<T> value)? multiLine,
+    TResult Function(_InvalidSurname<T> value)? invalidSurname,
+    TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult Function(_InvalidUrl<T> value)? invalidUrl,
+    required TResult orElse(),
+  }) {
+    if (invalidNominal != null) {
+      return invalidNominal(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InvalidNominal<T> implements ValueFailure<T> {
+  const factory _InvalidNominal({required final T failedValue}) =
+      _$_InvalidNominal<T>;
+
+  @override
+  T get failedValue;
+  @JsonKey(ignore: true)
+  _$$_InvalidNominalCopyWith<T, _$_InvalidNominal<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_InvalidUrlCopyWith<T, $Res> {
+  factory _$$_InvalidUrlCopyWith(
+          _$_InvalidUrl<T> value, $Res Function(_$_InvalidUrl<T>) then) =
+      __$$_InvalidUrlCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class __$$_InvalidUrlCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res, _$_InvalidUrl<T>>
+    implements _$$_InvalidUrlCopyWith<T, $Res> {
+  __$$_InvalidUrlCopyWithImpl(
+      _$_InvalidUrl<T> _value, $Res Function(_$_InvalidUrl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(_$_InvalidUrl<T>(
+      failedValue: freezed == failedValue
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_InvalidUrl<T> implements _InvalidUrl<T> {
+  const _$_InvalidUrl({required this.failedValue});
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.invalidUrl(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_InvalidUrl<T> &&
+            const DeepCollectionEquality()
+                .equals(other.failedValue, failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failedValue));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_InvalidUrlCopyWith<T, _$_InvalidUrl<T>> get copyWith =>
+      __$$_InvalidUrlCopyWithImpl<T, _$_InvalidUrl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String failedValue) invalidEmail,
+    required TResult Function(String failedValue) invalidPhoneNumber,
+    required TResult Function(String failedValue) shortPassword,
+    required TResult Function(String failedValue) shortPin,
+    required TResult Function(T failedValue) invalidPasswordConfimation,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) multiLine,
+    required TResult Function(T failedValue) invalidSurname,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) invalidNominal,
+    required TResult Function(T failedValue) invalidUrl,
+  }) {
+    return invalidUrl(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String failedValue)? invalidEmail,
+    TResult? Function(String failedValue)? invalidPhoneNumber,
+    TResult? Function(String failedValue)? shortPassword,
+    TResult? Function(String failedValue)? shortPin,
+    TResult? Function(T failedValue)? invalidPasswordConfimation,
+    TResult? Function(T failedValue)? empty,
+    TResult? Function(T failedValue)? multiLine,
+    TResult? Function(T failedValue)? invalidSurname,
+    TResult? Function(T failedValue, int max)? exceedingLength,
+    TResult? Function(T failedValue)? invalidNominal,
+    TResult? Function(T failedValue)? invalidUrl,
+  }) {
+    return invalidUrl?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String failedValue)? invalidEmail,
+    TResult Function(String failedValue)? invalidPhoneNumber,
+    TResult Function(String failedValue)? shortPassword,
+    TResult Function(String failedValue)? shortPin,
+    TResult Function(T failedValue)? invalidPasswordConfimation,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? multiLine,
+    TResult Function(T failedValue)? invalidSurname,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? invalidNominal,
+    TResult Function(T failedValue)? invalidUrl,
+    required TResult orElse(),
+  }) {
+    if (invalidUrl != null) {
+      return invalidUrl(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InvalidEmail<T> value) invalidEmail,
+    required TResult Function(_InvalidPhoneNumber<T> value) invalidPhoneNumber,
+    required TResult Function(_ShortPassword<T> value) shortPassword,
+    required TResult Function(_ShortPin<T> value) shortPin,
+    required TResult Function(_InvalidPasswordConfirmation<T> value)
+        invalidPasswordConfimation,
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_MultiLine<T> value) multiLine,
+    required TResult Function(_InvalidSurname<T> value) invalidSurname,
+    required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(_InvalidNominal<T> value) invalidNominal,
+    required TResult Function(_InvalidUrl<T> value) invalidUrl,
+  }) {
+    return invalidUrl(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InvalidEmail<T> value)? invalidEmail,
+    TResult? Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult? Function(_ShortPassword<T> value)? shortPassword,
+    TResult? Function(_ShortPin<T> value)? shortPin,
+    TResult? Function(_InvalidPasswordConfirmation<T> value)?
+        invalidPasswordConfimation,
+    TResult? Function(_Empty<T> value)? empty,
+    TResult? Function(_MultiLine<T> value)? multiLine,
+    TResult? Function(_InvalidSurname<T> value)? invalidSurname,
+    TResult? Function(ExceedingLength<T> value)? exceedingLength,
+    TResult? Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult? Function(_InvalidUrl<T> value)? invalidUrl,
+  }) {
+    return invalidUrl?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InvalidEmail<T> value)? invalidEmail,
+    TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(_ShortPassword<T> value)? shortPassword,
+    TResult Function(_ShortPin<T> value)? shortPin,
+    TResult Function(_InvalidPasswordConfirmation<T> value)?
+        invalidPasswordConfimation,
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_MultiLine<T> value)? multiLine,
+    TResult Function(_InvalidSurname<T> value)? invalidSurname,
+    TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(_InvalidNominal<T> value)? invalidNominal,
+    TResult Function(_InvalidUrl<T> value)? invalidUrl,
+    required TResult orElse(),
+  }) {
+    if (invalidUrl != null) {
+      return invalidUrl(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InvalidUrl<T> implements ValueFailure<T> {
+  const factory _InvalidUrl({required final T failedValue}) = _$_InvalidUrl<T>;
+
+  @override
+  T get failedValue;
+  @JsonKey(ignore: true)
+  _$$_InvalidUrlCopyWith<T, _$_InvalidUrl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

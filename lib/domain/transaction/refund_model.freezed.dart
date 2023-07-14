@@ -17,8 +17,10 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$RefundModel {
   bool? get status => throw _privateConstructorUsedError;
-  String? get message => throw _privateConstructorUsedError;
-  String? get qr_string => throw _privateConstructorUsedError;
+  StringSingleLine? get message => throw _privateConstructorUsedError;
+  StringSingleLine? get qrString => throw _privateConstructorUsedError;
+  bool? get inGame => throw _privateConstructorUsedError;
+  GameModel? get gameModel => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RefundModelCopyWith<RefundModel> get copyWith =>
@@ -31,7 +33,14 @@ abstract class $RefundModelCopyWith<$Res> {
           RefundModel value, $Res Function(RefundModel) then) =
       _$RefundModelCopyWithImpl<$Res, RefundModel>;
   @useResult
-  $Res call({bool? status, String? message, String? qr_string});
+  $Res call(
+      {bool? status,
+      StringSingleLine? message,
+      StringSingleLine? qrString,
+      bool? inGame,
+      GameModel? gameModel});
+
+  $GameModelCopyWith<$Res>? get gameModel;
 }
 
 /// @nodoc
@@ -49,7 +58,9 @@ class _$RefundModelCopyWithImpl<$Res, $Val extends RefundModel>
   $Res call({
     Object? status = freezed,
     Object? message = freezed,
-    Object? qr_string = freezed,
+    Object? qrString = freezed,
+    Object? inGame = freezed,
+    Object? gameModel = freezed,
   }) {
     return _then(_value.copyWith(
       status: freezed == status
@@ -59,12 +70,32 @@ class _$RefundModelCopyWithImpl<$Res, $Val extends RefundModel>
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as String?,
-      qr_string: freezed == qr_string
-          ? _value.qr_string
-          : qr_string // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as StringSingleLine?,
+      qrString: freezed == qrString
+          ? _value.qrString
+          : qrString // ignore: cast_nullable_to_non_nullable
+              as StringSingleLine?,
+      inGame: freezed == inGame
+          ? _value.inGame
+          : inGame // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      gameModel: freezed == gameModel
+          ? _value.gameModel
+          : gameModel // ignore: cast_nullable_to_non_nullable
+              as GameModel?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $GameModelCopyWith<$Res>? get gameModel {
+    if (_value.gameModel == null) {
+      return null;
+    }
+
+    return $GameModelCopyWith<$Res>(_value.gameModel!, (value) {
+      return _then(_value.copyWith(gameModel: value) as $Val);
+    });
   }
 }
 
@@ -76,7 +107,15 @@ abstract class _$$_RefundModelCopyWith<$Res>
       __$$_RefundModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool? status, String? message, String? qr_string});
+  $Res call(
+      {bool? status,
+      StringSingleLine? message,
+      StringSingleLine? qrString,
+      bool? inGame,
+      GameModel? gameModel});
+
+  @override
+  $GameModelCopyWith<$Res>? get gameModel;
 }
 
 /// @nodoc
@@ -92,7 +131,9 @@ class __$$_RefundModelCopyWithImpl<$Res>
   $Res call({
     Object? status = freezed,
     Object? message = freezed,
-    Object? qr_string = freezed,
+    Object? qrString = freezed,
+    Object? inGame = freezed,
+    Object? gameModel = freezed,
   }) {
     return _then(_$_RefundModel(
       status: freezed == status
@@ -102,11 +143,19 @@ class __$$_RefundModelCopyWithImpl<$Res>
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as String?,
-      qr_string: freezed == qr_string
-          ? _value.qr_string
-          : qr_string // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as StringSingleLine?,
+      qrString: freezed == qrString
+          ? _value.qrString
+          : qrString // ignore: cast_nullable_to_non_nullable
+              as StringSingleLine?,
+      inGame: freezed == inGame
+          ? _value.inGame
+          : inGame // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      gameModel: freezed == gameModel
+          ? _value.gameModel
+          : gameModel // ignore: cast_nullable_to_non_nullable
+              as GameModel?,
     ));
   }
 }
@@ -114,18 +163,24 @@ class __$$_RefundModelCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_RefundModel extends _RefundModel {
-  const _$_RefundModel({this.status, this.message, this.qr_string}) : super._();
+  const _$_RefundModel(
+      {this.status, this.message, this.qrString, this.inGame, this.gameModel})
+      : super._();
 
   @override
   final bool? status;
   @override
-  final String? message;
+  final StringSingleLine? message;
   @override
-  final String? qr_string;
+  final StringSingleLine? qrString;
+  @override
+  final bool? inGame;
+  @override
+  final GameModel? gameModel;
 
   @override
   String toString() {
-    return 'RefundModel(status: $status, message: $message, qr_string: $qr_string)';
+    return 'RefundModel(status: $status, message: $message, qrString: $qrString, inGame: $inGame, gameModel: $gameModel)';
   }
 
   @override
@@ -135,12 +190,16 @@ class _$_RefundModel extends _RefundModel {
             other is _$_RefundModel &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message) &&
-            (identical(other.qr_string, qr_string) ||
-                other.qr_string == qr_string));
+            (identical(other.qrString, qrString) ||
+                other.qrString == qrString) &&
+            (identical(other.inGame, inGame) || other.inGame == inGame) &&
+            (identical(other.gameModel, gameModel) ||
+                other.gameModel == gameModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, message, qr_string);
+  int get hashCode =>
+      Object.hash(runtimeType, status, message, qrString, inGame, gameModel);
 
   @JsonKey(ignore: true)
   @override
@@ -152,16 +211,22 @@ class _$_RefundModel extends _RefundModel {
 abstract class _RefundModel extends RefundModel {
   const factory _RefundModel(
       {final bool? status,
-      final String? message,
-      final String? qr_string}) = _$_RefundModel;
+      final StringSingleLine? message,
+      final StringSingleLine? qrString,
+      final bool? inGame,
+      final GameModel? gameModel}) = _$_RefundModel;
   const _RefundModel._() : super._();
 
   @override
   bool? get status;
   @override
-  String? get message;
+  StringSingleLine? get message;
   @override
-  String? get qr_string;
+  StringSingleLine? get qrString;
+  @override
+  bool? get inGame;
+  @override
+  GameModel? get gameModel;
   @override
   @JsonKey(ignore: true)
   _$$_RefundModelCopyWith<_$_RefundModel> get copyWith =>

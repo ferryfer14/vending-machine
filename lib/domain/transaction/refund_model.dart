@@ -1,4 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:standart_project/domain/core/value_objects.dart';
+
+import 'game_model.dart';
 
 part 'refund_model.freezed.dart';
 
@@ -7,8 +10,16 @@ class RefundModel with _$RefundModel {
   const RefundModel._();
 
   const factory RefundModel(
-      {bool? status, String? message, String? qr_string}) = _RefundModel;
+      {bool? status,
+      StringSingleLine? message,
+      StringSingleLine? qrString,
+      bool? inGame,
+      GameModel? gameModel}) = _RefundModel;
 
-  factory RefundModel.empty() =>
-      const RefundModel(status: false, message: '', qr_string: '');
+  factory RefundModel.empty() => RefundModel(
+      status: false,
+      message: StringSingleLine(''),
+      qrString: StringSingleLine(''),
+      inGame: false,
+      gameModel: GameModel.empty());
 }
