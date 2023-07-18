@@ -29,6 +29,7 @@ import 'components/circle_caraousel.dart';
 import 'components/popup_cart.dart';
 import 'components/popup_detail.dart';
 import 'components/popup_drop.dart';
+import 'components/popup_game.dart';
 import 'components/popup_qris.dart';
 import 'components/product_card.dart';
 import 'components/title_product.dart';
@@ -60,6 +61,24 @@ class _ProductPageState extends State<ProductPage> {
 
   navigateHome() {
     context.router.replaceAll([const CaraouselRoute()]);
+  }
+
+  Future<void> popupGame(BuildContext parentContext) async {
+    showDialog(
+        barrierDismissible: false,
+        context: parentContext,
+        builder: (BuildContext context) {
+          return Dialog(
+              backgroundColor: Colors.transparent,
+              insetPadding: padall12,
+              child: Wrap(children: [
+                PopupGame(
+                  onClose: () {
+                    parentContext.router.replaceAll([const CaraouselRoute()]);
+                  },
+                )
+              ]));
+        });
   }
 
   Future<void> popupSuccess(BuildContext parentContext) async {

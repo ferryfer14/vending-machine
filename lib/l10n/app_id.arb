@@ -71,5 +71,6 @@
     "waiting_coming" : "Tunggu item kamu tiba",
     "payment_success" : "Pembayaran sukses",
     "payment_des" : "Your payment has been received and your order is being processed. Wait for your product to drop and pick it up below.",
-    "take_your_item" : "Take your Item Below"
+    "take_your_item" : "Take your Item Below",
+    "title_game" : "Congratulations you have 1 chance to win a prize!"
 }
