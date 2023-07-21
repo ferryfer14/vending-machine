@@ -63,7 +63,7 @@ class _ProductPageState extends State<ProductPage> {
     context.router.replaceAll([const CaraouselRoute()]);
   }
 
-  Future<void> popupGame(BuildContext parentContext) async {
+  Future<void> popupGame(BuildContext parentContext, String url) async {
     showDialog(
         barrierDismissible: false,
         context: parentContext,
@@ -73,6 +73,7 @@ class _ProductPageState extends State<ProductPage> {
               insetPadding: padall12,
               child: Wrap(children: [
                 PopupGame(
+                  url: url,
                   onClose: () {
                     parentContext.router.replaceAll([const CaraouselRoute()]);
                   },
@@ -168,6 +169,10 @@ class _ProductPageState extends State<ProductPage> {
                           // parentContext.router.push(WebviewRoute(
                           //     url:
                           //         "https://games.monstercode.net/panjat-pinang/"));
+                          popupGame(
+                              parentContext,
+                              state.refundModel.gameModel!.gameUrl!
+                                  .getOrElse(''));
                         } else {
                           popupSuccess(parentContext);
                         }

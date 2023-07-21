@@ -424,6 +424,12 @@ const ts16Red600 = TextStyle(
 
 /// [FONTSIZE = 20 ==========================================]
 
+const ts20TextColor400 = TextStyle(
+  fontFamily: plusjakarta,
+  fontSize: 20,
+  color: textColor,
+  fontWeight: FontWeight.w400,
+);
 const ts20Black400 = TextStyle(
   fontFamily: plusjakarta,
   fontSize: 20,

@@ -65,3 +65,4 @@ const transparent = Colors.transparent;
 const backgroundImage = Color(0xffF4F6FA);
 const buttonDisable = Color(0xffDEE3EE);
 const buttonCircle = Color(0xffF0F3FF);
+const textColor = Color(0xFF616161);

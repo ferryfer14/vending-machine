@@ -22,8 +22,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class PopupGame extends StatelessWidget {
-  const PopupGame({super.key, required this.onClose});
+  const PopupGame({super.key, required this.onClose, required this.url});
   final VoidCallback onClose;
+  final String url;
 
   @override
   Widget build(BuildContext context) {
@@ -44,29 +45,67 @@ class PopupGame extends StatelessWidget {
               textAlign: TextAlign.center,
             )),
             siboh32,
-            const Center(child: SizedBox()),
+            Center(child: Image.asset("${vAssetPng}Games.png")),
             siboh64,
-            Center(
-                child: Countdown(
-                    seconds: 10,
-                    interval: const Duration(milliseconds: 1000),
-                    build: (BuildContext context, double time) {
-                      return Container(
-                          height: 130,
-                          padding: padall32,
-                          child: ButtonIconLeading(
-                            sibow: sibow16,
-                            widget: const Icon(Icons.home_outlined,
-                                color: primaryColor, size: 36),
-                            title: "Will be close (${time.toInt()}s)",
-                            titleStyle: ts24Primary400,
-                            color: white,
-                            border: Border.all(color: primaryColor, width: 1),
-                          ));
-                    },
-                    onFinished: () {
-                      context.router.replaceAll([const CaraouselRoute()]);
-                    })),
+            Container(
+                decoration: const BoxDecoration(color: buttonCircle),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text("WHAT ARE YOU WAITING FOR? LET'S PLAY NOW!",
+                          style: ts24Black600),
+                      siboh8,
+                      const Text(
+                          "Play the spinning wheel game by clicking the button below and you will have the chance to win a Free Item prize from us!",
+                          style: ts20TextColor400),
+                      siboh8,
+                      Center(
+                          child: SizedBox(
+                              height: 80,
+                              child: ButtonIconLeading(
+                                onTap: () {
+                                  context.router
+                                      .replaceAll([WebviewRoute(url: url)]);
+                                },
+                                sibow: sibow16,
+                                widget: const Icon(Icons.play_circle_outline,
+                                    color: white, size: 36),
+                                title: "Play The Game",
+                                titleStyle: ts24White400,
+                                color: primaryColor,
+                                border:
+                                    Border.all(color: primaryColor, width: 1),
+                              ))),
+                      siboh16,
+                      Center(
+                          child: Countdown(
+                              seconds: 10,
+                              interval: const Duration(milliseconds: 1000),
+                              build: (BuildContext context, double time) {
+                                return SizedBox(
+                                    height: 80,
+                                    child: ButtonIconLeading(
+                                      onTap: () {
+                                        context.router.replaceAll(
+                                            [const CaraouselRoute()]);
+                                      },
+                                      sibow: sibow16,
+                                      widget: const Icon(Icons.home_outlined,
+                                          color: primaryColor, size: 36),
+                                      title: "Will be close (${time.toInt()}s)",
+                                      titleStyle: ts24Primary400,
+                                      color: white,
+                                      border: Border.all(
+                                          color: primaryColor, width: 1),
+                                    ));
+                              },
+                              onFinished: () {
+                                context.router
+                                    .replaceAll([const CaraouselRoute()]);
+                              })),
+                    ]))
           ],
         ));
   }
