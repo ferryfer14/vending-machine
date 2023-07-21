@@ -52,7 +52,7 @@ class ProductCard extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: ts20Black500)),
                       Expanded(
-                          child: slotModel.stock == 0
+                          child: slotModel.stock! <= 0
                               ? PrimaryButton(
                                   onTap: () {},
                                   color: buttonDisable,

@@ -19,6 +19,7 @@ class _WebviewPageState extends State<WebviewPage> {
   @override
   void initState() {
     _iFrameElement.src = widget.url;
+    print(widget.url);
     // ignore: undefined_prefixed_name
     ui.platformViewRegistry.registerViewFactory(
       'iframeElement',
