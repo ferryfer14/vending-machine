@@ -36,10 +36,10 @@ class TransactionRemoteDataProvider {
       {required String slotName}) async {
     final Map<String, int> params = {"slot": int.parse(slotName)};
     try {
-      final response = await apiClient.get(
-        // "${env.baseUrlVM}api/drop",
-        "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=-6.30406&lon=106.718955",
-        // data: params,
+      final response = await apiClient.post(
+        "${env.baseUrlVM}api/drop",
+        // "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=-6.30406&lon=106.718955",
+        data: params,
         headers: {
           'Accept': 'application/json',
           "Access-Control-Allow-Origin":
