@@ -5,9 +5,11 @@ import 'package:animated_switcher_plus/animated_switcher_plus.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:curved_progress_bar/curved_progress_bar.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_web_frame/flutter_web_frame.dart';
 import 'package:standart_project/app_constant.dart';
 import 'package:standart_project/application/auth/auth_bloc.dart';
 import 'package:standart_project/application/localization/localization_loader_bloc.dart';
@@ -39,31 +41,39 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-        providers: [
-          BlocProvider(
-              create: (context) => getIt<LocalizationLoaderBloc>()
-                ..add(const LocalizationLoaderEvent.started(isRefresh: true))),
-        ],
-        child: BlocBuilder<LocalizationLoaderBloc, LocalizationLoaderState>(
-            builder: (context, state) { 
-          return MaterialApp.router(
-            debugShowCheckedModeBanner: false,
-            scaffoldMessengerKey: snackbarKey,
-            title: 'VM',
-            routerDelegate: AutoRouterDelegate(
-              router,
-              navigatorObservers: () => [MyObserver()],
-            ),
-            routeInformationParser: router.defaultRouteParser(),
-            locale: Locale(state.located),
-            localizationsDelegates: [
-              GlobalMaterialLocalizations.delegate,
-              DefaultMaterialLocalizations.delegate,
-              AppLocalizations.delegate,
+    return FlutterWebFrame(
+      builder: (context) {
+        return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                  create: (context) => getIt<LocalizationLoaderBloc>()
+                    ..add(const LocalizationLoaderEvent.started(
+                        isRefresh: true))),
             ],
-            supportedLocales: AppLocalizations.supportedLocales,
-          );
-        }));
+            child: BlocBuilder<LocalizationLoaderBloc, LocalizationLoaderState>(
+                builder: (context, state) {
+              return MaterialApp.router(
+                debugShowCheckedModeBanner: false,
+                scaffoldMessengerKey: snackbarKey,
+                title: 'VM',
+                routerDelegate: AutoRouterDelegate(
+                  router,
+                  navigatorObservers: () => [MyObserver()],
+                ),
+                routeInformationParser: router.defaultRouteParser(),
+                locale: Locale(state.located),
+                localizationsDelegates: [
+                  GlobalMaterialLocalizations.delegate,
+                  DefaultMaterialLocalizations.delegate,
+                  AppLocalizations.delegate,
+                ],
+                supportedLocales: AppLocalizations.supportedLocales,
+              );
+            }));
+      },
+      maximumSize: const Size(1080.0, 1920.0), // Maximum size
+      enabled: kIsWeb, // default is enable, when disable content is full size
+      backgroundColor: Colors.transparent, // Background color/white space
+    );
   }
 }

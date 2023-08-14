@@ -90,13 +90,14 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
                   (element) => element.sensorCategoryModel!.name! == 'drop')];
           List<DropModel> listDropVending = [];
           List<SensorModel> listSensorVending = [];
+          int id = 1;
           for (var slotModel in listSlotModel) {
             listDropVending.add(DropModel(
                 slot_number: slotModel.id,
                 product: slotModel.product,
                 slot: int.parse(slotModel.name!),
                 amount: slotModel.amount,
-                statusDrop: 0,
+                statusDrop: id == 1 ? 1 : 0,
                 dropped: 0,
                 quantity_error: 0,
                 quantity_success: 0));
@@ -109,7 +110,11 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
                   code: '0',
                   description: ''));
             }
+            id++;
           }
+          emit(state.copyWith.call(
+              listDropModel: listDropVending,
+              listSensorModel: listSensorVending));
 
           for (var sensorModel in listSensorVending) {
             emit(state.copyWith.call(isLoading: true, readyDrop: true));
