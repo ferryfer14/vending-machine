@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import '../persentation/caraousel/caraousel_page.dart';
 import '../persentation/product/product.dart';
-import '../persentation/webview/webview.dart';
+import '../persentation/webview/webviewxx.txt';
 
 part 'app_router.gr.dart';
 

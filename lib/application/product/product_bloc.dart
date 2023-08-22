@@ -30,17 +30,15 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       emit(state.copyWith.call(isLoading: true));
       final failureOrSuccess = await _productRepository.load(size: state.size);
 
-      return emit(failureOrSuccess.fold(
-        (f) {
-          if (f == const ProductFailure.emptyList()) {
-            return state.copyWith.call(hasReachedMax: true, isLoading: false);
-          }
+      return emit(failureOrSuccess.fold((f) {
+        if (f == const ProductFailure.emptyList()) {
+          return state.copyWith.call(hasReachedMax: true, isLoading: false);
+        }
         return state.copyWith.call(
           failureOption: optionOf(f),
           isLoading: false,
         );
-        },
-        (items) {
+      }, (items) {
         final totalPage = (items.slot!.length / vSizeGrid).ceil();
         return state.copyWith.call(
             items: items,
@@ -53,30 +51,26 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
             totalPrice: 0,
             cart: List.empty(),
             isLoading: false);
-      }
-      ));
+      }));
     }, loadMore: (e) async {
       if (e.isLoad && !state.hasReachedMax && !state.isLoading) {
         emit(state.copyWith.call(isLoading: true));
-        final failureOrSuccess = await _productRepository.load(
-            page: e.page, size: state.size);
-        return emit(failureOrSuccess.fold(
-          (f) {
-            if (f == const ProductFailure.emptyList() &&
-                state.items.slot!.isNotEmpty) {
-              return state.copyWith
-                  .call(
-                hasReachedMax: true,
-                page: e.page + 1,
-                isLoading: false,
-              );
-            }
+        final failureOrSuccess =
+            await _productRepository.load(page: e.page, size: state.size);
+        return emit(failureOrSuccess.fold((f) {
+          if (f == const ProductFailure.emptyList() &&
+              state.items.slot!.isNotEmpty) {
             return state.copyWith.call(
-              failureOption: optionOf(f),
+              hasReachedMax: true,
+              page: e.page + 1,
               isLoading: false,
             );
-          },
-          (items) {
+          }
+          return state.copyWith.call(
+            failureOption: optionOf(f),
+            isLoading: false,
+          );
+        }, (items) {
           final totalPage = (items.slot!.length / vSizeGrid).ceil();
           return state.copyWith.call(
             hasReachedMax: false,
@@ -87,8 +81,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
             failureOption: none(),
             isLoading: false,
           );
-        }
-        ));
+        }));
       }
     }, addAmount: (e) async {
       PageModel pageModel = state.items;
@@ -107,7 +100,8 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
               stock: e.slotModel.stock,
               amount: e.amount));
       final total = listSlot.fold(0, (sum, item) => sum + item.amount!);
-      final totalPrice = listSlot.fold(0, (sum, item) => sum + (item.amount!*item.price!));
+      final totalPrice =
+          listSlot.fold(0, (sum, item) => sum + (item.amount! * item.price!));
 
       List<SlotModel> listCart = listSlot.where((o) => o.amount! > 0).toList();
       emit(state.copyWith.call(
@@ -116,7 +110,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
               total_pages: pageModel.total_pages,
               last: pageModel.last),
           totalCart: total,
-          totalPrice:totalPrice,
+          totalPrice: totalPrice,
           cart: listCart));
     }, changeAmount: (e) async {
       int amount = e.amount;
