@@ -6,21 +6,23 @@ Core Project Multiple Language
 
 `sdk: ">=2.12.0 <3.0.0"`
 
-`flutter: ">=1.17.0"`
+`flutter SDK: "=3.7.3"`
 
 ## Getting Started
 
 Install Platform android 28 in SDK Manager (android studio)
 
 android > local.properties
-```properties 
+
+```properties
     flutter.minSdkVersion=23
     flutter.targetSdkVersion=33
     flutter.compileSdkVersion=33
 ```
 
 Terminal
-```terminal 
+
+```terminal
     flutter pub get
     cd android && ./gradlew clean && ./gradlew build
 ```
