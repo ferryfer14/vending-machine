@@ -32,19 +32,6 @@ class _$AppRouter extends RootStackRouter {
         barrierDismissible: false,
       );
     },
-    WebviewRoute.name: (routeData) {
-      final args = routeData.argsAs<WebviewRouteArgs>();
-      return CustomPage<dynamic>(
-        routeData: routeData,
-        child: WebviewPage(
-          key: args.key,
-          url: args.url,
-        ),
-        transitionsBuilder: TransitionsBuilders.slideLeft,
-        opaque: true,
-        barrierDismissible: false,
-      );
-    },
   };
 
   @override
@@ -56,10 +43,6 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           ProductRoute.name,
           path: 'product',
-        ),
-        RouteConfig(
-          WebviewRoute.name,
-          path: 'webview',
         ),
       ];
 }
@@ -86,38 +69,4 @@ class ProductRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ProductRoute';
-}
-
-/// generated route for
-/// [WebviewPage]
-class WebviewRoute extends PageRouteInfo<WebviewRouteArgs> {
-  WebviewRoute({
-    Key? key,
-    required String url,
-  }) : super(
-          WebviewRoute.name,
-          path: 'webview',
-          args: WebviewRouteArgs(
-            key: key,
-            url: url,
-          ),
-        );
-
-  static const String name = 'WebviewRoute';
-}
-
-class WebviewRouteArgs {
-  const WebviewRouteArgs({
-    this.key,
-    required this.url,
-  });
-
-  final Key? key;
-
-  final String url;
-
-  @override
-  String toString() {
-    return 'WebviewRouteArgs{key: $key, url: $url}';
-  }
 }

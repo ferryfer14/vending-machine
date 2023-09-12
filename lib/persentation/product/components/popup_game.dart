@@ -66,8 +66,8 @@ class PopupGame extends StatelessWidget {
                               height: 80,
                               child: ButtonIconLeading(
                                 onTap: () {
-                                  context.router
-                                      .replaceAll([WebviewRoute(url: url)]);
+                                  // context.router
+                                  //     .replaceAll([WebviewRoute(url: url)]);
                                 },
                                 sibow: sibow16,
                                 widget: const Icon(Icons.play_circle_outline,

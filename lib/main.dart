@@ -17,19 +17,6 @@ import 'persentation/core/my_app.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await configureInjection(Environment.dev);
-  if (kIsWeb) {
-    await Firebase.initializeApp(
-        options: const FirebaseOptions(
-            apiKey: "AIzaSyDPlwIXRP0h6JOHoWrW5s-df92HitTTTf0",
-            authDomain: "fe-vending.firebaseapp.com",
-            projectId: "fe-vending",
-            storageBucket: "fe-vending.appspot.com",
-            messagingSenderId: "692980798939",
-            appId: "1:692980798939:web:9cce01bbbf62bb96f4c3fe",
-            measurementId: "G-EQPQS3XBZM"));
-  } else {
-    await Firebase.initializeApp();
-  }
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
     runApp(MyApp());

@@ -14,11 +14,6 @@ part 'app_router.gr.dart';
       page: ProductPage,
       path: 'product',
       transitionsBuilder: TransitionsBuilders.slideLeft,
-    ),
-    CustomRoute(
-      page: WebviewPage,
-      path: 'webview',
-      transitionsBuilder: TransitionsBuilders.slideLeft,
     )
   ],
 )
