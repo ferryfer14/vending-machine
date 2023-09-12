@@ -81,7 +81,7 @@ class CaraouselPage extends StatelessWidget {
                   overlayWidget: Center(
                     child: LoadingAnimationWidget.inkDrop(
                       color: Colors.white,
-                      size: 150,
+                      size: 60,
                     ),
                   ),
                   child: SizedBox(
@@ -122,7 +122,7 @@ class CaraouselPage extends StatelessWidget {
                 decoration: BoxDecoration(color: white, boxShadow: [
                   BoxShadow(color: Colors.grey.withOpacity(0.2), blurRadius: 2)
                 ]),
-                height: 120,
+                height: 60,
                 child: ButtonIconLeading(
                   onTap: () {
                     context
@@ -132,12 +132,12 @@ class CaraouselPage extends StatelessWidget {
                   color: primaryColor,
                   widget: SvgPicture.asset(
                     "${vAssetSvg}touch.svg",
-                    height: 60,
+                    height: 20,
                   ),
                   sibow: sibow16,
                   borderRadius: BorderRadius.circular(0),
                   title: AppLocalizations.of(context)!.start,
-                  titleStyle: ts24White600,
+                  titleStyle: ts14White600,
                 ),
               ),
             );
