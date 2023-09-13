@@ -46,6 +46,8 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
             failureOption: none(),
             totalCart: 0,
             isPay: false,
+            nominalPayment: 0,
+            paymentReturn: 0,
             totalPrice: 0,
             cart: List.empty(),
             isLoading: false);
@@ -81,7 +83,14 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       emit(state.copyWith.call(amount: amount));
     }, changeIndexStarted: (e) async {
       emit(state.copyWith.call(indexStarted: e.index, currentPage: e.page));
-    }, submitCart: (e) async {
+    }, submitCart: (_) async {
+      return emit(state.copyWith.call(nominalPayment: 0, paymentReturn: 0));
+    }, addNominal: (e) async {
+      int nominalPayment = state.nominalPayment + e.nominal;
+      int paymentReturn = nominalPayment - state.totalPrice;
+      return emit(state.copyWith
+          .call(nominalPayment: nominalPayment, paymentReturn: paymentReturn));
+    }, addTransaction: (_) async {
       emit(state.copyWith.call(
         isLoading: true,
         isPay: false,
@@ -89,6 +98,8 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       ));
       final failureOrSuccess = await _productRepository.submitCart(
           productModel: state.cart,
+          nominalPayment: state.nominalPayment,
+          paymentReturn: state.paymentReturn,
           price: state.totalPrice,
           quantity: state.totalCart);
 

@@ -14,7 +14,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../application/auth/sign_in/sign_in_bloc.dart';
-import 'button_field.dart';
+import '../components/button_field.dart';
 
 class UnfocusWidget extends StatelessWidget {
   const UnfocusWidget({Key? key, required this.child}) : super(key: key);
@@ -83,8 +83,8 @@ Future<void> noInternet(BuildContext parentContext, ontap, String route,
                                     context.router.pop();
                                   },
                                   color: secondaryColor.withOpacity(0.2),
-                                  title: AppLocalizations.of(parentContext)!
-                                      .close,
+                                  title:
+                                      AppLocalizations.of(parentContext)!.close,
                                   titleStyle: ts24Black400,
                                 )),
                                 sibow4,

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:standart_project/persentation/core/functions/button_icon_leading.dart';
+import 'package:standart_project/persentation/core/components/button_icon_leading.dart';
 import 'package:standart_project/persentation/core/functions/currency_format.dart';
 
 import '../../../app_constant.dart';
@@ -122,11 +122,12 @@ class PopupCart extends StatelessWidget {
                 height: 40,
                 widget: loading
                     ? LoadingAnimationWidget.inkDrop(color: white, size: 10)
-                    : Image.asset(
-                        '${vAssetPng}qris.png',
-                        height: 20,
+                    : const Icon(
+                        Icons.payment,
+                        size: 16,
+                        color: white,
                       ),
-                title: AppLocalizations.of(context)!.pay_qris,
+                title: "Pay",
                 titleStyle: ts14White500,
                 sibow: sibow4),
           ),

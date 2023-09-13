@@ -66,15 +66,24 @@ class ProductRemoteDataProvider {
 
   Future<Either<ProductFailure, Unit>> submitCart(
       {required List<ProductModelDto> productModelDto,
+      required int nominalPayment,
+      required int paymentReturn,
       required int price,
       required int quantity}) async {
+    if (paymentReturn < 0) {
+      return left(const ProductFailure.appException(
+          AppException.unexpectedException(
+              errorMessage: "Your balance is not enough")));
+    }
     try {
       return init().then((db) async {
         int id = 0;
         try {
           id = await db.insert(
-            'transaction',
+            'transactions',
             {
+              'nominal_payment': price,
+              'payment_return': price,
               'price': price,
               'quantity': quantity,
               'created_at': DateTime.now().toString()

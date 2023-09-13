@@ -17,6 +17,8 @@ class ProductState with _$ProductState {
     required int idSelected,
     required int indexStarted,
     required int indexSelected,
+    required int nominalPayment,
+    required int paymentReturn,
     required bool isPay,
     required Option<ProductFailure> failureOption,
     required Option<Either<ProductFailure, Unit>> failureOrSuccess,
@@ -39,5 +41,7 @@ class ProductState with _$ProductState {
       indexSelected: 0,
       idSelected: 0,
       isPay: false,
+      nominalPayment: 0,
+      paymentReturn: 0,
       failureOrSuccess: none());
 }

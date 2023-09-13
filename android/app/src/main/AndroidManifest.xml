@@ -18,7 +18,7 @@
     tools:ignore="ProtectedPermissions" />
     
    <application
-        android:label="standart_project"
+        android:label="Vending"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

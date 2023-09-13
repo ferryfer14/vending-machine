@@ -37,13 +37,19 @@ class ProductRepository implements IProductRepository {
   @override
   Future<Either<ProductFailure, Unit>> submitCart(
       {required List<ProductModel> productModel,
+      required int nominalPayment,
+      required int paymentReturn,
       required int price,
       required int quantity}) async {
     try {
       final productModelDto =
           productModel.map((e) => ProductModelDto.fromDomain(e)).toList();
       final response = await productRemoteDataProvider.submitCart(
-          productModelDto: productModelDto, price: price, quantity: quantity);
+          productModelDto: productModelDto,
+          nominalPayment: nominalPayment,
+          paymentReturn: paymentReturn,
+          price: price,
+          quantity: quantity);
 
       return response.fold((l) => left(l), (items) {
         return right(items);

@@ -22,7 +22,9 @@ mixin _$ProductEvent {
     required TResult Function(int amount) changeAmount,
     required TResult Function(ProductModel productModel, int amount) addAmount,
     required TResult Function(int index, int page) changeIndexStarted,
+    required TResult Function(int nominal) addNominal,
     required TResult Function() submitCart,
+    required TResult Function() addTransaction,
     required TResult Function() reset,
   }) =>
       throw _privateConstructorUsedError;
@@ -32,7 +34,9 @@ mixin _$ProductEvent {
     TResult? Function(int amount)? changeAmount,
     TResult? Function(ProductModel productModel, int amount)? addAmount,
     TResult? Function(int index, int page)? changeIndexStarted,
+    TResult? Function(int nominal)? addNominal,
     TResult? Function()? submitCart,
+    TResult? Function()? addTransaction,
     TResult? Function()? reset,
   }) =>
       throw _privateConstructorUsedError;
@@ -42,7 +46,9 @@ mixin _$ProductEvent {
     TResult Function(int amount)? changeAmount,
     TResult Function(ProductModel productModel, int amount)? addAmount,
     TResult Function(int index, int page)? changeIndexStarted,
+    TResult Function(int nominal)? addNominal,
     TResult Function()? submitCart,
+    TResult Function()? addTransaction,
     TResult Function()? reset,
     required TResult orElse(),
   }) =>
@@ -53,7 +59,9 @@ mixin _$ProductEvent {
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_AddAmount value) addAmount,
     required TResult Function(_ChangeIndexStarted value) changeIndexStarted,
+    required TResult Function(_AddNominal value) addNominal,
     required TResult Function(_SubmitCart value) submitCart,
+    required TResult Function(_AddTransaction value) addTransaction,
     required TResult Function(_Reset value) reset,
   }) =>
       throw _privateConstructorUsedError;
@@ -63,7 +71,9 @@ mixin _$ProductEvent {
     TResult? Function(_ChangeAmount value)? changeAmount,
     TResult? Function(_AddAmount value)? addAmount,
     TResult? Function(_ChangeIndexStarted value)? changeIndexStarted,
+    TResult? Function(_AddNominal value)? addNominal,
     TResult? Function(_SubmitCart value)? submitCart,
+    TResult? Function(_AddTransaction value)? addTransaction,
     TResult? Function(_Reset value)? reset,
   }) =>
       throw _privateConstructorUsedError;
@@ -73,7 +83,9 @@ mixin _$ProductEvent {
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_AddAmount value)? addAmount,
     TResult Function(_ChangeIndexStarted value)? changeIndexStarted,
+    TResult Function(_AddNominal value)? addNominal,
     TResult Function(_SubmitCart value)? submitCart,
+    TResult Function(_AddTransaction value)? addTransaction,
     TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) =>
@@ -177,7 +189,9 @@ class _$_Started implements _Started {
     required TResult Function(int amount) changeAmount,
     required TResult Function(ProductModel productModel, int amount) addAmount,
     required TResult Function(int index, int page) changeIndexStarted,
+    required TResult Function(int nominal) addNominal,
     required TResult Function() submitCart,
+    required TResult Function() addTransaction,
     required TResult Function() reset,
   }) {
     return started(isRefresh, isLoading);
@@ -190,7 +204,9 @@ class _$_Started implements _Started {
     TResult? Function(int amount)? changeAmount,
     TResult? Function(ProductModel productModel, int amount)? addAmount,
     TResult? Function(int index, int page)? changeIndexStarted,
+    TResult? Function(int nominal)? addNominal,
     TResult? Function()? submitCart,
+    TResult? Function()? addTransaction,
     TResult? Function()? reset,
   }) {
     return started?.call(isRefresh, isLoading);
@@ -203,7 +219,9 @@ class _$_Started implements _Started {
     TResult Function(int amount)? changeAmount,
     TResult Function(ProductModel productModel, int amount)? addAmount,
     TResult Function(int index, int page)? changeIndexStarted,
+    TResult Function(int nominal)? addNominal,
     TResult Function()? submitCart,
+    TResult Function()? addTransaction,
     TResult Function()? reset,
     required TResult orElse(),
   }) {
@@ -220,7 +238,9 @@ class _$_Started implements _Started {
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_AddAmount value) addAmount,
     required TResult Function(_ChangeIndexStarted value) changeIndexStarted,
+    required TResult Function(_AddNominal value) addNominal,
     required TResult Function(_SubmitCart value) submitCart,
+    required TResult Function(_AddTransaction value) addTransaction,
     required TResult Function(_Reset value) reset,
   }) {
     return started(this);
@@ -233,7 +253,9 @@ class _$_Started implements _Started {
     TResult? Function(_ChangeAmount value)? changeAmount,
     TResult? Function(_AddAmount value)? addAmount,
     TResult? Function(_ChangeIndexStarted value)? changeIndexStarted,
+    TResult? Function(_AddNominal value)? addNominal,
     TResult? Function(_SubmitCart value)? submitCart,
+    TResult? Function(_AddTransaction value)? addTransaction,
     TResult? Function(_Reset value)? reset,
   }) {
     return started?.call(this);
@@ -246,7 +268,9 @@ class _$_Started implements _Started {
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_AddAmount value)? addAmount,
     TResult Function(_ChangeIndexStarted value)? changeIndexStarted,
+    TResult Function(_AddNominal value)? addNominal,
     TResult Function(_SubmitCart value)? submitCart,
+    TResult Function(_AddTransaction value)? addTransaction,
     TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
@@ -336,7 +360,9 @@ class _$_ChangeAmount implements _ChangeAmount {
     required TResult Function(int amount) changeAmount,
     required TResult Function(ProductModel productModel, int amount) addAmount,
     required TResult Function(int index, int page) changeIndexStarted,
+    required TResult Function(int nominal) addNominal,
     required TResult Function() submitCart,
+    required TResult Function() addTransaction,
     required TResult Function() reset,
   }) {
     return changeAmount(amount);
@@ -349,7 +375,9 @@ class _$_ChangeAmount implements _ChangeAmount {
     TResult? Function(int amount)? changeAmount,
     TResult? Function(ProductModel productModel, int amount)? addAmount,
     TResult? Function(int index, int page)? changeIndexStarted,
+    TResult? Function(int nominal)? addNominal,
     TResult? Function()? submitCart,
+    TResult? Function()? addTransaction,
     TResult? Function()? reset,
   }) {
     return changeAmount?.call(amount);
@@ -362,7 +390,9 @@ class _$_ChangeAmount implements _ChangeAmount {
     TResult Function(int amount)? changeAmount,
     TResult Function(ProductModel productModel, int amount)? addAmount,
     TResult Function(int index, int page)? changeIndexStarted,
+    TResult Function(int nominal)? addNominal,
     TResult Function()? submitCart,
+    TResult Function()? addTransaction,
     TResult Function()? reset,
     required TResult orElse(),
   }) {
@@ -379,7 +409,9 @@ class _$_ChangeAmount implements _ChangeAmount {
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_AddAmount value) addAmount,
     required TResult Function(_ChangeIndexStarted value) changeIndexStarted,
+    required TResult Function(_AddNominal value) addNominal,
     required TResult Function(_SubmitCart value) submitCart,
+    required TResult Function(_AddTransaction value) addTransaction,
     required TResult Function(_Reset value) reset,
   }) {
     return changeAmount(this);
@@ -392,7 +424,9 @@ class _$_ChangeAmount implements _ChangeAmount {
     TResult? Function(_ChangeAmount value)? changeAmount,
     TResult? Function(_AddAmount value)? addAmount,
     TResult? Function(_ChangeIndexStarted value)? changeIndexStarted,
+    TResult? Function(_AddNominal value)? addNominal,
     TResult? Function(_SubmitCart value)? submitCart,
+    TResult? Function(_AddTransaction value)? addTransaction,
     TResult? Function(_Reset value)? reset,
   }) {
     return changeAmount?.call(this);
@@ -405,7 +439,9 @@ class _$_ChangeAmount implements _ChangeAmount {
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_AddAmount value)? addAmount,
     TResult Function(_ChangeIndexStarted value)? changeIndexStarted,
+    TResult Function(_AddNominal value)? addNominal,
     TResult Function(_SubmitCart value)? submitCart,
+    TResult Function(_AddTransaction value)? addTransaction,
     TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
@@ -512,7 +548,9 @@ class _$_AddAmount implements _AddAmount {
     required TResult Function(int amount) changeAmount,
     required TResult Function(ProductModel productModel, int amount) addAmount,
     required TResult Function(int index, int page) changeIndexStarted,
+    required TResult Function(int nominal) addNominal,
     required TResult Function() submitCart,
+    required TResult Function() addTransaction,
     required TResult Function() reset,
   }) {
     return addAmount(productModel, amount);
@@ -525,7 +563,9 @@ class _$_AddAmount implements _AddAmount {
     TResult? Function(int amount)? changeAmount,
     TResult? Function(ProductModel productModel, int amount)? addAmount,
     TResult? Function(int index, int page)? changeIndexStarted,
+    TResult? Function(int nominal)? addNominal,
     TResult? Function()? submitCart,
+    TResult? Function()? addTransaction,
     TResult? Function()? reset,
   }) {
     return addAmount?.call(productModel, amount);
@@ -538,7 +578,9 @@ class _$_AddAmount implements _AddAmount {
     TResult Function(int amount)? changeAmount,
     TResult Function(ProductModel productModel, int amount)? addAmount,
     TResult Function(int index, int page)? changeIndexStarted,
+    TResult Function(int nominal)? addNominal,
     TResult Function()? submitCart,
+    TResult Function()? addTransaction,
     TResult Function()? reset,
     required TResult orElse(),
   }) {
@@ -555,7 +597,9 @@ class _$_AddAmount implements _AddAmount {
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_AddAmount value) addAmount,
     required TResult Function(_ChangeIndexStarted value) changeIndexStarted,
+    required TResult Function(_AddNominal value) addNominal,
     required TResult Function(_SubmitCart value) submitCart,
+    required TResult Function(_AddTransaction value) addTransaction,
     required TResult Function(_Reset value) reset,
   }) {
     return addAmount(this);
@@ -568,7 +612,9 @@ class _$_AddAmount implements _AddAmount {
     TResult? Function(_ChangeAmount value)? changeAmount,
     TResult? Function(_AddAmount value)? addAmount,
     TResult? Function(_ChangeIndexStarted value)? changeIndexStarted,
+    TResult? Function(_AddNominal value)? addNominal,
     TResult? Function(_SubmitCart value)? submitCart,
+    TResult? Function(_AddTransaction value)? addTransaction,
     TResult? Function(_Reset value)? reset,
   }) {
     return addAmount?.call(this);
@@ -581,7 +627,9 @@ class _$_AddAmount implements _AddAmount {
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_AddAmount value)? addAmount,
     TResult Function(_ChangeIndexStarted value)? changeIndexStarted,
+    TResult Function(_AddNominal value)? addNominal,
     TResult Function(_SubmitCart value)? submitCart,
+    TResult Function(_AddTransaction value)? addTransaction,
     TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
@@ -680,7 +728,9 @@ class _$_ChangeIndexStarted implements _ChangeIndexStarted {
     required TResult Function(int amount) changeAmount,
     required TResult Function(ProductModel productModel, int amount) addAmount,
     required TResult Function(int index, int page) changeIndexStarted,
+    required TResult Function(int nominal) addNominal,
     required TResult Function() submitCart,
+    required TResult Function() addTransaction,
     required TResult Function() reset,
   }) {
     return changeIndexStarted(index, page);
@@ -693,7 +743,9 @@ class _$_ChangeIndexStarted implements _ChangeIndexStarted {
     TResult? Function(int amount)? changeAmount,
     TResult? Function(ProductModel productModel, int amount)? addAmount,
     TResult? Function(int index, int page)? changeIndexStarted,
+    TResult? Function(int nominal)? addNominal,
     TResult? Function()? submitCart,
+    TResult? Function()? addTransaction,
     TResult? Function()? reset,
   }) {
     return changeIndexStarted?.call(index, page);
@@ -706,7 +758,9 @@ class _$_ChangeIndexStarted implements _ChangeIndexStarted {
     TResult Function(int amount)? changeAmount,
     TResult Function(ProductModel productModel, int amount)? addAmount,
     TResult Function(int index, int page)? changeIndexStarted,
+    TResult Function(int nominal)? addNominal,
     TResult Function()? submitCart,
+    TResult Function()? addTransaction,
     TResult Function()? reset,
     required TResult orElse(),
   }) {
@@ -723,7 +777,9 @@ class _$_ChangeIndexStarted implements _ChangeIndexStarted {
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_AddAmount value) addAmount,
     required TResult Function(_ChangeIndexStarted value) changeIndexStarted,
+    required TResult Function(_AddNominal value) addNominal,
     required TResult Function(_SubmitCart value) submitCart,
+    required TResult Function(_AddTransaction value) addTransaction,
     required TResult Function(_Reset value) reset,
   }) {
     return changeIndexStarted(this);
@@ -736,7 +792,9 @@ class _$_ChangeIndexStarted implements _ChangeIndexStarted {
     TResult? Function(_ChangeAmount value)? changeAmount,
     TResult? Function(_AddAmount value)? addAmount,
     TResult? Function(_ChangeIndexStarted value)? changeIndexStarted,
+    TResult? Function(_AddNominal value)? addNominal,
     TResult? Function(_SubmitCart value)? submitCart,
+    TResult? Function(_AddTransaction value)? addTransaction,
     TResult? Function(_Reset value)? reset,
   }) {
     return changeIndexStarted?.call(this);
@@ -749,7 +807,9 @@ class _$_ChangeIndexStarted implements _ChangeIndexStarted {
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_AddAmount value)? addAmount,
     TResult Function(_ChangeIndexStarted value)? changeIndexStarted,
+    TResult Function(_AddNominal value)? addNominal,
     TResult Function(_SubmitCart value)? submitCart,
+    TResult Function(_AddTransaction value)? addTransaction,
     TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
@@ -768,6 +828,175 @@ abstract class _ChangeIndexStarted implements ProductEvent {
   int get page;
   @JsonKey(ignore: true)
   _$$_ChangeIndexStartedCopyWith<_$_ChangeIndexStarted> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_AddNominalCopyWith<$Res> {
+  factory _$$_AddNominalCopyWith(
+          _$_AddNominal value, $Res Function(_$_AddNominal) then) =
+      __$$_AddNominalCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int nominal});
+}
+
+/// @nodoc
+class __$$_AddNominalCopyWithImpl<$Res>
+    extends _$ProductEventCopyWithImpl<$Res, _$_AddNominal>
+    implements _$$_AddNominalCopyWith<$Res> {
+  __$$_AddNominalCopyWithImpl(
+      _$_AddNominal _value, $Res Function(_$_AddNominal) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? nominal = null,
+  }) {
+    return _then(_$_AddNominal(
+      null == nominal
+          ? _value.nominal
+          : nominal // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AddNominal implements _AddNominal {
+  const _$_AddNominal(this.nominal);
+
+  @override
+  final int nominal;
+
+  @override
+  String toString() {
+    return 'ProductEvent.addNominal(nominal: $nominal)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AddNominal &&
+            (identical(other.nominal, nominal) || other.nominal == nominal));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, nominal);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AddNominalCopyWith<_$_AddNominal> get copyWith =>
+      __$$_AddNominalCopyWithImpl<_$_AddNominal>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(bool isRefresh, bool isLoading) started,
+    required TResult Function(int amount) changeAmount,
+    required TResult Function(ProductModel productModel, int amount) addAmount,
+    required TResult Function(int index, int page) changeIndexStarted,
+    required TResult Function(int nominal) addNominal,
+    required TResult Function() submitCart,
+    required TResult Function() addTransaction,
+    required TResult Function() reset,
+  }) {
+    return addNominal(nominal);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(bool isRefresh, bool isLoading)? started,
+    TResult? Function(int amount)? changeAmount,
+    TResult? Function(ProductModel productModel, int amount)? addAmount,
+    TResult? Function(int index, int page)? changeIndexStarted,
+    TResult? Function(int nominal)? addNominal,
+    TResult? Function()? submitCart,
+    TResult? Function()? addTransaction,
+    TResult? Function()? reset,
+  }) {
+    return addNominal?.call(nominal);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool isRefresh, bool isLoading)? started,
+    TResult Function(int amount)? changeAmount,
+    TResult Function(ProductModel productModel, int amount)? addAmount,
+    TResult Function(int index, int page)? changeIndexStarted,
+    TResult Function(int nominal)? addNominal,
+    TResult Function()? submitCart,
+    TResult Function()? addTransaction,
+    TResult Function()? reset,
+    required TResult orElse(),
+  }) {
+    if (addNominal != null) {
+      return addNominal(nominal);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_AddAmount value) addAmount,
+    required TResult Function(_ChangeIndexStarted value) changeIndexStarted,
+    required TResult Function(_AddNominal value) addNominal,
+    required TResult Function(_SubmitCart value) submitCart,
+    required TResult Function(_AddTransaction value) addTransaction,
+    required TResult Function(_Reset value) reset,
+  }) {
+    return addNominal(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_ChangeAmount value)? changeAmount,
+    TResult? Function(_AddAmount value)? addAmount,
+    TResult? Function(_ChangeIndexStarted value)? changeIndexStarted,
+    TResult? Function(_AddNominal value)? addNominal,
+    TResult? Function(_SubmitCart value)? submitCart,
+    TResult? Function(_AddTransaction value)? addTransaction,
+    TResult? Function(_Reset value)? reset,
+  }) {
+    return addNominal?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_AddAmount value)? addAmount,
+    TResult Function(_ChangeIndexStarted value)? changeIndexStarted,
+    TResult Function(_AddNominal value)? addNominal,
+    TResult Function(_SubmitCart value)? submitCart,
+    TResult Function(_AddTransaction value)? addTransaction,
+    TResult Function(_Reset value)? reset,
+    required TResult orElse(),
+  }) {
+    if (addNominal != null) {
+      return addNominal(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddNominal implements ProductEvent {
+  const factory _AddNominal(final int nominal) = _$_AddNominal;
+
+  int get nominal;
+  @JsonKey(ignore: true)
+  _$$_AddNominalCopyWith<_$_AddNominal> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -813,7 +1042,9 @@ class _$_SubmitCart implements _SubmitCart {
     required TResult Function(int amount) changeAmount,
     required TResult Function(ProductModel productModel, int amount) addAmount,
     required TResult Function(int index, int page) changeIndexStarted,
+    required TResult Function(int nominal) addNominal,
     required TResult Function() submitCart,
+    required TResult Function() addTransaction,
     required TResult Function() reset,
   }) {
     return submitCart();
@@ -826,7 +1057,9 @@ class _$_SubmitCart implements _SubmitCart {
     TResult? Function(int amount)? changeAmount,
     TResult? Function(ProductModel productModel, int amount)? addAmount,
     TResult? Function(int index, int page)? changeIndexStarted,
+    TResult? Function(int nominal)? addNominal,
     TResult? Function()? submitCart,
+    TResult? Function()? addTransaction,
     TResult? Function()? reset,
   }) {
     return submitCart?.call();
@@ -839,7 +1072,9 @@ class _$_SubmitCart implements _SubmitCart {
     TResult Function(int amount)? changeAmount,
     TResult Function(ProductModel productModel, int amount)? addAmount,
     TResult Function(int index, int page)? changeIndexStarted,
+    TResult Function(int nominal)? addNominal,
     TResult Function()? submitCart,
+    TResult Function()? addTransaction,
     TResult Function()? reset,
     required TResult orElse(),
   }) {
@@ -856,7 +1091,9 @@ class _$_SubmitCart implements _SubmitCart {
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_AddAmount value) addAmount,
     required TResult Function(_ChangeIndexStarted value) changeIndexStarted,
+    required TResult Function(_AddNominal value) addNominal,
     required TResult Function(_SubmitCart value) submitCart,
+    required TResult Function(_AddTransaction value) addTransaction,
     required TResult Function(_Reset value) reset,
   }) {
     return submitCart(this);
@@ -869,7 +1106,9 @@ class _$_SubmitCart implements _SubmitCart {
     TResult? Function(_ChangeAmount value)? changeAmount,
     TResult? Function(_AddAmount value)? addAmount,
     TResult? Function(_ChangeIndexStarted value)? changeIndexStarted,
+    TResult? Function(_AddNominal value)? addNominal,
     TResult? Function(_SubmitCart value)? submitCart,
+    TResult? Function(_AddTransaction value)? addTransaction,
     TResult? Function(_Reset value)? reset,
   }) {
     return submitCart?.call(this);
@@ -882,7 +1121,9 @@ class _$_SubmitCart implements _SubmitCart {
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_AddAmount value)? addAmount,
     TResult Function(_ChangeIndexStarted value)? changeIndexStarted,
+    TResult Function(_AddNominal value)? addNominal,
     TResult Function(_SubmitCart value)? submitCart,
+    TResult Function(_AddTransaction value)? addTransaction,
     TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
@@ -895,6 +1136,144 @@ class _$_SubmitCart implements _SubmitCart {
 
 abstract class _SubmitCart implements ProductEvent {
   const factory _SubmitCart() = _$_SubmitCart;
+}
+
+/// @nodoc
+abstract class _$$_AddTransactionCopyWith<$Res> {
+  factory _$$_AddTransactionCopyWith(
+          _$_AddTransaction value, $Res Function(_$_AddTransaction) then) =
+      __$$_AddTransactionCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_AddTransactionCopyWithImpl<$Res>
+    extends _$ProductEventCopyWithImpl<$Res, _$_AddTransaction>
+    implements _$$_AddTransactionCopyWith<$Res> {
+  __$$_AddTransactionCopyWithImpl(
+      _$_AddTransaction _value, $Res Function(_$_AddTransaction) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_AddTransaction implements _AddTransaction {
+  const _$_AddTransaction();
+
+  @override
+  String toString() {
+    return 'ProductEvent.addTransaction()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_AddTransaction);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(bool isRefresh, bool isLoading) started,
+    required TResult Function(int amount) changeAmount,
+    required TResult Function(ProductModel productModel, int amount) addAmount,
+    required TResult Function(int index, int page) changeIndexStarted,
+    required TResult Function(int nominal) addNominal,
+    required TResult Function() submitCart,
+    required TResult Function() addTransaction,
+    required TResult Function() reset,
+  }) {
+    return addTransaction();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(bool isRefresh, bool isLoading)? started,
+    TResult? Function(int amount)? changeAmount,
+    TResult? Function(ProductModel productModel, int amount)? addAmount,
+    TResult? Function(int index, int page)? changeIndexStarted,
+    TResult? Function(int nominal)? addNominal,
+    TResult? Function()? submitCart,
+    TResult? Function()? addTransaction,
+    TResult? Function()? reset,
+  }) {
+    return addTransaction?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool isRefresh, bool isLoading)? started,
+    TResult Function(int amount)? changeAmount,
+    TResult Function(ProductModel productModel, int amount)? addAmount,
+    TResult Function(int index, int page)? changeIndexStarted,
+    TResult Function(int nominal)? addNominal,
+    TResult Function()? submitCart,
+    TResult Function()? addTransaction,
+    TResult Function()? reset,
+    required TResult orElse(),
+  }) {
+    if (addTransaction != null) {
+      return addTransaction();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ChangeAmount value) changeAmount,
+    required TResult Function(_AddAmount value) addAmount,
+    required TResult Function(_ChangeIndexStarted value) changeIndexStarted,
+    required TResult Function(_AddNominal value) addNominal,
+    required TResult Function(_SubmitCart value) submitCart,
+    required TResult Function(_AddTransaction value) addTransaction,
+    required TResult Function(_Reset value) reset,
+  }) {
+    return addTransaction(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_ChangeAmount value)? changeAmount,
+    TResult? Function(_AddAmount value)? addAmount,
+    TResult? Function(_ChangeIndexStarted value)? changeIndexStarted,
+    TResult? Function(_AddNominal value)? addNominal,
+    TResult? Function(_SubmitCart value)? submitCart,
+    TResult? Function(_AddTransaction value)? addTransaction,
+    TResult? Function(_Reset value)? reset,
+  }) {
+    return addTransaction?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ChangeAmount value)? changeAmount,
+    TResult Function(_AddAmount value)? addAmount,
+    TResult Function(_ChangeIndexStarted value)? changeIndexStarted,
+    TResult Function(_AddNominal value)? addNominal,
+    TResult Function(_SubmitCart value)? submitCart,
+    TResult Function(_AddTransaction value)? addTransaction,
+    TResult Function(_Reset value)? reset,
+    required TResult orElse(),
+  }) {
+    if (addTransaction != null) {
+      return addTransaction(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddTransaction implements ProductEvent {
+  const factory _AddTransaction() = _$_AddTransaction;
 }
 
 /// @nodoc
@@ -937,7 +1316,9 @@ class _$_Reset implements _Reset {
     required TResult Function(int amount) changeAmount,
     required TResult Function(ProductModel productModel, int amount) addAmount,
     required TResult Function(int index, int page) changeIndexStarted,
+    required TResult Function(int nominal) addNominal,
     required TResult Function() submitCart,
+    required TResult Function() addTransaction,
     required TResult Function() reset,
   }) {
     return reset();
@@ -950,7 +1331,9 @@ class _$_Reset implements _Reset {
     TResult? Function(int amount)? changeAmount,
     TResult? Function(ProductModel productModel, int amount)? addAmount,
     TResult? Function(int index, int page)? changeIndexStarted,
+    TResult? Function(int nominal)? addNominal,
     TResult? Function()? submitCart,
+    TResult? Function()? addTransaction,
     TResult? Function()? reset,
   }) {
     return reset?.call();
@@ -963,7 +1346,9 @@ class _$_Reset implements _Reset {
     TResult Function(int amount)? changeAmount,
     TResult Function(ProductModel productModel, int amount)? addAmount,
     TResult Function(int index, int page)? changeIndexStarted,
+    TResult Function(int nominal)? addNominal,
     TResult Function()? submitCart,
+    TResult Function()? addTransaction,
     TResult Function()? reset,
     required TResult orElse(),
   }) {
@@ -980,7 +1365,9 @@ class _$_Reset implements _Reset {
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_AddAmount value) addAmount,
     required TResult Function(_ChangeIndexStarted value) changeIndexStarted,
+    required TResult Function(_AddNominal value) addNominal,
     required TResult Function(_SubmitCart value) submitCart,
+    required TResult Function(_AddTransaction value) addTransaction,
     required TResult Function(_Reset value) reset,
   }) {
     return reset(this);
@@ -993,7 +1380,9 @@ class _$_Reset implements _Reset {
     TResult? Function(_ChangeAmount value)? changeAmount,
     TResult? Function(_AddAmount value)? addAmount,
     TResult? Function(_ChangeIndexStarted value)? changeIndexStarted,
+    TResult? Function(_AddNominal value)? addNominal,
     TResult? Function(_SubmitCart value)? submitCart,
+    TResult? Function(_AddTransaction value)? addTransaction,
     TResult? Function(_Reset value)? reset,
   }) {
     return reset?.call(this);
@@ -1006,7 +1395,9 @@ class _$_Reset implements _Reset {
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_AddAmount value)? addAmount,
     TResult Function(_ChangeIndexStarted value)? changeIndexStarted,
+    TResult Function(_AddNominal value)? addNominal,
     TResult Function(_SubmitCart value)? submitCart,
+    TResult Function(_AddTransaction value)? addTransaction,
     TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
@@ -1037,6 +1428,8 @@ mixin _$ProductState {
   int get idSelected => throw _privateConstructorUsedError;
   int get indexStarted => throw _privateConstructorUsedError;
   int get indexSelected => throw _privateConstructorUsedError;
+  int get nominalPayment => throw _privateConstructorUsedError;
+  int get paymentReturn => throw _privateConstructorUsedError;
   bool get isPay => throw _privateConstructorUsedError;
   Option<ProductFailure> get failureOption =>
       throw _privateConstructorUsedError;
@@ -1069,6 +1462,8 @@ abstract class $ProductStateCopyWith<$Res> {
       int idSelected,
       int indexStarted,
       int indexSelected,
+      int nominalPayment,
+      int paymentReturn,
       bool isPay,
       Option<ProductFailure> failureOption,
       Option<Either<ProductFailure, Unit>> failureOrSuccess});
@@ -1101,6 +1496,8 @@ class _$ProductStateCopyWithImpl<$Res, $Val extends ProductState>
     Object? idSelected = null,
     Object? indexStarted = null,
     Object? indexSelected = null,
+    Object? nominalPayment = null,
+    Object? paymentReturn = null,
     Object? isPay = null,
     Object? failureOption = null,
     Object? failureOrSuccess = null,
@@ -1162,6 +1559,14 @@ class _$ProductStateCopyWithImpl<$Res, $Val extends ProductState>
           ? _value.indexSelected
           : indexSelected // ignore: cast_nullable_to_non_nullable
               as int,
+      nominalPayment: null == nominalPayment
+          ? _value.nominalPayment
+          : nominalPayment // ignore: cast_nullable_to_non_nullable
+              as int,
+      paymentReturn: null == paymentReturn
+          ? _value.paymentReturn
+          : paymentReturn // ignore: cast_nullable_to_non_nullable
+              as int,
       isPay: null == isPay
           ? _value.isPay
           : isPay // ignore: cast_nullable_to_non_nullable
@@ -1201,6 +1606,8 @@ abstract class _$$_ProductStateCopyWith<$Res>
       int idSelected,
       int indexStarted,
       int indexSelected,
+      int nominalPayment,
+      int paymentReturn,
       bool isPay,
       Option<ProductFailure> failureOption,
       Option<Either<ProductFailure, Unit>> failureOrSuccess});
@@ -1231,6 +1638,8 @@ class __$$_ProductStateCopyWithImpl<$Res>
     Object? idSelected = null,
     Object? indexStarted = null,
     Object? indexSelected = null,
+    Object? nominalPayment = null,
+    Object? paymentReturn = null,
     Object? isPay = null,
     Object? failureOption = null,
     Object? failureOrSuccess = null,
@@ -1292,6 +1701,14 @@ class __$$_ProductStateCopyWithImpl<$Res>
           ? _value.indexSelected
           : indexSelected // ignore: cast_nullable_to_non_nullable
               as int,
+      nominalPayment: null == nominalPayment
+          ? _value.nominalPayment
+          : nominalPayment // ignore: cast_nullable_to_non_nullable
+              as int,
+      paymentReturn: null == paymentReturn
+          ? _value.paymentReturn
+          : paymentReturn // ignore: cast_nullable_to_non_nullable
+              as int,
       isPay: null == isPay
           ? _value.isPay
           : isPay // ignore: cast_nullable_to_non_nullable
@@ -1326,6 +1743,8 @@ class _$_ProductState implements _ProductState {
       required this.idSelected,
       required this.indexStarted,
       required this.indexSelected,
+      required this.nominalPayment,
+      required this.paymentReturn,
       required this.isPay,
       required this.failureOption,
       required this.failureOrSuccess})
@@ -1373,6 +1792,10 @@ class _$_ProductState implements _ProductState {
   @override
   final int indexSelected;
   @override
+  final int nominalPayment;
+  @override
+  final int paymentReturn;
+  @override
   final bool isPay;
   @override
   final Option<ProductFailure> failureOption;
@@ -1381,7 +1804,7 @@ class _$_ProductState implements _ProductState {
 
   @override
   String toString() {
-    return 'ProductState(cart: $cart, productModel: $productModel, hasReachedMax: $hasReachedMax, isLoading: $isLoading, page: $page, currentPage: $currentPage, amount: $amount, totalPage: $totalPage, totalPrice: $totalPrice, totalCart: $totalCart, size: $size, idSelected: $idSelected, indexStarted: $indexStarted, indexSelected: $indexSelected, isPay: $isPay, failureOption: $failureOption, failureOrSuccess: $failureOrSuccess)';
+    return 'ProductState(cart: $cart, productModel: $productModel, hasReachedMax: $hasReachedMax, isLoading: $isLoading, page: $page, currentPage: $currentPage, amount: $amount, totalPage: $totalPage, totalPrice: $totalPrice, totalCart: $totalCart, size: $size, idSelected: $idSelected, indexStarted: $indexStarted, indexSelected: $indexSelected, nominalPayment: $nominalPayment, paymentReturn: $paymentReturn, isPay: $isPay, failureOption: $failureOption, failureOrSuccess: $failureOrSuccess)';
   }
 
   @override
@@ -1413,6 +1836,10 @@ class _$_ProductState implements _ProductState {
                 other.indexStarted == indexStarted) &&
             (identical(other.indexSelected, indexSelected) ||
                 other.indexSelected == indexSelected) &&
+            (identical(other.nominalPayment, nominalPayment) ||
+                other.nominalPayment == nominalPayment) &&
+            (identical(other.paymentReturn, paymentReturn) ||
+                other.paymentReturn == paymentReturn) &&
             (identical(other.isPay, isPay) || other.isPay == isPay) &&
             (identical(other.failureOption, failureOption) ||
                 other.failureOption == failureOption) &&
@@ -1421,25 +1848,28 @@ class _$_ProductState implements _ProductState {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_cart),
-      const DeepCollectionEquality().hash(_productModel),
-      hasReachedMax,
-      isLoading,
-      page,
-      currentPage,
-      amount,
-      totalPage,
-      totalPrice,
-      totalCart,
-      size,
-      idSelected,
-      indexStarted,
-      indexSelected,
-      isPay,
-      failureOption,
-      failureOrSuccess);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(_cart),
+        const DeepCollectionEquality().hash(_productModel),
+        hasReachedMax,
+        isLoading,
+        page,
+        currentPage,
+        amount,
+        totalPage,
+        totalPrice,
+        totalCart,
+        size,
+        idSelected,
+        indexStarted,
+        indexSelected,
+        nominalPayment,
+        paymentReturn,
+        isPay,
+        failureOption,
+        failureOrSuccess
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -1464,6 +1894,8 @@ abstract class _ProductState implements ProductState {
       required final int idSelected,
       required final int indexStarted,
       required final int indexSelected,
+      required final int nominalPayment,
+      required final int paymentReturn,
       required final bool isPay,
       required final Option<ProductFailure> failureOption,
       required final Option<Either<ProductFailure, Unit>>
@@ -1497,6 +1929,10 @@ abstract class _ProductState implements ProductState {
   int get indexStarted;
   @override
   int get indexSelected;
+  @override
+  int get nominalPayment;
+  @override
+  int get paymentReturn;
   @override
   bool get isPay;
   @override

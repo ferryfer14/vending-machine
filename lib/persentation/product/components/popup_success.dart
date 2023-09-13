@@ -7,7 +7,7 @@ import 'package:timer_count_down/timer_count_down.dart';
 
 import '../../../app_constant.dart';
 import '../../../application/product/product_bloc.dart';
-import '../../core/functions/button_icon_leading.dart';
+import '../../core/components/button_icon_leading.dart';
 import '../../core/functions/currency_format.dart';
 import '../../core/functions/functions.dart';
 import '../../core/utils/border/border_radius.dart';
@@ -24,61 +24,81 @@ class PopupSuccess extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          color: white,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            siboh8,
-            Center(
-                child: Text(
-              AppLocalizations.of(context)!.success_vm,
-              style: ts16Black600,
-              textAlign: TextAlign.center,
-            )),
-            siboh8,
-            Center(
-                child: Text(
-              AppLocalizations.of(context)!.note_success,
-              style: ts14Black500,
-              textAlign: TextAlign.center,
-            )),
-            siboh16,
-            const Center(
-                child: Icon(
-              Icons.check_circle_rounded,
-              color: greenCheckColor,
-              size: 90,
-            )),
-            siboh16,
-            Center(
-                child: Countdown(
-                    seconds: 10,
-                    interval: const Duration(milliseconds: 1000),
-                    build: (BuildContext context, double time) {
-                      return Container(
-                          height: 70,
-                          padding: padall16,
-                          child: ButtonIconLeading(
-                            onTap: () => context.router
-                                .replaceAll([const CaraouselRoute()]),
-                            sibow: sibow16,
-                            widget: const Icon(Icons.home_outlined,
-                                color: primaryColor, size: 16),
-                            title: "Will be close (${time.toInt()}s)",
-                            titleStyle: ts14primary500,
-                            color: white,
-                            border: Border.all(color: primaryColor, width: 1),
-                          ));
-                    },
-                    onFinished: () {
-                      context.router.replaceAll([const CaraouselRoute()]);
-                    })),
-          ],
-        ));
+    return BlocBuilder<ProductBloc, ProductState>(builder: (context, state) {
+      return Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: white,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              siboh8,
+              Center(
+                  child: Text(
+                AppLocalizations.of(context)!.success_vm,
+                style: ts16Black600,
+                textAlign: TextAlign.center,
+              )),
+              siboh8,
+              const Center(
+                  child: Text(
+                "Thank you for the transaction.\nBelow is the amount of your return",
+                style: ts14Black500,
+                textAlign: TextAlign.center,
+              )),
+              Column(
+                children: [
+                  siboh16,
+                  const Text("Payment Return", style: ts14second500),
+                  siboh4,
+                  Center(
+                      child: Container(
+                    padding: padall8,
+                    decoration: BoxDecoration(
+                        color: neutralColor, borderRadius: borderRadius16),
+                    alignment: Alignment.center,
+                    child: Text(
+                      CurrencyFormat.convertToIdr(state.paymentReturn, 0),
+                      style: ts16Prim600,
+                    ),
+                  )),
+                ],
+              ),
+              siboh16,
+              const Center(
+                  child: Icon(
+                Icons.check_circle_rounded,
+                color: greenCheckColor,
+                size: 90,
+              )),
+              siboh16,
+              Center(
+                  child: Countdown(
+                      seconds: 10,
+                      interval: const Duration(milliseconds: 1000),
+                      build: (BuildContext context, double time) {
+                        return Container(
+                            height: 70,
+                            padding: padall16,
+                            child: ButtonIconLeading(
+                              onTap: () => context.router
+                                  .replaceAll([const CaraouselRoute()]),
+                              sibow: sibow16,
+                              widget: const Icon(Icons.home_outlined,
+                                  color: primaryColor, size: 16),
+                              title: "Will be close (${time.toInt()}s)",
+                              titleStyle: ts14primary500,
+                              color: white,
+                              border: Border.all(color: primaryColor, width: 1),
+                            ));
+                      },
+                      onFinished: () {
+                        context.router.replaceAll([const CaraouselRoute()]);
+                      })),
+            ],
+          ));
+    });
   }
 }

@@ -25,6 +25,7 @@ import 'components/button_arrow.dart';
 import 'components/circle_caraousel.dart';
 import 'components/popup_cart.dart';
 import 'components/popup_detail.dart';
+import 'components/popup_payment.dart';
 import 'components/product_card.dart';
 import 'components/title_product.dart';
 
@@ -69,6 +70,68 @@ class _ProductPageState extends State<ProductPage> {
         });
   }
 
+  Future<void> popupPayment(BuildContext parentContext) async {
+    showDialog(
+        barrierDismissible: false,
+        context: parentContext,
+        builder: (BuildContext context) {
+          return MultiBlocProvider(
+              providers: [
+                BlocProvider.value(
+                    value: parentContext.read<ProductBloc>()
+                      ..add(const ProductEvent.submitCart())),
+              ],
+              child: BlocListener<ProductBloc, ProductState>(
+                  listener: (context, state) {
+                    state.failureOption.fold(() => null, (failure) {
+                      failure.whenOrNull(unexpectedError: () {
+                        customSnackBar(
+                            content: const Text('Unexpected error occurred',
+                                style: ts24White400),
+                            context: context,
+                            color: redColor);
+                      }, noConnection: () {
+                        // noConnection(context);
+                      }, appException: (v) {
+                        v.maybeMap(
+                            unauthenticatedException: (_) {
+                              AutoRouter.of(context)
+                                  .replaceAll([CaraouselRoute()]);
+                              customSnackBar(
+                                  context: context,
+                                  content: const Text(
+                                    'Session timeout',
+                                  ),
+                                  color: redColor);
+                            },
+                            unexpectedException: (e) {
+                              customSnackBar(
+                                  context: context,
+                                  content: Text(e.errorMessage!),
+                                  color: redColor);
+                            },
+                            orElse: () => null);
+                      });
+                    });
+                    if (state.isPay) {
+                      Navigator.pop(context);
+                      popupSuccess(parentContext);
+                    }
+                  },
+                  child: Dialog(
+                      backgroundColor: Colors.transparent,
+                      insetPadding: padall12,
+                      child: Wrap(children: [
+                        PopupPayment(
+                          onClose: () {
+                            parentContext.router
+                                .replaceAll([const CaraouselRoute()]);
+                          },
+                        )
+                      ]))));
+        });
+  }
+
   Future<void> popupCart(BuildContext parentContext) async {
     showDialog(
         barrierDismissible: false,
@@ -76,42 +139,8 @@ class _ProductPageState extends State<ProductPage> {
         builder: (BuildContext context) {
           return BlocProvider.value(
               value: parentContext.read<ProductBloc>(),
-              child: BlocConsumer<ProductBloc, ProductState>(
-                  listener: (context, state) {
-                state.failureOption.fold(() => null, (failure) {
-                  failure.whenOrNull(unexpectedError: () {
-                    customSnackBar(
-                        content: const Text('Unexpected error occurred',
-                            style: ts24White400),
-                        context: context,
-                        color: redColor);
-                  }, noConnection: () {
-                    // noConnection(context);
-                  }, appException: (v) {
-                    v.maybeMap(
-                        unauthenticatedException: (_) {
-                          AutoRouter.of(context).replaceAll([CaraouselRoute()]);
-                          customSnackBar(
-                              context: context,
-                              content: const Text(
-                                'Session timeout',
-                              ),
-                              color: redColor);
-                        },
-                        unexpectedException: (e) {
-                          customSnackBar(
-                              context: context,
-                              content: Text(e.errorMessage!),
-                              color: redColor);
-                        },
-                        orElse: () => null);
-                  });
-                });
-                if (state.isPay) {
-                  context.router.pop();
-                  popupSuccess(context);
-                }
-              }, builder: (context, state) {
+              child: BlocBuilder<ProductBloc, ProductState>(
+                  builder: (context, state) {
                 return Dialog(
                     backgroundColor: Colors.transparent,
                     insetPadding: padall12,
@@ -121,9 +150,8 @@ class _ProductPageState extends State<ProductPage> {
                         listProduct: state.cart,
                         totalPrice: state.totalPrice,
                         onPay: () {
-                          context
-                              .read<ProductBloc>()
-                              .add(const ProductEvent.submitCart());
+                          Navigator.pop(context);
+                          popupPayment(parentContext);
                         },
                       )
                     ]));
@@ -227,7 +255,7 @@ class _ProductPageState extends State<ProductPage> {
                                         carouselController: _controller,
                                         options: CarouselOptions(
                                             autoPlay: false,
-                                            aspectRatio: 0.8,
+                                            aspectRatio: 0.83,
                                             initialPage: state.currentPage,
                                             enableInfiniteScroll: false,
                                             viewportFraction: 1,
@@ -331,7 +359,7 @@ class _ProductPageState extends State<ProductPage> {
                                                 sibow8
                                               ]);
                                         }),
-                                    siboh32,
+                                    siboh16,
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,

@@ -7,6 +7,8 @@ abstract class IProductRepository {
   Future<Either<ProductFailure, List<ProductModel>>> load();
   Future<Either<ProductFailure, Unit>> submitCart(
       {required List<ProductModel> productModel,
+      required int nominalPayment,
+      required int paymentReturn,
       required int price,
       required int quantity});
 }

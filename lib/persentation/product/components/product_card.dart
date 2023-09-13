@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:standart_project/domain/product/product_model.dart';
 import 'package:standart_project/persentation/core/functions/currency_format.dart';
 
-import '../../core/functions/button_field.dart';
+import '../../core/components/button_field.dart';
 import '../../core/utils/border/border_radius.dart';
 import '../../core/utils/spacing/padding.dart';
 import '../../core/utils/styles/colors.dart';
