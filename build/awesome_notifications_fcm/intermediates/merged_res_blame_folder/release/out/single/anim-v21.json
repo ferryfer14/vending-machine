@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "me.carda.awesome_notifications_fcm-merged_res-42:/anim-v21/design_bottom_sheet_slide_in.xml",
+        "source": "me.carda.awesome_notifications_fcm-material-1.6.1-15:/anim-v21/design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "me.carda.awesome_notifications_fcm-merged_res-42:/anim-v21/fragment_fast_out_extra_slow_in.xml",
+        "source": "me.carda.awesome_notifications_fcm-fragment-1.3.6-4:/anim-v21/fragment_fast_out_extra_slow_in.xml"
+    },
+    {
+        "merged": "me.carda.awesome_notifications_fcm-merged_res-42:/anim-v21/mtrl_bottom_sheet_slide_in.xml",
+        "source": "me.carda.awesome_notifications_fcm-material-1.6.1-15:/anim-v21/mtrl_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "me.carda.awesome_notifications_fcm-merged_res-42:/anim-v21/mtrl_bottom_sheet_slide_out.xml",
+        "source": "me.carda.awesome_notifications_fcm-material-1.6.1-15:/anim-v21/mtrl_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "me.carda.awesome_notifications_fcm-merged_res-42:/anim-v21/design_bottom_sheet_slide_out.xml",
+        "source": "me.carda.awesome_notifications_fcm-material-1.6.1-15:/anim-v21/design_bottom_sheet_slide_out.xml"
+    }
+]

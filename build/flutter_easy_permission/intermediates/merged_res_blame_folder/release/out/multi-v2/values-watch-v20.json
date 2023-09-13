@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-merged_res-14:/values-watch-v20/values-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/Users/ferry/.gradle/caches/transforms-3/72c4169d30545cea2a946cd967d9d7f4/transformed/appcompat-1.1.0/res/values-watch-v20/values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,214,385",
+                        "endLines": "4,7,10",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "209,380,553"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-mergeReleaseResources-12:/values-watch-v20/values-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/Users/ferry/.gradle/caches/transforms-3/72c4169d30545cea2a946cd967d9d7f4/transformed/appcompat-1.1.0/res/values-watch-v20/values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,214,385",
+                        "endLines": "4,7,10",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "209,380,553"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+xyz.bczl.flutter.easy_permission.flutter_easy_permission-jetified-window-java-1.0.0-beta04-0 /Users/ferry/.gradle/caches/transforms-3/006d93cd422dbc43e89591147c2de572/transformed/jetified-window-java-1.0.0-beta04/res
+xyz.bczl.flutter.easy_permission.flutter_easy_permission-fragment-1.2.5-1 /Users/ferry/.gradle/caches/transforms-3/333b31f1f9e07ebcc305545c09945cb4/transformed/fragment-1.2.5/res
+xyz.bczl.flutter.easy_permission.flutter_easy_permission-core-1.6.0-2 /Users/ferry/.gradle/caches/transforms-3/4ca28c4a71705f8a687c69dda140a277/transformed/core-1.6.0/res
+xyz.bczl.flutter.easy_permission.flutter_easy_permission-jetified-appcompat-resources-1.1.0-3 /Users/ferry/.gradle/caches/transforms-3/5294cefc0598aa675e25aca4bb80a9e2/transformed/jetified-appcompat-resources-1.1.0/res
+xyz.bczl.flutter.easy_permission.flutter_easy_permission-appcompat-1.1.0-4 /Users/ferry/.gradle/caches/transforms-3/72c4169d30545cea2a946cd967d9d7f4/transformed/appcompat-1.1.0/res
+xyz.bczl.flutter.easy_permission.flutter_easy_permission-jetified-annotation-experimental-1.1.0-5 /Users/ferry/.gradle/caches/transforms-3/8965c941cf4bee4d72541b965c7c9d39/transformed/jetified-annotation-experimental-1.1.0/res
+xyz.bczl.flutter.easy_permission.flutter_easy_permission-jetified-easypermissions-3.0.0-6 /Users/ferry/.gradle/caches/transforms-3/a860399123b556220ca73d12f6710269/transformed/jetified-easypermissions-3.0.0/res
+xyz.bczl.flutter.easy_permission.flutter_easy_permission-jetified-window-1.0.0-beta04-7 /Users/ferry/.gradle/caches/transforms-3/dee59bb480020f42d53c2ea15e4501f7/transformed/jetified-window-1.0.0-beta04/res
+xyz.bczl.flutter.easy_permission.flutter_easy_permission-main-8 /Users/ferry/.pub-cache/hosted/pub.dev/flutter_easy_permission-1.1.2/android/src/main/res
+xyz.bczl.flutter.easy_permission.flutter_easy_permission-release-9 /Users/ferry/.pub-cache/hosted/pub.dev/flutter_easy_permission-1.1.2/android/src/release/res
+xyz.bczl.flutter.easy_permission.flutter_easy_permission-pngs-10 /Users/ferry/Documents/monster_project/vending-real/build/flutter_easy_permission/generated/res/pngs/release
+xyz.bczl.flutter.easy_permission.flutter_easy_permission-resValues-11 /Users/ferry/Documents/monster_project/vending-real/build/flutter_easy_permission/generated/res/resValues/release
+xyz.bczl.flutter.easy_permission.flutter_easy_permission-rs-12 /Users/ferry/Documents/monster_project/vending-real/build/flutter_easy_permission/generated/res/rs/release
+xyz.bczl.flutter.easy_permission.flutter_easy_permission-mergeReleaseResources-13 /Users/ferry/Documents/monster_project/vending-real/build/flutter_easy_permission/intermediates/incremental/release/mergeReleaseResources/merged.dir
+xyz.bczl.flutter.easy_permission.flutter_easy_permission-mergeReleaseResources-14 /Users/ferry/Documents/monster_project/vending-real/build/flutter_easy_permission/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+xyz.bczl.flutter.easy_permission.flutter_easy_permission-merged_res-15 /Users/ferry/Documents/monster_project/vending-real/build/flutter_easy_permission/intermediates/merged_res/release

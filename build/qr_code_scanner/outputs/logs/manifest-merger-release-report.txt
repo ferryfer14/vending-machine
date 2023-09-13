@@ -1,0 +1,29 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/ferry/.pub-cache/git/qr_code_scanner-0feca6f15042c279ff575c559a3430df917b623d/android/src/main/AndroidManifest.xml:1:1-4:12
+INJECTED from /Users/ferry/.pub-cache/git/qr_code_scanner-0feca6f15042c279ff575c559a3430df917b623d/android/src/main/AndroidManifest.xml:1:1-4:12
+INJECTED from /Users/ferry/.pub-cache/git/qr_code_scanner-0feca6f15042c279ff575c559a3430df917b623d/android/src/main/AndroidManifest.xml:1:1-4:12
+	package
+		ADDED from /Users/ferry/.pub-cache/git/qr_code_scanner-0feca6f15042c279ff575c559a3430df917b623d/android/src/main/AndroidManifest.xml:1:11-50
+		INJECTED from /Users/ferry/.pub-cache/git/qr_code_scanner-0feca6f15042c279ff575c559a3430df917b623d/android/src/main/AndroidManifest.xml
+		INJECTED from /Users/ferry/.pub-cache/git/qr_code_scanner-0feca6f15042c279ff575c559a3430df917b623d/android/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /Users/ferry/.pub-cache/git/qr_code_scanner-0feca6f15042c279ff575c559a3430df917b623d/android/src/main/AndroidManifest.xml:2:5-51
+	xmlns:android
+		ADDED from /Users/ferry/.pub-cache/git/qr_code_scanner-0feca6f15042c279ff575c559a3430df917b623d/android/src/main/AndroidManifest.xml:1:1-4:12
+uses-sdk
+ADDED from /Users/ferry/.pub-cache/git/qr_code_scanner-0feca6f15042c279ff575c559a3430df917b623d/android/src/main/AndroidManifest.xml:3:3-71
+INJECTED from /Users/ferry/.pub-cache/git/qr_code_scanner-0feca6f15042c279ff575c559a3430df917b623d/android/src/main/AndroidManifest.xml:3:3-71
+INJECTED from /Users/ferry/.pub-cache/git/qr_code_scanner-0feca6f15042c279ff575c559a3430df917b623d/android/src/main/AndroidManifest.xml:3:3-71
+INJECTED from /Users/ferry/.pub-cache/git/qr_code_scanner-0feca6f15042c279ff575c559a3430df917b623d/android/src/main/AndroidManifest.xml:3:3-71
+INJECTED from /Users/ferry/.pub-cache/git/qr_code_scanner-0feca6f15042c279ff575c559a3430df917b623d/android/src/main/AndroidManifest.xml:3:3-71
+	tools:overrideLibrary
+		ADDED from /Users/ferry/.pub-cache/git/qr_code_scanner-0feca6f15042c279ff575c559a3430df917b623d/android/src/main/AndroidManifest.xml:3:13-68
+	android:targetSdkVersion
+		INJECTED from /Users/ferry/.pub-cache/git/qr_code_scanner-0feca6f15042c279ff575c559a3430df917b623d/android/src/main/AndroidManifest.xml
+		ADDED from /Users/ferry/.pub-cache/git/qr_code_scanner-0feca6f15042c279ff575c559a3430df917b623d/android/src/main/AndroidManifest.xml:3:3-71
+		INJECTED from /Users/ferry/.pub-cache/git/qr_code_scanner-0feca6f15042c279ff575c559a3430df917b623d/android/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/ferry/.pub-cache/git/qr_code_scanner-0feca6f15042c279ff575c559a3430df917b623d/android/src/main/AndroidManifest.xml
+		ADDED from /Users/ferry/.pub-cache/git/qr_code_scanner-0feca6f15042c279ff575c559a3430df917b623d/android/src/main/AndroidManifest.xml:3:3-71
+		INJECTED from /Users/ferry/.pub-cache/git/qr_code_scanner-0feca6f15042c279ff575c559a3430df917b623d/android/src/main/AndroidManifest.xml

@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-merged_res-14:/layout-v21/notification_template_custom_big.xml",
+        "source": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-core-1.6.0-2:/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-merged_res-14:/layout-v21/notification_action_tombstone.xml",
+        "source": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-core-1.6.0-2:/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-merged_res-14:/layout-v21/notification_template_icon_group.xml",
+        "source": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-core-1.6.0-2:/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-merged_res-14:/layout-v21/notification_action.xml",
+        "source": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-core-1.6.0-2:/layout-v21/notification_action.xml"
+    }
+]

@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-merged_res-14:/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_1.xml",
+        "source": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-appcompat-1.1.0-4:/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_1.xml"
+    },
+    {
+        "merged": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-merged_res-14:/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml",
+        "source": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-appcompat-1.1.0-4:/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml"
+    },
+    {
+        "merged": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-merged_res-14:/interpolator/btn_radio_to_on_mtrl_animation_interpolator_0.xml",
+        "source": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-appcompat-1.1.0-4:/interpolator/btn_radio_to_on_mtrl_animation_interpolator_0.xml"
+    },
+    {
+        "merged": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-merged_res-14:/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_0.xml",
+        "source": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-appcompat-1.1.0-4:/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_0.xml"
+    },
+    {
+        "merged": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-merged_res-14:/interpolator/btn_radio_to_off_mtrl_animation_interpolator_0.xml",
+        "source": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-appcompat-1.1.0-4:/interpolator/btn_radio_to_off_mtrl_animation_interpolator_0.xml"
+    },
+    {
+        "merged": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-merged_res-14:/interpolator/fast_out_slow_in.xml",
+        "source": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-appcompat-1.1.0-4:/interpolator/fast_out_slow_in.xml"
+    },
+    {
+        "merged": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-merged_res-14:/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_0.xml",
+        "source": "xyz.bczl.flutter.easy_permission.flutter_easy_permission-appcompat-1.1.0-4:/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_0.xml"
+    }
+]

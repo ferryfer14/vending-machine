@@ -1,0 +1,12 @@
+com.hemanthraj.fluttercompass.flutter_compass-jetified-window-java-1.0.0-beta04-0 /Users/ferry/.gradle/caches/transforms-3/006d93cd422dbc43e89591147c2de572/transformed/jetified-window-java-1.0.0-beta04/res
+com.hemanthraj.fluttercompass.flutter_compass-core-1.6.0-1 /Users/ferry/.gradle/caches/transforms-3/4ca28c4a71705f8a687c69dda140a277/transformed/core-1.6.0/res
+com.hemanthraj.fluttercompass.flutter_compass-jetified-annotation-experimental-1.1.0-2 /Users/ferry/.gradle/caches/transforms-3/8965c941cf4bee4d72541b965c7c9d39/transformed/jetified-annotation-experimental-1.1.0/res
+com.hemanthraj.fluttercompass.flutter_compass-jetified-window-1.0.0-beta04-3 /Users/ferry/.gradle/caches/transforms-3/dee59bb480020f42d53c2ea15e4501f7/transformed/jetified-window-1.0.0-beta04/res
+com.hemanthraj.fluttercompass.flutter_compass-main-4 /Users/ferry/.pub-cache/hosted/pub.dev/flutter_compass-0.7.0/android/src/main/res
+com.hemanthraj.fluttercompass.flutter_compass-release-5 /Users/ferry/.pub-cache/hosted/pub.dev/flutter_compass-0.7.0/android/src/release/res
+com.hemanthraj.fluttercompass.flutter_compass-pngs-6 /Users/ferry/Documents/monster_project/vending-real/build/flutter_compass/generated/res/pngs/release
+com.hemanthraj.fluttercompass.flutter_compass-resValues-7 /Users/ferry/Documents/monster_project/vending-real/build/flutter_compass/generated/res/resValues/release
+com.hemanthraj.fluttercompass.flutter_compass-rs-8 /Users/ferry/Documents/monster_project/vending-real/build/flutter_compass/generated/res/rs/release
+com.hemanthraj.fluttercompass.flutter_compass-mergeReleaseResources-9 /Users/ferry/Documents/monster_project/vending-real/build/flutter_compass/intermediates/incremental/release/mergeReleaseResources/merged.dir
+com.hemanthraj.fluttercompass.flutter_compass-mergeReleaseResources-10 /Users/ferry/Documents/monster_project/vending-real/build/flutter_compass/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+com.hemanthraj.fluttercompass.flutter_compass-merged_res-11 /Users/ferry/Documents/monster_project/vending-real/build/flutter_compass/intermediates/merged_res/release

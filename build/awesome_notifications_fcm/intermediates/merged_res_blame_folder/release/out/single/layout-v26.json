@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "me.carda.awesome_notifications_fcm-merged_res-42:/layout-v26/abc_screen_toolbar.xml",
+        "source": "me.carda.awesome_notifications_fcm-appcompat-1.5.1-27:/layout-v26/abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "me.carda.awesome_notifications_fcm-merged_res-42:/layout-v26/mtrl_calendar_month.xml",
+        "source": "me.carda.awesome_notifications_fcm-material-1.6.1-15:/layout-v26/mtrl_calendar_month.xml"
+    }
+]

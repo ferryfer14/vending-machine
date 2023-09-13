@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "me.carda.awesome_notifications_fcm-merged_res-42:/interpolator-v21/mtrl_linear_out_slow_in.xml",
+        "source": "me.carda.awesome_notifications_fcm-material-1.6.1-15:/interpolator-v21/mtrl_linear_out_slow_in.xml"
+    },
+    {
+        "merged": "me.carda.awesome_notifications_fcm-merged_res-42:/interpolator-v21/mtrl_fast_out_linear_in.xml",
+        "source": "me.carda.awesome_notifications_fcm-material-1.6.1-15:/interpolator-v21/mtrl_fast_out_linear_in.xml"
+    },
+    {
+        "merged": "me.carda.awesome_notifications_fcm-merged_res-42:/interpolator-v21/mtrl_fast_out_slow_in.xml",
+        "source": "me.carda.awesome_notifications_fcm-material-1.6.1-15:/interpolator-v21/mtrl_fast_out_slow_in.xml"
+    }
+]

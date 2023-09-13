@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "me.carda.awesome_notifications_fcm-merged_res-42:/xml/standalone_badge_gravity_top_start.xml",
+        "source": "me.carda.awesome_notifications_fcm-material-1.6.1-15:/xml/standalone_badge_gravity_top_start.xml"
+    },
+    {
+        "merged": "me.carda.awesome_notifications_fcm-merged_res-42:/xml/standalone_badge_offset.xml",
+        "source": "me.carda.awesome_notifications_fcm-material-1.6.1-15:/xml/standalone_badge_offset.xml"
+    },
+    {
+        "merged": "me.carda.awesome_notifications_fcm-merged_res-42:/xml/standalone_badge.xml",
+        "source": "me.carda.awesome_notifications_fcm-material-1.6.1-15:/xml/standalone_badge.xml"
+    },
+    {
+        "merged": "me.carda.awesome_notifications_fcm-merged_res-42:/xml/standalone_badge_gravity_bottom_start.xml",
+        "source": "me.carda.awesome_notifications_fcm-material-1.6.1-15:/xml/standalone_badge_gravity_bottom_start.xml"
+    },
+    {
+        "merged": "me.carda.awesome_notifications_fcm-merged_res-42:/xml/standalone_badge_gravity_bottom_end.xml",
+        "source": "me.carda.awesome_notifications_fcm-material-1.6.1-15:/xml/standalone_badge_gravity_bottom_end.xml"
+    }
+]

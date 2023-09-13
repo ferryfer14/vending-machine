@@ -11,6 +11,9 @@ Core Project Multiple Language
 ## Getting Started
 
 Install Platform android 28 in SDK Manager (android studio)
+Install flutter sdk version 3.7.3.
+Jika saat running terjadi error compile sdk/ target sdk.
+silahkan tambahkan ini
 
 android > local.properties
 
@@ -27,9 +30,9 @@ Terminal
     cd android && ./gradlew clean && ./gradlew build
 ```
 
-### Visual Samples For Above Examples
+<!-- ### Visual Samples For Above Examples
 
 Result<br/>
 <img src="https://github.com/ferryfer14/base_project/blob/master/assets/result.gif" width=250><br/>
 
-<img src="https://github.com/ferryfer14/base_project/blob/master/assets/result.png" width=250><br/>
+<img src="https://github.com/ferryfer14/base_project/blob/master/assets/result.png" width=250><br/> -->
