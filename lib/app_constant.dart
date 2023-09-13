@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 const vLimitNormal = 10;
 const vLimit = 9999;
 const vSizeGrid = 12;
-const vGrid = 4;
+const vGrid = 2;
 const vLimitMax = 9999;
 const vLang = 'lang';
 const vIntro = 'intro';

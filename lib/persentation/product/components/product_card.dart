@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:standart_project/domain/product/product_model.dart';
 import 'package:standart_project/persentation/core/functions/currency_format.dart';
-import '../../../domain/product/slot_model.dart';
+
 import '../../core/functions/button_field.dart';
 import '../../core/utils/border/border_radius.dart';
 import '../../core/utils/spacing/padding.dart';
@@ -11,10 +12,10 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class ProductCard extends StatelessWidget {
   const ProductCard(
       {super.key,
-      required this.slotModel,
+      required this.productModel,
       required this.onPopDetail,
       required this.addCart});
-  final SlotModel slotModel;
+  final ProductModel productModel;
   final VoidCallback onPopDetail;
   final VoidCallback addCart;
 
@@ -35,39 +36,39 @@ class ProductCard extends StatelessWidget {
                   Column(
                     children: [
                       Container(
-                          height: 208,
+                          height: 70,
                           decoration: const BoxDecoration(
                             color: white,
                           ),
                           child: Image.network(
-                            '${slotModel.product!.image}',
+                            '${productModel.image}',
                           )),
                       Container(
                           color: white,
                           width: double.infinity,
                           padding: const EdgeInsets.only(
-                              left: 16, right: 16, bottom: 32, top: 16),
-                          child: Text('${slotModel.product!.name}',
+                              left: 4, right: 4, bottom: 8, top: 4),
+                          child: Text('${productModel.name}',
                               overflow: TextOverflow.ellipsis,
                               textAlign: TextAlign.center,
-                              style: ts20Black500)),
+                              style: ts12black500)),
                       Expanded(
-                          child: slotModel.stock! <= 0
+                          child: productModel.stock! <= 0
                               ? PrimaryButton(
                                   onTap: () {},
                                   color: buttonDisable,
                                   title: AppLocalizations.of(context)!
                                       .out_of_stock,
-                                  titleStyle: ts20White500,
+                                  titleStyle: ts12white500,
                                   borderRadius: borderRadius0,
                                 )
-                              : (slotModel.stock == slotModel.amount
+                              : (productModel.stock == productModel.amount
                                   ? PrimaryButton(
                                       onTap: () {},
                                       color: buttonDisable,
                                       title: AppLocalizations.of(context)!
                                           .out_of_stock,
-                                      titleStyle: ts20White500,
+                                      titleStyle: ts12white500,
                                       borderRadius: borderRadius0,
                                     )
                                   : Row(
@@ -80,8 +81,8 @@ class ProductCard extends StatelessWidget {
                                                 alignment: Alignment.center,
                                                 child: Text(
                                                     CurrencyFormat.convertToIdr(
-                                                        slotModel.price, 0),
-                                                    style: ts20Black500))),
+                                                        productModel.price, 0),
+                                                    style: ts12black500))),
                                         Container(
                                             color: primaryColor,
                                             child: IconButton(
@@ -90,7 +91,7 @@ class ProductCard extends StatelessWidget {
                                                 Icons.add_shopping_cart,
                                               ),
                                               color: white,
-                                              iconSize: 30,
+                                              iconSize: 15,
                                             ))
                                       ],
                                     )))
@@ -99,17 +100,17 @@ class ProductCard extends StatelessWidget {
                   Positioned(
                       top: 5,
                       right: 5,
-                      child: slotModel.amount == 0
+                      child: productModel.amount == 0
                           ? const SizedBox()
                           : Container(
-                              width: 40,
-                              height: 40,
+                              width: 15,
+                              height: 15,
                               decoration: const BoxDecoration(
                                   shape: BoxShape.circle, color: primaryColor),
                               child: Center(
                                 child: Text(
-                                  slotModel.amount.toString(),
-                                  style: ts20White500,
+                                  productModel.amount.toString(),
+                                  style: ts12white500,
                                 ),
                               ),
                             ))

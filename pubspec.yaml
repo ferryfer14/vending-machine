@@ -91,19 +91,13 @@ dependencies:
   firebase_core: ^2.4.1
   cloud_firestore: ^4.7.0
   shimmer: ^2.0.0
-  sqflite_common_ffi_web: ^0.3.5+1
+  sqflite: ^2.2.8+4
   loader_overlay: ^2.2.0
   badges: ^3.1.1
   qr_flutter: ^4.0.0
   flutter_animation_progress_bar: ^2.3.1
   timer_count_down: ^2.2.2
   simple_circular_progress_bar: ^1.0.2
-  webviewx_plus: ^0.3.3
-  webview_flutter_web: ^0.2.2+1
-  webview_flutter: ^4.2.2
-  webview_flutter_platform_interface: ^2.4.0
-  flutter_web_frame: ^1.0.0
-  webview_universal: ^0.0.4
 
 dev_dependencies:
   flutter_test:
@@ -140,12 +134,13 @@ flutter:
   # - assets/images/
   #   - images/a_dot_ham.jpeg
   assets:
-    - assets/mydb.db
     - assets/images/svg/
     - assets/images/png/
     - assets/images/jpg/
     - assets/language/
     - assets/json/
+    - assets/sql/
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

@@ -19,9 +19,8 @@ mixin _$ProductEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool isRefresh, bool isLoading) started,
-    required TResult Function(int page, bool isLoad) loadMore,
     required TResult Function(int amount) changeAmount,
-    required TResult Function(SlotModel slotModel, int amount) addAmount,
+    required TResult Function(ProductModel productModel, int amount) addAmount,
     required TResult Function(int index, int page) changeIndexStarted,
     required TResult Function() submitCart,
     required TResult Function() reset,
@@ -30,9 +29,8 @@ mixin _$ProductEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool isRefresh, bool isLoading)? started,
-    TResult? Function(int page, bool isLoad)? loadMore,
     TResult? Function(int amount)? changeAmount,
-    TResult? Function(SlotModel slotModel, int amount)? addAmount,
+    TResult? Function(ProductModel productModel, int amount)? addAmount,
     TResult? Function(int index, int page)? changeIndexStarted,
     TResult? Function()? submitCart,
     TResult? Function()? reset,
@@ -41,9 +39,8 @@ mixin _$ProductEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool isRefresh, bool isLoading)? started,
-    TResult Function(int page, bool isLoad)? loadMore,
     TResult Function(int amount)? changeAmount,
-    TResult Function(SlotModel slotModel, int amount)? addAmount,
+    TResult Function(ProductModel productModel, int amount)? addAmount,
     TResult Function(int index, int page)? changeIndexStarted,
     TResult Function()? submitCart,
     TResult Function()? reset,
@@ -53,7 +50,6 @@ mixin _$ProductEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_AddAmount value) addAmount,
     required TResult Function(_ChangeIndexStarted value) changeIndexStarted,
@@ -64,7 +60,6 @@ mixin _$ProductEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_LoadMore value)? loadMore,
     TResult? Function(_ChangeAmount value)? changeAmount,
     TResult? Function(_AddAmount value)? addAmount,
     TResult? Function(_ChangeIndexStarted value)? changeIndexStarted,
@@ -75,7 +70,6 @@ mixin _$ProductEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_AddAmount value)? addAmount,
     TResult Function(_ChangeIndexStarted value)? changeIndexStarted,
@@ -180,9 +174,8 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool isRefresh, bool isLoading) started,
-    required TResult Function(int page, bool isLoad) loadMore,
     required TResult Function(int amount) changeAmount,
-    required TResult Function(SlotModel slotModel, int amount) addAmount,
+    required TResult Function(ProductModel productModel, int amount) addAmount,
     required TResult Function(int index, int page) changeIndexStarted,
     required TResult Function() submitCart,
     required TResult Function() reset,
@@ -194,9 +187,8 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool isRefresh, bool isLoading)? started,
-    TResult? Function(int page, bool isLoad)? loadMore,
     TResult? Function(int amount)? changeAmount,
-    TResult? Function(SlotModel slotModel, int amount)? addAmount,
+    TResult? Function(ProductModel productModel, int amount)? addAmount,
     TResult? Function(int index, int page)? changeIndexStarted,
     TResult? Function()? submitCart,
     TResult? Function()? reset,
@@ -208,9 +200,8 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool isRefresh, bool isLoading)? started,
-    TResult Function(int page, bool isLoad)? loadMore,
     TResult Function(int amount)? changeAmount,
-    TResult Function(SlotModel slotModel, int amount)? addAmount,
+    TResult Function(ProductModel productModel, int amount)? addAmount,
     TResult Function(int index, int page)? changeIndexStarted,
     TResult Function()? submitCart,
     TResult Function()? reset,
@@ -226,7 +217,6 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_AddAmount value) addAmount,
     required TResult Function(_ChangeIndexStarted value) changeIndexStarted,
@@ -240,7 +230,6 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_LoadMore value)? loadMore,
     TResult? Function(_ChangeAmount value)? changeAmount,
     TResult? Function(_AddAmount value)? addAmount,
     TResult? Function(_ChangeIndexStarted value)? changeIndexStarted,
@@ -254,7 +243,6 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_AddAmount value)? addAmount,
     TResult Function(_ChangeIndexStarted value)? changeIndexStarted,
@@ -277,179 +265,6 @@ abstract class _Started implements ProductEvent {
   bool get isLoading;
   @JsonKey(ignore: true)
   _$$_StartedCopyWith<_$_Started> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_LoadMoreCopyWith<$Res> {
-  factory _$$_LoadMoreCopyWith(
-          _$_LoadMore value, $Res Function(_$_LoadMore) then) =
-      __$$_LoadMoreCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int page, bool isLoad});
-}
-
-/// @nodoc
-class __$$_LoadMoreCopyWithImpl<$Res>
-    extends _$ProductEventCopyWithImpl<$Res, _$_LoadMore>
-    implements _$$_LoadMoreCopyWith<$Res> {
-  __$$_LoadMoreCopyWithImpl(
-      _$_LoadMore _value, $Res Function(_$_LoadMore) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? page = null,
-    Object? isLoad = null,
-  }) {
-    return _then(_$_LoadMore(
-      null == page
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as int,
-      isLoad: null == isLoad
-          ? _value.isLoad
-          : isLoad // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_LoadMore implements _LoadMore {
-  const _$_LoadMore(this.page, {this.isLoad = false});
-
-  @override
-  final int page;
-  @override
-  @JsonKey()
-  final bool isLoad;
-
-  @override
-  String toString() {
-    return 'ProductEvent.loadMore(page: $page, isLoad: $isLoad)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_LoadMore &&
-            (identical(other.page, page) || other.page == page) &&
-            (identical(other.isLoad, isLoad) || other.isLoad == isLoad));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, page, isLoad);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_LoadMoreCopyWith<_$_LoadMore> get copyWith =>
-      __$$_LoadMoreCopyWithImpl<_$_LoadMore>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(bool isRefresh, bool isLoading) started,
-    required TResult Function(int page, bool isLoad) loadMore,
-    required TResult Function(int amount) changeAmount,
-    required TResult Function(SlotModel slotModel, int amount) addAmount,
-    required TResult Function(int index, int page) changeIndexStarted,
-    required TResult Function() submitCart,
-    required TResult Function() reset,
-  }) {
-    return loadMore(page, isLoad);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isRefresh, bool isLoading)? started,
-    TResult? Function(int page, bool isLoad)? loadMore,
-    TResult? Function(int amount)? changeAmount,
-    TResult? Function(SlotModel slotModel, int amount)? addAmount,
-    TResult? Function(int index, int page)? changeIndexStarted,
-    TResult? Function()? submitCart,
-    TResult? Function()? reset,
-  }) {
-    return loadMore?.call(page, isLoad);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isRefresh, bool isLoading)? started,
-    TResult Function(int page, bool isLoad)? loadMore,
-    TResult Function(int amount)? changeAmount,
-    TResult Function(SlotModel slotModel, int amount)? addAmount,
-    TResult Function(int index, int page)? changeIndexStarted,
-    TResult Function()? submitCart,
-    TResult Function()? reset,
-    required TResult orElse(),
-  }) {
-    if (loadMore != null) {
-      return loadMore(page, isLoad);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_LoadMore value) loadMore,
-    required TResult Function(_ChangeAmount value) changeAmount,
-    required TResult Function(_AddAmount value) addAmount,
-    required TResult Function(_ChangeIndexStarted value) changeIndexStarted,
-    required TResult Function(_SubmitCart value) submitCart,
-    required TResult Function(_Reset value) reset,
-  }) {
-    return loadMore(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_LoadMore value)? loadMore,
-    TResult? Function(_ChangeAmount value)? changeAmount,
-    TResult? Function(_AddAmount value)? addAmount,
-    TResult? Function(_ChangeIndexStarted value)? changeIndexStarted,
-    TResult? Function(_SubmitCart value)? submitCart,
-    TResult? Function(_Reset value)? reset,
-  }) {
-    return loadMore?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_LoadMore value)? loadMore,
-    TResult Function(_ChangeAmount value)? changeAmount,
-    TResult Function(_AddAmount value)? addAmount,
-    TResult Function(_ChangeIndexStarted value)? changeIndexStarted,
-    TResult Function(_SubmitCart value)? submitCart,
-    TResult Function(_Reset value)? reset,
-    required TResult orElse(),
-  }) {
-    if (loadMore != null) {
-      return loadMore(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _LoadMore implements ProductEvent {
-  const factory _LoadMore(final int page, {final bool isLoad}) = _$_LoadMore;
-
-  int get page;
-  bool get isLoad;
-  @JsonKey(ignore: true)
-  _$$_LoadMoreCopyWith<_$_LoadMore> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -518,9 +333,8 @@ class _$_ChangeAmount implements _ChangeAmount {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool isRefresh, bool isLoading) started,
-    required TResult Function(int page, bool isLoad) loadMore,
     required TResult Function(int amount) changeAmount,
-    required TResult Function(SlotModel slotModel, int amount) addAmount,
+    required TResult Function(ProductModel productModel, int amount) addAmount,
     required TResult Function(int index, int page) changeIndexStarted,
     required TResult Function() submitCart,
     required TResult Function() reset,
@@ -532,9 +346,8 @@ class _$_ChangeAmount implements _ChangeAmount {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool isRefresh, bool isLoading)? started,
-    TResult? Function(int page, bool isLoad)? loadMore,
     TResult? Function(int amount)? changeAmount,
-    TResult? Function(SlotModel slotModel, int amount)? addAmount,
+    TResult? Function(ProductModel productModel, int amount)? addAmount,
     TResult? Function(int index, int page)? changeIndexStarted,
     TResult? Function()? submitCart,
     TResult? Function()? reset,
@@ -546,9 +359,8 @@ class _$_ChangeAmount implements _ChangeAmount {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool isRefresh, bool isLoading)? started,
-    TResult Function(int page, bool isLoad)? loadMore,
     TResult Function(int amount)? changeAmount,
-    TResult Function(SlotModel slotModel, int amount)? addAmount,
+    TResult Function(ProductModel productModel, int amount)? addAmount,
     TResult Function(int index, int page)? changeIndexStarted,
     TResult Function()? submitCart,
     TResult Function()? reset,
@@ -564,7 +376,6 @@ class _$_ChangeAmount implements _ChangeAmount {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_AddAmount value) addAmount,
     required TResult Function(_ChangeIndexStarted value) changeIndexStarted,
@@ -578,7 +389,6 @@ class _$_ChangeAmount implements _ChangeAmount {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_LoadMore value)? loadMore,
     TResult? Function(_ChangeAmount value)? changeAmount,
     TResult? Function(_AddAmount value)? addAmount,
     TResult? Function(_ChangeIndexStarted value)? changeIndexStarted,
@@ -592,7 +402,6 @@ class _$_ChangeAmount implements _ChangeAmount {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_AddAmount value)? addAmount,
     TResult Function(_ChangeIndexStarted value)? changeIndexStarted,
@@ -622,9 +431,9 @@ abstract class _$$_AddAmountCopyWith<$Res> {
           _$_AddAmount value, $Res Function(_$_AddAmount) then) =
       __$$_AddAmountCopyWithImpl<$Res>;
   @useResult
-  $Res call({SlotModel slotModel, int amount});
+  $Res call({ProductModel productModel, int amount});
 
-  $SlotModelCopyWith<$Res> get slotModel;
+  $ProductModelCopyWith<$Res> get productModel;
 }
 
 /// @nodoc
@@ -638,14 +447,14 @@ class __$$_AddAmountCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? slotModel = null,
+    Object? productModel = null,
     Object? amount = null,
   }) {
     return _then(_$_AddAmount(
-      null == slotModel
-          ? _value.slotModel
-          : slotModel // ignore: cast_nullable_to_non_nullable
-              as SlotModel,
+      null == productModel
+          ? _value.productModel
+          : productModel // ignore: cast_nullable_to_non_nullable
+              as ProductModel,
       null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -655,9 +464,9 @@ class __$$_AddAmountCopyWithImpl<$Res>
 
   @override
   @pragma('vm:prefer-inline')
-  $SlotModelCopyWith<$Res> get slotModel {
-    return $SlotModelCopyWith<$Res>(_value.slotModel, (value) {
-      return _then(_value.copyWith(slotModel: value));
+  $ProductModelCopyWith<$Res> get productModel {
+    return $ProductModelCopyWith<$Res>(_value.productModel, (value) {
+      return _then(_value.copyWith(productModel: value));
     });
   }
 }
@@ -665,16 +474,16 @@ class __$$_AddAmountCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AddAmount implements _AddAmount {
-  const _$_AddAmount(this.slotModel, this.amount);
+  const _$_AddAmount(this.productModel, this.amount);
 
   @override
-  final SlotModel slotModel;
+  final ProductModel productModel;
   @override
   final int amount;
 
   @override
   String toString() {
-    return 'ProductEvent.addAmount(slotModel: $slotModel, amount: $amount)';
+    return 'ProductEvent.addAmount(productModel: $productModel, amount: $amount)';
   }
 
   @override
@@ -682,13 +491,13 @@ class _$_AddAmount implements _AddAmount {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AddAmount &&
-            (identical(other.slotModel, slotModel) ||
-                other.slotModel == slotModel) &&
+            (identical(other.productModel, productModel) ||
+                other.productModel == productModel) &&
             (identical(other.amount, amount) || other.amount == amount));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, slotModel, amount);
+  int get hashCode => Object.hash(runtimeType, productModel, amount);
 
   @JsonKey(ignore: true)
   @override
@@ -700,44 +509,41 @@ class _$_AddAmount implements _AddAmount {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool isRefresh, bool isLoading) started,
-    required TResult Function(int page, bool isLoad) loadMore,
     required TResult Function(int amount) changeAmount,
-    required TResult Function(SlotModel slotModel, int amount) addAmount,
+    required TResult Function(ProductModel productModel, int amount) addAmount,
     required TResult Function(int index, int page) changeIndexStarted,
     required TResult Function() submitCart,
     required TResult Function() reset,
   }) {
-    return addAmount(slotModel, amount);
+    return addAmount(productModel, amount);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool isRefresh, bool isLoading)? started,
-    TResult? Function(int page, bool isLoad)? loadMore,
     TResult? Function(int amount)? changeAmount,
-    TResult? Function(SlotModel slotModel, int amount)? addAmount,
+    TResult? Function(ProductModel productModel, int amount)? addAmount,
     TResult? Function(int index, int page)? changeIndexStarted,
     TResult? Function()? submitCart,
     TResult? Function()? reset,
   }) {
-    return addAmount?.call(slotModel, amount);
+    return addAmount?.call(productModel, amount);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool isRefresh, bool isLoading)? started,
-    TResult Function(int page, bool isLoad)? loadMore,
     TResult Function(int amount)? changeAmount,
-    TResult Function(SlotModel slotModel, int amount)? addAmount,
+    TResult Function(ProductModel productModel, int amount)? addAmount,
     TResult Function(int index, int page)? changeIndexStarted,
     TResult Function()? submitCart,
     TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (addAmount != null) {
-      return addAmount(slotModel, amount);
+      return addAmount(productModel, amount);
     }
     return orElse();
   }
@@ -746,7 +552,6 @@ class _$_AddAmount implements _AddAmount {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_AddAmount value) addAmount,
     required TResult Function(_ChangeIndexStarted value) changeIndexStarted,
@@ -760,7 +565,6 @@ class _$_AddAmount implements _AddAmount {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_LoadMore value)? loadMore,
     TResult? Function(_ChangeAmount value)? changeAmount,
     TResult? Function(_AddAmount value)? addAmount,
     TResult? Function(_ChangeIndexStarted value)? changeIndexStarted,
@@ -774,7 +578,6 @@ class _$_AddAmount implements _AddAmount {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_AddAmount value)? addAmount,
     TResult Function(_ChangeIndexStarted value)? changeIndexStarted,
@@ -790,10 +593,10 @@ class _$_AddAmount implements _AddAmount {
 }
 
 abstract class _AddAmount implements ProductEvent {
-  const factory _AddAmount(final SlotModel slotModel, final int amount) =
+  const factory _AddAmount(final ProductModel productModel, final int amount) =
       _$_AddAmount;
 
-  SlotModel get slotModel;
+  ProductModel get productModel;
   int get amount;
   @JsonKey(ignore: true)
   _$$_AddAmountCopyWith<_$_AddAmount> get copyWith =>
@@ -874,9 +677,8 @@ class _$_ChangeIndexStarted implements _ChangeIndexStarted {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool isRefresh, bool isLoading) started,
-    required TResult Function(int page, bool isLoad) loadMore,
     required TResult Function(int amount) changeAmount,
-    required TResult Function(SlotModel slotModel, int amount) addAmount,
+    required TResult Function(ProductModel productModel, int amount) addAmount,
     required TResult Function(int index, int page) changeIndexStarted,
     required TResult Function() submitCart,
     required TResult Function() reset,
@@ -888,9 +690,8 @@ class _$_ChangeIndexStarted implements _ChangeIndexStarted {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool isRefresh, bool isLoading)? started,
-    TResult? Function(int page, bool isLoad)? loadMore,
     TResult? Function(int amount)? changeAmount,
-    TResult? Function(SlotModel slotModel, int amount)? addAmount,
+    TResult? Function(ProductModel productModel, int amount)? addAmount,
     TResult? Function(int index, int page)? changeIndexStarted,
     TResult? Function()? submitCart,
     TResult? Function()? reset,
@@ -902,9 +703,8 @@ class _$_ChangeIndexStarted implements _ChangeIndexStarted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool isRefresh, bool isLoading)? started,
-    TResult Function(int page, bool isLoad)? loadMore,
     TResult Function(int amount)? changeAmount,
-    TResult Function(SlotModel slotModel, int amount)? addAmount,
+    TResult Function(ProductModel productModel, int amount)? addAmount,
     TResult Function(int index, int page)? changeIndexStarted,
     TResult Function()? submitCart,
     TResult Function()? reset,
@@ -920,7 +720,6 @@ class _$_ChangeIndexStarted implements _ChangeIndexStarted {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_AddAmount value) addAmount,
     required TResult Function(_ChangeIndexStarted value) changeIndexStarted,
@@ -934,7 +733,6 @@ class _$_ChangeIndexStarted implements _ChangeIndexStarted {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_LoadMore value)? loadMore,
     TResult? Function(_ChangeAmount value)? changeAmount,
     TResult? Function(_AddAmount value)? addAmount,
     TResult? Function(_ChangeIndexStarted value)? changeIndexStarted,
@@ -948,7 +746,6 @@ class _$_ChangeIndexStarted implements _ChangeIndexStarted {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_AddAmount value)? addAmount,
     TResult Function(_ChangeIndexStarted value)? changeIndexStarted,
@@ -1013,9 +810,8 @@ class _$_SubmitCart implements _SubmitCart {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool isRefresh, bool isLoading) started,
-    required TResult Function(int page, bool isLoad) loadMore,
     required TResult Function(int amount) changeAmount,
-    required TResult Function(SlotModel slotModel, int amount) addAmount,
+    required TResult Function(ProductModel productModel, int amount) addAmount,
     required TResult Function(int index, int page) changeIndexStarted,
     required TResult Function() submitCart,
     required TResult Function() reset,
@@ -1027,9 +823,8 @@ class _$_SubmitCart implements _SubmitCart {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool isRefresh, bool isLoading)? started,
-    TResult? Function(int page, bool isLoad)? loadMore,
     TResult? Function(int amount)? changeAmount,
-    TResult? Function(SlotModel slotModel, int amount)? addAmount,
+    TResult? Function(ProductModel productModel, int amount)? addAmount,
     TResult? Function(int index, int page)? changeIndexStarted,
     TResult? Function()? submitCart,
     TResult? Function()? reset,
@@ -1041,9 +836,8 @@ class _$_SubmitCart implements _SubmitCart {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool isRefresh, bool isLoading)? started,
-    TResult Function(int page, bool isLoad)? loadMore,
     TResult Function(int amount)? changeAmount,
-    TResult Function(SlotModel slotModel, int amount)? addAmount,
+    TResult Function(ProductModel productModel, int amount)? addAmount,
     TResult Function(int index, int page)? changeIndexStarted,
     TResult Function()? submitCart,
     TResult Function()? reset,
@@ -1059,7 +853,6 @@ class _$_SubmitCart implements _SubmitCart {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_AddAmount value) addAmount,
     required TResult Function(_ChangeIndexStarted value) changeIndexStarted,
@@ -1073,7 +866,6 @@ class _$_SubmitCart implements _SubmitCart {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_LoadMore value)? loadMore,
     TResult? Function(_ChangeAmount value)? changeAmount,
     TResult? Function(_AddAmount value)? addAmount,
     TResult? Function(_ChangeIndexStarted value)? changeIndexStarted,
@@ -1087,7 +879,6 @@ class _$_SubmitCart implements _SubmitCart {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_AddAmount value)? addAmount,
     TResult Function(_ChangeIndexStarted value)? changeIndexStarted,
@@ -1143,9 +934,8 @@ class _$_Reset implements _Reset {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool isRefresh, bool isLoading) started,
-    required TResult Function(int page, bool isLoad) loadMore,
     required TResult Function(int amount) changeAmount,
-    required TResult Function(SlotModel slotModel, int amount) addAmount,
+    required TResult Function(ProductModel productModel, int amount) addAmount,
     required TResult Function(int index, int page) changeIndexStarted,
     required TResult Function() submitCart,
     required TResult Function() reset,
@@ -1157,9 +947,8 @@ class _$_Reset implements _Reset {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool isRefresh, bool isLoading)? started,
-    TResult? Function(int page, bool isLoad)? loadMore,
     TResult? Function(int amount)? changeAmount,
-    TResult? Function(SlotModel slotModel, int amount)? addAmount,
+    TResult? Function(ProductModel productModel, int amount)? addAmount,
     TResult? Function(int index, int page)? changeIndexStarted,
     TResult? Function()? submitCart,
     TResult? Function()? reset,
@@ -1171,9 +960,8 @@ class _$_Reset implements _Reset {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool isRefresh, bool isLoading)? started,
-    TResult Function(int page, bool isLoad)? loadMore,
     TResult Function(int amount)? changeAmount,
-    TResult Function(SlotModel slotModel, int amount)? addAmount,
+    TResult Function(ProductModel productModel, int amount)? addAmount,
     TResult Function(int index, int page)? changeIndexStarted,
     TResult Function()? submitCart,
     TResult Function()? reset,
@@ -1189,7 +977,6 @@ class _$_Reset implements _Reset {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_ChangeAmount value) changeAmount,
     required TResult Function(_AddAmount value) addAmount,
     required TResult Function(_ChangeIndexStarted value) changeIndexStarted,
@@ -1203,7 +990,6 @@ class _$_Reset implements _Reset {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_LoadMore value)? loadMore,
     TResult? Function(_ChangeAmount value)? changeAmount,
     TResult? Function(_AddAmount value)? addAmount,
     TResult? Function(_ChangeIndexStarted value)? changeIndexStarted,
@@ -1217,7 +1003,6 @@ class _$_Reset implements _Reset {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_ChangeAmount value)? changeAmount,
     TResult Function(_AddAmount value)? addAmount,
     TResult Function(_ChangeIndexStarted value)? changeIndexStarted,
@@ -1238,9 +1023,8 @@ abstract class _Reset implements ProductEvent {
 
 /// @nodoc
 mixin _$ProductState {
-  PageModel get items => throw _privateConstructorUsedError;
-  TransactionModel get transaction => throw _privateConstructorUsedError;
-  List<SlotModel> get cart => throw _privateConstructorUsedError;
+  List<ProductModel> get cart => throw _privateConstructorUsedError;
+  List<ProductModel> get productModel => throw _privateConstructorUsedError;
   bool get hasReachedMax => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
@@ -1271,9 +1055,8 @@ abstract class $ProductStateCopyWith<$Res> {
       _$ProductStateCopyWithImpl<$Res, ProductState>;
   @useResult
   $Res call(
-      {PageModel items,
-      TransactionModel transaction,
-      List<SlotModel> cart,
+      {List<ProductModel> cart,
+      List<ProductModel> productModel,
       bool hasReachedMax,
       bool isLoading,
       int page,
@@ -1289,9 +1072,6 @@ abstract class $ProductStateCopyWith<$Res> {
       bool isPay,
       Option<ProductFailure> failureOption,
       Option<Either<ProductFailure, Unit>> failureOrSuccess});
-
-  $PageModelCopyWith<$Res> get items;
-  $TransactionModelCopyWith<$Res> get transaction;
 }
 
 /// @nodoc
@@ -1307,9 +1087,8 @@ class _$ProductStateCopyWithImpl<$Res, $Val extends ProductState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? items = null,
-    Object? transaction = null,
     Object? cart = null,
+    Object? productModel = null,
     Object? hasReachedMax = null,
     Object? isLoading = null,
     Object? page = null,
@@ -1327,18 +1106,14 @@ class _$ProductStateCopyWithImpl<$Res, $Val extends ProductState>
     Object? failureOrSuccess = null,
   }) {
     return _then(_value.copyWith(
-      items: null == items
-          ? _value.items
-          : items // ignore: cast_nullable_to_non_nullable
-              as PageModel,
-      transaction: null == transaction
-          ? _value.transaction
-          : transaction // ignore: cast_nullable_to_non_nullable
-              as TransactionModel,
       cart: null == cart
           ? _value.cart
           : cart // ignore: cast_nullable_to_non_nullable
-              as List<SlotModel>,
+              as List<ProductModel>,
+      productModel: null == productModel
+          ? _value.productModel
+          : productModel // ignore: cast_nullable_to_non_nullable
+              as List<ProductModel>,
       hasReachedMax: null == hasReachedMax
           ? _value.hasReachedMax
           : hasReachedMax // ignore: cast_nullable_to_non_nullable
@@ -1401,22 +1176,6 @@ class _$ProductStateCopyWithImpl<$Res, $Val extends ProductState>
               as Option<Either<ProductFailure, Unit>>,
     ) as $Val);
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PageModelCopyWith<$Res> get items {
-    return $PageModelCopyWith<$Res>(_value.items, (value) {
-      return _then(_value.copyWith(items: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $TransactionModelCopyWith<$Res> get transaction {
-    return $TransactionModelCopyWith<$Res>(_value.transaction, (value) {
-      return _then(_value.copyWith(transaction: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -1428,9 +1187,8 @@ abstract class _$$_ProductStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {PageModel items,
-      TransactionModel transaction,
-      List<SlotModel> cart,
+      {List<ProductModel> cart,
+      List<ProductModel> productModel,
       bool hasReachedMax,
       bool isLoading,
       int page,
@@ -1446,11 +1204,6 @@ abstract class _$$_ProductStateCopyWith<$Res>
       bool isPay,
       Option<ProductFailure> failureOption,
       Option<Either<ProductFailure, Unit>> failureOrSuccess});
-
-  @override
-  $PageModelCopyWith<$Res> get items;
-  @override
-  $TransactionModelCopyWith<$Res> get transaction;
 }
 
 /// @nodoc
@@ -1464,9 +1217,8 @@ class __$$_ProductStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? items = null,
-    Object? transaction = null,
     Object? cart = null,
+    Object? productModel = null,
     Object? hasReachedMax = null,
     Object? isLoading = null,
     Object? page = null,
@@ -1484,18 +1236,14 @@ class __$$_ProductStateCopyWithImpl<$Res>
     Object? failureOrSuccess = null,
   }) {
     return _then(_$_ProductState(
-      items: null == items
-          ? _value.items
-          : items // ignore: cast_nullable_to_non_nullable
-              as PageModel,
-      transaction: null == transaction
-          ? _value.transaction
-          : transaction // ignore: cast_nullable_to_non_nullable
-              as TransactionModel,
       cart: null == cart
           ? _value._cart
           : cart // ignore: cast_nullable_to_non_nullable
-              as List<SlotModel>,
+              as List<ProductModel>,
+      productModel: null == productModel
+          ? _value._productModel
+          : productModel // ignore: cast_nullable_to_non_nullable
+              as List<ProductModel>,
       hasReachedMax: null == hasReachedMax
           ? _value.hasReachedMax
           : hasReachedMax // ignore: cast_nullable_to_non_nullable
@@ -1564,9 +1312,8 @@ class __$$_ProductStateCopyWithImpl<$Res>
 
 class _$_ProductState implements _ProductState {
   const _$_ProductState(
-      {required this.items,
-      required this.transaction,
-      required final List<SlotModel> cart,
+      {required final List<ProductModel> cart,
+      required final List<ProductModel> productModel,
       required this.hasReachedMax,
       required this.isLoading,
       required this.page,
@@ -1582,18 +1329,23 @@ class _$_ProductState implements _ProductState {
       required this.isPay,
       required this.failureOption,
       required this.failureOrSuccess})
-      : _cart = cart;
+      : _cart = cart,
+        _productModel = productModel;
 
+  final List<ProductModel> _cart;
   @override
-  final PageModel items;
-  @override
-  final TransactionModel transaction;
-  final List<SlotModel> _cart;
-  @override
-  List<SlotModel> get cart {
+  List<ProductModel> get cart {
     if (_cart is EqualUnmodifiableListView) return _cart;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_cart);
+  }
+
+  final List<ProductModel> _productModel;
+  @override
+  List<ProductModel> get productModel {
+    if (_productModel is EqualUnmodifiableListView) return _productModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_productModel);
   }
 
   @override
@@ -1629,7 +1381,7 @@ class _$_ProductState implements _ProductState {
 
   @override
   String toString() {
-    return 'ProductState(items: $items, transaction: $transaction, cart: $cart, hasReachedMax: $hasReachedMax, isLoading: $isLoading, page: $page, currentPage: $currentPage, amount: $amount, totalPage: $totalPage, totalPrice: $totalPrice, totalCart: $totalCart, size: $size, idSelected: $idSelected, indexStarted: $indexStarted, indexSelected: $indexSelected, isPay: $isPay, failureOption: $failureOption, failureOrSuccess: $failureOrSuccess)';
+    return 'ProductState(cart: $cart, productModel: $productModel, hasReachedMax: $hasReachedMax, isLoading: $isLoading, page: $page, currentPage: $currentPage, amount: $amount, totalPage: $totalPage, totalPrice: $totalPrice, totalCart: $totalCart, size: $size, idSelected: $idSelected, indexStarted: $indexStarted, indexSelected: $indexSelected, isPay: $isPay, failureOption: $failureOption, failureOrSuccess: $failureOrSuccess)';
   }
 
   @override
@@ -1637,10 +1389,9 @@ class _$_ProductState implements _ProductState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ProductState &&
-            (identical(other.items, items) || other.items == items) &&
-            (identical(other.transaction, transaction) ||
-                other.transaction == transaction) &&
             const DeepCollectionEquality().equals(other._cart, _cart) &&
+            const DeepCollectionEquality()
+                .equals(other._productModel, _productModel) &&
             (identical(other.hasReachedMax, hasReachedMax) ||
                 other.hasReachedMax == hasReachedMax) &&
             (identical(other.isLoading, isLoading) ||
@@ -1672,9 +1423,8 @@ class _$_ProductState implements _ProductState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      items,
-      transaction,
       const DeepCollectionEquality().hash(_cart),
+      const DeepCollectionEquality().hash(_productModel),
       hasReachedMax,
       isLoading,
       page,
@@ -1700,9 +1450,8 @@ class _$_ProductState implements _ProductState {
 
 abstract class _ProductState implements ProductState {
   const factory _ProductState(
-      {required final PageModel items,
-      required final TransactionModel transaction,
-      required final List<SlotModel> cart,
+      {required final List<ProductModel> cart,
+      required final List<ProductModel> productModel,
       required final bool hasReachedMax,
       required final bool isLoading,
       required final int page,
@@ -1721,11 +1470,9 @@ abstract class _ProductState implements ProductState {
           failureOrSuccess}) = _$_ProductState;
 
   @override
-  PageModel get items;
+  List<ProductModel> get cart;
   @override
-  TransactionModel get transaction;
-  @override
-  List<SlotModel> get cart;
+  List<ProductModel> get productModel;
   @override
   bool get hasReachedMax;
   @override

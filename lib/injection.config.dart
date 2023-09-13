@@ -12,34 +12,28 @@ import 'package:injectable/injectable.dart' as _i2;
 import 'package:new_version/new_version.dart' as _i10;
 import 'package:shared_preferences/shared_preferences.dart' as _i11;
 
-import 'application/auth/auth_bloc.dart' as _i23;
-import 'application/auth/sign_in/sign_in_bloc.dart' as _i21;
+import 'application/auth/auth_bloc.dart' as _i21;
+import 'application/auth/sign_in/sign_in_bloc.dart' as _i20;
 import 'application/caraousel/caraousel_bloc.dart' as _i15;
 import 'application/localization/localization_loader_bloc.dart' as _i18;
-import 'application/product/product_bloc.dart' as _i28;
-import 'application/profile/profile_bloc.dart' as _i20;
-import 'application/transaction/transaction_bloc.dart' as _i29;
+import 'application/product/product_bloc.dart' as _i24;
 import 'application/version/version_bloc.dart' as _i12;
 import 'common/api/api_client.dart' as _i13;
-import 'common/di/connectivity_di.dart' as _i30;
-import 'common/di/dio_di.dart' as _i31;
-import 'common/di/new_version_di.dart' as _i32;
-import 'common/di/shared_preferences_di.dart' as _i33;
+import 'common/di/connectivity_di.dart' as _i25;
+import 'common/di/dio_di.dart' as _i26;
+import 'common/di/new_version_di.dart' as _i27;
+import 'common/di/shared_preferences_di.dart' as _i28;
 import 'common/network/network_client.dart' as _i9;
 import 'domain/auth/i_auth_repository.dart' as _i16;
 import 'domain/caraousel/i_caraousel_repository.dart' as _i7;
-import 'domain/product/i_product_repository.dart' as _i24;
-import 'domain/transaction/i_transaction_repository.dart' as _i26;
+import 'domain/product/i_product_repository.dart' as _i22;
 import 'env.dart' as _i6;
 import 'infrastructure/auth/auth_repository.dart' as _i17;
 import 'infrastructure/auth/data_sources/remote_data_provider.dart' as _i14;
 import 'infrastructure/caraousel/caraousel_repository.dart' as _i8;
 import 'infrastructure/caraousel/data_sources/local_data_provider.dart' as _i3;
 import 'infrastructure/product/data_sources/remote_data_provider.dart' as _i19;
-import 'infrastructure/product/product_repository.dart' as _i25;
-import 'infrastructure/transaction/data_sources/remote_data_provider.dart'
-    as _i22;
-import 'infrastructure/transaction/transaction_repository.dart' as _i27;
+import 'infrastructure/product/product_repository.dart' as _i23;
 
 const String _dev = 'dev';
 const String _prod = 'prod';
@@ -108,32 +102,20 @@ Future<_i1.GetIt> $initGetIt(
             get<_i11.SharedPreferences>(),
             get<_i6.Env>(),
           ));
-  gh.factory<_i20.ProfileBloc>(
-      () => _i20.ProfileBloc(get<_i16.IAuthRepository>()));
-  gh.factory<_i21.SignInBloc>(
-      () => _i21.SignInBloc(get<_i16.IAuthRepository>()));
-  gh.factory<_i22.TransactionRemoteDataProvider>(
-      () => _i22.TransactionRemoteDataProvider(
-            get<_i13.ApiClient>(),
-            get<_i11.SharedPreferences>(),
-            get<_i6.Env>(),
-          ));
-  gh.factory<_i23.AuthBloc>(() => _i23.AuthBloc(get<_i16.IAuthRepository>()));
-  gh.factory<_i24.IProductRepository>(
-      () => _i25.ProductRepository(get<_i19.ProductRemoteDataProvider>()));
-  gh.factory<_i26.ITransactionRepository>(() =>
-      _i27.TransactionRepository(get<_i22.TransactionRemoteDataProvider>()));
-  gh.factory<_i28.ProductBloc>(
-      () => _i28.ProductBloc(get<_i24.IProductRepository>()));
-  gh.factory<_i29.TransactionBloc>(
-      () => _i29.TransactionBloc(get<_i26.ITransactionRepository>()));
+  gh.factory<_i20.SignInBloc>(
+      () => _i20.SignInBloc(get<_i16.IAuthRepository>()));
+  gh.factory<_i21.AuthBloc>(() => _i21.AuthBloc(get<_i16.IAuthRepository>()));
+  gh.factory<_i22.IProductRepository>(
+      () => _i23.ProductRepository(get<_i19.ProductRemoteDataProvider>()));
+  gh.factory<_i24.ProductBloc>(
+      () => _i24.ProductBloc(get<_i22.IProductRepository>()));
   return get;
 }
 
-class _$ConnectivityDi extends _i30.ConnectivityDi {}
+class _$ConnectivityDi extends _i25.ConnectivityDi {}
 
-class _$DioDi extends _i31.DioDi {}
+class _$DioDi extends _i26.DioDi {}
 
-class _$NewVersionDi extends _i32.NewVersionDi {}
+class _$NewVersionDi extends _i27.NewVersionDi {}
 
-class _$SharedPreferencesDi extends _i33.SharedPreferencesDi {}
+class _$SharedPreferencesDi extends _i28.SharedPreferencesDi {}

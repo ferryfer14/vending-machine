@@ -3,9 +3,8 @@ part of 'product_bloc.dart';
 @freezed
 class ProductState with _$ProductState {
   const factory ProductState({
-    required PageModel items,
-    required TransactionModel transaction,
-    required List<SlotModel> cart,
+    required List<ProductModel> cart,
+    required List<ProductModel> productModel,
     required bool hasReachedMax,
     required bool isLoading,
     required int page,
@@ -24,9 +23,8 @@ class ProductState with _$ProductState {
   }) = _ProductState;
 
   factory ProductState.initial() => ProductState(
-      items: PageModel.empty(),
-      transaction: TransactionModel.empty(),
       cart: List.empty(),
+      productModel: List.empty(),
       failureOption: none(),
       isLoading: false,
       hasReachedMax: false,
@@ -38,8 +36,8 @@ class ProductState with _$ProductState {
       totalPrice: 0,
       size: vLimit,
       indexStarted: 0,
-      indexSelected:0,
+      indexSelected: 0,
       idSelected: 0,
-      isPay : false,
+      isPay: false,
       failureOrSuccess: none());
 }

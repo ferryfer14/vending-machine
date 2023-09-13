@@ -1,14 +1,14 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:standart_project/app_constant.dart';
-import 'package:standart_project/domain/product/slot_model.dart';
-import 'package:standart_project/infrastructure/product/slot_dtos.dart';
+
+import 'package:standart_project/infrastructure/product/product_dtos.dart';
 
 import '../../common/exceptions/exceptions.dart';
 import '../../domain/product/i_product_repository.dart';
-import '../../domain/product/page_model.dart';
+
 import '../../domain/product/product_failure.dart';
-import '../../domain/transaction/transaction_model.dart';
+import '../../domain/product/product_model.dart';
 import 'data_sources/remote_data_provider.dart';
 
 @Injectable(as: IProductRepository)
@@ -16,19 +16,18 @@ class ProductRepository implements IProductRepository {
   final ProductRemoteDataProvider productRemoteDataProvider;
 
   ProductRepository(this.productRemoteDataProvider);
+
   @override
-  @override
-  Future<Either<ProductFailure, PageModel>> load(
-      {int page = 0, int size = vLimit}) async {
+  Future<Either<ProductFailure, List<ProductModel>>> load() async {
     try {
-      final response =
-          await productRemoteDataProvider.load(page: page, size: size);
+      final response = await productRemoteDataProvider.load();
 
       return response.fold((l) => left(l), (items) {
-        if (items.slotDto!.isEmpty) {
+        final listData = items.map((e) => e.toDomain()).toList();
+        if (listData.isEmpty) {
           return left(const ProductFailure.emptyList());
         }
-        return right(items.toDomain());
+        return right(listData);
       });
     } catch (e) {
       return left(const ProductFailure.notFound());
@@ -36,16 +35,16 @@ class ProductRepository implements IProductRepository {
   }
 
   @override
-  Future<Either<ProductFailure, TransactionModel>> submitCart(
-      {required List<SlotModel> slotModel}) async {
+  Future<Either<ProductFailure, Unit>> submitCart(
+      {required List<ProductModel> productModel}) async {
     try {
-      final slotModelDto =
-          slotModel.map((e) => SlotModelDto.fromDomain(e)).toList();
+      final productModelDto =
+          productModel.map((e) => ProductModelDto.fromDomain(e)).toList();
       final response = await productRemoteDataProvider.submitCart(
-          slotModelDto: slotModelDto);
+          productModelDto: productModelDto);
 
       return response.fold((l) => left(l), (items) {
-        return right(items.toDomain());
+        return right(items);
       });
     } on AppException catch (e) {
       return left(ProductFailure.appException(e));

@@ -24,12 +24,14 @@ mixin _$ProductModelDto {
   int? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'name')
   String? get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'sku')
-  String? get sku => throw _privateConstructorUsedError;
+  @JsonKey(name: 'price')
+  int? get price => throw _privateConstructorUsedError;
   @JsonKey(name: 'description')
   String? get description => throw _privateConstructorUsedError;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image_url')
   String? get image => throw _privateConstructorUsedError;
+  @JsonKey(name: 'stock')
+  int? get stock => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,9 +48,10 @@ abstract class $ProductModelDtoCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'id') int? id,
       @JsonKey(name: 'name') String? name,
-      @JsonKey(name: 'sku') String? sku,
+      @JsonKey(name: 'price') int? price,
       @JsonKey(name: 'description') String? description,
-      @JsonKey(name: 'image') String? image});
+      @JsonKey(name: 'image_url') String? image,
+      @JsonKey(name: 'stock') int? stock});
 }
 
 /// @nodoc
@@ -66,9 +69,10 @@ class _$ProductModelDtoCopyWithImpl<$Res, $Val extends ProductModelDto>
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
-    Object? sku = freezed,
+    Object? price = freezed,
     Object? description = freezed,
     Object? image = freezed,
+    Object? stock = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -79,10 +83,10 @@ class _$ProductModelDtoCopyWithImpl<$Res, $Val extends ProductModelDto>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      sku: freezed == sku
-          ? _value.sku
-          : sku // ignore: cast_nullable_to_non_nullable
-              as String?,
+      price: freezed == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as int?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -91,6 +95,10 @@ class _$ProductModelDtoCopyWithImpl<$Res, $Val extends ProductModelDto>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
+      stock: freezed == stock
+          ? _value.stock
+          : stock // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -106,9 +114,10 @@ abstract class _$$_ProductModelDtoCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'id') int? id,
       @JsonKey(name: 'name') String? name,
-      @JsonKey(name: 'sku') String? sku,
+      @JsonKey(name: 'price') int? price,
       @JsonKey(name: 'description') String? description,
-      @JsonKey(name: 'image') String? image});
+      @JsonKey(name: 'image_url') String? image,
+      @JsonKey(name: 'stock') int? stock});
 }
 
 /// @nodoc
@@ -124,9 +133,10 @@ class __$$_ProductModelDtoCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
-    Object? sku = freezed,
+    Object? price = freezed,
     Object? description = freezed,
     Object? image = freezed,
+    Object? stock = freezed,
   }) {
     return _then(_$_ProductModelDto(
       id: freezed == id
@@ -137,10 +147,10 @@ class __$$_ProductModelDtoCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      sku: freezed == sku
-          ? _value.sku
-          : sku // ignore: cast_nullable_to_non_nullable
-              as String?,
+      price: freezed == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as int?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -149,6 +159,10 @@ class __$$_ProductModelDtoCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
+      stock: freezed == stock
+          ? _value.stock
+          : stock // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -159,9 +173,10 @@ class _$_ProductModelDto extends _ProductModelDto {
   const _$_ProductModelDto(
       {@JsonKey(name: 'id') this.id,
       @JsonKey(name: 'name') this.name,
-      @JsonKey(name: 'sku') this.sku,
+      @JsonKey(name: 'price') this.price,
       @JsonKey(name: 'description') this.description,
-      @JsonKey(name: 'image') this.image})
+      @JsonKey(name: 'image_url') this.image,
+      @JsonKey(name: 'stock') this.stock})
       : super._();
 
   factory _$_ProductModelDto.fromJson(Map<String, dynamic> json) =>
@@ -174,18 +189,21 @@ class _$_ProductModelDto extends _ProductModelDto {
   @JsonKey(name: 'name')
   final String? name;
   @override
-  @JsonKey(name: 'sku')
-  final String? sku;
+  @JsonKey(name: 'price')
+  final int? price;
   @override
   @JsonKey(name: 'description')
   final String? description;
   @override
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image_url')
   final String? image;
+  @override
+  @JsonKey(name: 'stock')
+  final int? stock;
 
   @override
   String toString() {
-    return 'ProductModelDto(id: $id, name: $name, sku: $sku, description: $description, image: $image)';
+    return 'ProductModelDto(id: $id, name: $name, price: $price, description: $description, image: $image, stock: $stock)';
   }
 
   @override
@@ -195,16 +213,17 @@ class _$_ProductModelDto extends _ProductModelDto {
             other is _$_ProductModelDto &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.sku, sku) || other.sku == sku) &&
+            (identical(other.price, price) || other.price == price) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.image, image) || other.image == image));
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.stock, stock) || other.stock == stock));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, name, sku, description, image);
+      Object.hash(runtimeType, id, name, price, description, image, stock);
 
   @JsonKey(ignore: true)
   @override
@@ -224,9 +243,10 @@ abstract class _ProductModelDto extends ProductModelDto {
   const factory _ProductModelDto(
       {@JsonKey(name: 'id') final int? id,
       @JsonKey(name: 'name') final String? name,
-      @JsonKey(name: 'sku') final String? sku,
+      @JsonKey(name: 'price') final int? price,
       @JsonKey(name: 'description') final String? description,
-      @JsonKey(name: 'image') final String? image}) = _$_ProductModelDto;
+      @JsonKey(name: 'image_url') final String? image,
+      @JsonKey(name: 'stock') final int? stock}) = _$_ProductModelDto;
   const _ProductModelDto._() : super._();
 
   factory _ProductModelDto.fromJson(Map<String, dynamic> json) =
@@ -239,14 +259,17 @@ abstract class _ProductModelDto extends ProductModelDto {
   @JsonKey(name: 'name')
   String? get name;
   @override
-  @JsonKey(name: 'sku')
-  String? get sku;
+  @JsonKey(name: 'price')
+  int? get price;
   @override
   @JsonKey(name: 'description')
   String? get description;
   @override
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image_url')
   String? get image;
+  @override
+  @JsonKey(name: 'stock')
+  int? get stock;
   @override
   @JsonKey(ignore: true)
   _$$_ProductModelDtoCopyWith<_$_ProductModelDto> get copyWith =>

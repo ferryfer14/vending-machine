@@ -9,7 +9,7 @@
 .history
 .svn/
 migrate_working_dir/
-build/app/outputs/apk/
+build/app/
 # IntelliJ related
 *.iml
 *.ipr

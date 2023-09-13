@@ -10,16 +10,18 @@ _$_ProductModelDto _$$_ProductModelDtoFromJson(Map<String, dynamic> json) =>
     _$_ProductModelDto(
       id: json['id'] as int?,
       name: json['name'] as String?,
-      sku: json['sku'] as String?,
+      price: json['price'] as int?,
       description: json['description'] as String?,
-      image: json['image'] as String?,
+      image: json['image_url'] as String?,
+      stock: json['stock'] as int?,
     );
 
 Map<String, dynamic> _$$_ProductModelDtoToJson(_$_ProductModelDto instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'sku': instance.sku,
+      'price': instance.price,
       'description': instance.description,
-      'image': instance.image,
+      'image_url': instance.image,
+      'stock': instance.stock,
     };

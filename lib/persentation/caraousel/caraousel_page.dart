@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:standart_project/application/auth/sign_in/sign_in_bloc.dart';
 import 'package:standart_project/application/caraousel/caraousel_bloc.dart';
 import 'package:standart_project/persentation/core/functions/button_icon_leading.dart';
 import 'package:standart_project/persentation/core/functions/unfocus_widget.dart';
@@ -31,117 +30,74 @@ class CaraouselPage extends StatelessWidget {
           BlocProvider(
               create: (context) => getIt<CaraouselBloc>()
                 ..add(const CaraouselEvent.started(isRefresh: true))),
-          BlocProvider(
-              create: (context) =>
-                  getIt<SignInBloc>()..add(const SignInEvent.loginForm())),
         ],
-        child:
-            BlocConsumer<SignInBloc, SignInState>(listener: (context, state) {
+        child: BlocBuilder<CaraouselBloc, CaraouselState>(
+            builder: (context, state) {
           if (state.isLoading) {
-            context.loaderOverlay.show();
-          } else {
-            context.loaderOverlay.hide();
+            return const SizedBox();
           }
-          state.loginFailureOrSuccess.fold(
-            () => null,
-            (data) {
-              data.fold(
-                (failure) {
-                  failure.whenOrNull(appException: (v) {
-                    v.maybeMap(
-                        badNetworkException: (_) {
-                          noInternet(context, () {}, 'caraousel');
-                        },
-                        orElse: () => null);
-                  }, invalidUsernameAndPassword: () {
-                    customSnackBar(
-                      context: context,
-                      color: redColor,
-                      duration: const Duration(milliseconds: 3000),
-                      content: Text(AppLocalizations.of(context)!.invalid_form),
-                    );
-                  });
-                },
-                (_) {
-                  // context.router.push(WebviewRoute());
-                  context.router.replace(ProductRoute());
-                },
-              );
-            },
-          );
-        }, builder: (context, state) {
-          return BlocBuilder<CaraouselBloc, CaraouselState>(
-              builder: (context, state) {
-            if (state.isLoading) {
-              return const SizedBox();
-            }
-            return Scaffold(
-              body: LoaderOverlay(
-                  useDefaultLoading: false,
-                  overlayWidget: Center(
-                    child: LoadingAnimationWidget.inkDrop(
-                      color: Colors.white,
-                      size: 60,
-                    ),
+          return Scaffold(
+            body: LoaderOverlay(
+                useDefaultLoading: false,
+                overlayWidget: Center(
+                  child: LoadingAnimationWidget.inkDrop(
+                    color: Colors.white,
+                    size: 60,
                   ),
-                  child: SizedBox(
-                      height: double.infinity,
-                      width: double.infinity,
-                      child: CarouselSlider(
-                        options: CarouselOptions(
-                            viewportFraction: 1.0,
-                            aspectRatio: 9 / 16,
-                            enlargeCenterPage: false,
-                            padEnds: false,
-                            autoPlayAnimationDuration:
-                                const Duration(milliseconds: 1000),
-                            autoPlayInterval: const Duration(seconds: 15),
-                            initialPage: 0,
-                            autoPlay: true),
-                        items: state.items.map((i) {
-                          return Builder(
-                            builder: (BuildContext context) {
-                              return InkWell(
-                                  onTap: () {
-                                    context.read<SignInBloc>().add(
-                                        const SignInEvent.loginForm(
-                                            isSubmitting: true));
-                                  },
-                                  child: SizedBox(
-                                    width: MediaQuery.of(context).size.width,
-                                    child: Image.asset(
-                                      "$vAssetPng${i.images}",
-                                      fit: BoxFit.fill,
-                                    ),
-                                  ));
-                            },
-                          );
-                        }).toList(),
-                      ))),
-              bottomNavigationBar: Container(
-                decoration: BoxDecoration(color: white, boxShadow: [
-                  BoxShadow(color: Colors.grey.withOpacity(0.2), blurRadius: 2)
-                ]),
-                height: 60,
-                child: ButtonIconLeading(
-                  onTap: () {
-                    context
-                        .read<SignInBloc>()
-                        .add(const SignInEvent.loginForm(isSubmitting: true));
-                  },
-                  color: primaryColor,
-                  widget: SvgPicture.asset(
-                    "${vAssetSvg}touch.svg",
-                    height: 20,
-                  ),
-                  sibow: sibow16,
-                  borderRadius: BorderRadius.circular(0),
-                  title: AppLocalizations.of(context)!.start,
-                  titleStyle: ts14White600,
                 ),
+                child: SizedBox(
+                    height: double.infinity,
+                    width: double.infinity,
+                    child: CarouselSlider(
+                      options: CarouselOptions(
+                          viewportFraction: 1.0,
+                          aspectRatio: 9 / 16,
+                          enlargeCenterPage: false,
+                          padEnds: false,
+                          autoPlayAnimationDuration:
+                              const Duration(milliseconds: 1000),
+                          autoPlayInterval: const Duration(seconds: 15),
+                          initialPage: 0,
+                          autoPlay: true),
+                      items: state.items.map((i) {
+                        return Builder(
+                          builder: (BuildContext context) {
+                            return InkWell(
+                                onTap: () {
+                                  context.router.replace(const ProductRoute());
+                                },
+                                child: SizedBox(
+                                  width: MediaQuery.of(context).size.width,
+                                  child: Image.asset(
+                                    "$vAssetPng${i.images}",
+                                    fit: BoxFit.fill,
+                                  ),
+                                ));
+                          },
+                        );
+                      }).toList(),
+                    ))),
+            bottomNavigationBar: Container(
+              decoration: BoxDecoration(color: white, boxShadow: [
+                BoxShadow(color: Colors.grey.withOpacity(0.2), blurRadius: 2)
+              ]),
+              height: 60,
+              child: ButtonIconLeading(
+                onTap: () {
+                  context.router.replace(const ProductRoute());
+                },
+                color: primaryColor,
+                widget: SvgPicture.asset(
+                  "${vAssetSvg}touch.svg",
+                  height: 20,
+                ),
+                sibow: sibow16,
+                borderRadius: BorderRadius.circular(0),
+                title: AppLocalizations.of(context)!.start,
+                titleStyle: ts14White600,
               ),
-            );
-          });
+            ),
+          );
         }));
   }
 }

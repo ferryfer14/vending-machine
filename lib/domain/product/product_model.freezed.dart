@@ -18,9 +18,11 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ProductModel {
   int? get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
-  String? get sku => throw _privateConstructorUsedError;
+  int? get price => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
+  int? get stock => throw _privateConstructorUsedError;
+  int? get amount => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProductModelCopyWith<ProductModel> get copyWith =>
@@ -34,7 +36,13 @@ abstract class $ProductModelCopyWith<$Res> {
       _$ProductModelCopyWithImpl<$Res, ProductModel>;
   @useResult
   $Res call(
-      {int? id, String? name, String? sku, String? description, String? image});
+      {int? id,
+      String? name,
+      int? price,
+      String? description,
+      String? image,
+      int? stock,
+      int? amount});
 }
 
 /// @nodoc
@@ -52,9 +60,11 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
-    Object? sku = freezed,
+    Object? price = freezed,
     Object? description = freezed,
     Object? image = freezed,
+    Object? stock = freezed,
+    Object? amount = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -65,10 +75,10 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      sku: freezed == sku
-          ? _value.sku
-          : sku // ignore: cast_nullable_to_non_nullable
-              as String?,
+      price: freezed == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as int?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -77,6 +87,14 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
+      stock: freezed == stock
+          ? _value.stock
+          : stock // ignore: cast_nullable_to_non_nullable
+              as int?,
+      amount: freezed == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -90,7 +108,13 @@ abstract class _$$_ProductModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? id, String? name, String? sku, String? description, String? image});
+      {int? id,
+      String? name,
+      int? price,
+      String? description,
+      String? image,
+      int? stock,
+      int? amount});
 }
 
 /// @nodoc
@@ -106,9 +130,11 @@ class __$$_ProductModelCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
-    Object? sku = freezed,
+    Object? price = freezed,
     Object? description = freezed,
     Object? image = freezed,
+    Object? stock = freezed,
+    Object? amount = freezed,
   }) {
     return _then(_$_ProductModel(
       id: freezed == id
@@ -119,10 +145,10 @@ class __$$_ProductModelCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      sku: freezed == sku
-          ? _value.sku
-          : sku // ignore: cast_nullable_to_non_nullable
-              as String?,
+      price: freezed == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as int?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -131,6 +157,14 @@ class __$$_ProductModelCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
+      stock: freezed == stock
+          ? _value.stock
+          : stock // ignore: cast_nullable_to_non_nullable
+              as int?,
+      amount: freezed == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -139,7 +173,13 @@ class __$$_ProductModelCopyWithImpl<$Res>
 
 class _$_ProductModel extends _ProductModel {
   const _$_ProductModel(
-      {this.id, this.name, this.sku, this.description, this.image})
+      {this.id,
+      this.name,
+      this.price,
+      this.description,
+      this.image,
+      this.stock,
+      this.amount})
       : super._();
 
   @override
@@ -147,15 +187,19 @@ class _$_ProductModel extends _ProductModel {
   @override
   final String? name;
   @override
-  final String? sku;
+  final int? price;
   @override
   final String? description;
   @override
   final String? image;
+  @override
+  final int? stock;
+  @override
+  final int? amount;
 
   @override
   String toString() {
-    return 'ProductModel(id: $id, name: $name, sku: $sku, description: $description, image: $image)';
+    return 'ProductModel(id: $id, name: $name, price: $price, description: $description, image: $image, stock: $stock, amount: $amount)';
   }
 
   @override
@@ -165,15 +209,17 @@ class _$_ProductModel extends _ProductModel {
             other is _$_ProductModel &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.sku, sku) || other.sku == sku) &&
+            (identical(other.price, price) || other.price == price) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.image, image) || other.image == image));
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.stock, stock) || other.stock == stock) &&
+            (identical(other.amount, amount) || other.amount == amount));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, sku, description, image);
+  int get hashCode => Object.hash(
+      runtimeType, id, name, price, description, image, stock, amount);
 
   @JsonKey(ignore: true)
   @override
@@ -186,9 +232,11 @@ abstract class _ProductModel extends ProductModel {
   const factory _ProductModel(
       {final int? id,
       final String? name,
-      final String? sku,
+      final int? price,
       final String? description,
-      final String? image}) = _$_ProductModel;
+      final String? image,
+      final int? stock,
+      final int? amount}) = _$_ProductModel;
   const _ProductModel._() : super._();
 
   @override
@@ -196,11 +244,15 @@ abstract class _ProductModel extends ProductModel {
   @override
   String? get name;
   @override
-  String? get sku;
+  int? get price;
   @override
   String? get description;
   @override
   String? get image;
+  @override
+  int? get stock;
+  @override
+  int? get amount;
   @override
   @JsonKey(ignore: true)
   _$$_ProductModelCopyWith<_$_ProductModel> get copyWith =>

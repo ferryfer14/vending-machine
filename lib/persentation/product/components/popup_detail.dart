@@ -1,11 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:standart_project/domain/product/product_model.dart';
 import 'package:standart_project/persentation/core/functions/button_icon_leading.dart';
 import 'package:standart_project/persentation/core/functions/currency_format.dart';
 
 import '../../../app_constant.dart';
-import '../../../domain/product/slot_model.dart';
+
 import '../../core/functions/button_circle.dart';
 import '../../core/utils/spacing/padding.dart';
 import '../../core/utils/spacing/sizebox.dart';
@@ -16,12 +17,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class PopupDetail extends StatelessWidget {
   const PopupDetail(
       {super.key,
-      required this.slotModel,
+      required this.productModel,
       required this.amount,
       required this.onAdd,
       required this.onMin,
       required this.onCart});
-  final SlotModel slotModel;
+  final ProductModel productModel;
   final int amount;
   final VoidCallback onCart;
   final VoidCallback onAdd;
@@ -38,36 +39,36 @@ class PopupDetail extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            siboh32,
+            siboh8,
             Row(
               children: [
                 sibow24,
                 Expanded(
                   child: Text(AppLocalizations.of(context)!.detail_product,
-                      textAlign: TextAlign.left, style: ts32Black600),
+                      textAlign: TextAlign.left, style: ts14Black500),
                 ),
                 SizedBox(
-                    height: 50,
-                    width: 50,
+                    height: 20,
+                    width: 20,
                     child: InkWell(
                       onTap: () {
                         context.router.pop();
                       },
                       child: const Icon(Icons.clear,
-                          size: 36, color: secondaryColor),
+                          size: 16, color: secondaryColor),
                     )),
                 sibow16,
               ],
             ),
-            siboh24,
+            siboh8,
             const Divider(
-              height: 10,
-              thickness: 5,
+              height: 5,
+              thickness: 2,
               color: backgroundImage,
             ),
-            siboh24,
+            siboh8,
             Container(
-                padding: padall16,
+                padding: padall4,
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -80,26 +81,25 @@ class PopupDetail extends StatelessWidget {
                                   decoration: const BoxDecoration(
                                     color: white,
                                   ),
-                                  height: 400,
+                                  height: 80,
                                   child: Image.network(
-                                    slotModel.product!.image!,
+                                    productModel.image!,
                                   ))),
                           Expanded(
                               child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(slotModel.product!.name!,
-                                  style: ts32Black600),
+                              Text(productModel.name!, style: ts14Black600),
                               siboh16,
                               Text(
                                   CurrencyFormat.convertToIdr(
-                                      slotModel.price, 0),
-                                  style: ts36Black600),
+                                      productModel.price, 0),
+                                  style: ts14Black600),
                               siboh16,
                               Text(
                                   AppLocalizations.of(context)!
                                       .quantity_of_goods,
-                                  style: ts24Secondary400),
+                                  style: ts12second500),
                               siboh24,
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -107,89 +107,71 @@ class PopupDetail extends StatelessWidget {
                                   ButtonCircle(
                                     onTap: amount == 0 ? () {} : onMin,
                                     icon: const Icon(Icons.remove,
-                                        color: black, size: 50),
+                                        color: black, size: 15),
                                     backgroundColor: amount == 0
                                         ? buttonCircle.withOpacity(0.3)
                                         : buttonCircle,
                                   ),
-                                  sibow32,
-                                  Text(amount.toString(), style: ts40Black500),
-                                  sibow32,
+                                  sibow8,
+                                  Text(amount.toString(), style: ts20Black500),
+                                  sibow8,
                                   ButtonCircle(
-                                    onTap: amount == slotModel.stock
+                                    onTap: amount == productModel.stock
                                         ? () {}
                                         : onAdd,
                                     icon: const Icon(Icons.add,
-                                        color: white, size: 50),
-                                    backgroundColor: amount == slotModel.stock
-                                        ? primaryColor.withOpacity(0.3)
-                                        : primaryColor,
+                                        color: white, size: 15),
+                                    backgroundColor:
+                                        amount == productModel.stock
+                                            ? primaryColor.withOpacity(0.3)
+                                            : primaryColor,
                                   )
                                 ],
                               ),
                               siboh24,
                               ButtonIconLeading(
                                 onTap: onCart,
-                                height: 75,
+                                height: 40,
                                 widget: SvgPicture.asset(
                                     "${vAssetSvg}add-cart.svg",
                                     color: white,
-                                    width: 40,
-                                    height: 40),
+                                    width: 20,
+                                    height: 20),
                                 color: primaryColor,
-                                sibow: sibow24,
+                                sibow: sibow4,
                                 title: AppLocalizations.of(context)!.add_cart,
-                                titleStyle: ts24White400,
+                                titleStyle: ts14White500,
                               ),
-                              siboh24,
-                              ButtonIconLeading(
-                                onTap: onCart,
-                                height: 75,
-                                widget: SvgPicture.asset("${vAssetSvg}cart.svg",
-                                    color: primaryColor, width: 40, height: 40),
-                                border: Border.all(color: primaryColor),
-                                color: white,
-                                sibow: sibow24,
-                                sibowBot: sibow24,
-                                title: AppLocalizations.of(context)!.view_cart,
-                                widgetBot: Container(
-                                  width: 40,
-                                  height: 40,
-                                  decoration: const BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: primaryColor),
-                                  child: Center(
-                                    child: Text(
-                                      slotModel.amount.toString(),
-                                      style: ts20White500,
-                                    ),
-                                  ),
-                                ),
-                                titleStyle: ts24Primary400,
-                              )
                             ],
                           ))
                         ],
                       ),
                       siboh16,
                       Text(AppLocalizations.of(context)!.product_description,
-                          style: ts24Secondary400),
+                          style: ts12second500),
                       siboh16,
-                      Text(slotModel.product!.description!,
-                          style: ts24Secondary400),
+                      Text(productModel.description!, style: ts14second500),
                       siboh24,
                       Text(AppLocalizations.of(context)!.supported_e_wallet,
-                          style: ts24Black600),
+                          style: ts12black500),
                       siboh16,
                       Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Image.asset("${vAssetPng}Shopeepay.png"),
-                            Image.asset("${vAssetPng}Ovo.png"),
-                            Image.asset("${vAssetPng}Linkaja.png"),
-                            Image.asset("${vAssetPng}Gopay.png"),
+                            Image.asset(
+                              "${vAssetPng}Shopeepay.png",
+                              height: 60,
+                            ),
+                            Image.asset(
+                              "${vAssetPng}Ovo.png",
+                              height: 60,
+                            ),
+                            Image.asset(
+                              "${vAssetPng}Linkaja.png",
+                              height: 60,
+                            ),
                           ]),
-                      siboh32,
+                      siboh4,
                     ]))
           ],
         ));

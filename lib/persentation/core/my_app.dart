@@ -1,17 +1,7 @@
-import 'dart:async';
-
-import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:animated_switcher_plus/animated_switcher_plus.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:awesome_notifications/awesome_notifications.dart';
-import 'package:curved_progress_bar/curved_progress_bar.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:flutter_web_frame/flutter_web_frame.dart';
 import 'package:standart_project/app_constant.dart';
-import 'package:standart_project/application/auth/auth_bloc.dart';
 import 'package:standart_project/application/localization/localization_loader_bloc.dart';
 import 'package:standart_project/injection.dart';
 import 'package:standart_project/navigator_observe.dart';

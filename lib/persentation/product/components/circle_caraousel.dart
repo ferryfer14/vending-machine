@@ -9,8 +9,8 @@ class CircleCaraousel extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 30,
-        height: 30,
+        width: 10,
+        height: 10,
         margin: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
         decoration: BoxDecoration(shape: BoxShape.circle, color: color),
       ),
