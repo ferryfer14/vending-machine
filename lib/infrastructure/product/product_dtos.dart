@@ -17,7 +17,8 @@ class ProductModelDto with _$ProductModelDto {
       @JsonKey(name: 'price') int? price,
       @JsonKey(name: 'description') String? description,
       @JsonKey(name: 'image_url') String? image,
-      @JsonKey(name: 'stock') int? stock}) = _ProductModelDto;
+      @JsonKey(name: 'stock') int? stock,
+      @JsonKey(name: 'amount') int? amount}) = _ProductModelDto;
 
   factory ProductModelDto.fromJson(Map<String, dynamic> json) =>
       _$ProductModelDtoFromJson(json);
@@ -28,7 +29,8 @@ class ProductModelDto with _$ProductModelDto {
       price: data.price,
       description: data.description,
       image: data.image,
-      stock: data.stock);
+      stock: data.stock,
+      amount: data.amount);
 
   ProductModel toDomain() {
     return ProductModel(
@@ -38,6 +40,6 @@ class ProductModelDto with _$ProductModelDto {
         description: description ?? '',
         image: image ?? '',
         stock: stock ?? 0,
-        amount: 0);
+        amount: amount ?? 0);
   }
 }

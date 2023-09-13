@@ -84,22 +84,22 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     }, submitCart: (e) async {
       emit(state.copyWith.call(
         isLoading: true,
+        isPay: false,
         failureOption: none(),
       ));
-      // final failureOrSuccess =
-      //     await _productRepository.submitCart(slotModel: state.cart);
+      final failureOrSuccess = await _productRepository.submitCart(
+          productModel: state.cart,
+          price: state.totalPrice,
+          quantity: state.totalCart);
 
-      // return emit(failureOrSuccess.fold(
-      //   (f) {
-      //     return state.copyWith
-      //         .call(isLoading: false, failureOption: optionOf(f));
-      //   },
-      //   (transaction) => state.copyWith.call(
-      //       transaction: transaction,
-      //       isLoading: false,
-      //       isPay: false,
-      //       failureOption: none()),
-      // ));
+      return emit(failureOrSuccess.fold(
+        (f) {
+          return state.copyWith
+              .call(isLoading: false, failureOption: optionOf(f));
+        },
+        (unit) => state.copyWith
+            .call(isLoading: false, isPay: true, failureOption: none()),
+      ));
     }, reset: (e) async {
       emit(ProductState.initial());
     });

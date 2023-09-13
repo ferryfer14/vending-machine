@@ -107,6 +107,10 @@ class _ProductPageState extends State<ProductPage> {
                         orElse: () => null);
                   });
                 });
+                if (state.isPay) {
+                  context.router.pop();
+                  popupSuccess(context);
+                }
               }, builder: (context, state) {
                 return Dialog(
                     backgroundColor: Colors.transparent,
@@ -295,6 +299,7 @@ class _ProductPageState extends State<ProductPage> {
                                                                           1));
                                                         },
                                                         onPopDetail: () {
+                                                          // popupSuccess(context);
                                                           popupDetail(
                                                               context,
                                                               model[index],

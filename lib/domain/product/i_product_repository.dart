@@ -6,5 +6,7 @@ import 'package:standart_project/domain/product/product_model.dart';
 abstract class IProductRepository {
   Future<Either<ProductFailure, List<ProductModel>>> load();
   Future<Either<ProductFailure, Unit>> submitCart(
-      {required List<ProductModel> productModel});
+      {required List<ProductModel> productModel,
+      required int price,
+      required int quantity});
 }

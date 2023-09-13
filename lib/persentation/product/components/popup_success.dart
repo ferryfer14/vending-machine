@@ -33,42 +33,44 @@ class PopupSuccess extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            siboh64,
+            siboh8,
             Center(
                 child: Text(
               AppLocalizations.of(context)!.success_vm,
-              style: ts36Black600,
+              style: ts16Black600,
               textAlign: TextAlign.center,
             )),
-            siboh24,
+            siboh8,
             Center(
                 child: Text(
               AppLocalizations.of(context)!.note_success,
-              style: ts24Black400,
+              style: ts14Black500,
               textAlign: TextAlign.center,
             )),
-            siboh32,
+            siboh16,
             const Center(
                 child: Icon(
               Icons.check_circle_rounded,
               color: greenCheckColor,
-              size: 150,
+              size: 90,
             )),
-            siboh64,
+            siboh16,
             Center(
                 child: Countdown(
                     seconds: 10,
                     interval: const Duration(milliseconds: 1000),
                     build: (BuildContext context, double time) {
                       return Container(
-                          height: 130,
-                          padding: padall32,
+                          height: 70,
+                          padding: padall16,
                           child: ButtonIconLeading(
+                            onTap: () => context.router
+                                .replaceAll([const CaraouselRoute()]),
                             sibow: sibow16,
                             widget: const Icon(Icons.home_outlined,
-                                color: primaryColor, size: 36),
+                                color: primaryColor, size: 16),
                             title: "Will be close (${time.toInt()}s)",
-                            titleStyle: ts24Primary400,
+                            titleStyle: ts14primary500,
                             color: white,
                             border: Border.all(color: primaryColor, width: 1),
                           ));

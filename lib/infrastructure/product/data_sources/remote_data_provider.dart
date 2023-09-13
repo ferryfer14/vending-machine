@@ -65,34 +65,54 @@ class ProductRemoteDataProvider {
   }
 
   Future<Either<ProductFailure, Unit>> submitCart(
-      {required List<ProductModelDto> productModelDto}) async {
-    final token = prefs.getString(vAccessToken);
+      {required List<ProductModelDto> productModelDto,
+      required int price,
+      required int quantity}) async {
     try {
-      final response = await apiClient.post(
-        "${env.baseUrl}v1/transaction/buy",
-        data: productModelDto,
-        headers: {
-          'Accept': 'application/json',
-          'Authorization': 'bearer $token',
-        },
-        followRedirects: false,
-        validateStatus: (status) => status! < 500,
-      );
+      return init().then((db) async {
+        int id = 0;
+        try {
+          id = await db.insert(
+            'transaction',
+            {
+              'price': price,
+              'quantity': quantity,
+              'created_at': DateTime.now().toString()
+            },
+            conflictAlgorithm: ConflictAlgorithm.replace,
+          );
+          if (id != 0) {
+            productModelDto.forEach((model) async {
+              await db.rawUpdate('''
+                  UPDATE product 
+                  SET stock = stock-?
+                  WHERE id = ?
+                  ''', [model.amount, model.id]);
 
-      if (response.statusCode == 200) {
-        return right(unit);
-      } else if (response.statusCode == 400) {
-        return left(ProductFailure.appException(
-            AppException.unexpectedException(
-                errorMessage: response.data['error'])));
-      } else if (response.statusCode == 401) {
-        return left(const ProductFailure.appException(
-            AppException.unauthenticatedException()));
-      }
+              await db.insert(
+                'data_transaction',
+                {
+                  'transaction_id': id,
+                  'product_id': model.id,
+                  'base_price': model.price,
+                  'quantity': model.amount,
+                  'created_at': DateTime.now().toString()
+                },
+                conflictAlgorithm: ConflictAlgorithm.replace,
+              );
+            });
+            return right(unit);
+          }
+          return left(const ProductFailure.unexpectedError());
+        } catch (e) {
+          return left(const ProductFailure.appException(
+              AppException.unexpectedException(
+                  errorMessage: "Internal Server error")));
+        }
+      });
     } catch (e) {
       return left(const ProductFailure.appException(
           AppException.badNetworkException()));
     }
-    return left(const ProductFailure.unexpectedError());
   }
 }
